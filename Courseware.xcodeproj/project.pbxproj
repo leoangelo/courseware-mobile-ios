@@ -1,0 +1,789 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
+		7E06217815FB737A006E3554 /* CWLesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E06217715FB737A006E3554 /* CWLesson.m */; };
+		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
+		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
+		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
+		7E30E2C515FC382800422EEE /* CWChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C415FC382800422EEE /* CWChapter.m */; };
+		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
+		7E30E2CC15FC3AD800422EEE /* CWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2CB15FC3AD800422EEE /* CWCourse.m */; };
+		7E30E2CF15FC3AE200422EEE /* CWCourseModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */; };
+		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
+		7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */; };
+		7E9C850C15FAC7B4002AB343 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850B15FAC7B4002AB343 /* Account.m */; };
+		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
+		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
+		7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486A15FB1019008ECDDE /* Courseware.bundle */; };
+		7EAF487015FB12AD008ECDDE /* CWUserStatusPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */; };
+		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
+		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
+		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
+		7EC8AD3A15FCBFA700ED9E27 /* CWBrowserPaneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3915FCBFA700ED9E27 /* CWBrowserPaneView.xib */; };
+		7EC8AD3D15FCC84300ED9E27 /* CWBrowserPaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3C15FCC84300ED9E27 /* CWBrowserPaneController.m */; };
+		7ECB48DB15E9EF7C00F850E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48DA15E9EF7C00F850E9 /* UIKit.framework */; };
+		7ECB48DD15E9EF7C00F850E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48DC15E9EF7C00F850E9 /* Foundation.framework */; };
+		7ECB48DF15E9EF7C00F850E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48DE15E9EF7C00F850E9 /* CoreGraphics.framework */; };
+		7ECB48E115E9EF7C00F850E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48E015E9EF7C00F850E9 /* CoreData.framework */; };
+		7ECB48E715E9EF7C00F850E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECB48E515E9EF7C00F850E9 /* InfoPlist.strings */; };
+		7ECB48E915E9EF7C00F850E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB48E815E9EF7C00F850E9 /* main.m */; };
+		7ECB48ED15E9EF7C00F850E9 /* CWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB48EC15E9EF7C00F850E9 /* CWAppDelegate.m */; };
+		7ECB48F015E9EF7C00F850E9 /* Courseware.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */; };
+		7ECB490415E9EF7C00F850E9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB490315E9EF7C00F850E9 /* SenTestingKit.framework */; };
+		7ECB490515E9EF7C00F850E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48DA15E9EF7C00F850E9 /* UIKit.framework */; };
+		7ECB490615E9EF7C00F850E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48DC15E9EF7C00F850E9 /* Foundation.framework */; };
+		7ECB490715E9EF7C00F850E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48E015E9EF7C00F850E9 /* CoreData.framework */; };
+		7ECB490F15E9EF7C00F850E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECB490D15E9EF7C00F850E9 /* InfoPlist.strings */; };
+		7ECB491215E9EF7C00F850E9 /* CoursewareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */; };
+		7EEB7C4B15F2D834009DAE94 /* CWUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB7C4915F2D834009DAE94 /* CWUserLoginViewController.m */; };
+		7EEB7C4C15F2D834009DAE94 /* CWUserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB7C4A15F2D834009DAE94 /* CWUserLoginViewController.xib */; };
+		7EEF0E7115FF916A00122C0F /* CWCourseListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */; };
+		7EEF0E7215FF916A00122C0F /* CWCourseListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */; };
+		7EFBF7C915FADF13001CCCB2 /* NSString+SLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */; };
+		7EFBF7CE15FAF14A001CCCB2 /* CWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7CC15FAF14A001CCCB2 /* CWHomeViewController.m */; };
+		7EFBF7CF15FAF14A001CCCB2 /* CWHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFBF7CD15FAF14A001CCCB2 /* CWHomeViewController.xib */; };
+		7EFBF7D415FAF429001CCCB2 /* CWNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7D315FAF429001CCCB2 /* CWNavigationBar.m */; };
+		7EFBF7D715FAF4B4001CCCB2 /* CWBrowserPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7D615FAF4B4001CCCB2 /* CWBrowserPaneView.m */; };
+		7EFBF7DA15FAF65B001CCCB2 /* CWUserStatusPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7D915FAF65B001CCCB2 /* CWUserStatusPanelView.m */; };
+		7EFBF7DD15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7DC15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7ECB490815E9EF7C00F850E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECB48CD15E9EF7C00F850E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ECB48D515E9EF7C00F850E9;
+			remoteInfo = Courseware;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWRecentReadingsPanelView.xib; sourceTree = "<group>"; };
+		7E06217615FB737A006E3554 /* CWLesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLesson.h; sourceTree = "<group>"; };
+		7E06217715FB737A006E3554 /* CWLesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLesson.m; sourceTree = "<group>"; };
+		7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuView.h; sourceTree = "<group>"; };
+		7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuView.m; sourceTree = "<group>"; };
+		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
+		7E20B5E815FE3477004DBAC1 /* SLSlideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuController.h; sourceTree = "<group>"; };
+		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
+		7E30E2C315FC382800422EEE /* CWChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWChapter.h; sourceTree = "<group>"; };
+		7E30E2C415FC382800422EEE /* CWChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWChapter.m; sourceTree = "<group>"; };
+		7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseItem.h; sourceTree = "<group>"; };
+		7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseItem.m; sourceTree = "<group>"; };
+		7E30E2CA15FC3AD800422EEE /* CWCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourse.h; sourceTree = "<group>"; };
+		7E30E2CB15FC3AD800422EEE /* CWCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourse.m; sourceTree = "<group>"; };
+		7E30E2CD15FC3AE200422EEE /* CWCourseModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseModule.h; sourceTree = "<group>"; };
+		7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseModule.m; sourceTree = "<group>"; };
+		7E30E2D015FC3F0A00422EEE /* CWCourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseManager.h; sourceTree = "<group>"; };
+		7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseManager.m; sourceTree = "<group>"; };
+		7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListFileLoader.h; sourceTree = "<group>"; };
+		7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListFileLoader.m; sourceTree = "<group>"; };
+		7E9C850A15FAC7B4002AB343 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		7E9C850B15FAC7B4002AB343 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		7E9C850D15FAC873002AB343 /* CWAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManager.h; sourceTree = "<group>"; };
+		7E9C850E15FAC873002AB343 /* CWAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManager.m; sourceTree = "<group>"; };
+		7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCoreDataManager.h; sourceTree = "<group>"; };
+		7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCoreDataManager.m; sourceTree = "<group>"; };
+		7EAF486A15FB1019008ECDDE /* Courseware.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Courseware.bundle; sourceTree = "<group>"; };
+		7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWUserStatusPanelView.xib; sourceTree = "<group>"; };
+		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
+		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
+		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
+		7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWRecentReadingsPanelController.m; sourceTree = "<group>"; };
+		7EC8AD3615FCA95300ED9E27 /* CWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWConstants.h; sourceTree = "<group>"; };
+		7EC8AD3715FCA95300ED9E27 /* CWConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWConstants.m; sourceTree = "<group>"; };
+		7EC8AD3915FCBFA700ED9E27 /* CWBrowserPaneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWBrowserPaneView.xib; sourceTree = "<group>"; };
+		7EC8AD3B15FCC84300ED9E27 /* CWBrowserPaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBrowserPaneController.h; sourceTree = "<group>"; };
+		7EC8AD3C15FCC84300ED9E27 /* CWBrowserPaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBrowserPaneController.m; sourceTree = "<group>"; };
+		7ECB48D615E9EF7C00F850E9 /* Courseware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courseware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ECB48DA15E9EF7C00F850E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7ECB48DC15E9EF7C00F850E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7ECB48DE15E9EF7C00F850E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7ECB48E015E9EF7C00F850E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7ECB48E415E9EF7C00F850E9 /* Courseware-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Courseware-Info.plist"; sourceTree = "<group>"; };
+		7ECB48E615E9EF7C00F850E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7ECB48E815E9EF7C00F850E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7ECB48EA15E9EF7C00F850E9 /* Courseware-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Courseware-Prefix.pch"; sourceTree = "<group>"; };
+		7ECB48EB15E9EF7C00F850E9 /* CWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWAppDelegate.h; sourceTree = "<group>"; };
+		7ECB48EC15E9EF7C00F850E9 /* CWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWAppDelegate.m; sourceTree = "<group>"; };
+		7ECB48EF15E9EF7C00F850E9 /* Courseware.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Courseware.xcdatamodel; sourceTree = "<group>"; };
+		7ECB490215E9EF7C00F850E9 /* CoursewareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursewareTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ECB490315E9EF7C00F850E9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7ECB490C15E9EF7C00F850E9 /* CoursewareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoursewareTests-Info.plist"; sourceTree = "<group>"; };
+		7ECB490E15E9EF7C00F850E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7ECB491015E9EF7C00F850E9 /* CoursewareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoursewareTests.h; sourceTree = "<group>"; };
+		7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoursewareTests.m; sourceTree = "<group>"; };
+		7EEB7C4815F2D834009DAE94 /* CWUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserLoginViewController.h; sourceTree = "<group>"; };
+		7EEB7C4915F2D834009DAE94 /* CWUserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserLoginViewController.m; sourceTree = "<group>"; };
+		7EEB7C4A15F2D834009DAE94 /* CWUserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWUserLoginViewController.xib; sourceTree = "<group>"; };
+		7EEF0E6E15FF916A00122C0F /* CWCourseListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListingViewController.h; sourceTree = "<group>"; };
+		7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListingViewController.m; sourceTree = "<group>"; };
+		7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWCourseListingViewController.xib; sourceTree = "<group>"; };
+		7EFBF7C715FADF13001CCCB2 /* NSString+SLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SLUtilities.h"; sourceTree = "<group>"; };
+		7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SLUtilities.m"; sourceTree = "<group>"; };
+		7EFBF7CB15FAF14A001CCCB2 /* CWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHomeViewController.h; sourceTree = "<group>"; };
+		7EFBF7CC15FAF14A001CCCB2 /* CWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHomeViewController.m; sourceTree = "<group>"; };
+		7EFBF7CD15FAF14A001CCCB2 /* CWHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWHomeViewController.xib; sourceTree = "<group>"; };
+		7EFBF7D215FAF429001CCCB2 /* CWNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNavigationBar.h; sourceTree = "<group>"; };
+		7EFBF7D315FAF429001CCCB2 /* CWNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNavigationBar.m; sourceTree = "<group>"; };
+		7EFBF7D515FAF4B4001CCCB2 /* CWBrowserPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBrowserPaneView.h; sourceTree = "<group>"; };
+		7EFBF7D615FAF4B4001CCCB2 /* CWBrowserPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBrowserPaneView.m; sourceTree = "<group>"; };
+		7EFBF7D815FAF65B001CCCB2 /* CWUserStatusPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelView.h; sourceTree = "<group>"; };
+		7EFBF7D915FAF65B001CCCB2 /* CWUserStatusPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelView.m; sourceTree = "<group>"; };
+		7EFBF7DB15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelView.h; sourceTree = "<group>"; };
+		7EFBF7DC15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWRecentReadingsPanelView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7ECB48D315E9EF7C00F850E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB48DB15E9EF7C00F850E9 /* UIKit.framework in Frameworks */,
+				7ECB48DD15E9EF7C00F850E9 /* Foundation.framework in Frameworks */,
+				7ECB48DF15E9EF7C00F850E9 /* CoreGraphics.framework in Frameworks */,
+				7ECB48E115E9EF7C00F850E9 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ECB48FE15E9EF7C00F850E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB490415E9EF7C00F850E9 /* SenTestingKit.framework in Frameworks */,
+				7ECB490515E9EF7C00F850E9 /* UIKit.framework in Frameworks */,
+				7ECB490615E9EF7C00F850E9 /* Foundation.framework in Frameworks */,
+				7ECB490715E9EF7C00F850E9 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E06217215FB72DD006E3554 /* CW Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */,
+				7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */,
+				7E30E2CA15FC3AD800422EEE /* CWCourse.h */,
+				7E30E2CB15FC3AD800422EEE /* CWCourse.m */,
+				7E30E2CD15FC3AE200422EEE /* CWCourseModule.h */,
+				7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */,
+				7E30E2C315FC382800422EEE /* CWChapter.h */,
+				7E30E2C415FC382800422EEE /* CWChapter.m */,
+				7E06217615FB737A006E3554 /* CWLesson.h */,
+				7E06217715FB737A006E3554 /* CWLesson.m */,
+				7E30E2D015FC3F0A00422EEE /* CWCourseManager.h */,
+				7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */,
+				7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */,
+				7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */,
+			);
+			name = "\U0010CW Objects";
+			path = "CW Objects";
+			sourceTree = "<group>";
+		};
+		7E1EEA9C15FAFE2D00739FD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7EAF486A15FB1019008ECDDE /* Courseware.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7E20B5EB15FE34A7004DBAC1 /* Slide Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */,
+				7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */,
+				7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */,
+				7E20B5E815FE3477004DBAC1 /* SLSlideMenuController.h */,
+				7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */,
+			);
+			name = "Slide Menu";
+			sourceTree = "<group>";
+		};
+		7E20B5EC15FE34B9004DBAC1 /* Browser Pane */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7D515FAF4B4001CCCB2 /* CWBrowserPaneView.h */,
+				7EFBF7D615FAF4B4001CCCB2 /* CWBrowserPaneView.m */,
+				7EC8AD3915FCBFA700ED9E27 /* CWBrowserPaneView.xib */,
+				7EC8AD3B15FCC84300ED9E27 /* CWBrowserPaneController.h */,
+				7EC8AD3C15FCC84300ED9E27 /* CWBrowserPaneController.m */,
+			);
+			name = "Browser Pane";
+			sourceTree = "<group>";
+		};
+		7E20B5ED15FE34C7004DBAC1 /* Navigation Bar */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7D215FAF429001CCCB2 /* CWNavigationBar.h */,
+				7EFBF7D315FAF429001CCCB2 /* CWNavigationBar.m */,
+			);
+			name = "Navigation Bar";
+			sourceTree = "<group>";
+		};
+		7E9C850715FAC49B002AB343 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E06217215FB72DD006E3554 /* CW Objects */,
+				7E9C850915FAC59C002AB343 /* Core Data */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E9C850915FAC59C002AB343 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
+				7E9C850A15FAC7B4002AB343 /* Account.h */,
+				7E9C850B15FAC7B4002AB343 /* Account.m */,
+				7E9C850D15FAC873002AB343 /* CWAccountManager.h */,
+				7E9C850E15FAC873002AB343 /* CWAccountManager.m */,
+				7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */,
+				7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		7EC8AD3115FCA6B600ED9E27 /* User Status */ = {
+			isa = PBXGroup;
+			children = (
+				7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */,
+				7EFBF7D815FAF65B001CCCB2 /* CWUserStatusPanelView.h */,
+				7EFBF7D915FAF65B001CCCB2 /* CWUserStatusPanelView.m */,
+				7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */,
+				7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */,
+			);
+			name = "User Status";
+			sourceTree = "<group>";
+		};
+		7EC8AD3215FCA6C200ED9E27 /* Recent Readings */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7DB15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.h */,
+				7EFBF7DC15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m */,
+				7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */,
+				7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */,
+				7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */,
+			);
+			name = "Recent Readings";
+			sourceTree = "<group>";
+		};
+		7ECB48CB15E9EF7C00F850E9 = {
+			isa = PBXGroup;
+			children = (
+				7ECB48E215E9EF7C00F850E9 /* Courseware */,
+				7ECB490A15E9EF7C00F850E9 /* CoursewareTests */,
+				7ECB48D915E9EF7C00F850E9 /* Frameworks */,
+				7ECB48D715E9EF7C00F850E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7ECB48D715E9EF7C00F850E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ECB48D615E9EF7C00F850E9 /* Courseware.app */,
+				7ECB490215E9EF7C00F850E9 /* CoursewareTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7ECB48D915E9EF7C00F850E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ECB48DA15E9EF7C00F850E9 /* UIKit.framework */,
+				7ECB48DC15E9EF7C00F850E9 /* Foundation.framework */,
+				7ECB48DE15E9EF7C00F850E9 /* CoreGraphics.framework */,
+				7ECB48E015E9EF7C00F850E9 /* CoreData.framework */,
+				7ECB490315E9EF7C00F850E9 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ECB48E215E9EF7C00F850E9 /* Courseware */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7D115FAF3FE001CCCB2 /* Components */,
+				7EFBF7C615FADEDB001CCCB2 /* Helpers */,
+				7E9C850715FAC49B002AB343 /* Models */,
+				7EEB7C4615F2D7E7009DAE94 /* Modules */,
+				7ECB48EB15E9EF7C00F850E9 /* CWAppDelegate.h */,
+				7ECB48EC15E9EF7C00F850E9 /* CWAppDelegate.m */,
+				7ECB48E315E9EF7C00F850E9 /* Supporting Files */,
+			);
+			path = Courseware;
+			sourceTree = "<group>";
+		};
+		7ECB48E315E9EF7C00F850E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E1EEA9C15FAFE2D00739FD2 /* Resources */,
+				7ECB48E415E9EF7C00F850E9 /* Courseware-Info.plist */,
+				7ECB48E515E9EF7C00F850E9 /* InfoPlist.strings */,
+				7ECB48E815E9EF7C00F850E9 /* main.m */,
+				7ECB48EA15E9EF7C00F850E9 /* Courseware-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ECB490A15E9EF7C00F850E9 /* CoursewareTests */ = {
+			isa = PBXGroup;
+			children = (
+				7ECB491015E9EF7C00F850E9 /* CoursewareTests.h */,
+				7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */,
+				7ECB490B15E9EF7C00F850E9 /* Supporting Files */,
+			);
+			path = CoursewareTests;
+			sourceTree = "<group>";
+		};
+		7ECB490B15E9EF7C00F850E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7ECB490C15E9EF7C00F850E9 /* CoursewareTests-Info.plist */,
+				7ECB490D15E9EF7C00F850E9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7CA15FAF083001CCCB2 /* Course Listing */,
+				7EEB7C4715F2D804009DAE94 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		7EEB7C4715F2D804009DAE94 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7EEB7C4815F2D834009DAE94 /* CWUserLoginViewController.h */,
+				7EEB7C4915F2D834009DAE94 /* CWUserLoginViewController.m */,
+				7EEB7C4A15F2D834009DAE94 /* CWUserLoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7EFBF7C615FADEDB001CCCB2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7EFBF7C715FADF13001CCCB2 /* NSString+SLUtilities.h */,
+				7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */,
+				7EC8AD3615FCA95300ED9E27 /* CWConstants.h */,
+				7EC8AD3715FCA95300ED9E27 /* CWConstants.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7EFBF7CA15FAF083001CCCB2 /* Course Listing */ = {
+			isa = PBXGroup;
+			children = (
+				7EC8AD3215FCA6C200ED9E27 /* Recent Readings */,
+				7EC8AD3115FCA6B600ED9E27 /* User Status */,
+				7EFBF7CB15FAF14A001CCCB2 /* CWHomeViewController.h */,
+				7EFBF7CC15FAF14A001CCCB2 /* CWHomeViewController.m */,
+				7EFBF7CD15FAF14A001CCCB2 /* CWHomeViewController.xib */,
+				7EEF0E6E15FF916A00122C0F /* CWCourseListingViewController.h */,
+				7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */,
+				7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */,
+			);
+			path = "Course Listing";
+			sourceTree = "<group>";
+		};
+		7EFBF7D115FAF3FE001CCCB2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7E20B5ED15FE34C7004DBAC1 /* Navigation Bar */,
+				7E20B5EC15FE34B9004DBAC1 /* Browser Pane */,
+				7E20B5EB15FE34A7004DBAC1 /* Slide Menu */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7ECB48D515E9EF7C00F850E9 /* Courseware */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ECB491515E9EF7C00F850E9 /* Build configuration list for PBXNativeTarget "Courseware" */;
+			buildPhases = (
+				7ECB48D215E9EF7C00F850E9 /* Sources */,
+				7ECB48D315E9EF7C00F850E9 /* Frameworks */,
+				7ECB48D415E9EF7C00F850E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Courseware;
+			productName = Courseware;
+			productReference = 7ECB48D615E9EF7C00F850E9 /* Courseware.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7ECB490115E9EF7C00F850E9 /* CoursewareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ECB491815E9EF7C00F850E9 /* Build configuration list for PBXNativeTarget "CoursewareTests" */;
+			buildPhases = (
+				7ECB48FD15E9EF7C00F850E9 /* Sources */,
+				7ECB48FE15E9EF7C00F850E9 /* Frameworks */,
+				7ECB48FF15E9EF7C00F850E9 /* Resources */,
+				7ECB490015E9EF7C00F850E9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7ECB490915E9EF7C00F850E9 /* PBXTargetDependency */,
+			);
+			name = CoursewareTests;
+			productName = CoursewareTests;
+			productReference = 7ECB490215E9EF7C00F850E9 /* CoursewareTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7ECB48CD15E9EF7C00F850E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CW;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Leo Angelo Quigao";
+			};
+			buildConfigurationList = 7ECB48D015E9EF7C00F850E9 /* Build configuration list for PBXProject "Courseware" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				de,
+				English,
+				es,
+				fr,
+				ja,
+				"zh-Hans",
+			);
+			mainGroup = 7ECB48CB15E9EF7C00F850E9;
+			productRefGroup = 7ECB48D715E9EF7C00F850E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7ECB48D515E9EF7C00F850E9 /* Courseware */,
+				7ECB490115E9EF7C00F850E9 /* CoursewareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7ECB48D415E9EF7C00F850E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB48E715E9EF7C00F850E9 /* InfoPlist.strings in Resources */,
+				7EEB7C4C15F2D834009DAE94 /* CWUserLoginViewController.xib in Resources */,
+				7EFBF7CF15FAF14A001CCCB2 /* CWHomeViewController.xib in Resources */,
+				7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */,
+				7EAF487015FB12AD008ECDDE /* CWUserStatusPanelView.xib in Resources */,
+				7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */,
+				7EC8AD3A15FCBFA700ED9E27 /* CWBrowserPaneView.xib in Resources */,
+				7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */,
+				7EEF0E7215FF916A00122C0F /* CWCourseListingViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ECB48FF15E9EF7C00F850E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB490F15E9EF7C00F850E9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7ECB490015E9EF7C00F850E9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7ECB48D215E9EF7C00F850E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB48E915E9EF7C00F850E9 /* main.m in Sources */,
+				7ECB48ED15E9EF7C00F850E9 /* CWAppDelegate.m in Sources */,
+				7ECB48F015E9EF7C00F850E9 /* Courseware.xcdatamodeld in Sources */,
+				7EEB7C4B15F2D834009DAE94 /* CWUserLoginViewController.m in Sources */,
+				7E9C850C15FAC7B4002AB343 /* Account.m in Sources */,
+				7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */,
+				7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */,
+				7EFBF7C915FADF13001CCCB2 /* NSString+SLUtilities.m in Sources */,
+				7EFBF7CE15FAF14A001CCCB2 /* CWHomeViewController.m in Sources */,
+				7EFBF7D415FAF429001CCCB2 /* CWNavigationBar.m in Sources */,
+				7EFBF7D715FAF4B4001CCCB2 /* CWBrowserPaneView.m in Sources */,
+				7EFBF7DA15FAF65B001CCCB2 /* CWUserStatusPanelView.m in Sources */,
+				7EFBF7DD15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m in Sources */,
+				7E06217815FB737A006E3554 /* CWLesson.m in Sources */,
+				7E30E2C515FC382800422EEE /* CWChapter.m in Sources */,
+				7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */,
+				7E30E2CC15FC3AD800422EEE /* CWCourse.m in Sources */,
+				7E30E2CF15FC3AE200422EEE /* CWCourseModule.m in Sources */,
+				7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */,
+				7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */,
+				7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */,
+				7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */,
+				7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */,
+				7EC8AD3D15FCC84300ED9E27 /* CWBrowserPaneController.m in Sources */,
+				7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */,
+				7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */,
+				7EEF0E7115FF916A00122C0F /* CWCourseListingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ECB48FD15E9EF7C00F850E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ECB491215E9EF7C00F850E9 /* CoursewareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7ECB490915E9EF7C00F850E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7ECB48D515E9EF7C00F850E9 /* Courseware */;
+			targetProxy = 7ECB490815E9EF7C00F850E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7ECB48E515E9EF7C00F850E9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7ECB48E615E9EF7C00F850E9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7ECB490D15E9EF7C00F850E9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7ECB490E15E9EF7C00F850E9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7ECB491315E9EF7C00F850E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		7ECB491415E9EF7C00F850E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7ECB491615E9EF7C00F850E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../GuitarTabs/Tests\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
+				INFOPLIST_FILE = "Courseware/Courseware-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/AppRedeem\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Apsalar\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Burstly\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/ChartBoost\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAnalytics\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAppCircle\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/CHDataStructures\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/Social Media/Services/Twitter/Twitter+OAuth/Libraries & Headers\"",
+					"\"$(SRCROOT)/../GuitarTabs/dependencies/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7ECB491715E9EF7C00F850E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../GuitarTabs/Tests\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
+				INFOPLIST_FILE = "Courseware/Courseware-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/AppRedeem\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Apsalar\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Burstly\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/ChartBoost\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAnalytics\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAppCircle\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/GoogleAdMobAdsSDK\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/CHDataStructures\"",
+					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/Social Media/Services/Twitter/Twitter+OAuth/Libraries & Headers\"",
+					"\"$(SRCROOT)/../GuitarTabs/dependencies/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7ECB491915E9EF7C00F850E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Courseware.app/Courseware";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
+				INFOPLIST_FILE = "CoursewareTests/CoursewareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7ECB491A15E9EF7C00F850E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Courseware.app/Courseware";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
+				INFOPLIST_FILE = "CoursewareTests/CoursewareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7ECB48D015E9EF7C00F850E9 /* Build configuration list for PBXProject "Courseware" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ECB491315E9EF7C00F850E9 /* Debug */,
+				7ECB491415E9EF7C00F850E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7ECB491515E9EF7C00F850E9 /* Build configuration list for PBXNativeTarget "Courseware" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ECB491615E9EF7C00F850E9 /* Debug */,
+				7ECB491715E9EF7C00F850E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7ECB491815E9EF7C00F850E9 /* Build configuration list for PBXNativeTarget "CoursewareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ECB491915E9EF7C00F850E9 /* Debug */,
+				7ECB491A15E9EF7C00F850E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7ECB48EF15E9EF7C00F850E9 /* Courseware.xcdatamodel */,
+			);
+			currentVersion = 7ECB48EF15E9EF7C00F850E9 /* Courseware.xcdatamodel */;
+			name = Courseware.xcdatamodeld;
+			path = ../../Courseware.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7ECB48CD15E9EF7C00F850E9 /* Project object */;
+}

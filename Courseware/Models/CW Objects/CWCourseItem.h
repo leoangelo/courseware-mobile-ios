@@ -23,5 +23,7 @@ extern NSString * const kCourseItemPageNumber;
 @property (nonatomic, retain) NSMutableDictionary *data;
 
 - (NSArray *)siblings;
+- (NSInteger)depth;
+- (CWCourseItem *)rootItem;
 
 @end

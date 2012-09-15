@@ -19,6 +19,8 @@
 @property (nonatomic, retain) IBOutlet UITableView *listView;
 @property (nonatomic, retain) CWCourseListingScreenModel *model;
 
+- (void)scrollToCourseItem:(CWCourseItem *)item;
+
 @end
 
 @implementation CWCourseListingViewController
@@ -46,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.browserPane setParentItem:_model.selectedCourseItem];
+	[self.browserPane setActiveItem:_model.selectedCourseItem];
 }
 
 - (void)viewDidUnload
@@ -72,16 +74,38 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 	if (!cell) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] autorelease];
+		[cell setIndentationWidth:30];
 	}
 	CWCourseItem *itemAtI = [self.model.getItemList objectAtIndex:indexPath.row];
 	cell.textLabel.text = [itemAtI.data objectForKey:kCourseItemTitle];
+	
+	[cell setIndentationLevel:itemAtI.depth];
+	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	// self.model.selectedCourseItem = [self.model.getItemList objectAtIndex:indexPath.row];
+	[self.browserPane setActiveItem:[self.model.getItemList objectAtIndex:indexPath.row]];
+	// [self.listView reloadData];
 }
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
 {
 	self.model.selectedCourseItem = item;
 	[self.listView reloadData];
+	
+	[self scrollToCourseItem:item];
+}
+
+- (void)scrollToCourseItem:(CWCourseItem *)item
+{
+	NSInteger indexForItem = [self.model.getItemList indexOfObject:item];
+	if (indexForItem != NSNotFound) {
+		[self.listView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForItem inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	}
 }
 
 @end

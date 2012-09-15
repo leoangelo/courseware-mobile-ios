@@ -42,7 +42,12 @@
 	if (!_selectedCourseItem) return;
 	NSMutableArray *items = [[NSMutableArray alloc] init];
 
-	[self addItem:_selectedCourseItem toList:items];
+	if (_selectedCourseItem.rootItem) {
+		[self addItem:_selectedCourseItem.rootItem toList:items];
+	}
+	else { // Might be that the course item is the root itself.
+		[self addItem:_selectedCourseItem toList:items];
+	}
 
 	self.itemList = items;
 	[items release];

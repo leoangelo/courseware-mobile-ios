@@ -35,20 +35,20 @@
 
 - (void)rebuildItems
 {
-	if (self.parentCourseItem.siblings && self.parentCourseItem.siblings.count > 1) {
-		self.itemsToDisplay = [self.parentCourseItem siblings];
+	if (self.activeCourseItem.siblings && self.activeCourseItem.siblings.count > 1) {
+		self.itemsToDisplay = [self.activeCourseItem siblings];
 	}
-	else if (self.parentCourseItem.parent && self.parentCourseItem.parent.siblings.count > 1) {
-		self.itemsToDisplay = [self.parentCourseItem.parent siblings];
+	else if (self.activeCourseItem.parent && self.activeCourseItem.parent.siblings.count > 1) {
+		self.itemsToDisplay = [self.activeCourseItem.parent siblings];
 	}
 	else {
 		self.itemsToDisplay = [[CWCourseManager sharedManager] courseListing];
 	}
 }
 
-- (void)setParentCourseItem:(CWCourseItem *)parentCourseItem
+- (void)setActiveCourseItem:(CWCourseItem *)activeCourseItem
 {
-	_parentCourseItem = parentCourseItem;
+	_activeCourseItem = activeCourseItem;
 	[self rebuildItems];
 }
 

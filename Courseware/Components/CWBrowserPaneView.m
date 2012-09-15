@@ -139,9 +139,10 @@
 	[self.delegate browser:self selectedItem:selectedItem];
 }
 
-- (void)setParentItem:(CWCourseItem *)parentItem
+- (void)setActiveItem:(CWCourseItem *)activeItem
 {
-	self.controller.parentCourseItem = parentItem;
+	self.controller.activeCourseItem = activeItem;
+	[self.tableView reloadData];
 }
 
 @end

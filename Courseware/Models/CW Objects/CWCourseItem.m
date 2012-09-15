@@ -46,6 +46,24 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 	return nil;
 }
 
+- (NSInteger)depth
+{
+	NSInteger currentDepth = 0;
+	for (CWCourseItem *parentNode = self.parent; parentNode != nil; parentNode = parentNode.parent) {
+		currentDepth++;
+	}
+	return currentDepth;
+}
+
+- (CWCourseItem *)rootItem
+{
+	CWCourseItem *root = nil;
+	for (CWCourseItem *parentNode = self.parent; parentNode != nil; parentNode = parentNode.parent) {
+		root = parentNode;
+	}
+	return root;
+}
+
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"ITEM: %@; CHILDREN: %@", self.data, self.children];

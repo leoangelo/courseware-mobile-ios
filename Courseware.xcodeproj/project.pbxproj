@@ -650,27 +650,12 @@
 		7ECB491615E9EF7C00F850E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../GuitarTabs/Tests\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
 				INFOPLIST_FILE = "Courseware/Courseware-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/AppRedeem\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Apsalar\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Burstly\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/ChartBoost\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAppCircle\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/GoogleAdMobAdsSDK\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/CHDataStructures\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/Social Media/Services/Twitter/Twitter+OAuth/Libraries & Headers\"",
-					"\"$(SRCROOT)/../GuitarTabs/dependencies/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -679,27 +664,12 @@
 		7ECB491715E9EF7C00F850E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../GuitarTabs/Tests\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Courseware/Courseware-Prefix.pch";
 				INFOPLIST_FILE = "Courseware/Courseware-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/AppRedeem\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Apsalar\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/Burstly\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/ChartBoost\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/FlurryAppCircle\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/3rdParty/GoogleAdMobAdsSDK\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/CHDataStructures\"",
-					"\"$(SRCROOT)/../GuitarTabs/Classes/Models/Social Media/Services/Twitter/Twitter+OAuth/Libraries & Headers\"",
-					"\"$(SRCROOT)/../GuitarTabs/dependencies/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

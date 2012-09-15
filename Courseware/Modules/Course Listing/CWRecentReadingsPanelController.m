@@ -8,6 +8,7 @@
 
 #import "CWRecentReadingsPanelController.h"
 #import "CWCourseManager.h"
+#import "CWCourseItem.h"
 
 @interface CWRecentReadingsPanelController ()
 
@@ -35,7 +36,7 @@
 - (void)rebuildLessonsIndex
 {
 	NSArray *allLessons = [[CWCourseManager sharedManager] allLessons];
-	NSSortDescriptor *sorterByDate = [[NSSortDescriptor alloc] initWithKey:@"lastDateRead" ascending:NO];
+	NSSortDescriptor *sorterByDate = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"data.%@", kCourseItemLastDateRead] ascending:NO];
 	allLessons = [allLessons sortedArrayUsingDescriptors:[NSArray arrayWithObject:sorterByDate]];
 	[sorterByDate release];
 		

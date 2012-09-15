@@ -74,7 +74,7 @@
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] autorelease];
 	}
 	CWCourseItem *itemAtI = [self.model.getItemList objectAtIndex:indexPath.row];
-	cell.textLabel.text = itemAtI.title;
+	cell.textLabel.text = [itemAtI.data objectForKey:kCourseItemTitle];
 	return cell;
 }
 

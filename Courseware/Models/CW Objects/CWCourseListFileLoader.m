@@ -7,25 +7,12 @@
 //
 
 #import "CWCourseListFileLoader.h"
-#import "CWCourse.h"
-#import "CWCourseModule.h"
-#import "CWChapter.h"
-#import "CWLesson.h"
+#import "CWCourseItem.h"
 #import "NSString+SLUtilities.h"
 
-@interface CWCourseListFileLoader () <NSXMLParserDelegate>
+@interface CWCourseListFileLoader ()
 
-@property (nonatomic, retain) CWCourse *currentCourse;
-@property (nonatomic, retain) CWCourseModule *currentModule;
-@property (nonatomic, retain) CWChapter *currentChapter;
-@property (nonatomic, retain) CWLesson *currentLesson;
-
-@property (nonatomic, retain) NSMutableArray *lessonList;
-@property (nonatomic, retain) NSMutableArray *chapterList;
-@property (nonatomic, retain) NSMutableArray *moduleList;
-@property (nonatomic, retain) NSXMLParser *xmlParser;
-
-@property (nonatomic, retain) NSString *charData;
+- (void)readCourseItemsFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem;
 
 @end
 
@@ -33,21 +20,6 @@
 
 - (void)dealloc
 {
-	[_currentLesson release];
-	[_currentChapter release];
-	[_currentModule release];
-	[_currentCourse release];
-	
-	[_lessonList release];
-	[_chapterList release];
-	[_moduleList release];
-	
-	[_charData release];
-	
-	_loaderDelegate = nil;
-	_xmlParser.delegate = nil;
-	[_xmlParser abortParsing];
-	[_xmlParser release];
 	[super dealloc];
 }
 
@@ -64,23 +36,73 @@
 {
 	// Typically, the file we will load comes from the filesystem, and not from the app bundle.
 	// Do nothing yet!
+	
+	NSData *fileData = [NSData dataWithContentsOfFile:theFilePath];
+	if (fileData) {
+		NSError *readError = nil;
+		id jsonData = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingMutableContainers error:&readError];
+		if (readError) {
+			NSLog(@"Error parsing JSON: %@", readError.localizedDescription);
+			return;
+		}
+		[self readCourseItemsFromJSON:jsonData fromParentItem:nil];
+	}
+	else {
+		NSLog(@"File not found.");
+	}
 }
+
+- (void)readCourseItemsFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem
+{
+	if ([jsonData isKindOfClass:[NSArray class]]) {
+		for (id child in jsonData) {
+			[self readCourseItemsFromJSON:child fromParentItem:parentItem];
+		}
+	}
+	else if ([jsonData isKindOfClass:[NSDictionary class]]) {
+		NSDictionary *jsonDict = (NSDictionary *)jsonData;
+		CWCourseItem *anItem = [[CWCourseItem alloc] init];
+		
+		if ([jsonDict objectForKey:@"title"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"title"] forKey:kCourseItemTitle];
+		}
+		
+		if ([jsonDict objectForKey:@"description"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"description"] forKey:kCourseItemDescription];
+		}
+		
+		if ([jsonDict objectForKey:@"children"]) {
+			[self readCourseItemsFromJSON:[jsonDict objectForKey:@"children"] fromParentItem:anItem];
+		}
+		
+		anItem.parent = parentItem;
+		[parentItem.children addObject:anItem];
+		
+		if (!anItem.parent) {
+			[self.loaderDelegate loader:self coursePrepared:anItem];
+		}
+		
+		[anItem release];
+	}
+	else if ([jsonData isKindOfClass:[NSString class]]) {
+		CWCourseItem *anItem = [[CWCourseItem alloc] init];
+		[anItem.data setObject:jsonData forKey:kCourseItemTitle];
+		
+		anItem.parent = parentItem;
+		[parentItem.children addObject:anItem];
+		
+		[anItem release];
+	}
+}
+
+#pragma mark - Sample Data
 
 - (void)loadSampleFile
 {
 	NSBundle *courseWareBundle = [self.class courseWareBundle];
 	NSAssert(courseWareBundle, @"must not be nil");
-	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"sample-data" ofType:@"xml"];
-	NSData *xmlData = [NSData dataWithContentsOfFile:sampleXMLPath];
-	NSAssert(xmlData, @"must not be nil!");
-	
-	[self.xmlParser setDelegate:nil];
-	[self.xmlParser abortParsing];
-	
-	self.xmlParser = [[[NSXMLParser alloc] initWithData:xmlData] autorelease];
-	self.xmlParser.delegate = self;
-	self.xmlParser.shouldProcessNamespaces = NO;
-	[self.xmlParser parse];
+	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json"];
+	[self loadFilePath:sampleXMLPath];
 }
 
 + (NSBundle *)courseWareBundle
@@ -96,74 +118,6 @@
 		}
 	}
 	return cwBundle;
-}
-
-#pragma mark - NSXMLParserDelegate
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
-{
-	self.charData = @"";
-	
-	if ([elementName isEqualToString:@"course"]) {
-		self.currentCourse = [[[CWCourse alloc] init] autorelease];
-		self.currentCourse.title = [attributeDict objectForKey:@"title"];
-		self.moduleList = [NSMutableArray array];
-	}
-	else if ([elementName isEqualToString:@"module"]) {
-		self.currentModule = [[[CWCourseModule alloc] init] autorelease];
-		self.currentModule.title = [attributeDict objectForKey:@"title"];
-		self.chapterList = [NSMutableArray array];
-	}
-	else if ([elementName isEqualToString:@"chapter"]) {
-		self.currentChapter = [[[CWChapter alloc] init] autorelease];
-		self.currentChapter.title = [attributeDict objectForKey:@"title"];
-		self.lessonList = [NSMutableArray array];
-	}
-	else if ([elementName isEqualToString:@"lesson"]) {
-		self.currentLesson = [[[CWLesson alloc] init] autorelease];
-		self.currentLesson.title = [attributeDict objectForKey:@"title"];
-	}
-}
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-	string = [string trim];
-	if(![string isEqualToString:@""]) {
-		self.charData = [self.charData stringByAppendingString:string];
-	}
-}
-
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-	if ([elementName isEqualToString:@"course"]) {
-		self.currentCourse.children = [NSArray arrayWithArray:self.moduleList];
-		if ([self.loaderDelegate respondsToSelector:@selector(loader:coursePrepared:)]) {
-			[self.loaderDelegate loader:self coursePrepared:self.currentCourse];
-		}
-	}
-	else if ([elementName isEqualToString:@"module"]) {
-		self.currentModule.children = [NSArray arrayWithArray:self.chapterList];
-		self.currentModule.parent = self.currentCourse;
-		[self.moduleList addObject:self.currentModule];
-	}
-	else if ([elementName isEqualToString:@"chapter"]) {
-		self.currentChapter.children = [NSArray arrayWithArray:self.lessonList];
-		self.currentChapter.parent = self.currentModule;
-		[self.chapterList addObject:self.currentChapter];
-	}
-	else if ([elementName isEqualToString:@"lesson"]) {
-		self.currentLesson.parent = self.currentChapter;
-		[self.lessonList addObject:self.currentLesson];
-	}
-	else if ([elementName isEqualToString:@"description"]) {
-		self.currentLesson.referenceDescription = [NSString stringWithString:self.charData];
-	}
-}
-
-- (void)parserDidEndDocument:(NSXMLParser *)parser
-{
-	if ([self.loaderDelegate respondsToSelector:@selector(loaderFinished:)]) {
-		[self.loaderDelegate loaderFinished:self];
-	}
 }
 
 @end

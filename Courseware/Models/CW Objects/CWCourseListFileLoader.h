@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class CWCourse;
+@class CWCourseItem;
 @protocol CWCourseListFileLoaderDelegate;
 
 @interface CWCourseListFileLoader : NSObject
@@ -24,7 +24,7 @@
 @protocol CWCourseListFileLoaderDelegate <NSObject>
 
 @optional
-- (void)loader:(CWCourseListFileLoader *)theLoader coursePrepared:(CWCourse *)theCourse;
+- (void)loader:(CWCourseListFileLoader *)theLoader coursePrepared:(CWCourseItem *)theCourse;
 - (void)loaderFinished:(CWCourseListFileLoader *)theLoader;
 
 @end

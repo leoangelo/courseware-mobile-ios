@@ -8,8 +8,7 @@
 
 #import "CWRecentReadingsPanelView.h"
 #import "CWRecentReadingsPanelController.h"
-#import "CWLesson.h"
-#import "CWChapter.h"
+#import "CWCourseItem.h"
 
 @interface CWRecentReadingsPanelView () <UITableViewDataSource, UITableViewDelegate>
 
@@ -70,10 +69,10 @@
 	if (!cell) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
 	}
-	CWLesson *lessonAtIndex = [[self.controller getRecentReads] objectAtIndex:indexPath.row];
-	CWChapter *parentChapter = (CWChapter *)lessonAtIndex.parent;
-	cell.textLabel.text = lessonAtIndex.title;
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"From the chapter %@", parentChapter.title];
+	CWCourseItem *lessonAtIndex = [[self.controller getRecentReads] objectAtIndex:indexPath.row];
+	CWCourseItem *parentChapter = lessonAtIndex.parent;
+	cell.textLabel.text = [lessonAtIndex.data objectForKey:kCourseItemTitle];
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"From the chapter %@", [parentChapter.data objectForKey:kCourseItemTitle]];
 	return cell;
 }
 

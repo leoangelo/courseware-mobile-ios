@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kCourseItemId;
+extern NSString * const kCourseItemTitle;
+extern NSString * const kCourseItemDescription;
+
+extern NSString * const kCourseItemLastDateRead;
+extern NSString * const kCourseItemFilePath;
+extern NSString * const kCourseItemPageNumber;
+
 @interface CWCourseItem : NSObject
 
-@property (nonatomic, retain) NSString *referenceId;
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *referenceDescription;
-@property (nonatomic, retain) NSArray *objectives;
 @property (nonatomic, assign) CWCourseItem *parent;
-@property (nonatomic, retain) NSArray *children;
+@property (nonatomic, retain) NSMutableArray *children;
+@property (nonatomic, retain) NSMutableDictionary *data;
 
 - (NSArray *)siblings;
 

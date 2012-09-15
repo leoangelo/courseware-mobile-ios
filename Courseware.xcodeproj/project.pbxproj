@@ -8,15 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
-		7E06217815FB737A006E3554 /* CWLesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E06217715FB737A006E3554 /* CWLesson.m */; };
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
 		7E2F63D4160477020064605C /* CWCourseListingScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */; };
-		7E30E2C515FC382800422EEE /* CWChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C415FC382800422EEE /* CWChapter.m */; };
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
-		7E30E2CC15FC3AD800422EEE /* CWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2CB15FC3AD800422EEE /* CWCourse.m */; };
-		7E30E2CF15FC3AE200422EEE /* CWCourseModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */; };
 		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
 		7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */; };
 		7E9C850C15FAC7B4002AB343 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850B15FAC7B4002AB343 /* Account.m */; };
@@ -68,8 +64,6 @@
 
 /* Begin PBXFileReference section */
 		7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWRecentReadingsPanelView.xib; sourceTree = "<group>"; };
-		7E06217615FB737A006E3554 /* CWLesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLesson.h; sourceTree = "<group>"; };
-		7E06217715FB737A006E3554 /* CWLesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLesson.m; sourceTree = "<group>"; };
 		7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuView.h; sourceTree = "<group>"; };
 		7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuView.m; sourceTree = "<group>"; };
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
@@ -77,14 +71,8 @@
 		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
 		7E2F63D2160477020064605C /* CWCourseListingScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListingScreenModel.h; sourceTree = "<group>"; };
 		7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListingScreenModel.m; sourceTree = "<group>"; };
-		7E30E2C315FC382800422EEE /* CWChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWChapter.h; sourceTree = "<group>"; };
-		7E30E2C415FC382800422EEE /* CWChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWChapter.m; sourceTree = "<group>"; };
 		7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseItem.h; sourceTree = "<group>"; };
 		7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseItem.m; sourceTree = "<group>"; };
-		7E30E2CA15FC3AD800422EEE /* CWCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourse.h; sourceTree = "<group>"; };
-		7E30E2CB15FC3AD800422EEE /* CWCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourse.m; sourceTree = "<group>"; };
-		7E30E2CD15FC3AE200422EEE /* CWCourseModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseModule.h; sourceTree = "<group>"; };
-		7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseModule.m; sourceTree = "<group>"; };
 		7E30E2D015FC3F0A00422EEE /* CWCourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseManager.h; sourceTree = "<group>"; };
 		7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseManager.m; sourceTree = "<group>"; };
 		7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListFileLoader.h; sourceTree = "<group>"; };
@@ -176,14 +164,6 @@
 			children = (
 				7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */,
 				7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */,
-				7E30E2CA15FC3AD800422EEE /* CWCourse.h */,
-				7E30E2CB15FC3AD800422EEE /* CWCourse.m */,
-				7E30E2CD15FC3AE200422EEE /* CWCourseModule.h */,
-				7E30E2CE15FC3AE200422EEE /* CWCourseModule.m */,
-				7E30E2C315FC382800422EEE /* CWChapter.h */,
-				7E30E2C415FC382800422EEE /* CWChapter.m */,
-				7E06217615FB737A006E3554 /* CWLesson.h */,
-				7E06217715FB737A006E3554 /* CWLesson.m */,
 				7E30E2D015FC3F0A00422EEE /* CWCourseManager.h */,
 				7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */,
 				7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */,
@@ -548,11 +528,7 @@
 				7EFBF7D715FAF4B4001CCCB2 /* CWBrowserPaneView.m in Sources */,
 				7EFBF7DA15FAF65B001CCCB2 /* CWUserStatusPanelView.m in Sources */,
 				7EFBF7DD15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m in Sources */,
-				7E06217815FB737A006E3554 /* CWLesson.m in Sources */,
-				7E30E2C515FC382800422EEE /* CWChapter.m in Sources */,
 				7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */,
-				7E30E2CC15FC3AD800422EEE /* CWCourse.m in Sources */,
-				7E30E2CF15FC3AE200422EEE /* CWCourseModule.m in Sources */,
 				7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */,
 				7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */,
 				7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */,

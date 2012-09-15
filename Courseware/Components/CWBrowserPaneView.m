@@ -70,7 +70,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *itemTitle = [(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] title];
+	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
 	CGFloat textHeight = [itemTitle sizeWithFont:[UIFont fontWithName:@"FuturaLT-Heavy" size:17] constrainedToSize:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
 	return MAX(textHeight, 44);
 }
@@ -81,7 +81,7 @@
 	if (!cell) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] autorelease];
 	}
-	NSString *itemTitle = [(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] title];
+	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
 	cell.textLabel.text = itemTitle;
 	cell.textLabel.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:17];
 	cell.textLabel.numberOfLines = 0;

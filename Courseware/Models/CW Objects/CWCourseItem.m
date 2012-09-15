@@ -8,17 +8,34 @@
 
 #import "CWCourseItem.h"
 
+NSString * const kCourseItemId = @"id";
+NSString * const kCourseItemTitle = @"title";
+NSString * const kCourseItemDescription = @"description";
+
+NSString * const kCourseItemLastDateRead = @"lastDateRead";
+NSString * const kCourseItemFilePath = @"path";
+NSString * const kCourseItemPageNumber = @"pageNumber";
+
 @implementation CWCourseItem
 
 - (void)dealloc
 {
-	[_referenceId release];
-	[_title release];
-	[_referenceDescription release];
-	[_objectives release];
 	_parent = nil;
 	[_children release];
+	[_data release];
 	[super dealloc];
+}
+ 
+- (id)init
+{
+	self = [super init];
+	if (self) {
+		_data = [[NSMutableDictionary alloc] init];
+		_children = [[NSMutableArray alloc] init];
+		
+		[_data setObject:[NSDate date] forKey:kCourseItemLastDateRead];
+	}
+	return self;
 }
 
 - (NSArray *)siblings
@@ -27,6 +44,11 @@
 		return [_parent children];
 	}
 	return nil;
+}
+
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"ITEM: %@; CHILDREN: %@", self.data, self.children];
 }
 
 @end

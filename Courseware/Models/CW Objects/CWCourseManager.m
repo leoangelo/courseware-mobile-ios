@@ -7,10 +7,7 @@
 //
 
 #import "CWCourseManager.h"
-#import "CWCourse.h"
-#import "CWCourseModule.h"
-#import "CWChapter.h"
-#import "CWLesson.h"
+#import "CWCourseItem.h"
 #import "CWCourseListFileLoader.h"
 
 #define USE_SAMPLE_DATA 1
@@ -88,7 +85,7 @@
 - (NSArray *)allLessons
 {
 	NSMutableArray *retLessons = [NSMutableArray array];
-	for (CWCourse *aCourse in self.courseListing) {
+	for (CWCourseItem *aCourse in self.courseListing) {
 		[self addLessonsToArray:retLessons fromItem:aCourse];
 	}
 	return retLessons;
@@ -96,8 +93,9 @@
 
 - (void)addLessonsToArray:(NSMutableArray *)aLessonsArr fromItem:(CWCourseItem *)theItem
 {
-	if ([theItem isKindOfClass:[CWLesson class]]) {
+	if (theItem.children.count == 0) {
 		[aLessonsArr addObject:theItem];
+		
 	}
 	else {
 		for (CWCourseItem *aChild in theItem.children) {
@@ -108,7 +106,7 @@
 
 #pragma mark - CWCourseListFileLoaderDelegate
 
-- (void)loader:(CWCourseListFileLoader *)theLoader coursePrepared:(CWCourse *)theCourse
+- (void)loader:(CWCourseListFileLoader *)theLoader coursePrepared:(CWCourseItem *)theCourse
 {
 //	NSLog(@"Course added: %@", theCourse);
 	[self.courseListing addObject:theCourse];

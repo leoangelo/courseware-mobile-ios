@@ -23,7 +23,7 @@
 @property (nonatomic, retain) IBOutlet CWUserStatusPanelView *userPanel;
 @property (nonatomic, retain) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
 
-- (void)pushToCourseListing;
+- (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item;
 
 @end
 
@@ -70,12 +70,12 @@
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
 {
-	[self pushToCourseListing];
+	[self pushToCourseListingWithSelectedItem:item];
 }
 
-- (void)pushToCourseListing
+- (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item
 {
-	CWCourseListingViewController *aController = [[CWCourseListingViewController alloc] init];
+	CWCourseListingViewController *aController = [[CWCourseListingViewController alloc] initWithItem:item];
 	[self.navigationController pushViewController:aController animated:YES];
 	[aController release];
 }

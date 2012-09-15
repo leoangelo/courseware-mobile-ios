@@ -15,6 +15,8 @@
 
 @property (nonatomic, assign) IBOutlet id<CWBrowserPaneViewDelegate> delegate;
 
+- (void)setParentItem:(CWCourseItem *)parentItem;
+
 @end
 
 @protocol CWBrowserPaneViewDelegate <NSObject>

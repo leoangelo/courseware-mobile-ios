@@ -35,13 +35,21 @@
 
 - (void)rebuildItems
 {
-	CWCourseItem *activeItem = [[CWCourseManager sharedManager] activeCourseItem];
-	if (!activeItem) {
-		self.itemsToDisplay = [[CWCourseManager sharedManager] courseListing];
+	if (self.parentCourseItem.siblings && self.parentCourseItem.siblings.count > 1) {
+		self.itemsToDisplay = [self.parentCourseItem siblings];
+	}
+	else if (self.parentCourseItem.parent && self.parentCourseItem.parent.siblings.count > 1) {
+		self.itemsToDisplay = [self.parentCourseItem.parent siblings];
 	}
 	else {
-		self.itemsToDisplay = activeItem.children;
+		self.itemsToDisplay = [[CWCourseManager sharedManager] courseListing];
 	}
+}
+
+- (void)setParentCourseItem:(CWCourseItem *)parentCourseItem
+{
+	_parentCourseItem = parentCourseItem;
+	[self rebuildItems];
 }
 
 - (NSArray *)getItemsToDisplay

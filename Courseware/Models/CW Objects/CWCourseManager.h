@@ -12,7 +12,6 @@
 @interface CWCourseManager : NSObject
 
 @property (nonatomic, retain) NSMutableArray *courseListing;
-@property (nonatomic, retain) CWCourseItem *activeCourseItem;
 
 - (NSArray *)allLessons;
 + (CWCourseManager *)sharedManager;

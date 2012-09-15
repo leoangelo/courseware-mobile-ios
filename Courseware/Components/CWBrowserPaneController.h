@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class CWCourseItem;
+
 @interface CWBrowserPaneController : NSObject
+
+@property (nonatomic, assign) CWCourseItem *parentCourseItem;
 
 - (void)rebuildItems;
 - (NSArray *)getItemsToDisplay;

@@ -1,0 +1,100 @@
+{
+	"courses": [
+		{
+			"title": "Marine Engineering at the Management Level",
+			"modules": [
+				{
+					"title": "Module 1",
+					"chapters": [
+						{
+							"title": "Thermodynamics and Heat Transmission",
+							"topics": [
+								{
+									"title": "Definition of Terms",
+									"description": "Defining the meaning of International System of Units, Force, Pressure, Weight, Density, Relative Density, Work, Energy"
+								},
+								{
+									"title": "Thermodynamics",
+									"description": "A branch of physics which deals with the relationship between heat, energy, and work on a system. There are three principal laws of thermodynamics."
+								},
+								{
+									"title": "Heat",
+									"description": "An energy that is transferred to a system by way of thermal interaction. Introduces the heat engine, turbine, compressors, thermodynamic cycle, working fluid, temperature-entropy, enthalpy-entropy, pressure-enthalpy, heat transfer, heat conduction"
+								},
+								{
+									"title": "Gas Laws",
+									"description": "Relationship between pressure, volume, and temperature. Introduction of law of heat conduction, Newton's Law of Cooling, Heat Exchangers, Air Conditioning, Boyle's Law, Charles' Law, Ideal Gas Law, Polytrophic Law, Specific Heat Capacity, Psychometric Chart, Mollier Diagram, Marine Applications"
+								},
+								{
+									"title": "Steam Plant",
+									"description": "In relation to water and defining wet steam, saturated steam, super heated steam, enthalpy, entropy, evaporation, condensation, boiler horsepower"
+								}
+							]
+						},
+						{
+							"title": "Mechanics and Hydromechanics",
+							"topics": [
+								{
+									"title": "Mechanics",
+									"description": "Inertia at the resistance to change of motion, the method of balancing a disc, the normal tolerance of out-of-balance forces, the static balancing of propeller, the dynamic balancing of rotating elements (impellers, bowl assembly of purifiers, crankshaft)."
+								},
+								{
+									"title": "Hydraulics and Pneumatics",
+									"description": "Fundamental concepts, component symbols, construction, functions and application to Hydraulics and Pneumatics, circuit diagrams, and troubleshooting of fluid power systems, shipboard applications"
+								}
+							]
+						},
+						{
+							"title": "Operating Principles of Ship Power Installations and Refrigeration",
+							"topics": [
+								{
+									"title": "Analyse the Diesel Engine Shop Trial and Sea Trial Data",
+									"subtopics": [
+										"Brake power, Indicated power of diesel engines, indicated power of turbines, break mean, effective pressure, engine efficiencies.",
+										"Graph of energy  distribution at varying loads",
+										"Interpret graphs related to speed, torque, brake power, indicated power, mechanical efficiency, fuel consumption, specific fuel consumption, thermal efficiency",
+										"Explain correct procedure in engine performance testing",
+										"Analyses performance data and its effect on engine performance and figure out countermeasures when deviations from trial data becomes apparent",
+										"Work out preventive measures taken to ensure deviations from trial data are kept to minimum",
+										"Calculate the specific fuel and cylinder oil consumption"
+									]
+								},
+								{
+									"title": "Explains the fundamentals of Refrigeration and the vapour compression system",
+									"subtopics": [
+										"Pressure is directly proportional to saturation in temperature",
+										"Sub-cooling",
+										"Superheating",
+										"System performance",
+										"Operational problems and rectification",
+										"Use of tools and test equipment for servicing and repair",
+										"Interpret PH diagram of a simplified vapour compression system"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "Module 2",
+					"chapters": [
+						{
+							"title": "Physical and chemical properties of fuel and lubricants"
+						},
+						{
+							"title": "Technology of Materials"
+						}
+					]
+				},
+				{
+					"title": "Module 3",
+					"chapters": [
+						{
+							"title": "Naval Architecture and Ship Construction, including damage control"
+						}
+					]
+				}
+			]
+		}
+	]
+}

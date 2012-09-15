@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CWCourseItem;
+
 @interface CWCourseListingViewController : UIViewController
+
+- (id)initWithItem:(CWCourseItem *)selectedItem;
 
 @end

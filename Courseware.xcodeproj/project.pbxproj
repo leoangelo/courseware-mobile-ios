@@ -12,6 +12,7 @@
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
+		7E2F63D4160477020064605C /* CWCourseListingScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */; };
 		7E30E2C515FC382800422EEE /* CWChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C415FC382800422EEE /* CWChapter.m */; };
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
 		7E30E2CC15FC3AD800422EEE /* CWCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2CB15FC3AD800422EEE /* CWCourse.m */; };
@@ -74,6 +75,8 @@
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
 		7E20B5E815FE3477004DBAC1 /* SLSlideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuController.h; sourceTree = "<group>"; };
 		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
+		7E2F63D2160477020064605C /* CWCourseListingScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListingScreenModel.h; sourceTree = "<group>"; };
+		7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListingScreenModel.m; sourceTree = "<group>"; };
 		7E30E2C315FC382800422EEE /* CWChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWChapter.h; sourceTree = "<group>"; };
 		7E30E2C415FC382800422EEE /* CWChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWChapter.m; sourceTree = "<group>"; };
 		7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseItem.h; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 				7EEF0E6E15FF916A00122C0F /* CWCourseListingViewController.h */,
 				7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */,
 				7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */,
+				7E2F63D2160477020064605C /* CWCourseListingScreenModel.h */,
+				7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */,
 			);
 			path = "Course Listing";
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */,
 				7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */,
 				7EEF0E7115FF916A00122C0F /* CWCourseListingViewController.m in Sources */,
+				7E2F63D4160477020064605C /* CWCourseListingScreenModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

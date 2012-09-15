@@ -71,7 +71,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *itemTitle = [(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] title];
-	return [itemTitle sizeWithFont:[UIFont fontWithName:@"FuturaLT-Heavy" size:17] constrainedToSize:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
+	CGFloat textHeight = [itemTitle sizeWithFont:[UIFont fontWithName:@"FuturaLT-Heavy" size:17] constrainedToSize:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
+	return MAX(textHeight, 44);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,6 +137,11 @@
 	CWCourseItem *selectedItem = [self.controller.getItemsToDisplay objectAtIndex:indexPath.row];
 	
 	[self.delegate browser:self selectedItem:selectedItem];
+}
+
+- (void)setParentItem:(CWCourseItem *)parentItem
+{
+	self.controller.parentCourseItem = parentItem;
 }
 
 @end

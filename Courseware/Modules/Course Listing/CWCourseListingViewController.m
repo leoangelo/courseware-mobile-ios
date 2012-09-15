@@ -9,12 +9,15 @@
 #import "CWCourseListingViewController.h"
 #import "CWBrowserPaneView.h"
 #import "CWNavigationBar.h"
+#import "CWCourseItem.h"
+#import "CWCourseListingScreenModel.h"
 
-@interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
 
 @property (nonatomic, retain) IBOutlet CWBrowserPaneView *browserPane;
 @property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, retain) IBOutlet UITableView *listView;
+@property (nonatomic, retain) CWCourseListingScreenModel *model;
 
 @end
 
@@ -25,12 +28,25 @@
 	[_browserPane release];
 	[_navBar release];
 	[_listView release];
+	[_model release];
 	[super dealloc];
 }
+
+- (id)initWithItem:(CWCourseItem *)selectedItem
+{
+	self = [super init];
+	if (self) {
+		_model = [[CWCourseListingScreenModel alloc] init];
+		_model.selectedCourseItem = selectedItem;
+	}
+	return self;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.browserPane setParentItem:_model.selectedCourseItem];
 }
 
 - (void)viewDidUnload
@@ -48,7 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 1;
+	return self.model.getItemList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,7 +73,15 @@
 	if (!cell) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] autorelease];
 	}
+	CWCourseItem *itemAtI = [self.model.getItemList objectAtIndex:indexPath.row];
+	cell.textLabel.text = itemAtI.title;
 	return cell;
+}
+
+- (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
+{
+	self.model.selectedCourseItem = item;
+	[self.listView reloadData];
 }
 
 @end

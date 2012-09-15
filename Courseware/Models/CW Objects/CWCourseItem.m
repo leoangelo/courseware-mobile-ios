@@ -21,4 +21,12 @@
 	[super dealloc];
 }
 
+- (NSArray *)siblings
+{
+	if (_parent) {
+		return [_parent children];
+	}
+	return nil;
+}
+
 @end

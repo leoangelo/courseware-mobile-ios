@@ -17,4 +17,10 @@
 	return [NSString stringWithFormat:@"%f~%i", timeStamp, randomNumber];
 }
 
+- (NSString *)trim
+{
+	// This does not trim multiple whitespaces in between words.
+	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 @end

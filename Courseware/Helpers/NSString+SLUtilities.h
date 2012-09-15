@@ -11,5 +11,6 @@
 @interface NSString (SLUtilities)
 
 + (NSString *)generateRandomString;
+- (NSString *)trim;
 
 @end

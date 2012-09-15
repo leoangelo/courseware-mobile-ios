@@ -17,4 +17,6 @@
 @property (nonatomic, assign) CWCourseItem *parent;
 @property (nonatomic, retain) NSArray *children;
 
+- (NSArray *)siblings;
+
 @end

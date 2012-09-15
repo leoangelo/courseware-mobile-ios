@@ -11,6 +11,7 @@
 #import "CWCourseModule.h"
 #import "CWChapter.h"
 #import "CWLesson.h"
+#import "NSString+SLUtilities.h"
 
 @interface CWCourseListFileLoader () <NSXMLParserDelegate>
 
@@ -23,6 +24,8 @@
 @property (nonatomic, retain) NSMutableArray *chapterList;
 @property (nonatomic, retain) NSMutableArray *moduleList;
 @property (nonatomic, retain) NSXMLParser *xmlParser;
+
+@property (nonatomic, retain) NSString *charData;
 
 @end
 
@@ -38,6 +41,8 @@
 	[_lessonList release];
 	[_chapterList release];
 	[_moduleList release];
+	
+	[_charData release];
 	
 	_loaderDelegate = nil;
 	_xmlParser.delegate = nil;
@@ -97,6 +102,8 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+	self.charData = @"";
+	
 	if ([elementName isEqualToString:@"course"]) {
 		self.currentCourse = [[[CWCourse alloc] init] autorelease];
 		self.currentCourse.title = [attributeDict objectForKey:@"title"];
@@ -115,6 +122,13 @@
 	else if ([elementName isEqualToString:@"lesson"]) {
 		self.currentLesson = [[[CWLesson alloc] init] autorelease];
 		self.currentLesson.title = [attributeDict objectForKey:@"title"];
+	}
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+	string = [string trim];
+	if(![string isEqualToString:@""]) {
+		self.charData = [self.charData stringByAppendingString:string];
 	}
 }
 
@@ -139,6 +153,9 @@
 	else if ([elementName isEqualToString:@"lesson"]) {
 		self.currentLesson.parent = self.currentChapter;
 		[self.lessonList addObject:self.currentLesson];
+	}
+	else if ([elementName isEqualToString:@"description"]) {
+		self.currentLesson.referenceDescription = [NSString stringWithString:self.charData];
 	}
 }
 

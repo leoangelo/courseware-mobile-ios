@@ -13,13 +13,14 @@
 #import "ReaderDocument.h"
 #import "ReaderContentView.h"
 #import "CWCourseReaderModel.h"
+#import "CWBrowserPaneView.h"
 
 #pragma mark Constants
 
 #define PAGING_VIEWS 3
 #define TAP_AREA_SIZE 48.0f
 
-@interface CWCourseReaderViewController () <ReaderContentViewDelegate> {
+@interface CWCourseReaderViewController () <ReaderContentViewDelegate, UIGestureRecognizerDelegate> {
 	
 	NSInteger currentPage;
 	NSMutableDictionary *contentViews;
@@ -28,11 +29,18 @@
 	BOOL isVisible;
 	CGSize lastAppearSize;
 	
+	NSDate *lastVisibilityToggleDate;
+	BOOL isAnimating;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, retain) IBOutlet CWBrowserPaneView *browserPane;
 @property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, retain) IBOutlet CWBottomToolbar *toolbar;
+
+- (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated;
+- (BOOL)areReaderControlsVisible;
+- (void)finishedVisibilityAnimation;
 
 @end
 
@@ -43,9 +51,11 @@
 	[_scrollView release];
 	[_navBar release];
 	[_toolbar release];
+	[_browserPane release];
 	[contentViews release];
 	[document release];
 	[model release];
+	[lastVisibilityToggleDate release];
 	[super dealloc];
 }
 
@@ -67,6 +77,23 @@
 	[contentViews release];
 	contentViews = nil;
 	contentViews = [[NSMutableDictionary alloc] init];
+	
+	[self makeReaderControlsVisible:YES animated:NO];
+	
+	UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+	singleTapOne.numberOfTouchesRequired = 1; singleTapOne.numberOfTapsRequired = 1; singleTapOne.delegate = self;
+	
+	UITapGestureRecognizer *doubleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+	doubleTapOne.numberOfTouchesRequired = 1; doubleTapOne.numberOfTapsRequired = 2; doubleTapOne.delegate = self;
+	
+	UITapGestureRecognizer *doubleTapTwo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+	doubleTapTwo.numberOfTouchesRequired = 2; doubleTapTwo.numberOfTapsRequired = 2; doubleTapTwo.delegate = self;
+	
+	[singleTapOne requireGestureRecognizerToFail:doubleTapOne]; // Single tap requires double tap to fail
+	
+	[self.view addGestureRecognizer:singleTapOne]; [singleTapOne release];
+	[self.view addGestureRecognizer:doubleTapOne]; [doubleTapOne release];
+	[self.view addGestureRecognizer:doubleTapTwo]; [doubleTapTwo release];
 }
 
 - (void)viewDidUnload
@@ -75,8 +102,10 @@
 	self.scrollView = nil;
 	self.navBar = nil;
 	self.toolbar = nil;
+	self.browserPane = nil;
 	
 	[contentViews release]; contentViews = nil;
+	[lastVisibilityToggleDate release]; lastVisibilityToggleDate = nil;
 	currentPage = 0;
 	lastAppearSize = CGSizeZero;
 }
@@ -400,7 +429,165 @@
 	_scrollView.tag = 0; // Clear page number tag
 }
 
+#pragma mark UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)recognizer shouldReceiveTouch:(UITouch *)touch
+{
+#ifdef DEBUGX
+	NSLog(@"%s", __FUNCTION__);
+#endif
+	
+	if ([touch.view isKindOfClass:[UIScrollView class]]) return YES;
+	
+	return NO;
+}
+
 #pragma mark UIGestureRecognizer action methods
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer
+{
+#ifdef DEBUGX
+	NSLog(@"%s", __FUNCTION__);
+#endif
+	
+	if (recognizer.state == UIGestureRecognizerStateRecognized)
+	{
+		CGRect viewRect = recognizer.view.bounds; // View bounds
+		
+		CGPoint point = [recognizer locationInView:recognizer.view];
+		
+		CGRect areaRect = CGRectInset(viewRect, TAP_AREA_SIZE, 0.0f); // Area
+		
+		if (CGRectContainsPoint(areaRect, point)) // Single tap is inside the area
+		{
+			NSInteger page = [document.pageNumber integerValue]; // Current page #
+			
+			NSNumber *key = [NSNumber numberWithInteger:page]; // Page number key
+			
+			ReaderContentView *targetView = [contentViews objectForKey:key];
+			
+			id target = [targetView singleTap:recognizer]; // Process tap
+			
+			if (target != nil) // Handle the returned target object
+			{
+				if ([target isKindOfClass:[NSURL class]]) // Open a URL
+				{
+					NSURL *url = (NSURL *)target; // Cast to a NSURL object
+					
+					if (url.scheme == nil) // Handle a missing URL scheme
+					{
+						NSString *www = url.absoluteString; // Get URL string
+						
+						if ([www hasPrefix:@"www"] == YES) // Check for 'www' prefix
+						{
+							NSString *http = [NSString stringWithFormat:@"http://%@", www];
+							
+							url = [NSURL URLWithString:http]; // Proper http-based URL
+						}
+					}
+					
+					if ([[UIApplication sharedApplication] openURL:url] == NO)
+					{
+#ifdef DEBUG
+						NSLog(@"%s '%@'", __FUNCTION__, url); // Bad or unknown URL
+#endif
+					}
+				}
+				else // Not a URL, so check for other possible object type
+				{
+					if ([target isKindOfClass:[NSNumber class]]) // Goto page
+					{
+						NSInteger value = [target integerValue]; // Number
+						
+						[self showDocumentPage:value]; // Show the page
+					}
+				}
+			}
+			else // Nothing active tapped in the target content view
+			{
+				if (![self areReaderControlsVisible]) {
+					[self makeReaderControlsVisible:YES animated:YES];
+				}
+			}
+			
+			return;
+		}
+		
+		CGRect nextPageRect = viewRect;
+		nextPageRect.size.width = TAP_AREA_SIZE;
+		nextPageRect.origin.x = (viewRect.size.width - TAP_AREA_SIZE);
+		
+		if (CGRectContainsPoint(nextPageRect, point)) // page++ area
+		{
+			[self incrementPageNumber]; return;
+		}
+		
+		CGRect prevPageRect = viewRect;
+		prevPageRect.size.width = TAP_AREA_SIZE;
+		
+		if (CGRectContainsPoint(prevPageRect, point)) // page-- area
+		{
+			[self decrementPageNumber]; return;
+		}
+	}
+}
+
+- (void)handleDoubleTap:(UITapGestureRecognizer *)recognizer
+{
+#ifdef DEBUGX
+	NSLog(@"%s", __FUNCTION__);
+#endif
+	
+	if (recognizer.state == UIGestureRecognizerStateRecognized)
+	{
+		CGRect viewRect = recognizer.view.bounds; // View bounds
+		
+		CGPoint point = [recognizer locationInView:recognizer.view];
+		
+		CGRect zoomArea = CGRectInset(viewRect, TAP_AREA_SIZE, TAP_AREA_SIZE);
+		
+		if (CGRectContainsPoint(zoomArea, point)) // Double tap is in the zoom area
+		{
+			NSInteger page = [document.pageNumber integerValue]; // Current page #
+			
+			NSNumber *key = [NSNumber numberWithInteger:page]; // Page number key
+			
+			ReaderContentView *targetView = [contentViews objectForKey:key];
+			
+			switch (recognizer.numberOfTouchesRequired) // Touches count
+			{
+				case 1: // One finger double tap: zoom ++
+				{
+					[targetView zoomIncrement]; break;
+				}
+					
+				case 2: // Two finger double tap: zoom --
+				{
+					[targetView zoomDecrement]; break;
+				}
+			}
+			
+			return;
+		}
+		
+		CGRect nextPageRect = viewRect;
+		nextPageRect.size.width = TAP_AREA_SIZE;
+		nextPageRect.origin.x = (viewRect.size.width - TAP_AREA_SIZE);
+		
+		if (CGRectContainsPoint(nextPageRect, point)) // page++ area
+		{
+			[self incrementPageNumber]; return;
+		}
+		
+		CGRect prevPageRect = viewRect;
+		prevPageRect.size.width = TAP_AREA_SIZE;
+		
+		if (CGRectContainsPoint(prevPageRect, point)) // page-- area
+		{
+			[self decrementPageNumber]; return;
+		}
+	}
+}
 
 - (void)decrementPageNumber
 {
@@ -456,11 +643,11 @@
 
 - (void)contentView:(ReaderContentView *)contentView touchesBegan:(NSSet *)touches
 {
-//#ifdef DEBUGX
-//	NSLog(@"%s", __FUNCTION__);
-//#endif
-//	
-//	if ((mainToolbar.hidden == NO) || (mainPagebar.hidden == NO))
+#ifdef DEBUGX
+	NSLog(@"%s", __FUNCTION__);
+#endif
+	
+//	if ((_navBar.hidden == NO) || (_toolbar.hidden == NO))
 //	{
 //		if (touches.count == 1) // Single touches only
 //		{
@@ -477,6 +664,77 @@
 //		
 //		[lastHideTime release]; lastHideTime = [NSDate new];
 //	}
+	
+	if ([self areReaderControlsVisible]) {
+		[self makeReaderControlsVisible:NO animated:YES];
+	}
+		
+}
+
+#pragma mark - Controls Visibility
+
+- (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated
+{	
+	if (lastVisibilityToggleDate && ([lastVisibilityToggleDate timeIntervalSinceNow] >= -0.75f)) {
+		return;
+	}
+	
+	if (animated) {
+		// Do not do animation when already doing so.
+		if (isAnimating) return;
+		
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationBeginsFromCurrentState:YES];
+		[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+		[UIView setAnimationDuration:0.25f];
+		[UIView setAnimationDelegate:self];
+		[UIView setAnimationDidStopSelector:@selector(finishedVisibilityAnimation)];
+	}
+	
+	self.scrollView.frame = (CGRect) {
+		visible ? self.browserPane.frame.size.width : 0,
+		self.scrollView.frame.origin.y,
+		self.scrollView.frame.size
+	};
+	
+	self.navBar.alpha = visible ? 1.0f : 0.0f;
+	self.navBar.frame = (CGRect) {
+		self.navBar.frame.origin.x,
+		visible ? 0 : -self.navBar.frame.size.height,
+		self.navBar.frame.size
+	};
+	
+	self.browserPane.alpha = visible ? 1.0f : 0.0f;
+	self.browserPane.frame = (CGRect) {
+		visible ? 0.0f : -self.browserPane.frame.size.width,
+		self.browserPane.frame.origin.y,
+		self.browserPane.frame.size
+	};
+	
+	self.toolbar.alpha = visible ? 1.0f : 0.0f;
+	self.toolbar.frame = (CGRect) {
+		self.toolbar.frame.origin.x,
+		visible ? self.view.frame.size.height - self.toolbar.frame.size.height : self.view.frame.size.height + self.toolbar.frame.size.height,
+		self.toolbar.frame.size
+	};
+	
+	if (animated) {
+		isAnimating = YES;
+		[UIView commitAnimations];
+	}
+	
+	[lastVisibilityToggleDate release]; lastVisibilityToggleDate = nil;
+	lastVisibilityToggleDate = [[NSDate date] retain];
+}
+
+- (BOOL)areReaderControlsVisible
+{
+	return self.navBar.alpha != 0.f || self.browserPane.alpha != 0.f || self.toolbar.alpha != 0.f;
+}
+
+- (void)finishedVisibilityAnimation
+{
+	isAnimating = NO;
 }
 
 @end

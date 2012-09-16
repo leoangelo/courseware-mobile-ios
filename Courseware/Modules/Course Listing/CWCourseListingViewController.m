@@ -11,6 +11,7 @@
 #import "CWNavigationBar.h"
 #import "CWCourseItem.h"
 #import "CWCourseListingScreenModel.h"
+#import "SLSlideMenuView.h"
 
 @interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
 
@@ -49,6 +50,7 @@
 {
     [super viewDidLoad];
 	[self.browserPane setActiveItem:_model.selectedCourseItem];
+	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 }
 
 - (void)viewDidUnload

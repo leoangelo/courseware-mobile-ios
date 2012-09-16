@@ -7,7 +7,7 @@
 //
 
 #import "CWAccountManager.h"
-#import "Account.h"
+#import "CWAccount.h"
 #import "NSString+SLUtilities.h"
 
 #define CLEARS_ON_STARTUP 1
@@ -15,7 +15,7 @@
 
 @interface CWAccountManager ()
 
-@property (nonatomic, retain) Account *activeUserAccount;
+@property (nonatomic, retain) CWAccount *activeUserAccount;
 
 - (void)insertTestUser;
 
@@ -46,7 +46,7 @@
 	self = [super init];
 	if (self) {
 		if (CLEARS_ON_STARTUP) {
-			[self clearAllObjectsOnClass:[Account class]];
+			[self clearAllObjectsOnClass:[CWAccount class]];
 		}
 		if (INSERT_TEST_USER) {
 			[self insertTestUser];
@@ -55,7 +55,7 @@
 	return self;
 }
 
-- (Account *)getActiveUserAccount
+- (CWAccount *)getActiveUserAccount
 {
 	return self.activeUserAccount;
 }
@@ -79,7 +79,7 @@
 					emailAddress:(NSString *)emailAddress
 					passwordHint:(NSString *)passwordHint
 {
-	Account *newAccount = [self createNewObjectWithClass:[Account class]];
+	CWAccount *newAccount = [self createNewObjectWithClass:[CWAccount class]];
 	newAccount.accountId = [NSString generateRandomString];
 	newAccount.username = userName;
 	newAccount.password = password;
@@ -96,13 +96,13 @@
 		 password:(NSString *)password
 			error:(NSError **)error
 {	
-	NSArray *accountsWithName = [self fetchObjectsWithClass:[Account class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
+	NSArray *accountsWithName = [self fetchObjectsWithClass:[CWAccount class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
 	if (!accountsWithName || [accountsWithName count] == 0) {
 		// User does not exist
 		*error = [NSError errorWithDomain:ACCOUNT_ERR_DOMAIN code:ACCOUNT_ERR_CODE_USER_NOT_FOUND userInfo:nil];
 		return NO;
 	}
-	Account *accountWithName = [accountsWithName objectAtIndex:0];
+	CWAccount *accountWithName = [accountsWithName objectAtIndex:0];
 	if (![accountWithName.password isEqualToString:password]) {
 		// Password does not match
 		*error = [NSError errorWithDomain:ACCOUNT_ERR_DOMAIN code:ACCOUNT_ERR_CODE_WRONG_PASSWORD userInfo:nil];
@@ -117,7 +117,7 @@
 
 - (NSString *)passwordHintForUsername:(NSString *)username
 {
-	NSArray *accountsWithName = [self fetchObjectsWithClass:[Account class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
+	NSArray *accountsWithName = [self fetchObjectsWithClass:[CWAccount class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
 	if (!accountsWithName || [accountsWithName count] == 0) {
 		// User does not exist
 		return nil;

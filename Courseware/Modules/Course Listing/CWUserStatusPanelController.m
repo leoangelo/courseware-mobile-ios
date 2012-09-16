@@ -8,7 +8,7 @@
 
 #import "CWUserStatusPanelController.h"
 #import "CWAccountManager.h"
-#import "Account.h"
+#import "CWAccount.h"
 
 @implementation CWUserStatusPanelController
 

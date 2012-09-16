@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Account" representedClassName="Account">
+    <entity name="CWAccount" representedClassName="CWAccount">
         <attribute name="accountId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String">
@@ -12,6 +12,6 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Account" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="CWAccount" positionX="0" positionY="0" width="128" height="135"/>
     </elements>
 </model>

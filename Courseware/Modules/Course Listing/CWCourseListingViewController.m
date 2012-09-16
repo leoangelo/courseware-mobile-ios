@@ -12,6 +12,7 @@
 #import "CWCourseItem.h"
 #import "CWCourseListingScreenModel.h"
 #import "SLSlideMenuView.h"
+#import "CWCourseReaderViewController.h"
 
 @interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
 
@@ -63,7 +64,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -95,6 +96,10 @@
 	// self.model.selectedCourseItem = [self.model.getItemList objectAtIndex:indexPath.row];
 	[self.browserPane setActiveItem:[self.model.getItemList objectAtIndex:indexPath.row]];
 	// [self.listView reloadData];
+	
+	CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
+	[self.navigationController pushViewController:vc animated:YES];
+	[vc release];
 }
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item

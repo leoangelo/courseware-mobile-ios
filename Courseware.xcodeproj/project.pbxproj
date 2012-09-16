@@ -11,6 +11,11 @@
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
+		7E291F8116060E2200C7BD8E /* CWCourseReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */; };
+		7E291F8216060E2200C7BD8E /* CWCourseReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E291F8016060E2200C7BD8E /* CWCourseReaderViewController.xib */; };
+		7E291F861606119500C7BD8E /* CWBottomToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F851606119500C7BD8E /* CWBottomToolbar.m */; };
+		7E291F891606172100C7BD8E /* CWCourseReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F881606172100C7BD8E /* CWCourseReaderModel.m */; };
+		7E291F901606181500C7BD8E /* CWUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F8F1606181500C7BD8E /* CWUtilities.m */; };
 		7E2F63D4160477020064605C /* CWCourseListingScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */; };
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
 		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
@@ -92,6 +97,15 @@
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
 		7E20B5E815FE3477004DBAC1 /* SLSlideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuController.h; sourceTree = "<group>"; };
 		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
+		7E291F7E16060E2200C7BD8E /* CWCourseReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseReaderViewController.h; sourceTree = "<group>"; };
+		7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseReaderViewController.m; sourceTree = "<group>"; };
+		7E291F8016060E2200C7BD8E /* CWCourseReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWCourseReaderViewController.xib; sourceTree = "<group>"; };
+		7E291F841606119500C7BD8E /* CWBottomToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBottomToolbar.h; sourceTree = "<group>"; };
+		7E291F851606119500C7BD8E /* CWBottomToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBottomToolbar.m; sourceTree = "<group>"; };
+		7E291F871606172100C7BD8E /* CWCourseReaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseReaderModel.h; sourceTree = "<group>"; };
+		7E291F881606172100C7BD8E /* CWCourseReaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseReaderModel.m; sourceTree = "<group>"; };
+		7E291F8E1606181500C7BD8E /* CWUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUtilities.h; sourceTree = "<group>"; };
+		7E291F8F1606181500C7BD8E /* CWUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUtilities.m; sourceTree = "<group>"; };
 		7E2F63D2160477020064605C /* CWCourseListingScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListingScreenModel.h; sourceTree = "<group>"; };
 		7E2F63D3160477020064605C /* CWCourseListingScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListingScreenModel.m; sourceTree = "<group>"; };
 		7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseItem.h; sourceTree = "<group>"; };
@@ -283,6 +297,27 @@
 			name = "Navigation Bar";
 			sourceTree = "<group>";
 		};
+		7E291F7C16060DE500C7BD8E /* Course Reader */ = {
+			isa = PBXGroup;
+			children = (
+				7E291F7E16060E2200C7BD8E /* CWCourseReaderViewController.h */,
+				7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */,
+				7E291F8016060E2200C7BD8E /* CWCourseReaderViewController.xib */,
+				7E291F871606172100C7BD8E /* CWCourseReaderModel.h */,
+				7E291F881606172100C7BD8E /* CWCourseReaderModel.m */,
+			);
+			path = "Course Reader";
+			sourceTree = "<group>";
+		};
+		7E291F831606115200C7BD8E /* Bottom Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				7E291F841606119500C7BD8E /* CWBottomToolbar.h */,
+				7E291F851606119500C7BD8E /* CWBottomToolbar.m */,
+			);
+			name = "Bottom Toolbar";
+			sourceTree = "<group>";
+		};
 		7E5E365916057E4B00EE508B /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,11 +456,11 @@
 		7ECB48E215E9EF7C00F850E9 /* Courseware */ = {
 			isa = PBXGroup;
 			children = (
-				7E5E365916057E4B00EE508B /* Third Party */,
 				7EFBF7D115FAF3FE001CCCB2 /* Components */,
 				7EFBF7C615FADEDB001CCCB2 /* Helpers */,
-				7E9C850715FAC49B002AB343 /* Models */,
 				7EEB7C4615F2D7E7009DAE94 /* Modules */,
+				7E9C850715FAC49B002AB343 /* Models */,
+				7E5E365916057E4B00EE508B /* Third Party */,
 				7ECB48EB15E9EF7C00F850E9 /* CWAppDelegate.h */,
 				7ECB48EC15E9EF7C00F850E9 /* CWAppDelegate.m */,
 				7ECB48E315E9EF7C00F850E9 /* Supporting Files */,
@@ -467,6 +502,7 @@
 		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E291F7C16060DE500C7BD8E /* Course Reader */,
 				7EFBF7CA15FAF083001CCCB2 /* Course Listing */,
 				7EEB7C4715F2D804009DAE94 /* Login */,
 			);
@@ -490,6 +526,8 @@
 				7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */,
 				7EC8AD3615FCA95300ED9E27 /* CWConstants.h */,
 				7EC8AD3715FCA95300ED9E27 /* CWConstants.m */,
+				7E291F8E1606181500C7BD8E /* CWUtilities.h */,
+				7E291F8F1606181500C7BD8E /* CWUtilities.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -514,6 +552,7 @@
 		7EFBF7D115FAF3FE001CCCB2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7E291F831606115200C7BD8E /* Bottom Toolbar */,
 				7E20B5ED15FE34C7004DBAC1 /* Navigation Bar */,
 				7E20B5EC15FE34B9004DBAC1 /* Browser Pane */,
 				7E20B5EB15FE34A7004DBAC1 /* Slide Menu */,
@@ -608,6 +647,7 @@
 				7EC8AD3A15FCBFA700ED9E27 /* CWBrowserPaneView.xib in Resources */,
 				7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */,
 				7EEF0E7215FF916A00122C0F /* CWCourseListingViewController.xib in Resources */,
+				7E291F8216060E2200C7BD8E /* CWCourseReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +725,10 @@
 				7E5E369216057E4B00EE508B /* ThumbsViewController.m in Sources */,
 				7E5E369316057E4B00EE508B /* UIXToolbarView.m in Sources */,
 				7E5E36A716057F7900EE508B /* CWAccount.m in Sources */,
+				7E291F8116060E2200C7BD8E /* CWCourseReaderViewController.m in Sources */,
+				7E291F861606119500C7BD8E /* CWBottomToolbar.m in Sources */,
+				7E291F891606172100C7BD8E /* CWCourseReaderModel.m in Sources */,
+				7E291F901606181500C7BD8E /* CWUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

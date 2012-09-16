@@ -9,6 +9,7 @@
 #import "CWCourseListFileLoader.h"
 #import "CWCourseItem.h"
 #import "NSString+SLUtilities.h"
+#import "CWUtilities.h"
 
 @interface CWCourseListFileLoader ()
 
@@ -99,25 +100,10 @@
 
 - (void)loadSampleFile
 {
-	NSBundle *courseWareBundle = [self.class courseWareBundle];
+	NSBundle *courseWareBundle = [CWUtilities courseWareBundle];
 	NSAssert(courseWareBundle, @"must not be nil");
 	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json"];
 	[self loadFilePath:sampleXMLPath];
-}
-
-+ (NSBundle *)courseWareBundle
-{
-	NSArray *bundles = [[NSBundle mainBundle] pathsForResourcesOfType:@"bundle" inDirectory:@""];
-	NSBundle *cwBundle = nil;
-	
-	// locate the bundle.
-	for (NSString *bundlePath in bundles) {
-		if ([bundlePath rangeOfString:@"Courseware"].location != NSNotFound) {
-			cwBundle = [NSBundle bundleWithPath:bundlePath];
-			break;
-		}
-	}
-	return cwBundle;
 }
 
 @end

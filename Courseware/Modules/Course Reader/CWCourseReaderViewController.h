@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CWCourseItem;
+
 @interface CWCourseReaderViewController : UIViewController
+
+@property (nonatomic, assign) CWCourseItem *selectedCourse;
 
 @end

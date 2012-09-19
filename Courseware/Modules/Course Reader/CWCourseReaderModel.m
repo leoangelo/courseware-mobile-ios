@@ -23,4 +23,18 @@
 	return [self documentFromFilePath:filePath];
 }
 
+- (NSInteger)randomPageIndex
+{
+	return arc4random() % [self.courseDocument.pageCount integerValue];
+}
+
+- (ReaderDocument *)courseDocument
+{
+	if (!_courseDocument) {
+		_courseDocument = [[self.class sampleDocument] retain];
+		[_courseDocument updateProperties];
+	}
+	return _courseDocument;
+}
+
 @end

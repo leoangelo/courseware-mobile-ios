@@ -98,6 +98,7 @@
 	// [self.listView reloadData];
 	
 	CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
+	vc.selectedCourse = [self.model.getItemList objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:vc animated:YES];
 	[vc release];
 }

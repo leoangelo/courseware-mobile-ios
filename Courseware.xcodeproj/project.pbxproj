@@ -20,6 +20,7 @@
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
 		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
 		7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */; };
+		7E3E7B9D160A229B00849255 /* CWCourseDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
 		7E5E368216057E4B00EE508B /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365E16057E4B00EE508B /* ReaderConstants.m */; };
 		7E5E368316057E4B00EE508B /* ReaderContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E366016057E4B00EE508B /* ReaderContentPage.m */; };
@@ -115,6 +116,8 @@
 		7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseManager.m; sourceTree = "<group>"; };
 		7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListFileLoader.h; sourceTree = "<group>"; };
 		7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListFileLoader.m; sourceTree = "<group>"; };
+		7E3E7B9B160A229B00849255 /* CWCourseDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseDocumentView.h; sourceTree = "<group>"; };
+		7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseDocumentView.m; sourceTree = "<group>"; };
 		7E5E365B16057E4B00EE508B /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
 		7E5E365C16057E4B00EE508B /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
 		7E5E365D16057E4B00EE508B /* ReaderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderConstants.h; sourceTree = "<group>"; };
@@ -310,6 +313,8 @@
 				7E291F8016060E2200C7BD8E /* CWCourseReaderViewController.xib */,
 				7E291F871606172100C7BD8E /* CWCourseReaderModel.h */,
 				7E291F881606172100C7BD8E /* CWCourseReaderModel.m */,
+				7E3E7B9B160A229B00849255 /* CWCourseDocumentView.h */,
+				7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */,
 			);
 			path = "Course Reader";
 			sourceTree = "<group>";
@@ -735,6 +740,7 @@
 				7E291F891606172100C7BD8E /* CWCourseReaderModel.m in Sources */,
 				7E291F901606181500C7BD8E /* CWUtilities.m in Sources */,
 				7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */,
+				7E3E7B9D160A229B00849255 /* CWCourseDocumentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,10 @@
 
 @interface CWCourseReaderModel : NSObject
 
+@property (nonatomic, retain) ReaderDocument *courseDocument;
+
+- (NSInteger)randomPageIndex;
+
 + (ReaderDocument *)documentFromFilePath:(NSString *)filePath;
 + (ReaderDocument *)sampleDocument;
 

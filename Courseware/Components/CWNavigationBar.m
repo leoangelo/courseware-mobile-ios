@@ -7,6 +7,16 @@
 //
 
 #import "CWNavigationBar.h"
+#import "CWNavigationBarController.h"
+
+@interface CWNavigationBar ()
+
+@property (nonatomic, retain) CWNavigationBarController *controller;
+@property (nonatomic, retain) UINavigationItem *navigationItem;
+
+- (void)initializeItems;
+
+@end
 
 @implementation CWNavigationBar
 
@@ -14,18 +24,42 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+		[self initializeItems];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)awakeFromNib
 {
-    // Drawing code
+	[self initializeItems];
 }
-*/
+
+- (void)initializeItems
+{
+	self.controller = [[[CWNavigationBarController alloc] init] autorelease];
+	self.navigationItem = [[UINavigationItem alloc] initWithTitle:@""];
+	
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(backButtonAction)];
+	UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(homeButtonAction)];
+	
+	NSMutableArray *leftItems = [[NSMutableArray alloc] init];
+	
+	if (self.controller.shouldDisplayBackButton) {
+		[leftItems addObject:backButton];
+	}
+	if (self.controller.shouldDisplayHomeButton) {
+		[leftItems addObject:homeButton];
+	}
+	
+	self.navigationItem.leftBarButtonItems = leftItems;
+	
+	if (leftItems.count > 0) {
+		[self pushNavigationItem:self.navigationItem animated:NO];
+	}
+	
+	[backButton release];
+	[homeButton release];
+	[leftItems release];
+}
 
 @end

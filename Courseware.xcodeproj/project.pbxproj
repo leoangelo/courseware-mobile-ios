@@ -44,6 +44,7 @@
 		7E5E369E16057E9400EE508B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E369D16057E9400EE508B /* QuickLook.framework */; };
 		7E5E36A416057ED000EE508B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E36A316057ED000EE508B /* MessageUI.framework */; };
 		7E5E36A716057F7900EE508B /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E36A616057F7900EE508B /* CWAccount.m */; };
+		7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E71984A1609494600CA0F7D /* CWNavigationBarController.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
 		7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486A15FB1019008ECDDE /* Courseware.bundle */; };
@@ -158,6 +159,8 @@
 		7E5E36A316057ED000EE508B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7E5E36A516057F7900EE508B /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
 		7E5E36A616057F7900EE508B /* CWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccount.m; sourceTree = "<group>"; };
+		7E7198491609494600CA0F7D /* CWNavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNavigationBarController.h; sourceTree = "<group>"; };
+		7E71984A1609494600CA0F7D /* CWNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNavigationBarController.m; sourceTree = "<group>"; };
 		7E9C850D15FAC873002AB343 /* CWAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManager.h; sourceTree = "<group>"; };
 		7E9C850E15FAC873002AB343 /* CWAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManager.m; sourceTree = "<group>"; };
 		7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCoreDataManager.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 			children = (
 				7EFBF7D215FAF429001CCCB2 /* CWNavigationBar.h */,
 				7EFBF7D315FAF429001CCCB2 /* CWNavigationBar.m */,
+				7E7198491609494600CA0F7D /* CWNavigationBarController.h */,
+				7E71984A1609494600CA0F7D /* CWNavigationBarController.m */,
 			);
 			name = "Navigation Bar";
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				7E291F861606119500C7BD8E /* CWBottomToolbar.m in Sources */,
 				7E291F891606172100C7BD8E /* CWCourseReaderModel.m in Sources */,
 				7E291F901606181500C7BD8E /* CWUtilities.m in Sources */,
+				7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,7 +36,6 @@
 - (void)loadFilePath:(NSString *)theFilePath
 {
 	// Typically, the file we will load comes from the filesystem, and not from the app bundle.
-	// Do nothing yet!
 	
 	NSData *fileData = [NSData dataWithContentsOfFile:theFilePath];
 	if (fileData) {

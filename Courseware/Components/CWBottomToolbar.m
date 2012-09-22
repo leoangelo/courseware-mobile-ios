@@ -7,25 +7,48 @@
 //
 
 #import "CWBottomToolbar.h"
+#import "CWBottomToolbarController.h"
+
+@interface CWBottomToolbar ()
+
+@property (nonatomic, retain) CWBottomToolbarController *controller;
+
+- (void)initializeItems;
+
+@end
 
 @implementation CWBottomToolbar
 
-- (id)initWithFrame:(CGRect)frame
+- (void)dealloc
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+	[_controller release];
+	[super dealloc];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)awakeFromNib
 {
-    // Drawing code
+	[self initializeItems];
 }
-*/
+
+- (void)initializeItems
+{
+	self.controller = [[[CWBottomToolbarController alloc] init] autorelease];
+	
+	NSMutableArray *anItems = [[NSMutableArray alloc] init];
+	
+	[anItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
+	
+	UIBarButtonItem *bookmarksButton = [[[UIBarButtonItem alloc] initWithTitle:@"Bookmarks" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(bookmarksAction:)] autorelease];
+	[anItems addObject:bookmarksButton];
+	
+	UIBarButtonItem *notesButton = [[[UIBarButtonItem alloc] initWithTitle:@"Notes" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(notesAction:)] autorelease];
+	[anItems addObject:notesButton];
+	
+	[anItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
+	
+	self.items = anItems;
+	
+	[anItems release];
+}
 
 @end

@@ -14,6 +14,7 @@
 - (NSArray *)fetchObjectsWithClass:(Class)theClass withPredicate:(NSPredicate *)thePredicate;
 - (void)saveContext;
 
+- (void)deleteObject:(NSManagedObject *)object;
 - (void)clearAllObjectsOnClass:(Class)theClass;
 
 @end

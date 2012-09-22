@@ -11,7 +11,13 @@
         <attribute name="username" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
+    <entity name="CWNote" representedClassName="CWNote" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="CWAccount" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="CWNote" positionX="160" positionY="192" width="128" height="88"/>
     </elements>
 </model>

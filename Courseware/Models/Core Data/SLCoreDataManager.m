@@ -84,6 +84,12 @@
 	return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(theClass) inManagedObjectContext:self.managedObjectContext];
 }
 
+- (void)deleteObject:(NSManagedObject *)object
+{
+	[self.managedObjectContext deleteObject:object];
+	[self saveContext];
+}
+
 - (void)clearAllObjectsOnClass:(Class)theClass
 {
 	NSArray *allObjects = [self fetchObjectsWithClass:theClass withPredicate:nil];

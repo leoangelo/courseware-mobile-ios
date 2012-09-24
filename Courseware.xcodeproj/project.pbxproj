@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
+		7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */; };
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
@@ -77,8 +78,10 @@
 		7EEB7C4B15F2D834009DAE94 /* CWUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB7C4915F2D834009DAE94 /* CWUserLoginViewController.m */; };
 		7EEB7C4C15F2D834009DAE94 /* CWUserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB7C4A15F2D834009DAE94 /* CWUserLoginViewController.xib */; };
 		7EED6207160DDCB400E688B6 /* CWNotesListingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EED6206160DDCB400E688B6 /* CWNotesListingModel.m */; };
+		7EED6210160E010700E688B6 /* CWNotesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EED620F160E010700E688B6 /* CWNotesDetailViewController.m */; };
 		7EEF0E7115FF916A00122C0F /* CWCourseListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */; };
 		7EEF0E7215FF916A00122C0F /* CWCourseListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */; };
+		7EFA3578160E11A600936F45 /* CWNotesDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA3577160E11A600936F45 /* CWNotesDetailModel.m */; };
 		7EFBF7C915FADF13001CCCB2 /* NSString+SLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */; };
 		7EFBF7CE15FAF14A001CCCB2 /* CWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7CC15FAF14A001CCCB2 /* CWHomeViewController.m */; };
 		7EFBF7CF15FAF14A001CCCB2 /* CWHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFBF7CD15FAF14A001CCCB2 /* CWHomeViewController.xib */; };
@@ -100,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWRecentReadingsPanelView.xib; sourceTree = "<group>"; };
+		7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWNotesDetailViewController.xib; sourceTree = "<group>"; };
 		7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuView.h; sourceTree = "<group>"; };
 		7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuView.m; sourceTree = "<group>"; };
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
@@ -217,9 +221,13 @@
 		7EEB7C4A15F2D834009DAE94 /* CWUserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWUserLoginViewController.xib; sourceTree = "<group>"; };
 		7EED6205160DDCB400E688B6 /* CWNotesListingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotesListingModel.h; sourceTree = "<group>"; };
 		7EED6206160DDCB400E688B6 /* CWNotesListingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesListingModel.m; sourceTree = "<group>"; };
+		7EED620E160E010700E688B6 /* CWNotesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotesDetailViewController.h; sourceTree = "<group>"; };
+		7EED620F160E010700E688B6 /* CWNotesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesDetailViewController.m; sourceTree = "<group>"; };
 		7EEF0E6E15FF916A00122C0F /* CWCourseListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListingViewController.h; sourceTree = "<group>"; };
 		7EEF0E6F15FF916A00122C0F /* CWCourseListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListingViewController.m; sourceTree = "<group>"; };
 		7EEF0E7015FF916A00122C0F /* CWCourseListingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWCourseListingViewController.xib; sourceTree = "<group>"; };
+		7EFA3576160E11A600936F45 /* CWNotesDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotesDetailModel.h; sourceTree = "<group>"; };
+		7EFA3577160E11A600936F45 /* CWNotesDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesDetailModel.m; sourceTree = "<group>"; };
 		7EFBF7C715FADF13001CCCB2 /* NSString+SLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SLUtilities.h"; sourceTree = "<group>"; };
 		7EFBF7C815FADF13001CCCB2 /* NSString+SLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SLUtilities.m"; sourceTree = "<group>"; };
 		7EFBF7CB15FAF14A001CCCB2 /* CWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHomeViewController.h; sourceTree = "<group>"; };
@@ -548,6 +556,11 @@
 				7EDA2AD0160D758B00B40202 /* CWNotesListViewController.xib */,
 				7EED6205160DDCB400E688B6 /* CWNotesListingModel.h */,
 				7EED6206160DDCB400E688B6 /* CWNotesListingModel.m */,
+				7EED620E160E010700E688B6 /* CWNotesDetailViewController.h */,
+				7EED620F160E010700E688B6 /* CWNotesDetailViewController.m */,
+				7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */,
+				7EFA3576160E11A600936F45 /* CWNotesDetailModel.h */,
+				7EFA3577160E11A600936F45 /* CWNotesDetailModel.m */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -703,6 +716,7 @@
 				7EEF0E7215FF916A00122C0F /* CWCourseListingViewController.xib in Resources */,
 				7E291F8216060E2200C7BD8E /* CWCourseReaderViewController.xib in Resources */,
 				7EDA2AD2160D758B00B40202 /* CWNotesListViewController.xib in Resources */,
+				7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +805,8 @@
 				7EDA2ADB160D802300B40202 /* CWNote.m in Sources */,
 				7EDA2AE7160D86B800B40202 /* CWNotesManager.m in Sources */,
 				7EED6207160DDCB400E688B6 /* CWNotesListingModel.m in Sources */,
+				7EED6210160E010700E688B6 /* CWNotesDetailViewController.m in Sources */,
+				7EFA3578160E11A600936F45 /* CWNotesDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

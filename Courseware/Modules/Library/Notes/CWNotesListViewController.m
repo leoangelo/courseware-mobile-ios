@@ -9,6 +9,8 @@
 #import "CWNotesListViewController.h"
 #import "CWNotesListingModel.h"
 #import "CWNote.h"
+#import "CWNotesDetailViewController.h"
+#import "CWNotesManager.h"
 
 @interface CWNotesListViewController ()
 
@@ -40,6 +42,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	self.contentSizeForViewInPopover = CGSizeMake(320, 436);
+
 }
 
 - (void)viewDidUnload
@@ -115,7 +120,12 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 		[self.model deleteNoteAtIndex:indexPath.row - 1];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		if (self.model.getAllNotes.count > 0) {
+			[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		}
+		else {
+			[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		}
     }
 }
 
@@ -123,14 +133,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+	CWNote *selectedNote = nil;
+	if (indexPath.row == 0) {
+		selectedNote = [[CWNotesManager sharedManager] createBlankNote];
+	}
+	else if (self.model.getAllNotes.count > 0 && indexPath.row > 0) {
+		selectedNote = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
+	}
+	
+	if (selectedNote) {
+		CWNotesDetailViewController *detailViewController = [[CWNotesDetailViewController alloc] initWithNote:selectedNote];
+		[self.navigationController pushViewController:detailViewController animated:YES];
+		[detailViewController release];
+	}
+		
 }
 
 @end

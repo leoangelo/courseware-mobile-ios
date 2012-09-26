@@ -7,8 +7,14 @@
 //
 
 #import "SLSlideMenuController.h"
+#import "CWAppDelegate.h"
+
+#import "CWCourseListingViewController.h"
+#import "CWLibraryBrowserViewController.h"
 
 @interface SLSlideMenuController ()
+
+@property (nonatomic, assign) UINavigationController *navController;
 
 - (void)createCWMenuItems;
 
@@ -18,6 +24,7 @@
 
 - (void)dealloc
 {
+	_navController = nil;
 	[_menuItems release];
 	[super dealloc];
 }
@@ -26,6 +33,7 @@
 {
 	self = [super init];
 	if (self) {
+		_navController = [(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController];
 		[self createCWMenuItems];
 	}
 	return self;
@@ -43,6 +51,25 @@
 					  , [SLSlideMenuItem menuItemWithText:@"Help" icon:nil]
 					  , nil];
 	self.menuItems = items;
+}
+
+- (void)didPressMenuItemAtIndex:(NSUInteger)theIndex
+{
+	SLSlideMenuItem *selectedItem = [self.menuItems objectAtIndex:theIndex];
+	
+	if ([selectedItem.itemText isEqualToString:@"Courses"]) {
+	
+		CWCourseListingViewController *vc = [[CWCourseListingViewController alloc] initWithItem:nil];
+		[_navController pushViewController:vc animated:YES];
+		[vc release];
+		
+	} else if ([selectedItem.itemText isEqualToString:@"Library"]) {
+		
+		CWLibraryBrowserViewController *vc = [[CWLibraryBrowserViewController alloc] init];
+		[_navController pushViewController:vc animated:YES];
+		[vc release];
+		
+	}
 }
 
 @end

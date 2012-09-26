@@ -89,6 +89,13 @@
 		7EFBF7D715FAF4B4001CCCB2 /* CWBrowserPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7D615FAF4B4001CCCB2 /* CWBrowserPaneView.m */; };
 		7EFBF7DA15FAF65B001CCCB2 /* CWUserStatusPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7D915FAF65B001CCCB2 /* CWUserStatusPanelView.m */; };
 		7EFBF7DD15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBF7DC15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m */; };
+		7EFE1B0D16136DFE00D36412 /* CWLibraryBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B0B16136DFE00D36412 /* CWLibraryBrowserViewController.m */; };
+		7EFE1B0E16136DFE00D36412 /* CWLibraryBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE1B0C16136DFE00D36412 /* CWLibraryBrowserViewController.xib */; };
+		7EFE1B121613711300D36412 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B111613711300D36412 /* GMGridView.m */; };
+		7EFE1B1D161372DD00D36412 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B15161372DD00D36412 /* GMGridViewCell.m */; };
+		7EFE1B1E161372DD00D36412 /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B18161372DD00D36412 /* GMGridViewLayoutStrategies.m */; };
+		7EFE1B1F161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B1A161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m */; };
+		7EFE1B20161372DD00D36412 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE1B1C161372DD00D36412 /* UIView+GMGridViewAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +248,21 @@
 		7EFBF7D915FAF65B001CCCB2 /* CWUserStatusPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelView.m; sourceTree = "<group>"; };
 		7EFBF7DB15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelView.h; sourceTree = "<group>"; };
 		7EFBF7DC15FAF8E8001CCCB2 /* CWRecentReadingsPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWRecentReadingsPanelView.m; sourceTree = "<group>"; };
+		7EFE1B0A16136DFE00D36412 /* CWLibraryBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryBrowserViewController.h; sourceTree = "<group>"; };
+		7EFE1B0B16136DFE00D36412 /* CWLibraryBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryBrowserViewController.m; sourceTree = "<group>"; };
+		7EFE1B0C16136DFE00D36412 /* CWLibraryBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWLibraryBrowserViewController.xib; sourceTree = "<group>"; };
+		7EFE1B101613711300D36412 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
+		7EFE1B111613711300D36412 /* GMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridView.m; sourceTree = "<group>"; };
+		7EFE1B13161372DD00D36412 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
+		7EFE1B14161372DD00D36412 /* GMGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewCell.h; sourceTree = "<group>"; };
+		7EFE1B15161372DD00D36412 /* GMGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewCell.m; sourceTree = "<group>"; };
+		7EFE1B16161372DD00D36412 /* GMGridViewCell+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridViewCell+Extended.h"; sourceTree = "<group>"; };
+		7EFE1B17161372DD00D36412 /* GMGridViewLayoutStrategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewLayoutStrategies.h; sourceTree = "<group>"; };
+		7EFE1B18161372DD00D36412 /* GMGridViewLayoutStrategies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewLayoutStrategies.m; sourceTree = "<group>"; };
+		7EFE1B19161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		7EFE1B1A161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		7EFE1B1B161372DD00D36412 /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		7EFE1B1C161372DD00D36412 /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +380,7 @@
 		7E5E365916057E4B00EE508B /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				7EFE1B0F161370B500D36412 /* Grid View */,
 				7E5E365A16057E4B00EE508B /* Reader */,
 			);
 			path = "Third Party";
@@ -543,6 +566,7 @@
 		7EDA2ACC160D750900B40202 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7EFE1B0816136DB700D36412 /* Library Browser */,
 				7EDA2ACD160D751E00B40202 /* Notes */,
 			);
 			path = Library;
@@ -625,6 +649,37 @@
 				7E20B5EB15FE34A7004DBAC1 /* Slide Menu */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7EFE1B0816136DB700D36412 /* Library Browser */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE1B0A16136DFE00D36412 /* CWLibraryBrowserViewController.h */,
+				7EFE1B0B16136DFE00D36412 /* CWLibraryBrowserViewController.m */,
+				7EFE1B0C16136DFE00D36412 /* CWLibraryBrowserViewController.xib */,
+			);
+			name = "Library Browser";
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		7EFE1B0F161370B500D36412 /* Grid View */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE1B13161372DD00D36412 /* GMGridView-Constants.h */,
+				7EFE1B14161372DD00D36412 /* GMGridViewCell.h */,
+				7EFE1B15161372DD00D36412 /* GMGridViewCell.m */,
+				7EFE1B16161372DD00D36412 /* GMGridViewCell+Extended.h */,
+				7EFE1B17161372DD00D36412 /* GMGridViewLayoutStrategies.h */,
+				7EFE1B18161372DD00D36412 /* GMGridViewLayoutStrategies.m */,
+				7EFE1B19161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.h */,
+				7EFE1B1A161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m */,
+				7EFE1B1B161372DD00D36412 /* UIView+GMGridViewAdditions.h */,
+				7EFE1B1C161372DD00D36412 /* UIView+GMGridViewAdditions.m */,
+				7EFE1B101613711300D36412 /* GMGridView.h */,
+				7EFE1B111613711300D36412 /* GMGridView.m */,
+			);
+			name = "Grid View";
+			path = GMGridView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,6 +772,7 @@
 				7E291F8216060E2200C7BD8E /* CWCourseReaderViewController.xib in Resources */,
 				7EDA2AD2160D758B00B40202 /* CWNotesListViewController.xib in Resources */,
 				7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */,
+				7EFE1B0E16136DFE00D36412 /* CWLibraryBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +863,12 @@
 				7EED6207160DDCB400E688B6 /* CWNotesListingModel.m in Sources */,
 				7EED6210160E010700E688B6 /* CWNotesDetailViewController.m in Sources */,
 				7EFA3578160E11A600936F45 /* CWNotesDetailModel.m in Sources */,
+				7EFE1B0D16136DFE00D36412 /* CWLibraryBrowserViewController.m in Sources */,
+				7EFE1B121613711300D36412 /* GMGridView.m in Sources */,
+				7EFE1B1D161372DD00D36412 /* GMGridViewCell.m in Sources */,
+				7EFE1B1E161372DD00D36412 /* GMGridViewLayoutStrategies.m in Sources */,
+				7EFE1B1F161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
+				7EFE1B20161372DD00D36412 /* UIView+GMGridViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

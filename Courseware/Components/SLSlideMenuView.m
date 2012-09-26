@@ -126,6 +126,12 @@
 	return HEADER_HEIGHT;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	[self.controlller didPressMenuItemAtIndex:indexPath.row];
+}
+
 - (void)slideActionPressed:(id)sender
 {
 	[self.listView deselectRowAtIndexPath:self.listView.indexPathForSelectedRow animated:YES];

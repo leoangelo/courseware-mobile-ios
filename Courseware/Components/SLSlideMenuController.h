@@ -12,6 +12,8 @@
 
 @property (nonatomic, retain) NSArray *menuItems;
 
+- (void)didPressMenuItemAtIndex:(NSUInteger)theIndex;
+
 @end
 
 typedef enum {

@@ -15,6 +15,7 @@
 #import "CWBrowserPaneView.h"
 #import "CWCourseDocumentView.h"
 #import "CWCourseItem.h"
+#import "SLSlideMenuView.h"
 
 #pragma mark Constants
 
@@ -65,6 +66,7 @@
     [super viewDidLoad];
 	[self makeReaderControlsVisible:YES animated:NO];
 	[self.browserPane setActiveItem:self.selectedCourse];
+	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 }
 
 - (void)viewDidUnload

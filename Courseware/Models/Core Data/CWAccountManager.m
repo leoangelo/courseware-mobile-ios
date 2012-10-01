@@ -10,8 +10,10 @@
 #import "CWAccount.h"
 #import "NSString+SLUtilities.h"
 
-#define CLEARS_ON_STARTUP 1
+#define CLEARS_ON_STARTUP 0
 #define INSERT_TEST_USER 1
+
+static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 
 @interface CWAccountManager ()
 
@@ -49,7 +51,11 @@
 			[self clearAllObjectsOnClass:[CWAccount class]];
 		}
 		if (INSERT_TEST_USER) {
-			[self insertTestUser];
+			if (![[NSUserDefaults standardUserDefaults] boolForKey:kSampleDataAddedFlag]) {
+				[self insertTestUser];
+				[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kSampleDataAddedFlag];
+				[[NSUserDefaults standardUserDefaults] synchronize];
+			}
 		}
 	}
 	return self;
@@ -122,7 +128,7 @@
 		// User does not exist
 		return nil;
 	}
-	return [(Account *)[accountsWithName objectAtIndex:0] passwordHint];
+	return [(CWAccount *)[accountsWithName objectAtIndex:0] passwordHint];
 }
 
 - (BOOL)updateActiveUserPassword:(NSString *)oldPassword

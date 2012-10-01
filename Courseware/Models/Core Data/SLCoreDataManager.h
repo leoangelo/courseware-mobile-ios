@@ -10,6 +10,10 @@
 
 @interface SLCoreDataManager : NSObject
 
++ (NSManagedObjectContext *)sharedContext;
++ (NSManagedObjectModel *)sharedObjectModel;
++ (NSPersistentStoreCoordinator *)sharedStoreCoordinator;
+
 - (id)createNewObjectWithClass:(Class)theClass;
 - (NSArray *)fetchObjectsWithClass:(Class)theClass withPredicate:(NSPredicate *)thePredicate;
 - (void)saveContext;

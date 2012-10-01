@@ -14,13 +14,13 @@
 #define ACCOUNT_ERR_CODE_WRONG_PASSWORD 101
 #define ACCOUNT_ERR_CODE_NO_ACTIVE_USER 102
 
-@class Account;
+@class CWAccount;
 
 @interface CWAccountManager : SLCoreDataManager
 
 + (CWAccountManager *)sharedManager;
 
-- (Account *)getActiveUserAccount;
+- (CWAccount *)getActiveUserAccount;
 
 // Adding/Updating Accounts
 - (void)createNewAccountUserName:(NSString *)userName

@@ -11,6 +11,7 @@
 
 #import "CWCourseListingViewController.h"
 #import "CWLibraryBrowserViewController.h"
+#import "CWMessagingViewController.h"
 
 @interface SLSlideMenuController ()
 
@@ -69,6 +70,11 @@
 		[_navController pushViewController:vc animated:YES];
 		[vc release];
 		
+	} else if ([selectedItem.itemText isEqualToString:@"Messages"]) {
+		
+		CWMessagingViewController *vc = [[CWMessagingViewController alloc] init];
+		[_navController pushViewController:vc animated:YES];
+		[vc release];
 	}
 }
 

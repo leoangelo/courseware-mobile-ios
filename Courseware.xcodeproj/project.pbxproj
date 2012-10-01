@@ -21,6 +21,13 @@
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
 		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
 		7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */; };
+		7E3C427116186E7700A788EB /* CWMessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C426F16186E7700A788EB /* CWMessagingViewController.m */; };
+		7E3C427216186E7700A788EB /* CWMessagingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C427016186E7700A788EB /* CWMessagingViewController.xib */; };
+		7E3C42751618768700A788EB /* CWMessageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42741618768700A788EB /* CWMessageDetailView.m */; };
+		7E3C42771618769F00A788EB /* CWMessageDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C42761618769F00A788EB /* CWMessageDetailView.xib */; };
+		7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42791618782E00A788EB /* CWMessagingModel.m */; };
+		7E3C427D161880A100A788EB /* CWMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C427C161880A100A788EB /* CWMessagesManager.m */; };
+		7E3C4280161885F600A788EB /* CWMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C427F161885F600A788EB /* CWMessage.m */; };
 		7E3E7B9D160A229B00849255 /* CWCourseDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
 		7E5E368216057E4B00EE508B /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365E16057E4B00EE508B /* ReaderConstants.m */; };
@@ -47,7 +54,6 @@
 		7E5E36A416057ED000EE508B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E36A316057ED000EE508B /* MessageUI.framework */; };
 		7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E71984A1609494600CA0F7D /* CWNavigationBarController.m */; };
 		7E9B943E161741D200F39337 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B943D161741D200F39337 /* CWAccount.m */; };
-		7E9B9444161741F500F39337 /* CWMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B9443161741F500F39337 /* CWMessage.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
 		7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486A15FB1019008ECDDE /* Courseware.bundle */; };
@@ -134,6 +140,18 @@
 		7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseManager.m; sourceTree = "<group>"; };
 		7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListFileLoader.h; sourceTree = "<group>"; };
 		7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListFileLoader.m; sourceTree = "<group>"; };
+		7E3C426E16186E7700A788EB /* CWMessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessagingViewController.h; sourceTree = "<group>"; };
+		7E3C426F16186E7700A788EB /* CWMessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagingViewController.m; sourceTree = "<group>"; };
+		7E3C427016186E7700A788EB /* CWMessagingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWMessagingViewController.xib; sourceTree = "<group>"; };
+		7E3C42731618768700A788EB /* CWMessageDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessageDetailView.h; sourceTree = "<group>"; };
+		7E3C42741618768700A788EB /* CWMessageDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessageDetailView.m; sourceTree = "<group>"; };
+		7E3C42761618769F00A788EB /* CWMessageDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWMessageDetailView.xib; sourceTree = "<group>"; };
+		7E3C42781618782E00A788EB /* CWMessagingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessagingModel.h; sourceTree = "<group>"; };
+		7E3C42791618782E00A788EB /* CWMessagingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagingModel.m; sourceTree = "<group>"; };
+		7E3C427B161880A100A788EB /* CWMessagesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessagesManager.h; sourceTree = "<group>"; };
+		7E3C427C161880A100A788EB /* CWMessagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagesManager.m; sourceTree = "<group>"; };
+		7E3C427E161885F500A788EB /* CWMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessage.h; sourceTree = "<group>"; };
+		7E3C427F161885F600A788EB /* CWMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessage.m; sourceTree = "<group>"; };
 		7E3E7B9B160A229B00849255 /* CWCourseDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseDocumentView.h; sourceTree = "<group>"; };
 		7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseDocumentView.m; sourceTree = "<group>"; };
 		7E5E365B16057E4B00EE508B /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
@@ -182,8 +200,6 @@
 		7E71984A1609494600CA0F7D /* CWNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNavigationBarController.m; sourceTree = "<group>"; };
 		7E9B943C161741D200F39337 /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
 		7E9B943D161741D200F39337 /* CWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccount.m; sourceTree = "<group>"; };
-		7E9B9442161741F500F39337 /* CWMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessage.h; sourceTree = "<group>"; };
-		7E9B9443161741F500F39337 /* CWMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessage.m; sourceTree = "<group>"; };
 		7E9C850D15FAC873002AB343 /* CWAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManager.h; sourceTree = "<group>"; };
 		7E9C850E15FAC873002AB343 /* CWAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManager.m; sourceTree = "<group>"; };
 		7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCoreDataManager.h; sourceTree = "<group>"; };
@@ -380,6 +396,21 @@
 			name = "Bottom Toolbar";
 			sourceTree = "<group>";
 		};
+		7E3C426D16186E4700A788EB /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				7E3C42781618782E00A788EB /* CWMessagingModel.h */,
+				7E3C42791618782E00A788EB /* CWMessagingModel.m */,
+				7E3C426E16186E7700A788EB /* CWMessagingViewController.h */,
+				7E3C426F16186E7700A788EB /* CWMessagingViewController.m */,
+				7E3C427016186E7700A788EB /* CWMessagingViewController.xib */,
+				7E3C42731618768700A788EB /* CWMessageDetailView.h */,
+				7E3C42741618768700A788EB /* CWMessageDetailView.m */,
+				7E3C42761618769F00A788EB /* CWMessageDetailView.xib */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
 		7E5E365916057E4B00EE508B /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,9 +479,9 @@
 			children = (
 				7EDA2AD9160D802300B40202 /* CWNote.h */,
 				7EDA2ADA160D802300B40202 /* CWNote.m */,
+				7E3C427E161885F500A788EB /* CWMessage.h */,
+				7E3C427F161885F600A788EB /* CWMessage.m */,
 				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
-				7E9B9442161741F500F39337 /* CWMessage.h */,
-				7E9B9443161741F500F39337 /* CWMessage.m */,
 				7E9B943C161741D200F39337 /* CWAccount.h */,
 				7E9B943D161741D200F39337 /* CWAccount.m */,
 				7E9C850D15FAC873002AB343 /* CWAccountManager.h */,
@@ -459,6 +490,8 @@
 				7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */,
 				7EDA2AE5160D86B800B40202 /* CWNotesManager.h */,
 				7EDA2AE6160D86B800B40202 /* CWNotesManager.m */,
+				7E3C427B161880A100A788EB /* CWMessagesManager.h */,
+				7E3C427C161880A100A788EB /* CWMessagesManager.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -597,6 +630,7 @@
 		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E3C426D16186E4700A788EB /* Messaging */,
 				7EDA2ACC160D750900B40202 /* Library */,
 				7E291F7C16060DE500C7BD8E /* Course Reader */,
 				7EFBF7CA15FAF083001CCCB2 /* Course Listing */,
@@ -778,6 +812,8 @@
 				7EDA2AD2160D758B00B40202 /* CWNotesListViewController.xib in Resources */,
 				7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */,
 				7EFE1B0E16136DFE00D36412 /* CWLibraryBrowserViewController.xib in Resources */,
+				7E3C427216186E7700A788EB /* CWMessagingViewController.xib in Resources */,
+				7E3C42771618769F00A788EB /* CWMessageDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,7 +910,11 @@
 				7EFE1B1F161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				7EFE1B20161372DD00D36412 /* UIView+GMGridViewAdditions.m in Sources */,
 				7E9B943E161741D200F39337 /* CWAccount.m in Sources */,
-				7E9B9444161741F500F39337 /* CWMessage.m in Sources */,
+				7E3C427116186E7700A788EB /* CWMessagingViewController.m in Sources */,
+				7E3C42751618768700A788EB /* CWMessageDetailView.m in Sources */,
+				7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */,
+				7E3C427D161880A100A788EB /* CWMessagesManager.m in Sources */,
+				7E3C4280161885F600A788EB /* CWMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

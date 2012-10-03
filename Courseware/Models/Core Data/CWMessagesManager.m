@@ -66,6 +66,23 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 	[self createRandomMessageWithTitle:@"sent 3" body:@"hello jupiter" state:CWMessageStateSent to:@"person2@gmail.com" from:@"leo.quigao@gmail.com"];
 }
 
+- (CWMessage *)newBlankMessage
+{
+	CWMessage *newMessage = [self createNewObjectWithClass:[CWMessage class]];
+	newMessage.message_id = [NSString generateRandomString];
+	newMessage.status = [NSNumber numberWithInt:CWMessageStateDrafted];
+	newMessage.date = [NSDate date];
+	
+	CWAccount *activeAccount = [[CWAccountManager sharedManager] getActiveUserAccount];
+	
+	newMessage.account = activeAccount;
+	[activeAccount addMessagesObject:newMessage];
+	
+	[self saveContext];
+	
+	return newMessage;
+}
+
 - (void)createRandomMessageWithTitle:(NSString *)title body:(NSString *)body state:(CWMessageState)state to:(NSString *)to from:(NSString *)from
 {
 	CWMessage *newMessage = [self createNewObjectWithClass:[CWMessage class]];

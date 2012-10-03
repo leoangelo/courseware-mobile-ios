@@ -92,7 +92,7 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 		[selectedItem retain];
 		_selectedItem = selectedItem;
 		
-		[self.delegate mainMenuSelectedItemChanged];
+		[self.delegate modelMainMenuSelectedItemChanged];
 	}
 }
 
@@ -102,6 +102,85 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 		return [self.messageListings objectForKey:self.selectedItem];
 	}
 	return [NSArray array]; // empty
+}
+
+- (CWMessage *)newBlankMessage
+{
+	CWMessage *newMessage = [[CWMessagesManager sharedManager] newBlankMessage];
+	
+	return newMessage;
+}
+
+- (void)setSelectedMessage:(CWMessage *)selectedMessage
+{
+	_selectedMessage = selectedMessage;
+}
+
++ (BOOL)messageIsDrafted:(CWMessage *)theMessage
+{
+	return ([theMessage.status intValue] & CWMessageStateDrafted) == CWMessageStateDrafted;
+}
+
++ (BOOL)messageIsSent:(CWMessage *)theMessage
+{
+	return ([theMessage.status intValue] & CWMessageStateSent) == CWMessageStateSent;
+}
+
++ (BOOL)messageIsTrashed:(CWMessage *)theMessage
+{
+	return ([theMessage.status intValue] & CWMessageTrashed) == CWMessageTrashed;
+}
+
+- (void)sendAction
+{
+	[self.delegate modelNeedMessagePreProcess];
+	self.selectedMessage.status = [NSNumber numberWithInt:CWMessageStateSent];
+	[[CWMessagesManager sharedManager] saveContext];
+	
+	[self refreshData];
+	[self.delegate modelMessageListingNeedsRefresh];
+	[self.delegate modelFinishedMessageViewing];
+}
+
+- (void)saveAction
+{
+	[self.delegate modelNeedMessagePreProcess];
+	self.selectedMessage.status = [NSNumber numberWithInt:CWMessageStateDrafted];
+	[[CWMessagesManager sharedManager] saveContext];
+	
+	[self refreshData];
+	[self.delegate modelMessageListingNeedsRefresh];
+	[self.delegate modelFinishedMessageViewing];
+}
+
+- (void)discardAction
+{
+	[[CWMessagesManager sharedManager] deleteObject:self.selectedMessage];
+	[[CWMessagesManager sharedManager] saveContext];
+	
+	[self refreshData];
+	[self.delegate modelMessageListingNeedsRefresh];
+	[self.delegate modelFinishedMessageViewing];
+}
+
+- (void)replyAction
+{
+	
+}
+
+- (void)forwardAction
+{
+	
+}
+
+- (void)deleteAction
+{
+	
+}
+
+- (void)restoreAction
+{
+	
 }
 
 @end

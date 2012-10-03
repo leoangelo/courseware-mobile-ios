@@ -8,19 +8,41 @@
 
 #import <Foundation/Foundation.h>
 
+@class CWMessage;
 @protocol CWMessagingModelDelegate <NSObject>
 
-- (void)mainMenuSelectedItemChanged;
+@optional
+- (void)modelMainMenuSelectedItemChanged;
+- (void)modelNeedMessagePreProcess;
+- (void)modelMessageListingNeedsRefresh;
+- (void)modelFinishedMessageViewing;
 
 @end
 
 @interface CWMessagingModel : NSObject
 
 @property (nonatomic, assign) id<CWMessagingModelDelegate> delegate;
+@property (nonatomic, assign) CWMessage *selectedMessage;
 
 - (void)refreshData;
 - (NSArray *)mainMenuList;
 - (NSArray *)messageListForCurrentSelection;
 - (void)mainMenuItemSelected:(NSUInteger)index;
+
+- (CWMessage *)newBlankMessage;
+
++ (BOOL)messageIsDrafted:(CWMessage *)theMessage;
++ (BOOL)messageIsSent:(CWMessage *)theMessage;
++ (BOOL)messageIsTrashed:(CWMessage *)theMessage;
+
+- (void)sendAction;
+- (void)saveAction;
+- (void)discardAction;
+
+- (void)replyAction;
+- (void)forwardAction;
+- (void)deleteAction;
+
+- (void)restoreAction;
 
 @end

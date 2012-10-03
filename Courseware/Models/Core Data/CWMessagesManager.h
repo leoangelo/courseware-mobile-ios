@@ -24,5 +24,6 @@ typedef enum {
 
 - (NSArray *)allMessagesForActiveUser;
 - (void)updateMessage:(CWMessage *)theMessage state:(CWMessageState)theState;
+- (CWMessage *)newBlankMessage;
 
 @end

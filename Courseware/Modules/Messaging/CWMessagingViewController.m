@@ -12,7 +12,6 @@
 #import "CWMessageDetailView.h"
 #import "CWMessagingModel.h"
 #import "CWMessage.h"
-#import "CWMessagesManager.h"
 
 @interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -49,6 +48,8 @@
 {
     [super viewDidLoad];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
+	
+	self.messageDetailView.model = self.model;
 	
 	[self.model refreshData];
 }
@@ -87,9 +88,27 @@
 	return _model;
 }
 
-- (void)mainMenuSelectedItemChanged
+#pragma mark -
+
+- (void)modelMainMenuSelectedItemChanged
 {
 	[self.messageListView reloadData];
+}
+
+- (void)modelNeedMessagePreProcess
+{
+	[self.messageDetailView preProcessMessage];
+}
+
+- (void)modelMessageListingNeedsRefresh
+{
+	[self.messageListView reloadData];
+}
+
+- (void)modelFinishedMessageViewing
+{
+	self.messageDetailView.hidden = YES;
+	self.messageListView.hidden = NO;
 }
 
 #pragma mark - UITableView
@@ -131,14 +150,35 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (tableView == self.mainMenu) {
-		[self.model mainMenuItemSelected:indexPath.row];
+		if (indexPath.row == 0) {
+			[self.mainMenu deselectRowAtIndexPath:self.mainMenu.indexPathForSelectedRow animated:YES];
+			[self.model setSelectedMessage:[self.model newBlankMessage]];
+			self.messageDetailView.hidden = NO;
+			self.messageListView.hidden = YES;
+			[self.messageDetailView refreshView];
+		}
+		else {
+			self.messageDetailView.hidden = YES;
+			self.messageListView.hidden = NO;
+			[self.model mainMenuItemSelected:indexPath.row];
+		}
+	}
+	else if (tableView == self.messageListView) {
+		// means a message has been selected -- go to that
+		
+		[self.mainMenu deselectRowAtIndexPath:self.mainMenu.indexPathForSelectedRow animated:YES];
+		
+		self.model.selectedMessage = [self.model.messageListForCurrentSelection objectAtIndex:indexPath.row];
+		self.messageDetailView.hidden = NO;
+		self.messageListView.hidden = YES;
+		[self.messageDetailView refreshView];
 	}
 }
 
 - (void)reconfigureCell:(UITableViewCell *)theCell withMessage:(CWMessage *)theMessage
 {
-	BOOL isDrafted = ([theMessage.status intValue] & CWMessageStateDrafted) == CWMessageStateDrafted;
-	BOOL isSent = ([theMessage.status intValue] & CWMessageStateSent) == CWMessageStateSent;
+	BOOL isDrafted = [CWMessagingModel messageIsDrafted:theMessage];
+	BOOL isSent = [CWMessagingModel messageIsSent:theMessage];
 	
 	if (isDrafted || isSent) {
 		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.receiver_email, theMessage.title, theMessage.date];

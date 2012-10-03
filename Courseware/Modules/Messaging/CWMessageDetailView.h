@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class CWMessagingModel;
+
 @interface CWMessageDetailView : UIView
+
+@property (nonatomic, assign) CWMessagingModel *model;
+
+- (void)refreshView;
+- (void)preProcessMessage;
 
 @end

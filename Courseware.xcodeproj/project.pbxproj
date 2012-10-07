@@ -58,6 +58,12 @@
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
 		7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486A15FB1019008ECDDE /* Courseware.bundle */; };
 		7EAF487015FB12AD008ECDDE /* CWUserStatusPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */; };
+		7EB6AB9D16210C890089ACC4 /* CWAccountManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6AB9B16210C890089ACC4 /* CWAccountManagerViewController.m */; };
+		7EB6AB9E16210C890089ACC4 /* CWAccountManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6AB9C16210C890089ACC4 /* CWAccountManagerViewController.xib */; };
+		7EB6ABA216210C9C0089ACC4 /* CWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA016210C9C0089ACC4 /* CWSettingsViewController.m */; };
+		7EB6ABA316210C9C0089ACC4 /* CWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA116210C9C0089ACC4 /* CWSettingsViewController.xib */; };
+		7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */; };
+		7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
 		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
 		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
@@ -206,6 +212,15 @@
 		7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCoreDataManager.m; sourceTree = "<group>"; };
 		7EAF486A15FB1019008ECDDE /* Courseware.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Courseware.bundle; sourceTree = "<group>"; };
 		7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWUserStatusPanelView.xib; sourceTree = "<group>"; };
+		7EB6AB9A16210C890089ACC4 /* CWAccountManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManagerViewController.h; sourceTree = "<group>"; };
+		7EB6AB9B16210C890089ACC4 /* CWAccountManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManagerViewController.m; sourceTree = "<group>"; };
+		7EB6AB9C16210C890089ACC4 /* CWAccountManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWAccountManagerViewController.xib; sourceTree = "<group>"; };
+		7EB6AB9F16210C9C0089ACC4 /* CWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSettingsViewController.h; sourceTree = "<group>"; };
+		7EB6ABA016210C9C0089ACC4 /* CWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSettingsViewController.m; sourceTree = "<group>"; };
+		7EB6ABA116210C9C0089ACC4 /* CWSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWSettingsViewController.xib; sourceTree = "<group>"; };
+		7EB6ABA416210CA70089ACC4 /* CWHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHelpViewController.h; sourceTree = "<group>"; };
+		7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHelpViewController.m; sourceTree = "<group>"; };
+		7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWHelpViewController.xib; sourceTree = "<group>"; };
 		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
 		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
 		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
@@ -496,6 +511,36 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		7EB6AB9616210B210089ACC4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7EB6AB9F16210C9C0089ACC4 /* CWSettingsViewController.h */,
+				7EB6ABA016210C9C0089ACC4 /* CWSettingsViewController.m */,
+				7EB6ABA116210C9C0089ACC4 /* CWSettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7EB6AB9816210B370089ACC4 /* Account Management */ = {
+			isa = PBXGroup;
+			children = (
+				7EB6AB9A16210C890089ACC4 /* CWAccountManagerViewController.h */,
+				7EB6AB9B16210C890089ACC4 /* CWAccountManagerViewController.m */,
+				7EB6AB9C16210C890089ACC4 /* CWAccountManagerViewController.xib */,
+			);
+			path = "Account Management";
+			sourceTree = "<group>";
+		};
+		7EB6AB9916210B640089ACC4 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				7EB6ABA416210CA70089ACC4 /* CWHelpViewController.h */,
+				7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */,
+				7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		7EC8AD3115FCA6B600ED9E27 /* User Status */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +675,9 @@
 		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7EB6AB9916210B640089ACC4 /* Help */,
+				7EB6AB9816210B370089ACC4 /* Account Management */,
+				7EB6AB9616210B210089ACC4 /* Settings */,
 				7E3C426D16186E4700A788EB /* Messaging */,
 				7EDA2ACC160D750900B40202 /* Library */,
 				7E291F7C16060DE500C7BD8E /* Course Reader */,
@@ -814,6 +862,9 @@
 				7EFE1B0E16136DFE00D36412 /* CWLibraryBrowserViewController.xib in Resources */,
 				7E3C427216186E7700A788EB /* CWMessagingViewController.xib in Resources */,
 				7E3C42771618769F00A788EB /* CWMessageDetailView.xib in Resources */,
+				7EB6AB9E16210C890089ACC4 /* CWAccountManagerViewController.xib in Resources */,
+				7EB6ABA316210C9C0089ACC4 /* CWSettingsViewController.xib in Resources */,
+				7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,6 +966,9 @@
 				7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */,
 				7E3C427D161880A100A788EB /* CWMessagesManager.m in Sources */,
 				7E3C4280161885F600A788EB /* CWMessage.m in Sources */,
+				7EB6AB9D16210C890089ACC4 /* CWAccountManagerViewController.m in Sources */,
+				7EB6ABA216210C9C0089ACC4 /* CWSettingsViewController.m in Sources */,
+				7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

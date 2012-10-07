@@ -7,12 +7,22 @@
 //
 
 #import "CWHelpViewController.h"
+#import "CWNavigationBar.h"
+#import "SLSlideMenuView.h"
 
 @interface CWHelpViewController ()
+
+@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
 
 @end
 
 @implementation CWHelpViewController
+
+- (void)dealloc
+{
+	[_navBar release];
+	[super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +36,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
+}
+
+- (void)viewDidUnload
+{
+	[super viewDidUnload];
+	[self setNavBar:nil];
 }
 
 - (void)didReceiveMemoryWarning

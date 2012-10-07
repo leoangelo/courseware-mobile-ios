@@ -10,6 +10,8 @@
 
 @interface SLSlideMenuView : UIView
 
+@property (nonatomic, assign) BOOL sticky;
+
 + (id)slideMenuView;
 - (void)attachToNavBar:(UINavigationBar *)navBar;
 

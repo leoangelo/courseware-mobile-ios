@@ -7,12 +7,22 @@
 //
 
 #import "CWAccountManagerViewController.h"
+#import "CWNavigationBar.h"
+#import "SLSlideMenuView.h"
 
 @interface CWAccountManagerViewController ()
+
+@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
 
 @end
 
 @implementation CWAccountManagerViewController
+
+- (void)dealloc
+{
+	[_navBar release];
+	[super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +36,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	SLSlideMenuView *menuView =	[SLSlideMenuView slideMenuView];
+	[menuView attachToNavBar:self.navBar];
+	[menuView setSticky:YES];
+}
+
+- (void)viewDidUnload
+{
+	[super viewDidUnload];
+	[self setNavBar:nil];
 }
 
 - (void)didReceiveMemoryWarning

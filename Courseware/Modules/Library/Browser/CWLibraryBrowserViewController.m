@@ -9,6 +9,7 @@
 #import "CWLibraryBrowserViewController.h"
 #import "CWNavigationBar.h"
 #import "GMGridView.h"
+#import "SLSlideMenuView.h"
 
 static CGFloat kGridSpacing = 64.f;
 
@@ -31,6 +32,8 @@ static CGFloat kGridSpacing = 64.f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
     
 	self.title = @"Library";
 	self.gridView.style = GMGridViewStyleSwap;

@@ -12,6 +12,9 @@
 #import "CWCourseListingViewController.h"
 #import "CWLibraryBrowserViewController.h"
 #import "CWMessagingViewController.h"
+#import "CWAccountManagerViewController.h"
+#import "CWSettingsViewController.h"
+#import "CWHelpViewController.h"
 
 @interface SLSlideMenuController ()
 
@@ -61,21 +64,44 @@
 	if ([selectedItem.itemText isEqualToString:@"Courses"]) {
 	
 		CWCourseListingViewController *vc = [[CWCourseListingViewController alloc] initWithItem:nil];
-		[_navController pushViewController:vc animated:YES];
+		[self pushViewController:vc];
 		[vc release];
 		
 	} else if ([selectedItem.itemText isEqualToString:@"Library"]) {
 		
 		CWLibraryBrowserViewController *vc = [[CWLibraryBrowserViewController alloc] init];
-		[_navController pushViewController:vc animated:YES];
+		[self pushViewController:vc];
 		[vc release];
 		
 	} else if ([selectedItem.itemText isEqualToString:@"Messages"]) {
 		
 		CWMessagingViewController *vc = [[CWMessagingViewController alloc] init];
-		[_navController pushViewController:vc animated:YES];
+		[self pushViewController:vc];
+		[vc release];
+	
+	} else if ([selectedItem.itemText isEqualToString:@"Account"]) {
+		
+		CWAccountManagerViewController *vc = [[CWAccountManagerViewController alloc] init];
+		[self pushViewController:vc];
+		[vc release];
+	
+	} else if ([selectedItem.itemText isEqualToString:@"Settings"]) {
+		
+		CWSettingsViewController *vc = [[CWSettingsViewController alloc] init];
+		[self pushViewController:vc];
+		[vc release];
+	
+	} else if ([selectedItem.itemText isEqualToString:@"Help"]) {
+		
+		CWHelpViewController *vc = [[CWHelpViewController alloc] init];
+		[self pushViewController:vc];
 		[vc release];
 	}
+}
+
+- (void)pushViewController:(UIViewController *)theVC
+{
+	[_navController pushViewController:theVC animated:YES];
 }
 
 @end

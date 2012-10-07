@@ -89,6 +89,15 @@
 	[self setDisplayed:NO];
 }
 
+- (void)setSticky:(BOOL)sticky
+{
+	_sticky = sticky;
+	if (_sticky) {
+		[self setDisplayed:YES animated:NO];
+	}
+	self.btnSlideAction.hidden = _sticky;
+}
+
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
@@ -135,27 +144,52 @@
 - (void)slideActionPressed:(id)sender
 {
 	[self.listView deselectRowAtIndexPath:self.listView.indexPathForSelectedRow animated:YES];
-	
-	[UIView animateWithDuration:0.3 animations:^{
-		if (!self.isDisplayed) {
-			self.frame = (CGRect) {
-				self.frame.origin.x,
-				44 - HEADER_HEIGHT,
-				self.frame.size
-			};
-			self.btnSlideAction.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(180));
+	[self setDisplayed:!_displayed animated:YES];
+}
+
+- (void)setDisplayed:(BOOL)displayed animated:(BOOL)isAnimated
+{
+	if (isAnimated) {
+		[UIView animateWithDuration:0.3 animations:^{
+			if (displayed) {
+				[self showMenu];
+			}
+			else {
+				[self hideMenu];
+			}
+		} completion:^(BOOL finished) {
+			_displayed = displayed;
+		}];
+	}
+	else {
+		if (displayed) {
+			[self showMenu];
 		}
 		else {
-			self.frame = (CGRect) {
-				self.frame.origin.x,
-				44 + FOOTER_HEIGHT - self.frame.size.height,
-				self.frame.size
-			};
-			self.btnSlideAction.transform = CGAffineTransformIdentity;
+			[self hideMenu];
 		}
-	} completion:^(BOOL finished) {
-		self.displayed = !self.isDisplayed;
-	}];
+		_displayed = displayed;
+	}
+}
+
+- (void)showMenu
+{
+	self.frame = (CGRect) {
+		self.frame.origin.x,
+		44 - HEADER_HEIGHT,
+		self.frame.size
+	};
+	self.btnSlideAction.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(180));
+}
+
+- (void)hideMenu
+{
+	self.frame = (CGRect) {
+		self.frame.origin.x,
+		44 + FOOTER_HEIGHT - self.frame.size.height,
+		self.frame.size
+	};
+	self.btnSlideAction.transform = CGAffineTransformIdentity;
 }
 
 @end

@@ -152,4 +152,9 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 	return YES;
 }
 
+- (void)logoutUser
+{
+	[self setActiveUserAccount:nil];
+}
+
 @end

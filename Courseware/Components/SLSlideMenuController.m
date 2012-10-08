@@ -101,7 +101,21 @@
 
 - (void)pushViewController:(UIViewController *)theVC
 {
-	[_navController pushViewController:theVC animated:YES];
+	// first, look for the vc on the navigation stack.	
+	UIViewController *existingVC = nil;
+	for (UIViewController *aVC in _navController.viewControllers) {
+		if ([aVC class] == [theVC class]) {
+			existingVC = aVC;
+			break;
+		}
+	}
+	if (existingVC) {
+		[_navController popToViewController:existingVC animated:YES];
+	}
+	else {
+		// else-wise, the vc is not on the stack yet so lets push a new instance out there.
+		[_navController pushViewController:theVC animated:YES];
+	}
 }
 
 @end

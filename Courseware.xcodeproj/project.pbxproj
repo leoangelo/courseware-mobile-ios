@@ -64,6 +64,7 @@
 		7EB6ABA316210C9C0089ACC4 /* CWSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA116210C9C0089ACC4 /* CWSettingsViewController.xib */; };
 		7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */; };
 		7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */; };
+		7EB6ABAB1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
 		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
 		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
@@ -221,6 +222,8 @@
 		7EB6ABA416210CA70089ACC4 /* CWHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHelpViewController.h; sourceTree = "<group>"; };
 		7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHelpViewController.m; sourceTree = "<group>"; };
 		7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWHelpViewController.xib; sourceTree = "<group>"; };
+		7EB6ABA91621706C0089ACC4 /* SLTextInputAutoFocusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextInputAutoFocusHelper.h; sourceTree = "<group>"; };
+		7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTextInputAutoFocusHelper.m; sourceTree = "<group>"; };
 		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
 		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
 		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
@@ -706,6 +709,8 @@
 				7EC8AD3715FCA95300ED9E27 /* CWConstants.m */,
 				7E291F8E1606181500C7BD8E /* CWUtilities.h */,
 				7E291F8F1606181500C7BD8E /* CWUtilities.m */,
+				7EB6ABA91621706C0089ACC4 /* SLTextInputAutoFocusHelper.h */,
+				7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -969,6 +974,7 @@
 				7EB6AB9D16210C890089ACC4 /* CWAccountManagerViewController.m in Sources */,
 				7EB6ABA216210C9C0089ACC4 /* CWSettingsViewController.m in Sources */,
 				7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */,
+				7EB6ABAB1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

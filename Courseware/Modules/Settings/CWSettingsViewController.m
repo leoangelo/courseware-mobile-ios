@@ -9,6 +9,7 @@
 #import "CWSettingsViewController.h"
 #import "CWNavigationBar.h"
 #import "SLSlideMenuView.h"
+#import "SLTextInputAutoFocusHelper.h"
 
 @interface CWSettingsViewController ()
 
@@ -45,6 +46,16 @@
 {
 	[super viewDidUnload];
 	[self setNavBar:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
 }
 
 - (void)didReceiveMemoryWarning

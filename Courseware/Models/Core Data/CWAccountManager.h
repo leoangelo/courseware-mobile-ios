@@ -41,4 +41,6 @@
 					passwordHint:(NSString *)passwordHint
 						   error:(NSError **)error;
 
+- (void)logoutUser;
+
 @end

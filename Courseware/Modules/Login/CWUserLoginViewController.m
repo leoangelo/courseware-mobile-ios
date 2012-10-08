@@ -58,6 +58,11 @@
 	}
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	self.lblErrorFeedback.text = @"";
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

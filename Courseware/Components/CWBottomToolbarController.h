@@ -12,5 +12,6 @@
 
 - (void)bookmarksAction:(id)target;
 - (void)notesAction:(id)target;
+- (void)testsAction:(id)target;
 
 @end

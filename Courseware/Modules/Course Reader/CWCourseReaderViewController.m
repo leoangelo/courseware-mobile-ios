@@ -32,6 +32,7 @@
 @property (nonatomic, retain) IBOutlet CWBrowserPaneView *browserPane;
 @property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, retain) IBOutlet CWBottomToolbar *toolbar;
+@property (nonatomic, retain) SLSlideMenuView *slideMenuView;
 
 - (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated;
 - (BOOL)areReaderControlsVisible;
@@ -47,6 +48,7 @@
 	[_navBar release];
 	[_toolbar release];
 	[_browserPane release];
+	[_slideMenuView release];
 	[model release];
 	[lastVisibilityToggleDate release];
 	[super dealloc];
@@ -64,9 +66,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.slideMenuView = [SLSlideMenuView slideMenuView];
+	[self.slideMenuView attachToNavBar:self.navBar];
 	[self makeReaderControlsVisible:YES animated:NO];
 	[self.browserPane setActiveItem:self.selectedCourse];
-	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 }
 
 - (void)viewDidUnload
@@ -76,6 +79,7 @@
 	self.navBar = nil;
 	self.toolbar = nil;
 	self.browserPane = nil;
+	self.slideMenuView = nil;
 	
 	[lastVisibilityToggleDate release]; lastVisibilityToggleDate = nil;
 	lastAppearSize = CGSizeZero;
@@ -199,6 +203,8 @@
 		self.documentView.frame.size
 	};
 	
+	self.slideMenuView.alpha = visible ? 1.0f : 0.0f;
+	
 	self.navBar.alpha = visible ? 1.0f : 0.0f;
 	self.navBar.frame = (CGRect) {
 		self.navBar.frame.origin.x,
@@ -231,7 +237,7 @@
 
 - (BOOL)areReaderControlsVisible
 {
-	return self.navBar.alpha != 0.f || self.browserPane.alpha != 0.f || self.toolbar.alpha != 0.f;
+	return self.navBar.alpha != 0.f || self.browserPane.alpha != 0.f || self.toolbar.alpha != 0.f || self.slideMenuView.alpha != 0.f;
 }
 
 - (void)finishedVisibilityAnimation

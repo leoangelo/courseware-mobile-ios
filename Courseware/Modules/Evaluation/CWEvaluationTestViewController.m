@@ -1,31 +1,26 @@
 //
-//  CWHelpViewController.m
+//  CWEvaluationTestViewController.m
 //  Courseware
 //
-//  Created by Leo Angelo Quigao on 10/7/12.
+//  Created by Leo Angelo Quigao on 10/10/12.
 //  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
 //
 
-#import "CWHelpViewController.h"
+#import "CWEvaluationTestViewController.h"
 #import "CWNavigationBar.h"
 #import "SLSlideMenuView.h"
-#import "CWUtilities.h"
 
-static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
-
-@interface CWHelpViewController ()
+@interface CWEvaluationTestViewController ()
 
 @property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation CWHelpViewController
+@implementation CWEvaluationTestViewController
 
 - (void)dealloc
 {
 	[_navBar release];
-	[_webView release];
 	[super dealloc];
 }
 
@@ -33,6 +28,7 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        // Custom initialization
     }
     return self;
 }
@@ -41,22 +37,17 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 {
     [super viewDidLoad];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
-	
-	NSURL *url = [[CWUtilities courseWareBundle] URLForResource:@"cw-help" withExtension:@"html"];
-	NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:30];
-	[self.webView loadRequest:urlRequest];
 }
 
 - (void)viewDidUnload
 {
-	[super viewDidUnload];
 	[self setNavBar:nil];
-	[self setWebView:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

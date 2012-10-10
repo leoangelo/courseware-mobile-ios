@@ -65,6 +65,8 @@
 		7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */; };
 		7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */; };
 		7EB6ABAB1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */; };
+		7EBE28291625CB5A00742DFC /* CWEvaluationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */; };
+		7EBE282A1625CB5A00742DFC /* CWEvaluationTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
 		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
 		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
@@ -224,6 +226,9 @@
 		7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWHelpViewController.xib; sourceTree = "<group>"; };
 		7EB6ABA91621706C0089ACC4 /* SLTextInputAutoFocusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextInputAutoFocusHelper.h; sourceTree = "<group>"; };
 		7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTextInputAutoFocusHelper.m; sourceTree = "<group>"; };
+		7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationTestViewController.h; sourceTree = "<group>"; };
+		7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationTestViewController.m; sourceTree = "<group>"; };
+		7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWEvaluationTestViewController.xib; sourceTree = "<group>"; };
 		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
 		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
 		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
@@ -544,6 +549,16 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
+		7EBE28251625CB2B00742DFC /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */,
+				7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */,
+				7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */,
+			);
+			path = Evaluation;
+			sourceTree = "<group>";
+		};
 		7EC8AD3115FCA6B600ED9E27 /* User Status */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +693,7 @@
 		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7EBE28251625CB2B00742DFC /* Evaluation */,
 				7EB6AB9916210B640089ACC4 /* Help */,
 				7EB6AB9816210B370089ACC4 /* Account Management */,
 				7EB6AB9616210B210089ACC4 /* Settings */,
@@ -870,6 +886,7 @@
 				7EB6AB9E16210C890089ACC4 /* CWAccountManagerViewController.xib in Resources */,
 				7EB6ABA316210C9C0089ACC4 /* CWSettingsViewController.xib in Resources */,
 				7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */,
+				7EBE282A1625CB5A00742DFC /* CWEvaluationTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -975,6 +992,7 @@
 				7EB6ABA216210C9C0089ACC4 /* CWSettingsViewController.m in Sources */,
 				7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */,
 				7EB6ABAB1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m in Sources */,
+				7EBE28291625CB5A00742DFC /* CWEvaluationTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

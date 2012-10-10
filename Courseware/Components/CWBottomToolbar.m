@@ -44,6 +44,9 @@
 	UIBarButtonItem *notesButton = [[[UIBarButtonItem alloc] initWithTitle:@"Notes" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(notesAction:)] autorelease];
 	[anItems addObject:notesButton];
 	
+	UIBarButtonItem *testsButton = [[[UIBarButtonItem alloc] initWithTitle:@"Take Test" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(testsAction:)] autorelease];
+	[anItems addObject:testsButton];
+	
 	[anItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
 	
 	self.items = anItems;

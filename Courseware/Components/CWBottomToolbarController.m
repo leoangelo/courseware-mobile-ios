@@ -8,6 +8,8 @@
 
 #import "CWBottomToolbarController.h"
 #import "CWNotesListViewController.h"
+#import "CWEvaluationTestViewController.h"
+#import "CWAppDelegate.h"
 
 @interface CWBottomToolbarController ()
 
@@ -61,6 +63,14 @@
 	}
 	[self.popOverController setPopoverContentSize:CGSizeMake(320, 480)];
 	[self.popOverController presentPopoverFromBarButtonItem:target permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void)testsAction:(id)target
+{
+	UINavigationController *navController = [(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController];
+	CWEvaluationTestViewController *vc = [[CWEvaluationTestViewController alloc] init];
+	[navController pushViewController:vc animated:YES];
+	[vc release];
 }
 
 @end

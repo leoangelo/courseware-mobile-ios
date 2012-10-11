@@ -52,6 +52,9 @@
 		7E5E369C16057E8800EE508B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E369B16057E8800EE508B /* QuartzCore.framework */; };
 		7E5E369E16057E9400EE508B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E369D16057E9400EE508B /* QuickLook.framework */; };
 		7E5E36A416057ED000EE508B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5E36A316057ED000EE508B /* MessageUI.framework */; };
+		7E6E43931627386A00B43D7B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E43921627386A00B43D7B /* Default-Landscape~ipad.png */; };
+		7E6E43971627398900B43D7B /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E43961627398900B43D7B /* icon-144.png */; };
+		7E6E43991627398D00B43D7B /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E43981627398D00B43D7B /* icon-72.png */; };
 		7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E71984A1609494600CA0F7D /* CWNavigationBarController.m */; };
 		7E9B943E161741D200F39337 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B943D161741D200F39337 /* CWAccount.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
@@ -205,6 +208,9 @@
 		7E5E369B16057E8800EE508B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7E5E369D16057E9400EE508B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		7E5E36A316057ED000EE508B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		7E6E43921627386A00B43D7B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		7E6E43961627398900B43D7B /* icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-144.png"; sourceTree = "<group>"; };
+		7E6E43981627398D00B43D7B /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		7E7198491609494600CA0F7D /* CWNavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNavigationBarController.h; sourceTree = "<group>"; };
 		7E71984A1609494600CA0F7D /* CWNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNavigationBarController.m; sourceTree = "<group>"; };
 		7E9B943C161741D200F39337 /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 		7E1EEA9C15FAFE2D00739FD2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E6E438F1627381B00B43D7B /* Branding */,
 				7EAF486A15FB1019008ECDDE /* Courseware.bundle */,
 			);
 			path = Resources;
@@ -486,6 +493,16 @@
 				7E5E368016057E4B00EE508B /* UIXToolbarView.m */,
 			);
 			path = Reader;
+			sourceTree = "<group>";
+		};
+		7E6E438F1627381B00B43D7B /* Branding */ = {
+			isa = PBXGroup;
+			children = (
+				7E6E43921627386A00B43D7B /* Default-Landscape~ipad.png */,
+				7E6E43981627398D00B43D7B /* icon-72.png */,
+				7E6E43961627398900B43D7B /* icon-144.png */,
+			);
+			path = Branding;
 			sourceTree = "<group>";
 		};
 		7E9C850715FAC49B002AB343 /* Models */ = {
@@ -887,6 +904,9 @@
 				7EB6ABA316210C9C0089ACC4 /* CWSettingsViewController.xib in Resources */,
 				7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */,
 				7EBE282A1625CB5A00742DFC /* CWEvaluationTestViewController.xib in Resources */,
+				7E6E43931627386A00B43D7B /* Default-Landscape~ipad.png in Resources */,
+				7E6E43971627398900B43D7B /* icon-144.png in Resources */,
+				7E6E43991627398D00B43D7B /* icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

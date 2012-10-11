@@ -46,13 +46,13 @@
 - (void)createCWMenuItems
 {
 	NSArray *items = [NSArray arrayWithObjects:
-					  [SLSlideMenuItem menuItemWithText:@"Courses" icon:nil]
-					  , [SLSlideMenuItem menuItemWithText:@"Library" icon:nil]
+					  [SLSlideMenuItem menuItemWithText:@"Courses" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Library" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library.png"]]
 					  , [SLSlideMenuItem menuItemSeparator]
-					  , [SLSlideMenuItem menuItemWithText:@"Messages" icon:nil]
-					  , [SLSlideMenuItem menuItemWithText:@"Account" icon:nil]
-					  , [SLSlideMenuItem menuItemWithText:@"Settings" icon:nil]
-					  , [SLSlideMenuItem menuItemWithText:@"Help" icon:nil]
+					  , [SLSlideMenuItem menuItemWithText:@"Messages" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Account" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Settings" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Help" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help.png"]]
 					  , nil];
 	self.menuItems = items;
 }

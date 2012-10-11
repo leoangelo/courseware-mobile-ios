@@ -10,7 +10,8 @@
 #import "SLSlideMenuController.h"
 
 #define HEADER_HEIGHT 24
-#define FOOTER_HEIGHT 42
+#define ROW_HEIGHT 50
+#define FOOTER_HEIGHT 50
 #define DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f) // PI / 180
 
 @interface SLSlideMenuView () <UITableViewDataSource, UITableViewDelegate>
@@ -42,7 +43,7 @@
 
 + (id)slideMenuView
 {
-	SLSlideMenuView *aView = [[SLSlideMenuView alloc] initWithFrame:CGRectMake(0, 0, 220, 370)];
+	SLSlideMenuView *aView = [[SLSlideMenuView alloc] initWithFrame:CGRectMake(0, 0, 220, 430)];
 	return [aView autorelease];
 }
 
@@ -101,12 +102,17 @@
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
-	NSLog(@"Table view height: %f", self.listView.contentSize.height);
+	// NSLog(@"Table view height: %f", self.listView.contentSize.height);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	return self.controlller.menuItems.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return ROW_HEIGHT;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,10 +123,12 @@
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
 		cell.textLabel.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:18];
 		cell.selectionStyle = UITableViewCellSelectionStyleGray;
+		cell.indentationLevel = 1;
 	}
 	SLSlideMenuItem *rowItem = [self.controlller.menuItems objectAtIndex:indexPath.row];
 	if (rowItem.itemText) {
 		cell.textLabel.text = rowItem.itemText;
+		cell.imageView.image = rowItem.itemIcon;
 	}
 	return cell;
 }

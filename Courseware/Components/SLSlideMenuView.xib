@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
+		<int key="IBDocument.SystemTarget">1536</int>
 		<string key="IBDocument.SystemVersion">12A269</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
 		<string key="IBDocument.AppKitVersion">1187</string>
 		<string key="IBDocument.HIToolboxVersion">624.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1498</string>
+			<string key="NS.object.0">1926</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -40,7 +40,7 @@
 					<object class="IBUIImageView" id="152003251">
 						<reference key="NSNextResponder" ref="1072191533"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{220, 370}</string>
+						<string key="NSFrameSize">{220, 430}</string>
 						<reference key="NSSuperview" ref="1072191533"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="19573826"/>
@@ -51,7 +51,7 @@
 					<object class="IBUITableView" id="19573826">
 						<reference key="NSNextResponder" ref="1072191533"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{220, 320}</string>
+						<string key="NSFrameSize">{220, 370}</string>
 						<reference key="NSSuperview" ref="1072191533"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="2673476"/>
@@ -69,16 +69,17 @@
 						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
+						<float key="IBUIRowHeight">50</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
 					<object class="IBUIButton" id="2673476">
 						<reference key="NSNextResponder" ref="1072191533"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 320}, {220, 50}}</string>
+						<string key="NSFrame">{{0, 378}, {220, 50}}</string>
 						<reference key="NSSuperview" ref="1072191533"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -107,7 +108,7 @@
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{220, 370}</string>
+				<string key="NSFrameSize">{220, 430}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="152003251"/>
@@ -200,8 +201,8 @@
 						<reference key="object" ref="1072191533"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="152003251"/>
-							<reference ref="2673476"/>
 							<reference ref="19573826"/>
+							<reference ref="2673476"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -289,10 +290,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
+			<real value="1536" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1498</string>
+		<string key="IBCocoaTouchPluginVersion">1926</string>
 	</data>
 </archive>

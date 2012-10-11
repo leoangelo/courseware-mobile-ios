@@ -11,7 +11,8 @@
 #import "GMGridView.h"
 #import "SLSlideMenuView.h"
 
-static CGFloat kGridSpacing = 64.f;
+static CGFloat kGridSpacing = 30;
+static CGSize kItemSize = (CGSize) { 240, 142 };
 
 @interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate>
 
@@ -32,12 +33,13 @@ static CGFloat kGridSpacing = 64.f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.title = @"Library";
 	
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
     
-	self.title = @"Library";
+	self.gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/bookshelf-bg.jpg"]];
 	self.gridView.style = GMGridViewStyleSwap;
-    self.gridView.itemSpacing = kGridSpacing;
+    self.gridView.itemSpacing = 0;
     self.gridView.minEdgeInsets = UIEdgeInsetsMake(kGridSpacing, kGridSpacing, kGridSpacing, kGridSpacing);
     self.gridView.centerGrid = NO;
 }
@@ -63,12 +65,12 @@ static CGFloat kGridSpacing = 64.f;
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
-	return 9;
+	return 16;
 }
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-	return CGSizeMake(144, 200);
+	return kItemSize;
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
@@ -77,15 +79,21 @@ static CGFloat kGridSpacing = 64.f;
     
     if (!cell) {
 		
+		NSInteger randomNumber = arc4random() % 8;
+		
 		cell = [[[GMGridViewCell alloc] init] autorelease];
 		
-		UIView *aContentView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)] autorelease];
+		UIView *aContentView = [[[UIView alloc] initWithFrame:(CGRect) { CGPointZero, kItemSize }] autorelease];
 		aContentView.backgroundColor = [UIColor clearColor];
 		
-		UIImageView *anImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Courseware.bundle/book-icon.png"]] autorelease];
+		UIImageView *anImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", randomNumber]]] autorelease];
 		[aContentView addSubview:anImage];
-		
-		anImage.center = aContentView.center;
+
+		anImage.frame = (CGRect) {
+			roundf((aContentView.frame.size.width - anImage.frame.size.width) / 2.f),
+			aContentView.frame.size.height - anImage.frame.size.height,
+			anImage.frame.size
+		};
 		
 		cell.contentView = aContentView;
 		

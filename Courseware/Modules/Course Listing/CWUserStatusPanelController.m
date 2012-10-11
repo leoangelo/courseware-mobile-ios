@@ -21,4 +21,14 @@
 	return [[[CWAccountManager sharedManager] getActiveUserAccount] fullName];
 }
 
+- (NSString *)getSchoolName
+{
+	return @"University of Ethiopia";
+}
+
+- (NSString *)getProgramName
+{
+	return @"Nautical Engineering";
+}
+
 @end

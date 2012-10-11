@@ -12,5 +12,7 @@
 
 - (NSString *)getUserName;
 - (NSString *)getFullName;
+- (NSString *)getSchoolName;
+- (NSString *)getProgramName;
 
 @end

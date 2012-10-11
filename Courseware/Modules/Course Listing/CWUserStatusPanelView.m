@@ -17,6 +17,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView *imgAvatar;
 @property (nonatomic, retain) IBOutlet UILabel *lblUsername;
 @property (nonatomic, retain) IBOutlet UILabel *lblFullName;
+@property (nonatomic, retain) IBOutlet UILabel *lblSchoolName;
+@property (nonatomic, retain) IBOutlet UILabel *lblProgramName;
 
 - (void)layoutNib;
 
@@ -29,6 +31,8 @@
 	[_imgAvatar release];
 	[_lblUsername release];
 	[_lblFullName release];
+	[_lblSchoolName release];
+	[_lblProgramName release];
 	[_contentView release];
 	[_controller release];
 	[super dealloc];
@@ -57,6 +61,8 @@
 	
 	self.lblUsername.text = self.controller.getUserName;
 	self.lblFullName.text = self.controller.getFullName;
+	self.lblSchoolName.text = self.controller.getSchoolName;
+	self.lblProgramName.text = self.controller.getProgramName;
 }
 
 

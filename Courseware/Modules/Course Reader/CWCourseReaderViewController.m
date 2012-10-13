@@ -28,11 +28,11 @@
 	BOOL isAnimating;
 }
 
-@property (nonatomic, retain) IBOutlet CWCourseDocumentView *documentView;
-@property (nonatomic, retain) IBOutlet CWBrowserPaneView *browserPane;
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet CWBottomToolbar *toolbar;
-@property (nonatomic, retain) SLSlideMenuView *slideMenuView;
+@property (nonatomic, strong) IBOutlet CWCourseDocumentView *documentView;
+@property (nonatomic, strong) IBOutlet CWBrowserPaneView *browserPane;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet CWBottomToolbar *toolbar;
+@property (nonatomic, strong) SLSlideMenuView *slideMenuView;
 
 - (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated;
 - (BOOL)areReaderControlsVisible;
@@ -42,17 +42,6 @@
 
 @implementation CWCourseReaderViewController
 
-- (void)dealloc
-{
-	[_documentView release];
-	[_navBar release];
-	[_toolbar release];
-	[_browserPane release];
-	[_slideMenuView release];
-	[model release];
-	[lastVisibilityToggleDate release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,7 +70,7 @@
 	self.browserPane = nil;
 	self.slideMenuView = nil;
 	
-	[lastVisibilityToggleDate release]; lastVisibilityToggleDate = nil;
+	 lastVisibilityToggleDate = nil;
 	lastAppearSize = CGSizeZero;
 }
 
@@ -231,8 +220,8 @@
 		[UIView commitAnimations];
 	}
 	
-	[lastVisibilityToggleDate release]; lastVisibilityToggleDate = nil;
-	lastVisibilityToggleDate = [[NSDate date] retain];
+	 lastVisibilityToggleDate = nil;
+	lastVisibilityToggleDate = [NSDate date];
 }
 
 - (BOOL)areReaderControlsVisible

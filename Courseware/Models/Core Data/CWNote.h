@@ -12,8 +12,8 @@
 
 @interface CWNote : NSManagedObject
 
-@property (nonatomic, retain) NSString * noteId;
-@property (nonatomic, retain) NSString * subject;
-@property (nonatomic, retain) NSString * body;
+@property (nonatomic, strong) NSString * noteId;
+@property (nonatomic, strong) NSString * subject;
+@property (nonatomic, strong) NSString * body;
 
 @end

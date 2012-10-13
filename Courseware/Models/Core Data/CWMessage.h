@@ -13,13 +13,13 @@
 
 @interface CWMessage : NSManagedObject
 
-@property (nonatomic, retain) NSString * body;
-@property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * message_id;
-@property (nonatomic, retain) NSString * receiver_email;
-@property (nonatomic, retain) NSString * sender_email;
-@property (nonatomic, retain) NSNumber * status;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) CWAccount *account;
+@property (nonatomic, strong) NSString * body;
+@property (nonatomic, strong) NSDate * date;
+@property (nonatomic, strong) NSString * message_id;
+@property (nonatomic, strong) NSString * receiver_email;
+@property (nonatomic, strong) NSString * sender_email;
+@property (nonatomic, strong) NSNumber * status;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) CWAccount *account;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface SLSlideMenuController : NSObject
 
-@property (nonatomic, retain) NSArray *menuItems;
+@property (nonatomic, strong) NSArray *menuItems;
 
 - (void)didPressMenuItemAtIndex:(NSUInteger)theIndex;
 
@@ -23,8 +23,8 @@ typedef enum {
 
 @interface SLSlideMenuItem : NSObject
 
-@property (nonatomic, retain) NSString *itemText;
-@property (nonatomic, retain) UIImage *itemIcon;
+@property (nonatomic, strong) NSString *itemText;
+@property (nonatomic, strong) UIImage *itemIcon;
 @property (nonatomic, assign) SLSlideMenuItemType itemType;
 
 + (id)menuItemWithText:(NSString *)text icon:(UIImage *)icon;

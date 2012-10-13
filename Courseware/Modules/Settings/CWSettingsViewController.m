@@ -13,17 +13,12 @@
 
 @interface CWSettingsViewController ()
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
 
 @end
 
 @implementation CWSettingsViewController
 
-- (void)dealloc
-{
-	[_navBar release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

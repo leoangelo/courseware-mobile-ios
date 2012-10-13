@@ -19,10 +19,6 @@
 
 @implementation CWCourseListFileLoader
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 - (id)initWithDelegate:(id<CWCourseListFileLoaderDelegate>)theDelegate
 {
@@ -82,7 +78,6 @@
 			[self.loaderDelegate loader:self coursePrepared:anItem];
 		}
 		
-		[anItem release];
 	}
 	else if ([jsonData isKindOfClass:[NSString class]]) {
 		CWCourseItem *anItem = [[CWCourseItem alloc] init];
@@ -91,7 +86,6 @@
 		anItem.parent = parentItem;
 		[parentItem.children addObject:anItem];
 		
-		[anItem release];
 	}
 }
 

@@ -14,7 +14,7 @@
 
 @interface CWCourseManager () <CWCourseListFileLoaderDelegate>
 
-@property (nonatomic, retain) NSMutableSet *fileLoaders;
+@property (nonatomic, strong) NSMutableSet *fileLoaders;
 
 - (void)buildSampleData;
 - (void)addLessonsToArray:(NSMutableArray *)aLessonsArr fromItem:(CWCourseItem *)theItem;
@@ -23,21 +23,16 @@
 
 @implementation CWCourseManager
 
-- (void)dealloc
-{
-	[_fileLoaders release];
-	[_courseListing release];
-	[super dealloc];
-}
 
 + (CWCourseManager *)sharedManager
 {
-	static CWCourseManager *thisManager = nil;
-	@synchronized([CWCourseManager class]) {
+	static dispatch_once_t pred = 0;
+	__strong static CWCourseManager *thisManager = nil;
+	dispatch_once(&pred, ^{
 		if (!thisManager) {
 			thisManager = [[CWCourseManager alloc] init];
 		}
-	}
+	});
 	return thisManager;
 }
 
@@ -77,7 +72,6 @@
 	CWCourseListFileLoader *fileLoader = [[CWCourseListFileLoader alloc] initWithDelegate:self];
 	[self.fileLoaders addObject:fileLoader];
 	[fileLoader loadSampleFile];
-	[fileLoader release];
 }
 
 #pragma mark - Querying Course Data

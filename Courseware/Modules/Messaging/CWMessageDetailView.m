@@ -12,12 +12,12 @@
 
 @interface CWMessageDetailView ()
 
-@property (nonatomic, retain) IBOutlet UIView *contentView;
-@property (nonatomic, retain) IBOutlet UIToolbar *actionToolbar;
-@property (nonatomic, retain) IBOutlet UITextField *toTextField;
-@property (nonatomic, retain) IBOutlet UITextField *fromTextField;
-@property (nonatomic, retain) IBOutlet UITextField *subjectTextField;
-@property (nonatomic, retain) IBOutlet UITextView *bodyTextView;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UIToolbar *actionToolbar;
+@property (nonatomic, strong) IBOutlet UITextField *toTextField;
+@property (nonatomic, strong) IBOutlet UITextField *fromTextField;
+@property (nonatomic, strong) IBOutlet UITextField *subjectTextField;
+@property (nonatomic, strong) IBOutlet UITextView *bodyTextView;
 
 - (void)updateActionToolbar;
 
@@ -35,13 +35,6 @@
 - (void)dealloc
 {
 	_model = nil;
-	[_actionToolbar release];
-	[_toTextField release];
-	[_fromTextField release];
-	[_subjectTextField release];
-	[_bodyTextView release];
-	[_contentView release];
-	[super dealloc];
 }
 
 - (void)awakeFromNib
@@ -88,7 +81,7 @@
 
 - (UIBarButtonItem *)itemWithTitle:(NSString *)title action:(SEL)actionSelector
 {
-	return [[[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self.model action:actionSelector] autorelease];
+	return [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self.model action:actionSelector];
 }
 
 - (NSArray *)actionSetForDrafts

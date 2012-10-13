@@ -18,7 +18,7 @@
 
 @interface SLSlideMenuController ()
 
-@property (nonatomic, assign) UINavigationController *navController;
+@property (nonatomic, weak) UINavigationController *navController;
 
 - (void)createCWMenuItems;
 
@@ -29,8 +29,6 @@
 - (void)dealloc
 {
 	_navController = nil;
-	[_menuItems release];
-	[super dealloc];
 }
 
 - (id)init
@@ -65,37 +63,31 @@
 	
 		CWCourseListingViewController *vc = [[CWCourseListingViewController alloc] initWithItem:nil];
 		[self pushViewController:vc];
-		[vc release];
 		
 	} else if ([selectedItem.itemText isEqualToString:@"Library"]) {
 		
 		CWLibraryBrowserViewController *vc = [[CWLibraryBrowserViewController alloc] init];
 		[self pushViewController:vc];
-		[vc release];
 		
 	} else if ([selectedItem.itemText isEqualToString:@"Messages"]) {
 		
 		CWMessagingViewController *vc = [[CWMessagingViewController alloc] init];
 		[self pushViewController:vc];
-		[vc release];
 	
 	} else if ([selectedItem.itemText isEqualToString:@"Account"]) {
 		
 		CWAccountManagerViewController *vc = [[CWAccountManagerViewController alloc] init];
 		[self pushViewController:vc];
-		[vc release];
 	
 	} else if ([selectedItem.itemText isEqualToString:@"Settings"]) {
 		
 		CWSettingsViewController *vc = [[CWSettingsViewController alloc] init];
 		[self pushViewController:vc];
-		[vc release];
 	
 	} else if ([selectedItem.itemText isEqualToString:@"Help"]) {
 		
 		CWHelpViewController *vc = [[CWHelpViewController alloc] init];
 		[self pushViewController:vc];
-		[vc release];
 	}
 }
 
@@ -122,12 +114,6 @@
 
 @implementation SLSlideMenuItem
 
-- (void)dealloc
-{
-	[_itemIcon release];
-	[_itemText release];
-	[super dealloc];
-}
 
 + (id)menuItemWithText:(NSString *)text icon:(UIImage *)icon
 {
@@ -135,14 +121,14 @@
 	anItem.itemIcon = icon;
 	anItem.itemText = text;
 	anItem.itemType = SLSlideMenuItemTypeTextAndIcon;
-	return [anItem autorelease];
+	return anItem;
 }
 
 + (id)menuItemSeparator
 {
 	SLSlideMenuItem *anItem = [[SLSlideMenuItem alloc] init];
 	anItem.itemType = SLSlideMenuItemTypeSeparator;
-	return [anItem autorelease];
+	return anItem;
 }
 
 @end

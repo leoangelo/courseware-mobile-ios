@@ -10,7 +10,7 @@
 
 @interface SLTextInputAutoFocusHelper ()
 
-@property (nonatomic, assign) UIScrollView *activeScrollView;
+@property (nonatomic, weak) UIScrollView *activeScrollView;
 
 - (void)handleKeyboardShow:(NSNotification *)notification;
 - (void)handleKeyboardHide:(NSNotification *)notification;

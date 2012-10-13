@@ -15,19 +15,13 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 
 @interface CWHelpViewController ()
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 
 @end
 
 @implementation CWHelpViewController
 
-- (void)dealloc
-{
-	[_navBar release];
-	[_webView release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

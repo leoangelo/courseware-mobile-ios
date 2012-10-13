@@ -15,12 +15,12 @@
 
 @interface CWBrowserPaneView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) CWBrowserPaneController *controller;
+@property (nonatomic, strong) CWBrowserPaneController *controller;
 
-@property (nonatomic, retain) IBOutlet UIView *contentView;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
-@property (nonatomic, retain) UIImageView *imgLogoView;
+@property (nonatomic, strong) UIImageView *imgLogoView;
 
 - (void)loadNib;
 
@@ -31,11 +31,6 @@
 - (void)dealloc
 {
 	_delegate = nil;
-	[_imgLogoView release];
-	[_tableView release];
-	[_contentView release];
-	[_controller release];
-	[super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -57,7 +52,7 @@
 	[[NSBundle mainBundle] loadNibNamed:@"CWBrowserPaneView" owner:self options:nil];
 	[self addSubview:self.contentView];
 	
-	self.controller = [[[CWBrowserPaneController alloc] init] autorelease];
+	self.controller = [[CWBrowserPaneController alloc] init];
 	
 	self.tableView.backgroundView = nil;
 	self.tableView.backgroundColor = [UIColor clearColor];
@@ -79,7 +74,7 @@
 {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
 	}
 	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
 	cell.textLabel.text = itemTitle;
@@ -109,7 +104,7 @@
 		self.imgLogoView.frame.size
 	};
 	
-	return [wrapperView autorelease];
+	return wrapperView;
 }
 
 - (UIImageView *)imgLogoView

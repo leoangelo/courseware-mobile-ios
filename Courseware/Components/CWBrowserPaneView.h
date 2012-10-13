@@ -13,7 +13,7 @@
 
 @interface CWBrowserPaneView : UIView
 
-@property (nonatomic, assign) IBOutlet id<CWBrowserPaneViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<CWBrowserPaneViewDelegate> delegate;
 
 - (void)setActiveItem:(CWCourseItem *)activeItem;
 

@@ -12,10 +12,10 @@
 
 @interface CWRecentReadingsPanelView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) CWRecentReadingsPanelController *controller;
+@property (nonatomic, strong) CWRecentReadingsPanelController *controller;
 
-@property (nonatomic, retain) IBOutlet UIView *contentView;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 - (void)loadNib;
 
@@ -27,17 +27,13 @@
 {
 	_tableView.dataSource = nil;
 	_tableView.delegate = nil;
-	[_tableView release];
-	[_contentView release];
-	[_controller release];
-	[super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-		self.controller = [[[CWRecentReadingsPanelController alloc] init] autorelease];
+		self.controller = [[CWRecentReadingsPanelController alloc] init];
 		[self loadNib];
     }
     return self;
@@ -45,7 +41,7 @@
 
 - (void)awakeFromNib
 {
-	self.controller = [[[CWRecentReadingsPanelController alloc] init] autorelease];
+	self.controller = [[CWRecentReadingsPanelController alloc] init];
 	[self loadNib];
 }
 
@@ -67,7 +63,7 @@
 	static NSString *identifier = @"RecentReadingsCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
 	}
 	CWCourseItem *lessonAtIndex = [[self.controller getRecentReads] objectAtIndex:indexPath.row];
 	CWCourseItem *parentChapter = lessonAtIndex.parent;
@@ -89,9 +85,8 @@
 	UIView *wrapperView = [[UIView alloc] initWithFrame:lblSectionTitle.frame];
 	wrapperView.backgroundColor = [UIColor whiteColor];
 	[wrapperView addSubview:lblSectionTitle];
-	[lblSectionTitle release];
 	
-	return [wrapperView autorelease];
+	return wrapperView;
 }
 
 @end

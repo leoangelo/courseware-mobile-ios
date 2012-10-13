@@ -18,9 +18,9 @@ extern NSString * const kCourseItemPageNumber;
 
 @interface CWCourseItem : NSObject
 
-@property (nonatomic, assign) CWCourseItem *parent;
-@property (nonatomic, retain) NSMutableArray *children;
-@property (nonatomic, retain) NSMutableDictionary *data;
+@property (nonatomic, weak) CWCourseItem *parent;
+@property (nonatomic, strong) NSMutableArray *children;
+@property (nonatomic, strong) NSMutableDictionary *data;
 
 - (NSArray *)siblings;
 - (NSInteger)depth;

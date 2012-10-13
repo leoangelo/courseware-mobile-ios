@@ -19,17 +19,12 @@
 
 @implementation CWNotesDetailModel
 
-- (void)dealloc
-{
-	[note release];
-	[super dealloc];
-}
 
 - (id)initWithNote:(CWNote *)theNote
 {
 	self = [super init];
 	if (self) {
-		note = [theNote retain];
+		note = theNote;
 	}
 	return self;
 }

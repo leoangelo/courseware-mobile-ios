@@ -14,19 +14,13 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 
 @interface CWMessagingModel ()
 
-@property (nonatomic, retain) NSString *selectedItem;
-@property (nonatomic, retain) NSMutableDictionary *messageListings; // identified by title, e.g. Inbox or Drafts
+@property (nonatomic, strong) NSString *selectedItem;
+@property (nonatomic, strong) NSMutableDictionary *messageListings; // identified by title, e.g. Inbox or Drafts
 
 @end
 
 @implementation CWMessagingModel
 
-- (void)dealloc
-{
-	[_messageListings release];
-	[_selectedItem release];
-	[super dealloc];
-}
 
 - (id)init
 {
@@ -88,8 +82,7 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 - (void)setSelectedItem:(NSString *)selectedItem
 {
 	if (![selectedItem isEqualToString:_selectedItem]) {
-		[_selectedItem release]; _selectedItem = nil;
-		[selectedItem retain];
+		 _selectedItem = nil;
 		_selectedItem = selectedItem;
 		
 		[self.delegate modelMainMenuSelectedItemChanged];

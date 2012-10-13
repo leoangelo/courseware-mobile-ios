@@ -11,21 +11,14 @@
 
 @interface CWNotesDetailViewController () <UITextFieldDelegate, UITextViewDelegate>
 
-@property (nonatomic, retain) UITextField *titleField;
-@property (nonatomic, retain) UITextView *contentTextView;
-@property (nonatomic, retain) CWNotesDetailModel *model;
+@property (nonatomic, strong) UITextField *titleField;
+@property (nonatomic, strong) UITextView *contentTextView;
+@property (nonatomic, strong) CWNotesDetailModel *model;
 
 @end
 
 @implementation CWNotesDetailViewController
 
-- (void)dealloc
-{
-	[_titleField release];
-	[_contentTextView release];
-	[_model release];
-	[super dealloc];
-}
 
 - (id)initWithNote:(CWNote *)aNote
 {
@@ -114,7 +107,7 @@
 		static NSString *anId = @"Title-Cell";
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
-			aCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId] autorelease];
+			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 			self.titleField.frame = (CGRect) {
 				0, 0, tableView.frame.size.width , 44
 			};
@@ -127,7 +120,7 @@
 		static NSString *anId = @"Body-Cell";
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
-			aCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId] autorelease];
+			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 			self.contentTextView.frame = (CGRect) {
 				0, 0, tableView.frame.size.width, 140
 			};

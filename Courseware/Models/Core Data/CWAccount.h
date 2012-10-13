@@ -13,13 +13,13 @@
 
 @interface CWAccount : NSManagedObject
 
-@property (nonatomic, retain) NSString * accountId;
-@property (nonatomic, retain) NSString * emailAddress;
-@property (nonatomic, retain) NSString * fullName;
-@property (nonatomic, retain) NSString * password;
-@property (nonatomic, retain) NSString * passwordHint;
-@property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSSet *messages;
+@property (nonatomic, strong) NSString * accountId;
+@property (nonatomic, strong) NSString * emailAddress;
+@property (nonatomic, strong) NSString * fullName;
+@property (nonatomic, strong) NSString * password;
+@property (nonatomic, strong) NSString * passwordHint;
+@property (nonatomic, strong) NSString * username;
+@property (nonatomic, strong) NSSet *messages;
 @end
 
 @interface CWAccount (CoreDataGeneratedAccessors)

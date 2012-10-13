@@ -11,17 +11,12 @@
 
 @interface CWNotesListingModel ()
 
-@property (nonatomic, retain) NSArray *allNotes;
+@property (nonatomic, strong) NSArray *allNotes;
 
 @end
 
 @implementation CWNotesListingModel
 
-- (void)dealloc
-{
-	[_allNotes release];
-	[super dealloc];
-}
 
 - (id)init
 {

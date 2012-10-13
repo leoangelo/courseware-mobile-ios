@@ -14,16 +14,12 @@
 
 @interface CWNotesListViewController ()
 
-@property (nonatomic, retain) CWNotesListingModel *model;
+@property (nonatomic, strong) CWNotesListingModel *model;
 
 @end
 
 @implementation CWNotesListViewController
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 - (CWNotesListingModel *)model
 {
@@ -50,7 +46,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-	[_model release]; _model = nil;
+	 _model = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,7 +78,7 @@
 		static NSString *addNoteCellId = @"AddNoteCell";
 		UITableViewCell *addNoteCell = [tableView dequeueReusableCellWithIdentifier:addNoteCellId];
 		if (!addNoteCell) {
-			addNoteCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNoteCellId] autorelease];
+			addNoteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addNoteCellId];
 			addNoteCell.textLabel.text = @"Add Note";
 			addNoteCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 		}
@@ -92,7 +88,7 @@
 		static NSString *noteCellId = @"NoteCell";
 		UITableViewCell *noteCell = [tableView dequeueReusableCellWithIdentifier:noteCellId];
 		if (!noteCell) {
-			noteCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noteCellId] autorelease];
+			noteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noteCellId];
 		}
 		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
 		noteCell.textLabel.text = noteForCell.subject;
@@ -102,7 +98,7 @@
 		static NSString *emptyCellId = @"EmptyCell";
 		UITableViewCell *emptyCell = [tableView dequeueReusableCellWithIdentifier:emptyCellId];
 		if (!emptyCell) {
-			emptyCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellId] autorelease];
+			emptyCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellId];
 			emptyCell.selectionStyle = UITableViewCellSelectionStyleNone;
 			emptyCell.textLabel.text = @"No Notes Yet.";
 		}
@@ -144,7 +140,6 @@
 	if (selectedNote) {
 		CWNotesDetailViewController *detailViewController = [[CWNotesDetailViewController alloc] initWithNote:selectedNote];
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
 	}
 		
 }

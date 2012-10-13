@@ -15,14 +15,14 @@
 
 @interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) CWMessagingModel *model;
+@property (nonatomic, strong) CWMessagingModel *model;
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet SLSlideMenuView *slideMenu;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet SLSlideMenuView *slideMenu;
 
-@property (nonatomic, retain) IBOutlet UITableView *mainMenu;
-@property (nonatomic, retain) IBOutlet UITableView *messageListView;
-@property (nonatomic, retain) IBOutlet CWMessageDetailView *messageDetailView;
+@property (nonatomic, strong) IBOutlet UITableView *mainMenu;
+@property (nonatomic, strong) IBOutlet UITableView *messageListView;
+@property (nonatomic, strong) IBOutlet CWMessageDetailView *messageDetailView;
 
 - (void)reconfigureCell:(UITableViewCell *)theCell withMessage:(CWMessage *)theMessage;
 
@@ -30,19 +30,6 @@
 
 @implementation CWMessagingViewController
 
-- (void)dealloc
-{
-	[_navBar release];
-	[_slideMenu release];
-	
-	[_mainMenu release];
-	[_messageListView release];
-	[_messageDetailView release];
-	
-	[_model release];
-	
-	[super dealloc];
-}
 
 - (void)viewDidLoad
 {
@@ -130,7 +117,7 @@
 		NSString *anId = @"main-menu";
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
-			aCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId] autorelease];
+			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 		}
 		aCell.textLabel.text = [self.model.mainMenuList objectAtIndex:indexPath.row];
 		return aCell;
@@ -139,7 +126,7 @@
 		NSString *anId = @"message-list";
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
-			aCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId] autorelease];
+			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 		}
 		[self reconfigureCell:aCell withMessage:[self.model.messageListForCurrentSelection objectAtIndex:indexPath.row]];
 		return aCell;

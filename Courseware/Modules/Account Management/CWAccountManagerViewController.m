@@ -14,13 +14,13 @@
 
 @interface CWAccountManagerViewController () <UITextFieldDelegate>
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, retain) IBOutlet UILabel *lblErrorMessage;
-@property (nonatomic, retain) IBOutlet UITextField *txtOldPassword;
-@property (nonatomic, retain) IBOutlet UITextField *txtNewPassword;
-@property (nonatomic, retain) IBOutlet UITextField *txtNewPasswordConfirm;
-@property (nonatomic, retain) IBOutlet UITextField *txtPasswordHint;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UILabel *lblErrorMessage;
+@property (nonatomic, strong) IBOutlet UITextField *txtOldPassword;
+@property (nonatomic, strong) IBOutlet UITextField *txtNewPassword;
+@property (nonatomic, strong) IBOutlet UITextField *txtNewPasswordConfirm;
+@property (nonatomic, strong) IBOutlet UITextField *txtPasswordHint;
 
 - (IBAction)saveChangesPressed:(id)sender;
 - (IBAction)logOutPressed:(id)sender;
@@ -31,17 +31,6 @@
 
 @implementation CWAccountManagerViewController
 
-- (void)dealloc
-{
-	[_txtOldPassword release];
-	[_txtNewPassword release];
-	[_txtNewPasswordConfirm release];
-	[_txtPasswordHint release];
-	[_lblErrorMessage release];
-	[_navBar release];
-	[_scrollView release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

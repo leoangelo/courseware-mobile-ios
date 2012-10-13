@@ -16,10 +16,6 @@
 
 @implementation SLCoreDataManager
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 - (id)init
 {
@@ -49,7 +45,6 @@
 		NSLog(@"error: %@", error);
 	}
 	
-	[request release];
 	
 	return ret;
 }
@@ -93,13 +88,16 @@
 // Returns the managed object context for the application.
 + (NSManagedObjectContext *)sharedContext
 {
-	static NSManagedObjectContext *aContext = nil;
-	@synchronized([NSManagedObjectContext class]) {
-		if (!aContext) {
-			aContext = [[NSManagedObjectContext alloc] init];
-			[aContext setPersistentStoreCoordinator:[self sharedStoreCoordinator]];
+	__strong static NSManagedObjectContext *aContext = nil;
+	static dispatch_once_t onceToken = 0;
+	dispatch_once(&onceToken, ^{
+		@synchronized([NSManagedObjectContext class]) {
+			if (!aContext) {
+				aContext = [[NSManagedObjectContext alloc] init];
+				[aContext setPersistentStoreCoordinator:[self sharedStoreCoordinator]];
+			}
 		}
-	}
+	});
 	return aContext;
 }
 
@@ -107,13 +105,14 @@
 // If the model doesn't already exist, it is created from the application's model.
 + (NSManagedObjectModel *)sharedObjectModel
 {
-	static NSManagedObjectModel *aModel = nil;
-	@synchronized([NSManagedObjectModel class]) {
+	__strong static NSManagedObjectModel *aModel = nil;
+	static dispatch_once_t onceToken = 0;
+	dispatch_once(&onceToken, ^{
 		if (!aModel) {
 			NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Courseware" withExtension:@"momd"];
 			aModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 		}
-	}
+	});
 	return aModel;
 }
 
@@ -121,8 +120,9 @@
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 + (NSPersistentStoreCoordinator *)sharedStoreCoordinator
 {
-	static NSPersistentStoreCoordinator *aCoordinator = nil;
-	@synchronized([NSPersistentStoreCoordinator class]) {
+	__strong static NSPersistentStoreCoordinator *aCoordinator = nil;
+	static dispatch_once_t onceToken = 0;
+	dispatch_once(&onceToken, ^{
 		if (!aCoordinator) {
 			NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Courseware.sqlite"];
 			NSError *error = nil;
@@ -133,7 +133,7 @@
 				 
 				 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 				 
-//				 Typical reasons for an error here include:
+				 //				 Typical reasons for an error here include:
 				 * The persistent store is not accessible;
 				 * The schema for the persistent store is incompatible with current managed object model.
 				 Check the error message to determine what the actual problem was.
@@ -154,9 +154,8 @@
 				NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 				abort();
 			}
-
 		}
-	}
+	});
 	return aCoordinator;
 }
 

@@ -11,8 +11,8 @@
 
 @interface CWNavigationBar ()
 
-@property (nonatomic, retain) CWNavigationBarController *controller;
-@property (nonatomic, retain) UINavigationItem *navigationItem;
+@property (nonatomic, strong) CWNavigationBarController *controller;
+@property (nonatomic, strong) UINavigationItem *navigationItem;
 
 - (void)initializeItems;
 
@@ -20,12 +20,6 @@
 
 @implementation CWNavigationBar
 
-- (void)dealloc
-{
-	[_controller release];
-	[_navigationItem release];
-	[super dealloc];
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -43,8 +37,8 @@
 
 - (void)initializeItems
 {
-	self.controller = [[[CWNavigationBarController alloc] init] autorelease];
-	self.navigationItem = [[[UINavigationItem alloc] initWithTitle:@""] autorelease];
+	self.controller = [[CWNavigationBarController alloc] init];
+	self.navigationItem = [[UINavigationItem alloc] initWithTitle:@""];
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(backButtonAction)];
 	UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(homeButtonAction)];
@@ -64,9 +58,6 @@
 		[self pushNavigationItem:self.navigationItem animated:NO];
 	}
 	
-	[backButton release];
-	[homeButton release];
-	[leftItems release];
 }
 
 @end

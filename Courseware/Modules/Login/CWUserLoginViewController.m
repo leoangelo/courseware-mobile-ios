@@ -14,12 +14,12 @@
 
 @interface CWUserLoginViewController ()
 
-@property (nonatomic, retain) IBOutlet UILabel *lblUsername;
-@property (nonatomic, retain) IBOutlet UILabel *lblPassword;
-@property (nonatomic, retain) IBOutlet UITextField *txtUsername;
-@property (nonatomic, retain) IBOutlet UITextField *txtPassword;
-@property (nonatomic, retain) IBOutlet UILabel *lblErrorFeedback;
-@property (nonatomic, retain) IBOutlet UIButton *btnLogin;
+@property (nonatomic, strong) IBOutlet UILabel *lblUsername;
+@property (nonatomic, strong) IBOutlet UILabel *lblPassword;
+@property (nonatomic, strong) IBOutlet UITextField *txtUsername;
+@property (nonatomic, strong) IBOutlet UITextField *txtPassword;
+@property (nonatomic, strong) IBOutlet UILabel *lblErrorFeedback;
+@property (nonatomic, strong) IBOutlet UIButton *btnLogin;
 
 - (IBAction)loginUser;
 - (void)pushToCourseListingScreen;
@@ -28,16 +28,6 @@
 
 @implementation CWUserLoginViewController
 
-- (void)dealloc
-{
-	[_lblUsername release];
-	[_lblPassword release];
-	[_txtUsername release];
-	[_txtPassword release];
-	[_lblErrorFeedback release];
-	[_btnLogin release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,7 +102,6 @@
 {
 	CWHomeViewController *aVC = [[CWHomeViewController alloc] init];
 	[self.navigationController pushViewController:aVC animated:YES];
-	[aVC release];
 }
 
 @end

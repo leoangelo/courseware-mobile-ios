@@ -12,17 +12,12 @@
 
 @interface CWBrowserPaneController ()
 
-@property (nonatomic, retain) NSArray *itemsToDisplay;
+@property (nonatomic, strong) NSArray *itemsToDisplay;
 
 @end
 
 @implementation CWBrowserPaneController
 
-- (void)dealloc
-{
-	[_itemsToDisplay release];
-	[super dealloc];
-}
 
 - (id)init
 {

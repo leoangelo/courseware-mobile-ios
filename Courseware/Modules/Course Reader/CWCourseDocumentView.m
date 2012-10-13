@@ -15,7 +15,7 @@
 	NSInteger currentPage;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *contentViews;
+@property (nonatomic, strong) NSMutableDictionary *contentViews;
 
 - (void)initializeGestures;
 
@@ -30,8 +30,6 @@
 {
 	_dataSource = nil;
 	_documentDelegate = nil;
-	[_contentViews release];
-	[super dealloc];
 }
 
 - (void)awakeFromNib
@@ -54,9 +52,9 @@
 	
 	[singleTapOne requireGestureRecognizerToFail:doubleTapOne]; // Single tap requires double tap to fail
 	
-	[self addGestureRecognizer:singleTapOne]; [singleTapOne release];
-	[self addGestureRecognizer:doubleTapOne]; [doubleTapOne release];
-	[self addGestureRecognizer:doubleTapTwo]; [doubleTapTwo release];
+	[self addGestureRecognizer:singleTapOne]; 
+	[self addGestureRecognizer:doubleTapOne]; 
+	[self addGestureRecognizer:doubleTapTwo]; 
 }
 
 #pragma mark - Scroll View Support
@@ -169,7 +167,7 @@
 				
 				[self addSubview:contentView]; [_contentViews setObject:contentView forKey:key];
 				
-				contentView.message = self; [contentView release]; [newPageSet addIndex:number];
+				contentView.message = self;  [newPageSet addIndex:number];
 			}
 			else // Reposition the existing content view
 			{
@@ -192,7 +190,7 @@
 		 }
 		 ];
 		
-		[unusedViews release], unusedViews = nil; // Release unused views
+		unusedViews = nil; // Release unused views
 		
 		CGFloat viewWidthX1 = viewRect.size.width;
 		CGFloat viewWidthX2 = (viewWidthX1 * 2.0f);
@@ -245,7 +243,7 @@
 		 }
 		 ];
 		
-		[newPageSet release], newPageSet = nil; // Release new page set
+		newPageSet = nil; // Release new page set
 		
 		// [mainPagebar updatePagebar]; // Update the pagebar display
 		
@@ -343,7 +341,7 @@
 			
 			ReaderContentView *targetView = [_contentViews objectForKey:key];
 			
-			id target = [targetView singleTap:recognizer]; // Process tap
+			id target = [targetView processSingleTap:recognizer]; // Process tap
 			
 			if (target != nil) // Handle the returned target object
 			{

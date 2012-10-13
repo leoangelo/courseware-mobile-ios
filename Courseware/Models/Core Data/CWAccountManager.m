@@ -17,7 +17,7 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 
 @interface CWAccountManager ()
 
-@property (nonatomic, retain) CWAccount *activeUserAccount;
+@property (nonatomic, strong) CWAccount *activeUserAccount;
 
 - (void)insertTestUser;
 
@@ -26,20 +26,16 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 @implementation CWAccountManager
 @synthesize activeUserAccount = _activeUserAccount;
 
-- (void)dealloc
-{
-	[_activeUserAccount release];
-	[super dealloc];
-}
 
 + (CWAccountManager *)sharedManager
 {
-	static CWAccountManager *manager = nil;
-	@synchronized([CWAccountManager class]) {
+	__strong static CWAccountManager *manager = nil;
+	static dispatch_once_t onceToken = 0;
+	dispatch_once(&onceToken, ^{
 		if (!manager) {
 			manager = [[CWAccountManager alloc] init];
 		}
-	}
+	});
 	return manager;
 }
 

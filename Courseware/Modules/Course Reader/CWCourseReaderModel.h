@@ -12,7 +12,7 @@
 
 @interface CWCourseReaderModel : NSObject
 
-@property (nonatomic, retain) ReaderDocument *courseDocument;
+@property (nonatomic, strong) ReaderDocument *courseDocument;
 
 - (NSInteger)randomPageIndex;
 

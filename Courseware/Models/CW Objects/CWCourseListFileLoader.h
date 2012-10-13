@@ -13,7 +13,7 @@
 
 @interface CWCourseListFileLoader : NSObject
 
-@property (nonatomic, assign) id<CWCourseListFileLoaderDelegate> loaderDelegate;
+@property (nonatomic, weak) id<CWCourseListFileLoaderDelegate> loaderDelegate;
 
 - (id)initWithDelegate:(id<CWCourseListFileLoaderDelegate>)theDelegate;
 - (void)loadFilePath:(NSString *)theFilePath;

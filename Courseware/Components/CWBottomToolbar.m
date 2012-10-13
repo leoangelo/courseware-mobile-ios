@@ -11,7 +11,7 @@
 
 @interface CWBottomToolbar ()
 
-@property (nonatomic, retain) CWBottomToolbarController *controller;
+@property (nonatomic, strong) CWBottomToolbarController *controller;
 
 - (void)initializeItems;
 
@@ -19,11 +19,6 @@
 
 @implementation CWBottomToolbar
 
-- (void)dealloc
-{
-	[_controller release];
-	[super dealloc];
-}
 
 - (void)awakeFromNib
 {
@@ -32,26 +27,25 @@
 
 - (void)initializeItems
 {
-	self.controller = [[[CWBottomToolbarController alloc] init] autorelease];
+	self.controller = [[CWBottomToolbarController alloc] init];
 	
 	NSMutableArray *anItems = [[NSMutableArray alloc] init];
 	
-	[anItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
+	[anItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 	
-	UIBarButtonItem *bookmarksButton = [[[UIBarButtonItem alloc] initWithTitle:@"Bookmarks" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(bookmarksAction:)] autorelease];
+	UIBarButtonItem *bookmarksButton = [[UIBarButtonItem alloc] initWithTitle:@"Bookmarks" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(bookmarksAction:)];
 	[anItems addObject:bookmarksButton];
 	
-	UIBarButtonItem *notesButton = [[[UIBarButtonItem alloc] initWithTitle:@"Notes" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(notesAction:)] autorelease];
+	UIBarButtonItem *notesButton = [[UIBarButtonItem alloc] initWithTitle:@"Notes" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(notesAction:)];
 	[anItems addObject:notesButton];
 	
-	UIBarButtonItem *testsButton = [[[UIBarButtonItem alloc] initWithTitle:@"Take Test" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(testsAction:)] autorelease];
+	UIBarButtonItem *testsButton = [[UIBarButtonItem alloc] initWithTitle:@"Take Test" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(testsAction:)];
 	[anItems addObject:testsButton];
 	
-	[anItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
+	[anItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 	
 	self.items = anItems;
 	
-	[anItems release];
 }
 
 @end

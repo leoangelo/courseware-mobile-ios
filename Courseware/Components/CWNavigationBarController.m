@@ -12,7 +12,7 @@
 
 @interface CWNavigationBarController ()
 
-@property (nonatomic, assign) UINavigationController *navController;
+@property (nonatomic, weak) UINavigationController *navController;
 
 - (UIViewController *)getHomeViewController;
 
@@ -23,7 +23,6 @@
 - (void)dealloc
 {
 	_navController = nil;
-	[super dealloc];
 }
 
 - (id)init

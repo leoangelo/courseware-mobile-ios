@@ -11,14 +11,14 @@
 
 @interface CWUserStatusPanelView ()
 
-@property (nonatomic, retain) CWUserStatusPanelController *controller;
+@property (nonatomic, strong) CWUserStatusPanelController *controller;
 
-@property (nonatomic, retain) IBOutlet UIView *contentView;
-@property (nonatomic, retain) IBOutlet UIImageView *imgAvatar;
-@property (nonatomic, retain) IBOutlet UILabel *lblUsername;
-@property (nonatomic, retain) IBOutlet UILabel *lblFullName;
-@property (nonatomic, retain) IBOutlet UILabel *lblSchoolName;
-@property (nonatomic, retain) IBOutlet UILabel *lblProgramName;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UIImageView *imgAvatar;
+@property (nonatomic, strong) IBOutlet UILabel *lblUsername;
+@property (nonatomic, strong) IBOutlet UILabel *lblFullName;
+@property (nonatomic, strong) IBOutlet UILabel *lblSchoolName;
+@property (nonatomic, strong) IBOutlet UILabel *lblProgramName;
 
 - (void)layoutNib;
 
@@ -26,23 +26,12 @@
 
 @implementation CWUserStatusPanelView
 
-- (void)dealloc
-{
-	[_imgAvatar release];
-	[_lblUsername release];
-	[_lblFullName release];
-	[_lblSchoolName release];
-	[_lblProgramName release];
-	[_contentView release];
-	[_controller release];
-	[super dealloc];
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-		self.controller = [[[CWUserStatusPanelController alloc] init] autorelease];
+		self.controller = [[CWUserStatusPanelController alloc] init];
 		[self layoutNib];
     }
     return self;
@@ -50,7 +39,7 @@
 
 - (void)awakeFromNib
 {
-	self.controller = [[[CWUserStatusPanelController alloc] init] autorelease];
+	self.controller = [[CWUserStatusPanelController alloc] init];
 	[self layoutNib];
 }
 

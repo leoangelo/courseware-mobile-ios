@@ -16,19 +16,13 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 @interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate>
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet GMGridView *gridView;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet GMGridView *gridView;
 
 @end
 
 @implementation CWLibraryBrowserViewController
 
-- (void)dealloc
-{
-	[_navBar release];
-	[_gridView release];
-	[super dealloc];
-}
 
 - (void)viewDidLoad
 {
@@ -81,12 +75,12 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 		
 		NSInteger randomNumber = arc4random() % 8;
 		
-		cell = [[[GMGridViewCell alloc] init] autorelease];
+		cell = [[GMGridViewCell alloc] init];
 		
-		UIView *aContentView = [[[UIView alloc] initWithFrame:(CGRect) { CGPointZero, kItemSize }] autorelease];
+		UIView *aContentView = [[UIView alloc] initWithFrame:(CGRect) { CGPointZero, kItemSize }];
 		aContentView.backgroundColor = [UIColor clearColor];
 		
-		UIImageView *anImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", randomNumber]]] autorelease];
+		UIImageView *anImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", randomNumber]]];
 		[aContentView addSubview:anImage];
 
 		anImage.frame = (CGRect) {

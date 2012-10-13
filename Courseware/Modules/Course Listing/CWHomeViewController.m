@@ -18,10 +18,10 @@
 
 @interface CWHomeViewController () <CWBrowserPaneViewDelegate>
 
-@property (nonatomic, retain) IBOutlet CWNavigationBar *topNavBar;
-@property (nonatomic, retain) IBOutlet CWBrowserPaneView *leftPanel;
-@property (nonatomic, retain) IBOutlet CWUserStatusPanelView *userPanel;
-@property (nonatomic, retain) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *topNavBar;
+@property (nonatomic, strong) IBOutlet CWBrowserPaneView *leftPanel;
+@property (nonatomic, strong) IBOutlet CWUserStatusPanelView *userPanel;
+@property (nonatomic, strong) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
 
 - (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item;
 
@@ -29,13 +29,6 @@
 
 @implementation CWHomeViewController
 
-- (void)dealloc {
-	[_topNavBar release];
-	[_leftPanel release];
-	[_userPanel release];
-	[_recentReadingsPanel release];
-	[super dealloc];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,7 +70,6 @@
 {
 	CWCourseListingViewController *aController = [[CWCourseListingViewController alloc] initWithItem:item];
 	[self.navigationController pushViewController:aController animated:YES];
-	[aController release];
 }
 
 @end

@@ -13,32 +13,24 @@
 
 @interface CWBottomToolbarController ()
 
-@property (nonatomic, retain) UIPopoverController *popOverController;
-@property (nonatomic, retain) UINavigationController *notesNavController;
-@property (nonatomic, retain) UINavigationController *bookmarksNavController;
+@property (nonatomic, strong) UIPopoverController *popOverController;
+@property (nonatomic, strong) UINavigationController *notesNavController;
+@property (nonatomic, strong) UINavigationController *bookmarksNavController;
 
 @end
 
 @implementation CWBottomToolbarController
 
-- (void)dealloc
-{
-	[_notesNavController release];
-	[_bookmarksNavController release];
-	[_popOverController release];
-	[super dealloc];
-}
 
 - (void)bookmarksAction:(id)target
 {
 	if (!self.bookmarksNavController) {
 		CWNotesListViewController *rootVC = [[CWNotesListViewController alloc] initWithStyle:UITableViewStylePlain];
 		rootVC.title = @"Bookmarks";
-		self.bookmarksNavController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
-		[rootVC release];
+		self.bookmarksNavController = [[UINavigationController alloc] initWithRootViewController:rootVC];
 	}
 	if (!self.popOverController) {
-		self.popOverController = [[[UIPopoverController alloc] initWithContentViewController:self.bookmarksNavController] autorelease];
+		self.popOverController = [[UIPopoverController alloc] initWithContentViewController:self.bookmarksNavController];
 	}
 	else {
 		[self.popOverController setContentViewController:self.bookmarksNavController animated:NO];
@@ -52,11 +44,10 @@
 	if (!self.notesNavController) {
 		CWNotesListViewController *rootVC = [[CWNotesListViewController alloc] initWithStyle:UITableViewStylePlain];
 		rootVC.title = @"Notes";
-		self.notesNavController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
-		[rootVC release];
+		self.notesNavController = [[UINavigationController alloc] initWithRootViewController:rootVC];
 	}
 	if (!self.popOverController) {
-		self.popOverController = [[[UIPopoverController alloc] initWithContentViewController:self.notesNavController] autorelease];
+		self.popOverController = [[UIPopoverController alloc] initWithContentViewController:self.notesNavController];
 	}
 	else {
 		[self.popOverController setContentViewController:self.notesNavController animated:NO];
@@ -70,7 +61,6 @@
 	UINavigationController *navController = [(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController];
 	CWEvaluationTestViewController *vc = [[CWEvaluationTestViewController alloc] init];
 	[navController pushViewController:vc animated:YES];
-	[vc release];
 }
 
 @end

@@ -12,7 +12,7 @@
 
 @interface CWMessageDetailView : UIView
 
-@property (nonatomic, assign) CWMessagingModel *model;
+@property (nonatomic, weak) CWMessagingModel *model;
 
 - (void)refreshView;
 - (void)preProcessMessage;

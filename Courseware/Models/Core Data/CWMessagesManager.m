@@ -25,12 +25,11 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 
 + (CWMessagesManager *)sharedManager
 {
-	static CWMessagesManager *thisManager = nil;
-	@synchronized([self class]) {
-		if (!thisManager) {
-			thisManager = [[CWMessagesManager alloc] init];
-		}
-	}
+	static dispatch_once_t pred = 0;
+	__strong static CWMessagesManager *thisManager = nil;
+	dispatch_once(&pred, ^{
+		thisManager = [[CWMessagesManager alloc] init]; // or some other init method
+	});
 	return thisManager;
 }
 

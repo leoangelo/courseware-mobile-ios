@@ -12,19 +12,16 @@
 
 @implementation CWNotesManager
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 + (CWNotesManager *)sharedManager
 {
-	static CWNotesManager *aManager = nil;
-	@synchronized([CWNotesManager class]) {
+	__strong static CWNotesManager *aManager = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
 		if (!aManager) {
 			aManager = [[CWNotesManager alloc] init];
 		}
-	}
+	});
 	return aManager;
 }
 

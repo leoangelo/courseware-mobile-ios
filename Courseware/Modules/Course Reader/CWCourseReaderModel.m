@@ -31,7 +31,7 @@
 - (ReaderDocument *)courseDocument
 {
 	if (!_courseDocument) {
-		_courseDocument = [[self.class sampleDocument] retain];
+		_courseDocument = [self.class sampleDocument];
 		[_courseDocument updateProperties];
 	}
 	return _courseDocument;

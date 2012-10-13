@@ -14,8 +14,8 @@
 
 @interface CWCourseDocumentView : UIScrollView
 
-@property (nonatomic, assign) IBOutlet id<CWCourseDocumentViewDataSource> dataSource;
-@property (nonatomic, assign) IBOutlet id<CWCourseDocumentViewDelegate> documentDelegate;
+@property (nonatomic, weak) IBOutlet id<CWCourseDocumentViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<CWCourseDocumentViewDelegate> documentDelegate;
 
 - (void)updateScrollViewContentViews;
 - (void)showDocumentPage:(NSInteger)page;

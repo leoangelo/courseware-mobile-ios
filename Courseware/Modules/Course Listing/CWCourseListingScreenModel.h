@@ -12,7 +12,7 @@
 
 @interface CWCourseListingScreenModel : NSObject
 
-@property (nonatomic, assign) CWCourseItem *selectedCourseItem;
+@property (nonatomic, weak) CWCourseItem *selectedCourseItem;
 
 - (NSArray *)getItemList;
 

@@ -11,7 +11,7 @@
 
 @interface CWCourseListingScreenModel ()
 
-@property (nonatomic, retain) NSArray *itemList;
+@property (nonatomic, strong) NSArray *itemList;
 
 - (void)rebuildItemList;
 - (void)addItem:(CWCourseItem *)anItem toList:(NSMutableArray *)aList;
@@ -23,7 +23,6 @@
 - (void)dealloc
 {
 	_selectedCourseItem = nil;
-	[super dealloc];
 }
 
 - (void)setSelectedCourseItem:(CWCourseItem *)selectedCourseItem
@@ -50,7 +49,6 @@
 	}
 
 	self.itemList = items;
-	[items release];
 }
 
 - (void)addItem:(CWCourseItem *)anItem toList:(NSMutableArray *)aList

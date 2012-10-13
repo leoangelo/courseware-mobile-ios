@@ -12,7 +12,7 @@
 
 @interface CWBrowserPaneController : NSObject
 
-@property (nonatomic, assign) CWCourseItem *activeCourseItem;
+@property (nonatomic, weak) CWCourseItem *activeCourseItem;
 
 - (void)rebuildItems;
 - (NSArray *)getItemsToDisplay;

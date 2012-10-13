@@ -12,17 +12,12 @@
 
 @interface CWRecentReadingsPanelController ()
 
-@property (nonatomic, retain) NSArray *recentReads;
+@property (nonatomic, strong) NSArray *recentReads;
 
 @end
 
 @implementation CWRecentReadingsPanelController
 
-- (void)dealloc
-{
-	[_recentReads release];
-	[super dealloc];
-}
 
 - (id)init
 {
@@ -38,7 +33,6 @@
 	NSArray *allLessons = [[CWCourseManager sharedManager] allLessons];
 	NSSortDescriptor *sorterByDate = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"data.%@", kCourseItemLastDateRead] ascending:NO];
 	allLessons = [allLessons sortedArrayUsingDescriptors:[NSArray arrayWithObject:sorterByDate]];
-	[sorterByDate release];
 		
 	NSInteger retSize = MIN([allLessons count], 5);
 	allLessons = [allLessons subarrayWithRange:NSMakeRange(0, retSize)];

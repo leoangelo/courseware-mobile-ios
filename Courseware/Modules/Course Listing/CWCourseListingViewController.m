@@ -16,10 +16,10 @@
 
 @interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
 
-@property (nonatomic, retain) IBOutlet CWBrowserPaneView *browserPane;
-@property (nonatomic, retain) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, retain) IBOutlet UITableView *listView;
-@property (nonatomic, retain) CWCourseListingScreenModel *model;
+@property (nonatomic, strong) IBOutlet CWBrowserPaneView *browserPane;
+@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet UITableView *listView;
+@property (nonatomic, strong) CWCourseListingScreenModel *model;
 
 - (void)scrollToCourseItem:(CWCourseItem *)item;
 
@@ -27,14 +27,6 @@
 
 @implementation CWCourseListingViewController
 
-- (void)dealloc
-{
-	[_browserPane release];
-	[_navBar release];
-	[_listView release];
-	[_model release];
-	[super dealloc];
-}
 
 - (id)initWithItem:(CWCourseItem *)selectedItem
 {
@@ -100,7 +92,6 @@
 	CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
 	vc.selectedCourse = [self.model.getItemList objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:vc animated:YES];
-	[vc release];
 }
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
@@ -162,7 +153,7 @@
 	cell.textLabel.font = [UIFont fontWithName:fontName size:fontSize];
 	cell.detailTextLabel.font = [UIFont fontWithName:fontName size:fontSize - 3];
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (void)reconfigureCell:(UITableViewCell *)cell withCourseItem:(CWCourseItem *)item

@@ -16,12 +16,12 @@
 
 @interface SLSlideMenuView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) SLSlideMenuController *controlller;
+@property (nonatomic, strong) SLSlideMenuController *controlller;
 
-@property (nonatomic, retain) IBOutlet UIView *contentView;
-@property (nonatomic, retain) IBOutlet UIImageView *imgBackground;
-@property (nonatomic, retain) IBOutlet UITableView *listView;
-@property (nonatomic, retain) IBOutlet UIButton *btnSlideAction;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
+@property (nonatomic, strong) IBOutlet UIImageView *imgBackground;
+@property (nonatomic, strong) IBOutlet UITableView *listView;
+@property (nonatomic, strong) IBOutlet UIButton *btnSlideAction;
 
 @property (nonatomic, getter = isDisplayed) BOOL displayed;
 
@@ -32,19 +32,11 @@
 
 @implementation SLSlideMenuView
 
-- (void)dealloc
-{
-	[_listView release];
-	[_imgBackground release];
-	[_contentView release];
-	[_controlller release];
-	[super dealloc];
-}
 
 + (id)slideMenuView
 {
 	SLSlideMenuView *aView = [[SLSlideMenuView alloc] initWithFrame:CGRectMake(0, 0, 220, 430)];
-	return [aView autorelease];
+	return aView;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -63,7 +55,7 @@
 
 - (void)layoutNib
 {
-	self.controlller = [[[SLSlideMenuController alloc] init] autorelease];
+	self.controlller = [[SLSlideMenuController alloc] init];
 	
 	self.backgroundColor = [UIColor clearColor];
 	
@@ -120,7 +112,7 @@
 	static NSString *identifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 		cell.textLabel.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:18];
 		cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		cell.indentationLevel = 1;
@@ -135,7 +127,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	return [[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, HEADER_HEIGHT)] autorelease];
+	return [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, HEADER_HEIGHT)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

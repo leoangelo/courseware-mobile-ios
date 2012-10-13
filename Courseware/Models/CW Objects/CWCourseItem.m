@@ -21,9 +21,6 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 - (void)dealloc
 {
 	_parent = nil;
-	[_children release];
-	[_data release];
-	[super dealloc];
 }
  
 - (id)init

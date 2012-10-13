@@ -21,8 +21,8 @@
 
 @interface CWMessagingModel : NSObject
 
-@property (nonatomic, assign) id<CWMessagingModelDelegate> delegate;
-@property (nonatomic, assign) CWMessage *selectedMessage;
+@property (nonatomic, weak) id<CWMessagingModelDelegate> delegate;
+@property (nonatomic, weak) CWMessage *selectedMessage;
 
 - (void)refreshData;
 - (NSArray *)mainMenuList;

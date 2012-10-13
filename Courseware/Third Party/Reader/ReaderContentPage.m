@@ -1,6 +1,6 @@
 //
 //	ReaderContentPage.m
-//	Reader v2.5.6
+//	Reader v2.6.1
 //
 //	Created by Julius Oklamcak on 2011-07-01.
 //	Copyright © 2011-2012 Julius Oklamcak. All rights reserved.
@@ -29,19 +29,26 @@
 #import "CGPDFDocument.h"
 
 @implementation ReaderContentPage
+{
+	NSMutableArray *_links;
 
-//#pragma mark Properties
+	CGPDFDocumentRef _PDFDocRef;
 
-//@synthesize ;
+	CGPDFPageRef _PDFPageRef;
+
+	NSInteger _pageAngle;
+
+	CGFloat _pageWidth;
+	CGFloat _pageHeight;
+
+	CGFloat _pageOffsetX;
+	CGFloat _pageOffsetY;
+}
 
 #pragma mark ReaderContentPage class methods
 
 + (Class)layerClass
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	return [ReaderContentTile class];
 }
 
@@ -49,10 +56,6 @@
 
 - (void)highlightPageLinks
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	if (_links.count > 0) // Add highlight views over all links
 	{
 		UIColor *hilite = [UIColor colorWithRed:0.0f green:0.0f blue:1.0f alpha:0.15f];
@@ -63,22 +66,17 @@
 
 			highlight.autoresizesSubviews = NO;
 			highlight.userInteractionEnabled = NO;
-			highlight.clearsContextBeforeDrawing = NO;
 			highlight.contentMode = UIViewContentModeRedraw;
 			highlight.autoresizingMask = UIViewAutoresizingNone;
 			highlight.backgroundColor = hilite; // Color
 
-			[self addSubview:highlight]; [highlight release];
+			[self addSubview:highlight];
 		}
 	}
 }
 
 - (ReaderDocumentLink *)linkFromAnnotation:(CGPDFDictionaryRef)annotationDictionary
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	ReaderDocumentLink *documentLink = nil; // Document link object
 
 	CGPDFArrayRef annotationRectArray = NULL; // Annotation co-ordinates array
@@ -133,7 +131,7 @@
 
 		CGRect viewRect = CGRectMake(vr_x, vr_y, vr_w, vr_h); // View CGRect from PDFRect
 
-		documentLink = [ReaderDocumentLink withRect:viewRect dictionary:annotationDictionary];
+		documentLink = [ReaderDocumentLink newWithRect:viewRect dictionary:annotationDictionary];
 	}
 
 	return documentLink;
@@ -141,10 +139,6 @@
 
 - (void)buildAnnotationLinksList
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	_links = [NSMutableArray new]; // Links list array
 
 	CGPDFArrayRef pageAnnotations = NULL; // Page annotations array
@@ -175,16 +169,12 @@
 			}
 		}
 
-//		[self highlightPageLinks]; // For link support debugging
+		//[self highlightPageLinks]; // Link support debugging
 	}
 }
 
 - (CGPDFArrayRef)destinationWithName:(const char *)destinationName inDestsTree:(CGPDFDictionaryRef)node
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	CGPDFArrayRef destinationArray = NULL;
 
 	CGPDFArrayRef limitsArray = NULL; // Limits array
@@ -264,10 +254,6 @@
 
 - (id)annotationLinkTarget:(CGPDFDictionaryRef)annotationDictionary
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	id linkTarget = nil; // Link target object
 
 	CGPDFStringRef destName = NULL; const char *destString = NULL;
@@ -391,12 +377,8 @@
 	return linkTarget;
 }
 
-- (id)singleTap:(UITapGestureRecognizer *)recognizer
+- (id)processSingleTap:(UITapGestureRecognizer *)recognizer
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	id result = nil; // Tap result object
 
 	if (recognizer.state == UIGestureRecognizerStateRecognized)
@@ -422,10 +404,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	id view = nil; // UIView
 
 	if (CGRectIsEmpty(frame) == false)
@@ -434,7 +412,6 @@
 		{
 			self.autoresizesSubviews = NO;
 			self.userInteractionEnabled = NO;
-			self.clearsContextBeforeDrawing = NO;
 			self.contentMode = UIViewContentModeRedraw;
 			self.autoresizingMask = UIViewAutoresizingNone;
 			self.backgroundColor = [UIColor clearColor];
@@ -444,7 +421,7 @@
 	}
 	else // Handle invalid frame size
 	{
-		[self release];
+		self = nil;
 	}
 
 	return view;
@@ -452,15 +429,11 @@
 
 - (id)initWithURL:(NSURL *)fileURL page:(NSInteger)page password:(NSString *)phrase
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	CGRect viewRect = CGRectZero; // View rect
 
 	if (fileURL != nil) // Check for non-nil file URL
 	{
-		_PDFDocRef = CGPDFDocumentCreateX((CFURLRef)fileURL, phrase);
+		_PDFDocRef = CGPDFDocumentCreateX((__bridge CFURLRef)fileURL, phrase);
 
 		if (_PDFDocRef != NULL) // Check for non-NULL CGPDFDocumentRef
 		{
@@ -535,83 +508,52 @@
 	return view;
 }
 
+- (void)removeFromSuperview
+{
+	self.layer.delegate = nil;
+
+	//self.layer.contents = nil;
+
+	[super removeFromSuperview];
+}
+
 - (void)dealloc
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
+	CGPDFPageRelease(_PDFPageRef), _PDFPageRef = NULL;
 
-	[_links release], _links = nil;
-
-	@synchronized(self) // Block any other threads
-	{
-		CGPDFPageRelease(_PDFPageRef), _PDFPageRef = NULL;
-
-		CGPDFDocumentRelease(_PDFDocRef), _PDFDocRef = NULL;
-	}
-
-	[super dealloc];
+	CGPDFDocumentRelease(_PDFDocRef), _PDFDocRef = NULL;
 }
 
 #if (READER_DISABLE_RETINA == TRUE) // Option
 
 - (void)didMoveToWindow
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	self.contentScaleFactor = 1.0f; // Override scale factor
 }
 
 #endif // end of READER_DISABLE_RETINA Option
 
-/*
-- (void)layoutSubviews
-{
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-}
-*/
-
 #pragma mark CATiledLayer delegate methods
 
 - (void)drawLayer:(CATiledLayer *)layer inContext:(CGContextRef)context
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
-	CGPDFPageRef drawPDFPageRef = NULL;
-
-	CGPDFDocumentRef drawPDFDocRef = NULL;
-
-	@synchronized(self) // Block any other threads
-	{
-		drawPDFDocRef = CGPDFDocumentRetain(_PDFDocRef);
-
-		drawPDFPageRef = CGPDFPageRetain(_PDFPageRef);
-	}
-
-	//NSLog(@"%s %@", __FUNCTION__, NSStringFromCGRect(CGContextGetClipBoundingBox(context)));
+	ReaderContentPage *readerContentPage = self; // Retain self
 
 	CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f); // White
 
 	CGContextFillRect(context, CGContextGetClipBoundingBox(context)); // Fill
 
-	if (drawPDFPageRef != NULL) // Go ahead and render the PDF page into the context
-	{
-		CGContextTranslateCTM(context, 0.0f, self.bounds.size.height); CGContextScaleCTM(context, 1.0f, -1.0f);
+	//NSLog(@"%s %@", __FUNCTION__, NSStringFromCGRect(CGContextGetClipBoundingBox(context)));
 
-		CGContextConcatCTM(context, CGPDFPageGetDrawingTransform(drawPDFPageRef, kCGPDFCropBox, self.bounds, 0, true));
+	CGContextTranslateCTM(context, 0.0f, self.bounds.size.height); CGContextScaleCTM(context, 1.0f, -1.0f);
 
-		CGContextSetRenderingIntent(context, kCGRenderingIntentDefault); CGContextSetInterpolationQuality(context, kCGInterpolationDefault);
+	CGContextConcatCTM(context, CGPDFPageGetDrawingTransform(_PDFPageRef, kCGPDFCropBox, self.bounds, 0, true));
 
-		CGContextDrawPDFPage(context, drawPDFPageRef); // Render the PDF page into the context
-	}
+	//CGContextSetRenderingIntent(context, kCGRenderingIntentDefault); CGContextSetInterpolationQuality(context, kCGInterpolationDefault);
 
-	CGPDFPageRelease(drawPDFPageRef); CGPDFDocumentRelease(drawPDFDocRef); // Cleanup
+	CGContextDrawPDFPage(context, _PDFPageRef); // Render the PDF page into the context
+
+	if (readerContentPage != nil) readerContentPage = nil; // Release self
 }
 
 @end
@@ -623,6 +565,11 @@
 //
 
 @implementation ReaderDocumentLink
+{
+	CGPDFDictionaryRef _dictionary;
+
+	CGRect _rect;
+}
 
 #pragma mark Properties
 
@@ -631,23 +578,15 @@
 
 #pragma mark ReaderDocumentLink class methods
 
-+ (id)withRect:(CGRect)linkRect dictionary:(CGPDFDictionaryRef)linkDictionary
++ (id)newWithRect:(CGRect)linkRect dictionary:(CGPDFDictionaryRef)linkDictionary
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
-	return [[[ReaderDocumentLink alloc] initWithRect:linkRect dictionary:linkDictionary] autorelease];
+	return [[ReaderDocumentLink alloc] initWithRect:linkRect dictionary:linkDictionary];
 }
 
 #pragma mark ReaderDocumentLink instance methods
 
 - (id)initWithRect:(CGRect)linkRect dictionary:(CGPDFDictionaryRef)linkDictionary
 {
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
 	if ((self = [super init]))
 	{
 		_dictionary = linkDictionary;
@@ -656,15 +595,6 @@
 	}
 
 	return self;
-}
-
-- (void)dealloc
-{
-#ifdef DEBUGX
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
-	[super dealloc];
 }
 
 @end

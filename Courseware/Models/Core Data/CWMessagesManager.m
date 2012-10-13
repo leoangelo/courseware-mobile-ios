@@ -102,4 +102,9 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 	[self saveContext];
 }
 
+- (void)updateMessage:(CWMessage *)theMessage state:(CWMessageState)theState
+{
+	
+}
+
 @end

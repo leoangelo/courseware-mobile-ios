@@ -55,6 +55,9 @@
 		7E6E43971627398900B43D7B /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E43961627398900B43D7B /* icon-144.png */; };
 		7E6E43991627398D00B43D7B /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E43981627398D00B43D7B /* icon-72.png */; };
 		7E71984B1609494600CA0F7D /* CWNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E71984A1609494600CA0F7D /* CWNavigationBarController.m */; };
+		7E9B6E91162988B500687971 /* CWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6E90162988B500687971 /* CWHTTPServer.m */; };
+		7E9B6E9516298AC500687971 /* CWHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6E9416298AC500687971 /* CWHTTPConnection.m */; };
+		7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */; };
 		7E9B943E161741D200F39337 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B943D161741D200F39337 /* CWAccount.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
@@ -91,9 +94,7 @@
 		7ED2652B16292E06002900AE /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F216292E06002900AE /* DDData.m */; };
 		7ED2652C16292E06002900AE /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F416292E06002900AE /* DDNumber.m */; };
 		7ED2652D16292E06002900AE /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F616292E06002900AE /* DDRange.m */; };
-		7ED2652E16292E06002900AE /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7ED264F816292E06002900AE /* About.txt */; };
 		7ED2652F16292E06002900AE /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264FA16292E06002900AE /* GCDAsyncSocket.m */; };
-		7ED2653016292E06002900AE /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7ED264FC16292E06002900AE /* About.txt */; };
 		7ED2653116292E06002900AE /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264FE16292E06002900AE /* DDAbstractDatabaseLogger.m */; };
 		7ED2653216292E06002900AE /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650016292E06002900AE /* DDASLLogger.m */; };
 		7ED2653316292E06002900AE /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650216292E06002900AE /* DDFileLogger.m */; };
@@ -101,7 +102,6 @@
 		7ED2653516292E06002900AE /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650616292E06002900AE /* DDTTYLogger.m */; };
 		7ED2653616292E06002900AE /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650916292E06002900AE /* ContextFilterLogFormatter.m */; };
 		7ED2653716292E06002900AE /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650B16292E06002900AE /* DispatchQueueLogFormatter.m */; };
-		7ED2653816292E06002900AE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2650C16292E06002900AE /* README.txt */; };
 		7ED2653916292E06002900AE /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2650E16292E06002900AE /* HTTPAuthenticationRequest.m */; };
 		7ED2653A16292E06002900AE /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2651016292E06002900AE /* HTTPConnection.m */; };
 		7ED2653B16292E06002900AE /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2651316292E06002900AE /* HTTPMessage.m */; };
@@ -242,6 +242,12 @@
 		7E6E43981627398D00B43D7B /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		7E7198491609494600CA0F7D /* CWNavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNavigationBarController.h; sourceTree = "<group>"; };
 		7E71984A1609494600CA0F7D /* CWNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNavigationBarController.m; sourceTree = "<group>"; };
+		7E9B6E8F162988B500687971 /* CWHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHTTPServer.h; sourceTree = "<group>"; };
+		7E9B6E90162988B500687971 /* CWHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHTTPServer.m; sourceTree = "<group>"; };
+		7E9B6E9316298AC500687971 /* CWHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHTTPConnection.h; sourceTree = "<group>"; };
+		7E9B6E9416298AC500687971 /* CWHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHTTPConnection.m; sourceTree = "<group>"; };
+		7E9B6EA0162999FC00687971 /* CWIPAddressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWIPAddressHelper.h; sourceTree = "<group>"; };
+		7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWIPAddressHelper.m; sourceTree = "<group>"; };
 		7E9B943C161741D200F39337 /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
 		7E9B943D161741D200F39337 /* CWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccount.m; sourceTree = "<group>"; };
 		7E9C850D15FAC873002AB343 /* CWAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManager.h; sourceTree = "<group>"; };
@@ -887,6 +893,10 @@
 				7ED2655B16293209002900AE /* CWCourseSyncingViewController.h */,
 				7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */,
 				7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */,
+				7E9B6E8F162988B500687971 /* CWHTTPServer.h */,
+				7E9B6E90162988B500687971 /* CWHTTPServer.m */,
+				7E9B6E9316298AC500687971 /* CWHTTPConnection.h */,
+				7E9B6E9416298AC500687971 /* CWHTTPConnection.m */,
 			);
 			path = Syncing;
 			sourceTree = "<group>";
@@ -957,6 +967,8 @@
 				7E291F8F1606181500C7BD8E /* CWUtilities.m */,
 				7EB6ABA91621706C0089ACC4 /* SLTextInputAutoFocusHelper.h */,
 				7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */,
+				7E9B6EA0162999FC00687971 /* CWIPAddressHelper.h */,
+				7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1120,9 +1132,6 @@
 				7E6E43931627386A00B43D7B /* Default-Landscape~ipad.png in Resources */,
 				7E6E43971627398900B43D7B /* icon-144.png in Resources */,
 				7E6E43991627398D00B43D7B /* icon-72.png in Resources */,
-				7ED2652E16292E06002900AE /* About.txt in Resources */,
-				7ED2653016292E06002900AE /* About.txt in Resources */,
-				7ED2653816292E06002900AE /* README.txt in Resources */,
 				7ED2655F16293209002900AE /* CWCourseSyncingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1255,6 +1264,9 @@
 				7ED2655716293108002900AE /* CWMessagesManager.m in Sources */,
 				7ED2655A16293132002900AE /* CWNotesManager.m in Sources */,
 				7ED2655E16293209002900AE /* CWCourseSyncingViewController.m in Sources */,
+				7E9B6E91162988B500687971 /* CWHTTPServer.m in Sources */,
+				7E9B6E9516298AC500687971 /* CWHTTPConnection.m in Sources */,
+				7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

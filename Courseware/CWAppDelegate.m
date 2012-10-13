@@ -15,6 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 	UIViewController *rootVC = [[CWUserLoginViewController alloc] init];
@@ -22,8 +24,6 @@
 	self.navigationController.navigationBarHidden = YES;
 	self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-	
-	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
 	
     return YES;
 }

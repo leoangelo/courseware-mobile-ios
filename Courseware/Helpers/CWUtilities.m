@@ -25,4 +25,9 @@
 	return cwBundle;
 }
 
++ (NSString *)documentRootPath
+{
+	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES) objectAtIndex:0];
+}
+
 @end

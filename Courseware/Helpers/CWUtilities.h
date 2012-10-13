@@ -11,5 +11,6 @@
 @interface CWUtilities : NSObject
 
 + (NSBundle *)courseWareBundle;
++ (NSString *)documentRootPath;
 
 @end

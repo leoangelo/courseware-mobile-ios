@@ -119,6 +119,8 @@
 		7ED2654F16292E79002900AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED2654D16292E70002900AE /* Security.framework */; };
 		7ED2655716293108002900AE /* CWMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2655616293108002900AE /* CWMessagesManager.m */; };
 		7ED2655A16293132002900AE /* CWNotesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2655916293132002900AE /* CWNotesManager.m */; };
+		7ED2655E16293209002900AE /* CWCourseSyncingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */; };
+		7ED2655F16293209002900AE /* CWCourseSyncingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */; };
 		7EDA2ACA160D728300B40202 /* CWBottomToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA2AC9160D728300B40202 /* CWBottomToolbarController.m */; };
 		7EDA2AD1160D758B00B40202 /* CWNotesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA2ACF160D758B00B40202 /* CWNotesListViewController.m */; };
 		7EDA2AD2160D758B00B40202 /* CWNotesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA2AD0160D758B00B40202 /* CWNotesListViewController.xib */; };
@@ -348,6 +350,9 @@
 		7ED2655616293108002900AE /* CWMessagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagesManager.m; sourceTree = "<group>"; };
 		7ED2655816293132002900AE /* CWNotesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotesManager.h; sourceTree = "<group>"; };
 		7ED2655916293132002900AE /* CWNotesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesManager.m; sourceTree = "<group>"; };
+		7ED2655B16293209002900AE /* CWCourseSyncingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseSyncingViewController.h; sourceTree = "<group>"; };
+		7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseSyncingViewController.m; sourceTree = "<group>"; };
+		7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWCourseSyncingViewController.xib; sourceTree = "<group>"; };
 		7EDA2AC8160D728300B40202 /* CWBottomToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBottomToolbarController.h; sourceTree = "<group>"; };
 		7EDA2AC9160D728300B40202 /* CWBottomToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBottomToolbarController.m; sourceTree = "<group>"; };
 		7EDA2ACF160D758B00B40202 /* CWNotesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesListViewController.m; sourceTree = "<group>"; };
@@ -879,6 +884,9 @@
 		7ED265541629300D002900AE /* Syncing */ = {
 			isa = PBXGroup;
 			children = (
+				7ED2655B16293209002900AE /* CWCourseSyncingViewController.h */,
+				7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */,
+				7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */,
 			);
 			path = Syncing;
 			sourceTree = "<group>";
@@ -1115,6 +1123,7 @@
 				7ED2652E16292E06002900AE /* About.txt in Resources */,
 				7ED2653016292E06002900AE /* About.txt in Resources */,
 				7ED2653816292E06002900AE /* README.txt in Resources */,
+				7ED2655F16293209002900AE /* CWCourseSyncingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,6 +1254,7 @@
 				7ED2654516292E06002900AE /* WebSocket.m in Sources */,
 				7ED2655716293108002900AE /* CWMessagesManager.m in Sources */,
 				7ED2655A16293132002900AE /* CWNotesManager.m in Sources */,
+				7ED2655E16293209002900AE /* CWCourseSyncingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

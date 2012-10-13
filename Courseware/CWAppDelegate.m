@@ -22,6 +22,9 @@
 	self.navigationController.navigationBarHidden = YES;
 	self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+	
     return YES;
 }
 

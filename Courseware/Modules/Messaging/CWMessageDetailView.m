@@ -12,12 +12,12 @@
 
 @interface CWMessageDetailView ()
 
-@property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic, strong) IBOutlet UIToolbar *actionToolbar;
-@property (nonatomic, strong) IBOutlet UITextField *toTextField;
-@property (nonatomic, strong) IBOutlet UITextField *fromTextField;
-@property (nonatomic, strong) IBOutlet UITextField *subjectTextField;
-@property (nonatomic, strong) IBOutlet UITextView *bodyTextView;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIToolbar *actionToolbar;
+@property (nonatomic, weak) IBOutlet UITextField *toTextField;
+@property (nonatomic, weak) IBOutlet UITextField *fromTextField;
+@property (nonatomic, weak) IBOutlet UITextField *subjectTextField;
+@property (nonatomic, weak) IBOutlet UITextView *bodyTextView;
 
 - (void)updateActionToolbar;
 

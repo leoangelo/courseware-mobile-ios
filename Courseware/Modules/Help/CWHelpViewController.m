@@ -15,8 +15,8 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 
 @interface CWHelpViewController ()
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 
 @end
 
@@ -39,13 +39,6 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 	NSURL *url = [[CWUtilities courseWareBundle] URLForResource:@"cw-help" withExtension:@"html"];
 	NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:30];
 	[self.webView loadRequest:urlRequest];
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	[self setNavBar:nil];
-	[self setWebView:nil];
 }
 
 - (void)didReceiveMemoryWarning

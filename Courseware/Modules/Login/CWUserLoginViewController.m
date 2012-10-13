@@ -9,19 +9,21 @@
 #import "CWUserLoginViewController.h"
 #import "CWHomeViewController.h"
 #import "CWAccountManager.h"
+#import "CWCourseSyncingViewController.h"
 
 #define AUTO_FILL_CREDENTIALS 1
 
 @interface CWUserLoginViewController ()
 
-@property (nonatomic, strong) IBOutlet UILabel *lblUsername;
-@property (nonatomic, strong) IBOutlet UILabel *lblPassword;
-@property (nonatomic, strong) IBOutlet UITextField *txtUsername;
-@property (nonatomic, strong) IBOutlet UITextField *txtPassword;
-@property (nonatomic, strong) IBOutlet UILabel *lblErrorFeedback;
-@property (nonatomic, strong) IBOutlet UIButton *btnLogin;
+@property (nonatomic, weak) IBOutlet UILabel *lblUsername;
+@property (nonatomic, weak) IBOutlet UILabel *lblPassword;
+@property (nonatomic, weak) IBOutlet UITextField *txtUsername;
+@property (nonatomic, weak) IBOutlet UITextField *txtPassword;
+@property (nonatomic, weak) IBOutlet UILabel *lblErrorFeedback;
+@property (nonatomic, weak) IBOutlet UIButton *btnLogin;
 
 - (IBAction)loginUser;
+- (IBAction)openSyncing:(id)sender;
 - (void)pushToCourseListingScreen;
 
 @end
@@ -51,17 +53,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	self.lblErrorFeedback.text = @"";
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.lblUsername = nil;
-	self.lblPassword = nil;
-	self.txtUsername = nil;
-	self.txtPassword = nil;
-	self.lblErrorFeedback = nil;
-	self.btnLogin = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -102,6 +93,13 @@
 {
 	CWHomeViewController *aVC = [[CWHomeViewController alloc] init];
 	[self.navigationController pushViewController:aVC animated:YES];
+}
+
+- (void)openSyncing:(id)sender
+{
+	CWCourseSyncingViewController *vc = [[CWCourseSyncingViewController alloc] init];
+	vc.modalPresentationStyle = UIModalPresentationFormSheet;
+	[self presentModalViewController:vc animated:YES];
 }
 
 @end

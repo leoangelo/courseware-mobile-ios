@@ -28,10 +28,10 @@
 	BOOL isAnimating;
 }
 
-@property (nonatomic, strong) IBOutlet CWCourseDocumentView *documentView;
-@property (nonatomic, strong) IBOutlet CWBrowserPaneView *browserPane;
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet CWBottomToolbar *toolbar;
+@property (nonatomic, weak) IBOutlet CWCourseDocumentView *documentView;
+@property (nonatomic, weak) IBOutlet CWBrowserPaneView *browserPane;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet CWBottomToolbar *toolbar;
 @property (nonatomic, strong) SLSlideMenuView *slideMenuView;
 
 - (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated;
@@ -64,10 +64,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-	self.documentView = nil;
-	self.navBar = nil;
-	self.toolbar = nil;
-	self.browserPane = nil;
 	self.slideMenuView = nil;
 	
 	 lastVisibilityToggleDate = nil;

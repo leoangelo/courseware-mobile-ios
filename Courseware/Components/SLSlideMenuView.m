@@ -18,10 +18,10 @@
 
 @property (nonatomic, strong) SLSlideMenuController *controlller;
 
-@property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic, strong) IBOutlet UIImageView *imgBackground;
-@property (nonatomic, strong) IBOutlet UITableView *listView;
-@property (nonatomic, strong) IBOutlet UIButton *btnSlideAction;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIImageView *imgBackground;
+@property (nonatomic, weak) IBOutlet UITableView *listView;
+@property (nonatomic, weak) IBOutlet UIButton *btnSlideAction;
 
 @property (nonatomic, getter = isDisplayed) BOOL displayed;
 

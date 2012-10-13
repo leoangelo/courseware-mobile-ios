@@ -16,8 +16,8 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 @interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate>
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet GMGridView *gridView;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet GMGridView *gridView;
 
 @end
 
@@ -36,13 +36,6 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
     self.gridView.itemSpacing = 0;
     self.gridView.minEdgeInsets = UIEdgeInsetsMake(kGridSpacing, kGridSpacing, kGridSpacing, kGridSpacing);
     self.gridView.centerGrid = NO;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.navBar = nil;
-	self.gridView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated

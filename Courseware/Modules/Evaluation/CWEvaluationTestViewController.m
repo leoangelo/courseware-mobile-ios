@@ -12,7 +12,7 @@
 
 @interface CWEvaluationTestViewController ()
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 
 @end
 
@@ -32,11 +32,6 @@
 {
     [super viewDidLoad];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
-}
-
-- (void)viewDidUnload
-{
-	[self setNavBar:nil];
 }
 
 - (void)didReceiveMemoryWarning

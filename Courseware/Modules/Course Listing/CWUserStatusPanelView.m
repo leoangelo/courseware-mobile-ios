@@ -13,12 +13,12 @@
 
 @property (nonatomic, strong) CWUserStatusPanelController *controller;
 
-@property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic, strong) IBOutlet UIImageView *imgAvatar;
-@property (nonatomic, strong) IBOutlet UILabel *lblUsername;
-@property (nonatomic, strong) IBOutlet UILabel *lblFullName;
-@property (nonatomic, strong) IBOutlet UILabel *lblSchoolName;
-@property (nonatomic, strong) IBOutlet UILabel *lblProgramName;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIImageView *imgAvatar;
+@property (nonatomic, weak) IBOutlet UILabel *lblUsername;
+@property (nonatomic, weak) IBOutlet UILabel *lblFullName;
+@property (nonatomic, weak) IBOutlet UILabel *lblSchoolName;
+@property (nonatomic, weak) IBOutlet UILabel *lblProgramName;
 
 - (void)layoutNib;
 

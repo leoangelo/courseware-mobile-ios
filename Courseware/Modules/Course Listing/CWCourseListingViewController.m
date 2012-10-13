@@ -16,9 +16,9 @@
 
 @interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
 
-@property (nonatomic, strong) IBOutlet CWBrowserPaneView *browserPane;
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet UITableView *listView;
+@property (nonatomic, weak) IBOutlet CWBrowserPaneView *browserPane;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet UITableView *listView;
 @property (nonatomic, strong) CWCourseListingScreenModel *model;
 
 - (void)scrollToCourseItem:(CWCourseItem *)item;
@@ -44,14 +44,6 @@
     [super viewDidLoad];
 	[self.browserPane setActiveItem:_model.selectedCourseItem];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.listView = nil;
-	self.navBar = nil;
-	self.browserPane = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

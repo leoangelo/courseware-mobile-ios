@@ -18,10 +18,10 @@
 
 @interface CWHomeViewController () <CWBrowserPaneViewDelegate>
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *topNavBar;
-@property (nonatomic, strong) IBOutlet CWBrowserPaneView *leftPanel;
-@property (nonatomic, strong) IBOutlet CWUserStatusPanelView *userPanel;
-@property (nonatomic, strong) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *topNavBar;
+@property (nonatomic, weak) IBOutlet CWBrowserPaneView *leftPanel;
+@property (nonatomic, weak) IBOutlet CWUserStatusPanelView *userPanel;
+@property (nonatomic, weak) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
 
 - (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item;
 
@@ -45,15 +45,6 @@
 	[CWCourseManager sharedManager];
 	
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.topNavBar];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.topNavBar = nil;
-	self.leftPanel = nil;
-	self.userPanel = nil;
-	self.recentReadingsPanel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

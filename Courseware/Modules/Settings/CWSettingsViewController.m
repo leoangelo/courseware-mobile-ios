@@ -13,7 +13,7 @@
 
 @interface CWSettingsViewController ()
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 
 @end
 
@@ -35,12 +35,6 @@
 	SLSlideMenuView *menuView = [SLSlideMenuView slideMenuView];
 	[menuView attachToNavBar:self.navBar];
 	[menuView setSticky:YES];
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	[self setNavBar:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

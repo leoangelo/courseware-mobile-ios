@@ -17,12 +17,12 @@
 
 @property (nonatomic, strong) CWMessagingModel *model;
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet SLSlideMenuView *slideMenu;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet SLSlideMenuView *slideMenu;
 
-@property (nonatomic, strong) IBOutlet UITableView *mainMenu;
-@property (nonatomic, strong) IBOutlet UITableView *messageListView;
-@property (nonatomic, strong) IBOutlet CWMessageDetailView *messageDetailView;
+@property (nonatomic, weak) IBOutlet UITableView *mainMenu;
+@property (nonatomic, weak) IBOutlet UITableView *messageListView;
+@property (nonatomic, weak) IBOutlet CWMessageDetailView *messageDetailView;
 
 - (void)reconfigureCell:(UITableViewCell *)theCell withMessage:(CWMessage *)theMessage;
 
@@ -39,17 +39,6 @@
 	self.messageDetailView.model = self.model;
 	
 	[self.model refreshData];
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	self.navBar = nil;
-	self.slideMenu = nil;
-	self.mainMenu = nil;
-	self.messageListView = nil;
-	self.messageDetailView = nil;
-	self.model = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -14,13 +14,13 @@
 
 @interface CWAccountManagerViewController () <UITextFieldDelegate>
 
-@property (nonatomic, strong) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, strong) IBOutlet UILabel *lblErrorMessage;
-@property (nonatomic, strong) IBOutlet UITextField *txtOldPassword;
-@property (nonatomic, strong) IBOutlet UITextField *txtNewPassword;
-@property (nonatomic, strong) IBOutlet UITextField *txtNewPasswordConfirm;
-@property (nonatomic, strong) IBOutlet UITextField *txtPasswordHint;
+@property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UILabel *lblErrorMessage;
+@property (nonatomic, weak) IBOutlet UITextField *txtOldPassword;
+@property (nonatomic, weak) IBOutlet UITextField *txtNewPassword;
+@property (nonatomic, weak) IBOutlet UITextField *txtNewPasswordConfirm;
+@property (nonatomic, weak) IBOutlet UITextField *txtPasswordHint;
 
 - (IBAction)saveChangesPressed:(id)sender;
 - (IBAction)logOutPressed:(id)sender;
@@ -48,18 +48,6 @@
 	[menuView setSticky:YES];
 	
 	self.scrollView.contentSize = self.scrollView.frame.size;
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	[self setNavBar:nil];
-	[self setScrollView:nil];
-	[self setTxtOldPassword:nil];
-	[self setTxtNewPassword:nil];
-	[self setTxtNewPasswordConfirm:nil];
-	[self setTxtPasswordHint:nil];
-	[self setLblErrorMessage:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

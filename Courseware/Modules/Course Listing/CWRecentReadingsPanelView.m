@@ -14,8 +14,8 @@
 
 @property (nonatomic, strong) CWRecentReadingsPanelController *controller;
 
-@property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 - (void)loadNib;
 

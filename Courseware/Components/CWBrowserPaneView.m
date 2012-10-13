@@ -17,8 +17,8 @@
 
 @property (nonatomic, strong) CWBrowserPaneController *controller;
 
-@property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) UIImageView *imgLogoView;
 

@@ -37,13 +37,6 @@
 	self.tableView.scrollEnabled = NO;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.titleField = nil;
-	self.contentTextView = nil;
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[self.model updateNoteWithTitle:self.titleField.text content:self.contentTextView.text];

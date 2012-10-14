@@ -11,11 +11,15 @@
 #import "CWEvaluationTestViewController.h"
 #import "CWAppDelegate.h"
 
-@interface CWBottomToolbarController ()
+static NSInteger const kTestAlertTag = 100;
+
+@interface CWBottomToolbarController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIPopoverController *popOverController;
 @property (nonatomic, strong) UINavigationController *notesNavController;
 @property (nonatomic, strong) UINavigationController *bookmarksNavController;
+
+- (void)pushToTest;
 
 @end
 
@@ -57,6 +61,21 @@
 }
 
 - (void)testsAction:(id)target
+{
+	// before pushing to the test screen, show an alert view first
+	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 10 minutes and has 50 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
+	anAlert.tag = kTestAlertTag;
+	[anAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (alertView.tag == kTestAlertTag && buttonIndex != 0) {
+		[self pushToTest];
+	}
+}
+
+- (void)pushToTest
 {
 	UINavigationController *navController = [(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController];
 	CWEvaluationTestViewController *vc = [[CWEvaluationTestViewController alloc] init];

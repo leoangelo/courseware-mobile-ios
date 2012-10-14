@@ -8,13 +8,15 @@
 
 #import "SLSlideMenuView.h"
 #import "SLSlideMenuController.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
 #define HEADER_HEIGHT 24
 #define ROW_HEIGHT 50
 #define FOOTER_HEIGHT 50
 #define DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f) // PI / 180
 
-@interface SLSlideMenuView () <UITableViewDataSource, UITableViewDelegate>
+@interface SLSlideMenuView () <UITableViewDataSource, UITableViewDelegate, CWThemeDelegate>
 
 @property (nonatomic, strong) SLSlideMenuController *controlller;
 
@@ -32,6 +34,10 @@
 
 @implementation SLSlideMenuView
 
+- (void)dealloc
+{
+	[[CWThemeHelper sharedHelper] unregisterForThemeChanges:self];
+}
 
 + (id)slideMenuView
 {
@@ -62,8 +68,18 @@
 	[[NSBundle mainBundle] loadNibNamed:@"SLSlideMenuView" owner:self options:nil];
 	[self addSubview:self.contentView];
 	
-	self.imgBackground.image = [[UIImage imageNamed:@"Courseware.bundle/slide-menu-bg.png"] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-	[self.btnSlideAction setImage:[UIImage imageNamed:@"Courseware.bundle/slide-menu-arrow-down.png"] forState:UIControlStateNormal];
+	[[CWThemeHelper sharedHelper] registerForThemeChanges:self];
+	[self updateFontAndColor];
+}
+
+- (void)updateFontAndColor
+{
+	CWUserPrefsColorTheme currentTheme = [[CWThemeHelper sharedHelper] colorTheme];
+	NSString *imgBackground = [NSString stringWithFormat:@"Courseware.bundle/backgrounds/slide-menu-bg-%@.png", currentTheme == CWUserPrefsColorThemeDark ? @"dark" : @"light"];
+	self.imgBackground.image = [[UIImage imageNamed:imgBackground] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
+	NSString *imgArrow = [NSString stringWithFormat:@"Courseware.bundle/controls/slide-menu-arrow-down-%@.png", currentTheme == CWUserPrefsColorThemeDark ? @"dark" : @"light"];
+	[self.btnSlideAction setImage:[UIImage imageNamed:imgArrow] forState:UIControlStateNormal];
+	[self.listView reloadData];
 }
 
 - (void)attachToNavBar:(UINavigationBar *)navBar
@@ -113,15 +129,16 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-		cell.textLabel.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:18];
 		cell.selectionStyle = UITableViewCellSelectionStyleGray;
 		cell.indentationLevel = 1;
 	}
 	SLSlideMenuItem *rowItem = [self.controlller.menuItems objectAtIndex:indexPath.row];
 	if (rowItem.itemText) {
 		cell.textLabel.text = rowItem.itemText;
-		cell.imageView.image = rowItem.itemIcon;
+		cell.imageView.image = [CWThemeHelper sharedHelper].colorTheme == CWUserPrefsColorThemeDark ? rowItem.darkItemIcon : rowItem.lightItemIcon;
 	}
+	cell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	cell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:20]];
 	return cell;
 }
 

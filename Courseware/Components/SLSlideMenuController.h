@@ -24,10 +24,11 @@ typedef enum {
 @interface SLSlideMenuItem : NSObject
 
 @property (nonatomic, strong) NSString *itemText;
-@property (nonatomic, strong) UIImage *itemIcon;
+@property (nonatomic, strong) UIImage *lightItemIcon;
+@property (nonatomic, strong) UIImage *darkItemIcon;
 @property (nonatomic, assign) SLSlideMenuItemType itemType;
 
-+ (id)menuItemWithText:(NSString *)text icon:(UIImage *)icon;
++ (id)menuItemWithText:(NSString *)text lightIcon:(UIImage *)lightIcon darkIcon:(UIImage *)darkIcon;
 + (id)menuItemSeparator;
 
 @end

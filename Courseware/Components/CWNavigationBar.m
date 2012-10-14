@@ -8,8 +8,9 @@
 
 #import "CWNavigationBar.h"
 #import "CWNavigationBarController.h"
+#import "CWThemeHelper.h"
 
-@interface CWNavigationBar ()
+@interface CWNavigationBar () <CWThemeDelegate>
 
 @property (nonatomic, strong) CWNavigationBarController *controller;
 @property (nonatomic, strong) UINavigationItem *navigationItem;
@@ -20,6 +21,10 @@
 
 @implementation CWNavigationBar
 
+- (void)dealloc
+{
+	[[CWThemeHelper sharedHelper] unregisterForThemeChanges:self];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -57,7 +62,14 @@
 	if (leftItems.count > 0) {
 		[self pushNavigationItem:self.navigationItem animated:NO];
 	}
-	
+		
+	[[CWThemeHelper sharedHelper] registerForThemeChanges:self];
+	[self updateFontAndColor];
+}
+
+- (void)updateFontAndColor
+{
+	self.barStyle = ([CWThemeHelper sharedHelper].colorTheme == CWUserPrefsColorThemeDark) ? UIBarStyleBlackOpaque : UIBarStyleDefault;
 }
 
 @end

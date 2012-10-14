@@ -94,8 +94,8 @@ NSString * const kPostNotificationCurrentThemeChanged = @"PostNotificationCurren
 {
 	NSString *patternImageFile = nil;
 	switch (self.colorTheme) {
-		case CWUserPrefsColorThemeDark: patternImageFile = @"Courseware.bundle/bg-tile-dark.jpg"; break;
-		case CWUserPrefsColorThemeLight: patternImageFile = @"Courseware.bundle/bg-tile-light.jpg"; break;
+		case CWUserPrefsColorThemeDark: patternImageFile = @"Courseware.bundle/backgrounds/bg-tile-dark.jpg"; break;
+		case CWUserPrefsColorThemeLight: patternImageFile = @"Courseware.bundle/backgrounds/bg-tile-light.jpg"; break;
 	}
 	return [UIColor colorWithPatternImage:[UIImage imageNamed:patternImageFile]];
 }

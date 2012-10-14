@@ -44,13 +44,25 @@
 - (void)createCWMenuItems
 {
 	NSArray *items = [NSArray arrayWithObjects:
-					  [SLSlideMenuItem menuItemWithText:@"Courses" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses.png"]]
-					  , [SLSlideMenuItem menuItemWithText:@"Library" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library.png"]]
+					  [SLSlideMenuItem menuItemWithText:@"Courses"
+											  lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses-light"]
+											   darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses-dark.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Library"
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library-light"]
+												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library-dark.png"]]
 					  , [SLSlideMenuItem menuItemSeparator]
-					  , [SLSlideMenuItem menuItemWithText:@"Messages" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages.png"]]
-					  , [SLSlideMenuItem menuItemWithText:@"Account" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account.png"]]
-					  , [SLSlideMenuItem menuItemWithText:@"Settings" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings.png"]]
-					  , [SLSlideMenuItem menuItemWithText:@"Help" icon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Messages"
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages-light"]
+												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages-dark.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Account"
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account-light"]
+												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account-dark.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Settings"
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings-light"]
+												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings-dark.png"]]
+					  , [SLSlideMenuItem menuItemWithText:@"Help"
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help-light"]
+												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help-dark.png"]]
 					  , nil];
 	self.menuItems = items;
 }
@@ -115,11 +127,12 @@
 @implementation SLSlideMenuItem
 
 
-+ (id)menuItemWithText:(NSString *)text icon:(UIImage *)icon
++ (id)menuItemWithText:(NSString *)text lightIcon:(UIImage *)lightIcon darkIcon:(UIImage *)darkIcon
 {
 	SLSlideMenuItem *anItem = [[SLSlideMenuItem alloc] init];
-	anItem.itemIcon = icon;
 	anItem.itemText = text;
+	anItem.lightItemIcon = lightIcon;
+	anItem.darkItemIcon = darkIcon;
 	anItem.itemType = SLSlideMenuItemTypeTextAndIcon;
 	return anItem;
 }

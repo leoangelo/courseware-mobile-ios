@@ -31,7 +31,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 	
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
     
-	self.gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/bookshelf-bg.jpg"]];
+	self.gridView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bookshelf-bg.jpg"]];
 	self.gridView.style = GMGridViewStyleSwap;
     self.gridView.itemSpacing = 0;
     self.gridView.minEdgeInsets = UIEdgeInsetsMake(kGridSpacing, kGridSpacing, kGridSpacing, kGridSpacing);

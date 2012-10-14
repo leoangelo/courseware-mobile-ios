@@ -87,9 +87,9 @@
 - (void)setRememberLogin:(BOOL)rememberLogin
 {
 	_rememberLogin = rememberLogin;
-	NSString *checkBox = @"Courseware.bundle/checkbox-nofill.png";
+	NSString *checkBox = @"Courseware.bundle/controls/checkbox-nofill.png";
 	if (rememberLogin) {
-		checkBox = @"Courseware.bundle/checkbox-filled.png";
+		checkBox = @"Courseware.bundle/controls/checkbox-filled.png";
 	}
 	[self.btnRemember setImage:[UIImage imageNamed:checkBox] forState:UIControlStateNormal];
 }

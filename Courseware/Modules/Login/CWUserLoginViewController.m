@@ -10,10 +10,11 @@
 #import "CWHomeViewController.h"
 #import "CWAccountManager.h"
 #import "CWCourseSyncingViewController.h"
+#import "CWThemeHelper.h"
 
 #define AUTO_FILL_CREDENTIALS 1
 
-@interface CWUserLoginViewController ()
+@interface CWUserLoginViewController () <CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *lblUsername;
 @property (nonatomic, weak) IBOutlet UILabel *lblPassword;
@@ -43,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
     // Do any additional setup after loading the view from its nib.
 	if (AUTO_FILL_CREDENTIALS) {
 		self.txtUsername.text = @"superlazyperson";
@@ -52,6 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[self updateFontAndColor];
 	self.lblErrorFeedback.text = @"";
 }
 
@@ -85,6 +88,13 @@
 			}
 		}
 	}
+}
+
+#pragma mark - User Inteface
+
+- (void)updateFontAndColor
+{
+	[[CWThemeHelper sharedHelper] updateBackgroundColor:self.view];
 }
 
 #pragma mark - Screen Transitions

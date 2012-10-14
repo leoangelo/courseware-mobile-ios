@@ -70,6 +70,7 @@
 		7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA516210CA70089ACC4 /* CWHelpViewController.m */; };
 		7EB6ABA816210CA70089ACC4 /* CWHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */; };
 		7EB6ABAB1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */; };
+		7EBB5A6E162A659E00BD6854 /* CWThemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB5A6D162A659E00BD6854 /* CWThemeHelper.m */; };
 		7EBE28291625CB5A00742DFC /* CWEvaluationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */; };
 		7EBE282A1625CB5A00742DFC /* CWEvaluationTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
@@ -267,6 +268,8 @@
 		7EB6ABA616210CA70089ACC4 /* CWHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWHelpViewController.xib; sourceTree = "<group>"; };
 		7EB6ABA91621706C0089ACC4 /* SLTextInputAutoFocusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextInputAutoFocusHelper.h; sourceTree = "<group>"; };
 		7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTextInputAutoFocusHelper.m; sourceTree = "<group>"; };
+		7EBB5A6C162A659E00BD6854 /* CWThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWThemeHelper.h; sourceTree = "<group>"; };
+		7EBB5A6D162A659E00BD6854 /* CWThemeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWThemeHelper.m; sourceTree = "<group>"; };
 		7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationTestViewController.h; sourceTree = "<group>"; };
 		7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationTestViewController.m; sourceTree = "<group>"; };
 		7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWEvaluationTestViewController.xib; sourceTree = "<group>"; };
@@ -969,6 +972,8 @@
 				7EB6ABAA1621706C0089ACC4 /* SLTextInputAutoFocusHelper.m */,
 				7E9B6EA0162999FC00687971 /* CWIPAddressHelper.h */,
 				7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */,
+				7EBB5A6C162A659E00BD6854 /* CWThemeHelper.h */,
+				7EBB5A6D162A659E00BD6854 /* CWThemeHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1267,6 +1272,7 @@
 				7E9B6E91162988B500687971 /* CWHTTPServer.m in Sources */,
 				7E9B6E9516298AC500687971 /* CWHTTPConnection.m in Sources */,
 				7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */,
+				7EBB5A6E162A659E00BD6854 /* CWThemeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

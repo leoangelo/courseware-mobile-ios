@@ -7,6 +7,7 @@
 //
 
 #import "CWAppDelegate.h"
+#import "CWThemeHelper.h"
 
 #import "CWUserLoginViewController.h"
 
@@ -15,6 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[[CWThemeHelper sharedHelper] initializeThemePresets];
 	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

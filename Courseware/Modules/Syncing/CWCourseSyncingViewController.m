@@ -8,8 +8,10 @@
 
 #import "CWCourseSyncingViewController.h"
 #import "CWHTTPServer.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
-@interface CWCourseSyncingViewController ()
+@interface CWCourseSyncingViewController () <CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, weak) IBOutlet UILabel *lblServerStatus;
@@ -43,6 +45,8 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(httpServerFinishedSetup:) name:kPostNotificationNameServerFinishedSetup object:self.httpServer];
 	self.lblServerStatus.text = @"Please wait...";
 	[self.httpServer startUsingServer];
+	
+	[self updateFontAndColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -85,6 +89,13 @@
 			self.lblServerStatus.text = @"Failed setting up server.";
 		}
 	}
+}
+
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	self.lblServerStatus.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	self.lblServerStatus.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
 }
 
 @end

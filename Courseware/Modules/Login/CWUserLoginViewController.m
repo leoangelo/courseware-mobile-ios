@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *lblErrorFeedback;
 @property (nonatomic, weak) IBOutlet UIButton *btnLogin;
 @property (nonatomic, weak) IBOutlet UIButton *btnRemember;
+@property (nonatomic, weak) IBOutlet UIButton *btnSync;
 
 @property (nonatomic) BOOL rememberLogin;
 
@@ -130,11 +131,14 @@
 	self.txtPassword.font = newFont;
 	
 	self.btnRemember.titleLabel.font = newFont;
-	self.btnRemember.titleLabel.textAlignment = UITextAlignmentLeft;
 	[self.btnRemember setTitleColor:[[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO] forState:UIControlStateNormal];
 	[self.btnRemember setTitleColor:[[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES] forState:UIControlStateHighlighted];
 	
 	self.btnLogin.titleLabel.font = newFont;
+	self.btnSync.titleLabel.font = newFont;
+	
+	self.lblErrorFeedback.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:15]];
+	self.lblErrorFeedback.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 }
 
 #pragma mark - Screen Transitions

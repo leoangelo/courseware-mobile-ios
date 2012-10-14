@@ -11,8 +11,10 @@
 #import "SLSlideMenuView.h"
 #import "SLTextInputAutoFocusHelper.h"
 #import "CWAccountManager.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
-@interface CWAccountManagerViewController () <UITextFieldDelegate>
+@interface CWAccountManagerViewController () <UITextFieldDelegate, CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -21,6 +23,12 @@
 @property (nonatomic, weak) IBOutlet UITextField *txtNewPassword;
 @property (nonatomic, weak) IBOutlet UITextField *txtNewPasswordConfirm;
 @property (nonatomic, weak) IBOutlet UITextField *txtPasswordHint;
+@property (nonatomic, weak) IBOutlet UIButton *btnSaveChanges;
+@property (nonatomic, weak) IBOutlet UIButton *btnLogout;
+@property (nonatomic, weak) IBOutlet UILabel *lblOldPassword;
+@property (nonatomic, weak) IBOutlet UILabel *lblNewPassword;
+@property (nonatomic, weak) IBOutlet UILabel *lblNewPasswordConfirm;
+@property (nonatomic, weak) IBOutlet UILabel *lblPasswordHint;
 
 - (IBAction)saveChangesPressed:(id)sender;
 - (IBAction)logOutPressed:(id)sender;
@@ -55,6 +63,7 @@
 	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
 	
 	[[self lblErrorMessage] setText:@""];
+	[self updateFontAndColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -119,6 +128,35 @@
 {
 	[[CWAccountManager sharedManager] logoutUser];
 	[self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	
+	UIFont *font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
+	UIColor *textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	
+	self.txtOldPassword.font = font;
+	self.txtNewPassword.font = font;
+	self.txtNewPasswordConfirm.font = font;
+	self.txtPasswordHint.font = font;
+	
+	self.btnSaveChanges.titleLabel.font = font;
+	self.btnLogout.titleLabel.font = font;
+	
+	self.lblOldPassword.font = font;
+	self.lblNewPassword.font = font;
+	self.lblNewPasswordConfirm.font = font;
+	self.lblPasswordHint.font = font;
+	
+	self.lblOldPassword.textColor = textColor;
+	self.lblNewPassword.textColor = textColor;
+	self.lblNewPasswordConfirm.textColor = textColor;
+	self.lblPasswordHint.textColor = textColor;
+	
+	self.lblErrorMessage.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:15]];
+	self.lblErrorMessage.textColor = textColor;
 }
 
 @end

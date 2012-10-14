@@ -51,6 +51,11 @@
 	[self addSubview:self.contentView];
 }
 
+- (void)updateFontAndColor
+{
+	self.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -83,7 +88,7 @@
 	lblSectionTitle.frame = (CGRect) { 0, 0, lblSectionTitle.frame.size };
 	
 	UIView *wrapperView = [[UIView alloc] initWithFrame:lblSectionTitle.frame];
-	wrapperView.backgroundColor = [UIColor whiteColor];
+	wrapperView.backgroundColor = [UIColor clearColor];
 	[wrapperView addSubview:lblSectionTitle];
 	
 	return wrapperView;

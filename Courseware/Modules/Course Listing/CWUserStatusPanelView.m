@@ -54,5 +54,10 @@
 	self.lblProgramName.text = self.controller.getProgramName;
 }
 
+- (void)updateFontAndColor
+{
+	self.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+}
+
 
 @end

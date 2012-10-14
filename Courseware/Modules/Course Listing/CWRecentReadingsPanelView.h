@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWThemeHelper.h"
 
-@interface CWRecentReadingsPanelView : UIView
+@interface CWRecentReadingsPanelView : UIView <CWThemeDelegate>
 
 @end

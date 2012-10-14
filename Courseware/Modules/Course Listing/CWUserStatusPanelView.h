@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWThemeHelper.h"
 
-@interface CWUserStatusPanelView : UIView
+@interface CWUserStatusPanelView : UIView <CWThemeDelegate>
 
 @end

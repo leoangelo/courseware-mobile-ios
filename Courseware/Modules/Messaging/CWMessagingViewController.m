@@ -12,6 +12,7 @@
 #import "CWMessageDetailView.h"
 #import "CWMessagingModel.h"
 #import "CWMessage.h"
+#import "CWThemeHelper.h"
 
 @interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate>
 

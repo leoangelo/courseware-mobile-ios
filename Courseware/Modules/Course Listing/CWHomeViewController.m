@@ -13,10 +13,11 @@
 #import "CWUserStatusPanelView.h"
 #import "SLSlideMenuView.h"
 #import "CWCourseListingViewController.h"
+#import "CWThemeHelper.h"
 
 #import "CWCourseManager.h"
 
-@interface CWHomeViewController () <CWBrowserPaneViewDelegate>
+@interface CWHomeViewController () <CWBrowserPaneViewDelegate, CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *topNavBar;
 @property (nonatomic, weak) IBOutlet CWBrowserPaneView *leftPanel;
@@ -47,6 +48,11 @@
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.topNavBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self updateFontAndColor];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
@@ -61,6 +67,13 @@
 {
 	CWCourseListingViewController *aController = [[CWCourseListingViewController alloc] initWithItem:item];
 	[self.navigationController pushViewController:aController animated:YES];
+}
+
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.userPanel updateFontAndColor];
+	[self.recentReadingsPanel updateFontAndColor];
 }
 
 @end

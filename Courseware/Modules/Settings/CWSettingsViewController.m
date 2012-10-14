@@ -89,7 +89,7 @@
 
 - (void)updateFontAndColor
 {
-	[[CWThemeHelper sharedHelper] updateBackgroundColor:self.view];
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 }
 
 @end

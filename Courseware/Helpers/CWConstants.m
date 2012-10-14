@@ -8,4 +8,8 @@
 
 #import "CWConstants.h"
 
+NSString * const kGlobalAppFontNormal = @"FuturaLT";
+NSString * const kGlobalAppFontBold = @"FuturaLT-Heavy";
+NSString * const kGlobalAppFontLight = @"FuturaLT-Light";
+
 @implementation CWConstants @end

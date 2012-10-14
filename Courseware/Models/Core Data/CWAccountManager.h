@@ -30,9 +30,11 @@
 					passwordHint:(NSString *)passwordHint;
 
 // User Login
+- (BOOL)autoLoginSavedUser;
 - (BOOL)loginUser:(NSString *)username
 		 password:(NSString *)password
-			error:(NSError **)error;
+			error:(NSError **)error
+  rememberAccount:(BOOL)shouldRemember;
 
 // User Account Management from Settings
 - (NSString *)passwordHintForUsername:(NSString *)username;

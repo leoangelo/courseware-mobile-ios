@@ -79,15 +79,44 @@ NSString * const kPostNotificationCurrentThemeChanged = @"PostNotificationCurren
 	[[NSNotificationCenter defaultCenter] removeObserver:obj name:kPostNotificationCurrentThemeChanged object:self];
 }
 
-- (void)updateBackgroundColor:(UIView *)view
+- (UIFont *)themedFont:(UIFont *)fromFont
+{
+	CGFloat multiplier = 1.f;
+	switch (self.fontTheme) {
+		case CWUserPrefsFontThemeSmall: multiplier = 0.75f; break;
+		case CWUserPrefsFontThemeMedium: multiplier = 1.f; break;
+		case CWUserPrefsFontThemeLarge: multiplier = 1.5f; break;
+	}
+	return [UIFont fontWithName:fromFont.fontName size:fromFont.pointSize * multiplier];
+}
+
+- (UIColor *)themedBackgroundColor
 {
 	NSString *patternImageFile = nil;
 	switch (self.colorTheme) {
 		case CWUserPrefsColorThemeDark: patternImageFile = @"Courseware.bundle/bg-tile-dark.jpg"; break;
 		case CWUserPrefsColorThemeLight: patternImageFile = @"Courseware.bundle/bg-tile-light.jpg"; break;
 	}
-	UIImage *patternImage = [UIImage imageNamed:patternImageFile];
-	view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+	return [UIColor colorWithPatternImage:[UIImage imageNamed:patternImageFile]];
+}
+
+- (UIColor *)themedTextColorHighlighted:(BOOL)highlighted
+{
+	switch (self.colorTheme) {
+		case CWUserPrefsColorThemeDark: return [UIColor colorWithWhite:highlighted ? 1.0 : 0.90 alpha:1];
+		case CWUserPrefsColorThemeLight: return [UIColor colorWithWhite:highlighted ? 0.4 : 0.20 alpha:1];
+	}
+	return nil;
+}
+
+- (UIImage *)themedAppLogo
+{
+	NSString *logoFile = nil;
+	switch (self.colorTheme) {
+		case CWUserPrefsColorThemeDark: logoFile = @"Courseware.bundle/app-logo-dark.png"; break;
+		case CWUserPrefsColorThemeLight: logoFile = @"Courseware.bundle/app-logo-light.png"; break;
+	}
+	return [UIImage imageNamed:logoFile];
 }
 
 @end

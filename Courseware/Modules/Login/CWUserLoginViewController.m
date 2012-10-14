@@ -11,21 +11,28 @@
 #import "CWAccountManager.h"
 #import "CWCourseSyncingViewController.h"
 #import "CWThemeHelper.h"
+#import "CWConstants.h"
 
 #define AUTO_FILL_CREDENTIALS 1
 
-@interface CWUserLoginViewController () <CWThemeDelegate>
+@interface CWUserLoginViewController () <CWThemeDelegate> {
+}
 
+@property (nonatomic, weak) IBOutlet UIImageView *imgAppLogo;
 @property (nonatomic, weak) IBOutlet UILabel *lblUsername;
 @property (nonatomic, weak) IBOutlet UILabel *lblPassword;
 @property (nonatomic, weak) IBOutlet UITextField *txtUsername;
 @property (nonatomic, weak) IBOutlet UITextField *txtPassword;
 @property (nonatomic, weak) IBOutlet UILabel *lblErrorFeedback;
 @property (nonatomic, weak) IBOutlet UIButton *btnLogin;
+@property (nonatomic, weak) IBOutlet UIButton *btnRemember;
+
+@property (nonatomic) BOOL rememberLogin;
 
 - (IBAction)loginUser;
 - (IBAction)openSyncing:(id)sender;
 - (void)pushToCourseListingScreen;
+- (IBAction)rememberLoginPressed:(id)sender;
 
 @end
 
@@ -54,8 +61,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	// if there's already a saved user, use that
+	if ([[CWAccountManager sharedManager] autoLoginSavedUser]) {
+		[self pushToCourseListingScreen];
+	}
+	
 	[self updateFontAndColor];
 	self.lblErrorFeedback.text = @"";
+	self.rememberLogin = NO;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -65,10 +78,25 @@
 
 #pragma mark - Button Actions
 
+- (void)rememberLoginPressed:(id)sender
+{
+	self.rememberLogin = !self.rememberLogin;
+}
+
+- (void)setRememberLogin:(BOOL)rememberLogin
+{
+	_rememberLogin = rememberLogin;
+	NSString *checkBox = @"Courseware.bundle/checkbox-nofill.png";
+	if (rememberLogin) {
+		checkBox = @"Courseware.bundle/checkbox-filled.png";
+	}
+	[self.btnRemember setImage:[UIImage imageNamed:checkBox] forState:UIControlStateNormal];
+}
+
 - (void)loginUser
 {
 	NSError *loginError = nil;
-	if ([[CWAccountManager sharedManager] loginUser:self.txtUsername.text password:self.txtPassword.text error:&loginError]) {
+	if ([[CWAccountManager sharedManager] loginUser:self.txtUsername.text password:self.txtPassword.text error:&loginError rememberAccount:self.rememberLogin]) {
 		self.lblErrorFeedback.text = @"Successfully logged in.";
 		[self performSelector:@selector(pushToCourseListingScreen) withObject:nil afterDelay:0.3f];
 	}
@@ -94,7 +122,19 @@
 
 - (void)updateFontAndColor
 {
-	[[CWThemeHelper sharedHelper] updateBackgroundColor:self.view];
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	self.imgAppLogo.image = [[CWThemeHelper sharedHelper] themedAppLogo];
+	
+	UIFont *newFont = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
+	self.txtUsername.font = newFont;
+	self.txtPassword.font = newFont;
+	
+	self.btnRemember.titleLabel.font = newFont;
+	self.btnRemember.titleLabel.textAlignment = UITextAlignmentLeft;
+	[self.btnRemember setTitleColor:[[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO] forState:UIControlStateNormal];
+	[self.btnRemember setTitleColor:[[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES] forState:UIControlStateHighlighted];
+	
+	self.btnLogin.titleLabel.font = newFont;
 }
 
 #pragma mark - Screen Transitions

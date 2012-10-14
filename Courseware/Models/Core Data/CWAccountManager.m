@@ -14,6 +14,7 @@
 #define INSERT_TEST_USER 1
 
 static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
+static NSString * kUserPrefsPersistentUserName = @"UserPrefsPersistentUserName";
 
 @interface CWAccountManager ()
 
@@ -46,13 +47,15 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 		if (CLEARS_ON_STARTUP) {
 			[self clearAllObjectsOnClass:[CWAccount class]];
 		}
+		NSUserDefaults *userPrefs = [NSUserDefaults standardUserDefaults];
 		if (INSERT_TEST_USER) {
-			if (![[NSUserDefaults standardUserDefaults] boolForKey:kSampleDataAddedFlag]) {
+			if (![userPrefs boolForKey:kSampleDataAddedFlag]) {
 				[self insertTestUser];
-				[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kSampleDataAddedFlag];
-				[[NSUserDefaults standardUserDefaults] synchronize];
+				[userPrefs setBool:YES forKey:kSampleDataAddedFlag];
+				[userPrefs synchronize];
 			}
 		}
+		
 	}
 	return self;
 }
@@ -94,9 +97,26 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 
 #pragma mark - User Login
 
+- (BOOL)autoLoginSavedUser
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString *username = [defaults objectForKey:kUserPrefsPersistentUserName];
+	if (username) {
+		NSArray *accountsWithName = [self fetchObjectsWithClass:[CWAccount class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
+		if (!accountsWithName || [accountsWithName count] == 0) {
+			// User does not exist
+			return NO;
+		}
+		self.activeUserAccount = [accountsWithName objectAtIndex:0];
+		return YES;
+	}
+	return NO;
+}
+
 - (BOOL)loginUser:(NSString *)username
 		 password:(NSString *)password
 			error:(NSError **)error
+  rememberAccount:(BOOL)shouldRemember
 {	
 	NSArray *accountsWithName = [self fetchObjectsWithClass:[CWAccount class] withPredicate:[NSPredicate predicateWithFormat:@"username == %@", username]];
 	if (!accountsWithName || [accountsWithName count] == 0) {
@@ -112,6 +132,13 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 	}
 	
 	self.activeUserAccount = accountWithName;
+	
+	// remember the user
+	if (shouldRemember) {
+		[[NSUserDefaults standardUserDefaults] setObject:username forKey:kUserPrefsPersistentUserName];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+	
 	return YES;
 }
 
@@ -150,6 +177,8 @@ static NSString * kSampleDataAddedFlag = @"hasAccountSampleDataAdded";
 
 - (void)logoutUser
 {
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserPrefsPersistentUserName];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	[self setActiveUserAccount:nil];
 }
 

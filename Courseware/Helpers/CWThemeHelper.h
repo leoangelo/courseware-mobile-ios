@@ -36,7 +36,10 @@ extern NSString * const kPostNotificationCurrentThemeChanged;
 
 - (void)initializeThemePresets;
 
-- (void)updateBackgroundColor:(UIView *)view;
+- (UIColor *)themedBackgroundColor;
+- (UIImage *)themedAppLogo;
+- (UIFont *)themedFont:(UIFont *)fromFont;
+- (UIColor *)themedTextColorHighlighted:(BOOL)highlighted;
 
 // convenience methods for registering observers
 - (void)registerForThemeChanges:(id<CWThemeDelegate>)obj;

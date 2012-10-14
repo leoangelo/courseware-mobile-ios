@@ -10,5 +10,6 @@
 
 extern NSString * const kGlobalAppFontNormal;
 extern NSString * const kGlobalAppFontBold;
+extern NSString * const kGlobalAppFontLight;
 
 @interface CWConstants : NSObject @end

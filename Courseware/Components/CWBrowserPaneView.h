@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWThemeHelper.h"
 
 @class CWCourseItem;
 @protocol CWBrowserPaneViewDelegate;
 
-@interface CWBrowserPaneView : UIView
+@interface CWBrowserPaneView : UIView <CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet id<CWBrowserPaneViewDelegate> delegate;
 

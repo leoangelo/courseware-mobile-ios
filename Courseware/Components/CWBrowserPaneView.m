@@ -9,6 +9,7 @@
 #import "CWBrowserPaneView.h"
 #import "CWBrowserPaneController.h"
 #import "CWCourseItem.h"
+#import "CWConstants.h"
 
 #define HEADER_MARGINS 10
 #define HEADER_HEIGHT 300
@@ -19,6 +20,7 @@
 
 @property (nonatomic, weak) IBOutlet UIView *contentView;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIImageView *shadowView;
 
 @property (nonatomic, strong) UIImageView *imgLogoView;
 
@@ -55,7 +57,14 @@
 	self.controller = [[CWBrowserPaneController alloc] init];
 	
 	self.tableView.backgroundView = nil;
-	self.tableView.backgroundColor = [UIColor clearColor];
+
+	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"]];
+	self.shadowView.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/shadow-bounds.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+}
+
+- (void)updateFontAndColor
+{
+	[self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -66,8 +75,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
-	CGFloat textHeight = [itemTitle sizeWithFont:[UIFont fontWithName:@"FuturaLT-Heavy" size:17] constrainedToSize:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
-	return MAX(textHeight, 44);
+	CGFloat textHeight = [itemTitle sizeWithFont:[[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:17]] constrainedToSize:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
+	textHeight *= 1.2;
+	return MAX(textHeight, 60);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,10 +85,13 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+		cell.textLabel.textColor = [UIColor colorWithWhite:1 alpha:0.9];
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"Courseware.bundle/backgrounds/browser-pane-cell-bg.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]];
+		cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"Courseware.bundle/backgrounds/browser-pane-cell-bg-sel.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]];
 	}
 	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
 	cell.textLabel.text = itemTitle;
-	cell.textLabel.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:17];
+	cell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:17]];
 	cell.textLabel.numberOfLines = 0;
 	return cell;
 }

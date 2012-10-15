@@ -9,6 +9,7 @@
 #import "CWRecentReadingsPanelView.h"
 #import "CWRecentReadingsPanelController.h"
 #import "CWCourseItem.h"
+#import "CWConstants.h"
 
 @interface CWRecentReadingsPanelView () <UITableViewDataSource, UITableViewDelegate>
 
@@ -54,6 +55,7 @@
 - (void)updateFontAndColor
 {
 	self.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -72,8 +74,16 @@
 	}
 	CWCourseItem *lessonAtIndex = [[self.controller getRecentReads] objectAtIndex:indexPath.row];
 	CWCourseItem *parentChapter = lessonAtIndex.parent;
+	
+	cell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
+	cell.detailTextLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	
+	cell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
+	cell.detailTextLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:15]];
+	
 	cell.textLabel.text = [lessonAtIndex.data objectForKey:kCourseItemTitle];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"From the chapter %@", [parentChapter.data objectForKey:kCourseItemTitle]];
+	
 	return cell;
 }
 
@@ -81,8 +91,8 @@
 {
 	UILabel *lblSectionTitle = [[UILabel alloc] init];
 	lblSectionTitle.text = @"Last Readings";
-	lblSectionTitle.font = [UIFont fontWithName:@"FuturaLT-Heavy" size:26];
-	lblSectionTitle.textColor = [UIColor blackColor];
+	lblSectionTitle.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:26]];
+	lblSectionTitle.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 	lblSectionTitle.backgroundColor = [UIColor clearColor];
 	[lblSectionTitle sizeToFit];
 	lblSectionTitle.frame = (CGRect) { 0, 0, lblSectionTitle.frame.size };

@@ -72,6 +72,7 @@
 - (void)updateFontAndColor
 {
 	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.leftPanel updateFontAndColor];
 	[self.userPanel updateFontAndColor];
 	[self.recentReadingsPanel updateFontAndColor];
 }

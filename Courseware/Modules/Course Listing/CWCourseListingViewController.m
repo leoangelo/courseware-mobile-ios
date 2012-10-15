@@ -13,8 +13,10 @@
 #import "CWCourseListingScreenModel.h"
 #import "SLSlideMenuView.h"
 #import "CWCourseReaderViewController.h"
+#import "CWConstants.h"
+#import "CWThemeHelper.h"
 
-@interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate>
+@interface CWCourseListingViewController () <UITableViewDataSource, UITableViewDelegate, CWBrowserPaneViewDelegate, CWThemeDelegate>
 
 @property (nonatomic, weak) IBOutlet CWBrowserPaneView *browserPane;
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
@@ -44,6 +46,13 @@
     [super viewDidLoad];
 	[self.browserPane setActiveItem:_model.selectedCourseItem];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self updateFontAndColor];
+	[self.browserPane updateFontAndColor];
+	[self.listView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -102,6 +111,11 @@
 	}
 }
 
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+}
+
 #pragma mark - Configuring Cell Appearance
 
 - (CGFloat)cellHeightForDepth:(NSInteger)depth
@@ -128,11 +142,11 @@
 	// UITableViewCellAccessoryType accessoryType;
 	
 	if (depth <= 1) {
-		fontName = @"FuturaLT-Heavy";
+		fontName = kGlobalAppFontBold;
 	} else if (depth <= 2) {
-		fontName = @"FuturaLT";
+		fontName = kGlobalAppFontNormal;
 	} else {
-		fontName = @"FuturaLT-Light";
+		fontName = kGlobalAppFontLight;
 	}
 	
 	switch (depth) {
@@ -156,6 +170,8 @@
 		cell.detailTextLabel.text = [item.data objectForKey:kCourseItemDescription];
 	}
 	
+	cell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	cell.detailTextLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
 	[cell setIndentationLevel:item.depth];
 }
 

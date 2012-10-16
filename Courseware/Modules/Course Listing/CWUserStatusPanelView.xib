@@ -72,7 +72,7 @@
 					<object class="IBUILabel" id="368045376">
 						<reference key="NSNextResponder" ref="894144919"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{61, 102}, {246, 24}}</string>
+						<string key="NSFrame">{{61, 112}, {246, 24}}</string>
 						<reference key="NSSuperview" ref="894144919"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="744733899"/>
@@ -102,7 +102,7 @@
 					<object class="IBUILabel" id="1050809485">
 						<reference key="NSNextResponder" ref="894144919"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{61, 134}, {325, 28}}</string>
+						<string key="NSFrame">{{61, 144}, {325, 28}}</string>
 						<reference key="NSSuperview" ref="894144919"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="140765404"/>
@@ -123,7 +123,7 @@
 					<object class="IBUILabel" id="744733899">
 						<reference key="NSNextResponder" ref="894144919"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{542, 60}, {107, 39}}</string>
+						<string key="NSFrame">{{533, 57}, {107, 39}}</string>
 						<reference key="NSSuperview" ref="894144919"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1050809485"/>
@@ -281,7 +281,7 @@
 					<object class="IBUILabel" id="478267504">
 						<reference key="NSNextResponder" ref="894144919"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{61, 166}, {325, 28}}</string>
+						<string key="NSFrame">{{61, 176}, {325, 28}}</string>
 						<reference key="NSSuperview" ref="894144919"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="936276887"/>
@@ -358,6 +358,62 @@
 					</object>
 					<int key="connectionID">20</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblStatisticsTitle</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="744733899"/>
+					</object>
+					<int key="connectionID">21</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblApproved</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="195035656"/>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblBlocked</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="150949258"/>
+					</object>
+					<int key="connectionID">23</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblFailed</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="739894557"/>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblApprovedValue</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="140765404"/>
+					</object>
+					<int key="connectionID">25</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblBlockedValue</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="936276887"/>
+					</object>
+					<int key="connectionID">26</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblFailedValue</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="950891328"/>
+					</object>
+					<int key="connectionID">27</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -382,17 +438,17 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="894144919"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="744733899"/>
 							<reference ref="195035656"/>
 							<reference ref="150949258"/>
 							<reference ref="739894557"/>
 							<reference ref="950891328"/>
 							<reference ref="936276887"/>
 							<reference ref="140765404"/>
-							<reference ref="747753567"/>
 							<reference ref="368045376"/>
 							<reference ref="1050809485"/>
 							<reference ref="478267504"/>
+							<reference ref="744733899"/>
+							<reference ref="747753567"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -478,7 +534,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">20</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -488,9 +544,16 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentView">UIView</string>
 						<string key="imgAvatar">UIImageView</string>
+						<string key="lblApproved">UILabel</string>
+						<string key="lblApprovedValue">UILabel</string>
+						<string key="lblBlocked">UILabel</string>
+						<string key="lblBlockedValue">UILabel</string>
+						<string key="lblFailed">UILabel</string>
+						<string key="lblFailedValue">UILabel</string>
 						<string key="lblFullName">UILabel</string>
 						<string key="lblProgramName">UILabel</string>
 						<string key="lblSchoolName">UILabel</string>
+						<string key="lblStatisticsTitle">UILabel</string>
 						<string key="lblUsername">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -502,6 +565,30 @@
 							<string key="name">imgAvatar</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="lblApproved">
+							<string key="name">lblApproved</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblApprovedValue">
+							<string key="name">lblApprovedValue</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblBlocked">
+							<string key="name">lblBlocked</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblBlockedValue">
+							<string key="name">lblBlockedValue</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblFailed">
+							<string key="name">lblFailed</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblFailedValue">
+							<string key="name">lblFailedValue</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="lblFullName">
 							<string key="name">lblFullName</string>
 							<string key="candidateClassName">UILabel</string>
@@ -512,6 +599,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="lblSchoolName">
 							<string key="name">lblSchoolName</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblStatisticsTitle">
+							<string key="name">lblStatisticsTitle</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="lblUsername">

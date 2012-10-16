@@ -8,6 +8,7 @@
 
 #import "CWUserStatusPanelView.h"
 #import "CWUserStatusPanelController.h"
+#import "CWConstants.h"
 
 @interface CWUserStatusPanelView ()
 
@@ -19,6 +20,14 @@
 @property (nonatomic, weak) IBOutlet UILabel *lblFullName;
 @property (nonatomic, weak) IBOutlet UILabel *lblSchoolName;
 @property (nonatomic, weak) IBOutlet UILabel *lblProgramName;
+
+@property (nonatomic, weak) IBOutlet UILabel *lblStatisticsTitle;
+@property (nonatomic, weak) IBOutlet UILabel *lblApproved;
+@property (nonatomic, weak) IBOutlet UILabel *lblBlocked;
+@property (nonatomic, weak) IBOutlet UILabel *lblFailed;
+@property (nonatomic, weak) IBOutlet UILabel *lblApprovedValue;
+@property (nonatomic, weak) IBOutlet UILabel *lblBlockedValue;
+@property (nonatomic, weak) IBOutlet UILabel *lblFailedValue;
 
 - (void)layoutNib;
 
@@ -57,6 +66,35 @@
 - (void)updateFontAndColor
 {
 	self.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	
+	UIColor *textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+	UIFont *headerFonts = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:28]];
+	UIFont *userDetailFonts = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
+	UIFont *statisticsFonts = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:14]];
+	
+	self.lblUsername.font = headerFonts;
+	self.lblUsername.textColor = textColor;
+	self.lblFullName.font = userDetailFonts;
+	self.lblFullName.textColor = textColor;
+	self.lblSchoolName.font = userDetailFonts;
+	self.lblSchoolName.textColor = textColor;
+	self.lblProgramName.font = userDetailFonts;
+	self.lblProgramName.textColor = textColor;
+	
+	self.lblStatisticsTitle.font = headerFonts;
+	self.lblStatisticsTitle.textColor = textColor;
+	self.lblApproved.font = statisticsFonts;
+	self.lblApproved.textColor = textColor;
+	self.lblApprovedValue.font = statisticsFonts;
+	self.lblApprovedValue.textColor = textColor;
+	self.lblBlocked.font = statisticsFonts;
+	self.lblBlocked.textColor = textColor;
+	self.lblBlockedValue.font = statisticsFonts;
+	self.lblBlockedValue.textColor = textColor;
+	self.lblFailed.font = statisticsFonts;
+	self.lblFailed.textColor = textColor;
+	self.lblFailedValue.font = statisticsFonts;
+	self.lblFailedValue.textColor = textColor;
 }
 
 

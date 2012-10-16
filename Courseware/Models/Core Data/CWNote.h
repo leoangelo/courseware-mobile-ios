@@ -2,7 +2,7 @@
 //  CWNote.h
 //  Courseware
 //
-//  Created by Leo Angelo Quigao on 9/22/12.
+//  Created by Leo Angelo Quigao on 10/17/12.
 //  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 
 @interface CWNote : NSManagedObject
 
-@property (nonatomic, strong) NSString * noteId;
-@property (nonatomic, strong) NSString * subject;
-@property (nonatomic, strong) NSString * body;
+@property (nonatomic, retain) NSString * body;
+@property (nonatomic, retain) NSString * noteId;
+@property (nonatomic, retain) NSString * subject;
+@property (nonatomic, retain) NSDate * date;
 
 @end

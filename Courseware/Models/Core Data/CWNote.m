@@ -2,7 +2,7 @@
 //  CWNote.m
 //  Courseware
 //
-//  Created by Leo Angelo Quigao on 9/22/12.
+//  Created by Leo Angelo Quigao on 10/17/12.
 //  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
 //
 
@@ -11,8 +11,9 @@
 
 @implementation CWNote
 
+@dynamic body;
 @dynamic noteId;
 @dynamic subject;
-@dynamic body;
+@dynamic date;
 
 @end

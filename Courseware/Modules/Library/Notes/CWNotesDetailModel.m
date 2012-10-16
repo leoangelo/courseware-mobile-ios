@@ -57,6 +57,7 @@
 	
 	note.subject = theTitle;
 	note.body = theContent;
+	note.date = [NSDate date];
 	
 	[[CWNotesManager sharedManager] saveContext];
 }

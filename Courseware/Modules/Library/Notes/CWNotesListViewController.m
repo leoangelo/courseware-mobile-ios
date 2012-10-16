@@ -88,10 +88,11 @@
 		static NSString *noteCellId = @"NoteCell";
 		UITableViewCell *noteCell = [tableView dequeueReusableCellWithIdentifier:noteCellId];
 		if (!noteCell) {
-			noteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noteCellId];
+			noteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:noteCellId];
 		}
 		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
 		noteCell.textLabel.text = noteForCell.subject;
+		noteCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:noteForCell.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 		return noteCell;
 	}
 	else {

@@ -93,9 +93,9 @@
 	lblSectionTitle.text = @"Last Readings";
 	lblSectionTitle.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:26]];
 	lblSectionTitle.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
-	lblSectionTitle.backgroundColor = [UIColor clearColor];
+	lblSectionTitle.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 	[lblSectionTitle sizeToFit];
-	lblSectionTitle.frame = (CGRect) { 0, 0, lblSectionTitle.frame.size };
+	lblSectionTitle.frame = (CGRect) { 0, 0, tableView.frame.size.width, lblSectionTitle.frame.size.height };
 	
 	UIView *wrapperView = [[UIView alloc] initWithFrame:lblSectionTitle.frame];
 	wrapperView.backgroundColor = [UIColor clearColor];

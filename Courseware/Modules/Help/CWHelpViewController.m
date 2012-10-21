@@ -34,6 +34,7 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.navBar setTitle:@"Help"];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 	
 	NSURL *url = [[CWUtilities courseWareBundle] URLForResource:@"cw-help" withExtension:@"html"];

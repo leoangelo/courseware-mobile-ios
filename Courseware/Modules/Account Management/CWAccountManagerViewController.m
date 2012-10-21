@@ -51,6 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.navBar setTitle:@"Account"];
 	SLSlideMenuView *menuView =	[SLSlideMenuView slideMenuView];
 	[menuView attachToNavBar:self.navBar];
 	[menuView setSticky:YES];

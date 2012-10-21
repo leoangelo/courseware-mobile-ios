@@ -67,6 +67,11 @@
 	[self updateFontAndColor];
 }
 
+- (void)setTitle:(NSString *)theTitle
+{
+	[self.navigationItem setTitle:theTitle];
+}
+
 - (void)updateFontAndColor
 {
 	self.barStyle = ([CWThemeHelper sharedHelper].colorTheme == CWUserPrefsColorThemeDark) ? UIBarStyleBlackOpaque : UIBarStyleDefault;

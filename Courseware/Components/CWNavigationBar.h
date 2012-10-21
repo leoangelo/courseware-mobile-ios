@@ -10,4 +10,6 @@
 
 @interface CWNavigationBar : UINavigationBar
 
+- (void)setTitle:(NSString *)theTitle;
+
 @end

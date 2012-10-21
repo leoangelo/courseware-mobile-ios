@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.navBar setTitle:@"Course List"];
 	[self.browserPane setActiveItem:_model.selectedCourseItem];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 }

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWThemeHelper.h"
 
 @class CWMessagingModel;
 
-@interface CWMessageDetailView : UIView
+@interface CWMessageDetailView : UIView <CWThemeDelegate>
 
 @property (nonatomic, weak) CWMessagingModel *model;
 

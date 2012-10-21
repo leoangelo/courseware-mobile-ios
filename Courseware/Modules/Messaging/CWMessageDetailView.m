@@ -9,6 +9,8 @@
 #import "CWMessageDetailView.h"
 #import "CWMessagingModel.h"
 #import "CWMessage.h"
+#import "CWConstants.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CWMessageDetailView ()
 
@@ -19,6 +21,12 @@
 @property (nonatomic, weak) IBOutlet UITextField *subjectTextField;
 @property (nonatomic, weak) IBOutlet UITextView *bodyTextView;
 
+@property (nonatomic, weak) IBOutlet UILabel *toLabel;
+@property (nonatomic, weak) IBOutlet UILabel *fromLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+
+@property (nonatomic, weak) IBOutlet UIImageView *textViewBg;
+
 - (void)updateActionToolbar;
 
 - (NSArray *)actionSetForDrafts;
@@ -27,6 +35,9 @@
 - (NSArray *)actionSetForTrash;
 
 - (UIBarButtonItem *)itemWithTitle:(NSString *)title action:(SEL)actionSelector;
+
++ (void)makeViewRounded:(UIView *)theView;
++ (void)addShadowToView:(UIView *)theView;
 
 @end
 
@@ -41,6 +52,8 @@
 {
 	[[NSBundle mainBundle] loadNibNamed:@"CWMessageDetailView" owner:self options:nil];
 	[self addSubview:self.contentView];
+	
+	self.textViewBg.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/textview-bg.png"] stretchableImageWithLeftCapWidth:16 topCapHeight:16];
 }
 
 - (void)refreshView
@@ -124,6 +137,41 @@
 	self.model.selectedMessage.receiver_email = self.toTextField.text;
 	self.model.selectedMessage.title = self.subjectTextField.text;
 	self.model.selectedMessage.body = self.bodyTextView.text;
+}
+
+- (void)updateFontAndColor
+{
+	UIFont *labelFont = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
+	UIColor *labelColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
+
+	self.toLabel.textColor = labelColor;
+	self.fromLabel.textColor = labelColor;
+	self.titleLabel.textColor = labelColor;
+	
+	self.toLabel.font = labelFont;
+	self.fromLabel.font = labelFont;
+	self.titleLabel.font = labelFont;
+	
+	self.toTextField.font = labelFont;
+	self.fromTextField.font = labelFont;
+	self.subjectTextField.font = labelFont;
+	
+	self.bodyTextView.font = labelFont;
+	
+}
+
++ (void)makeViewRounded:(UIView *)theView
+{
+	theView.layer.masksToBounds = YES;
+	theView.layer.cornerRadius = 8.f;
+}
+
++ (void)addShadowToView:(UIView *)theView
+{
+	theView.layer.shadowColor = [UIColor blackColor].CGColor;
+	theView.layer.shadowOpacity = 1.f;
+	theView.layer.shadowOffset = CGSizeMake(0, -2);
+	theView.layer.shadowRadius = 1;
 }
 
 @end

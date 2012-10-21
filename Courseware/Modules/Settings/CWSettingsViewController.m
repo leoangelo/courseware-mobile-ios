@@ -49,7 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	[self.navBar setTitle:@"Settings"];
 	// initialize the slide menu
 	SLSlideMenuView *menuView = [SLSlideMenuView slideMenuView];
 	[menuView attachToNavBar:self.navBar];

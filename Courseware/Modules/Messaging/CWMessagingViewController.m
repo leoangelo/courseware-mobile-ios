@@ -13,8 +13,9 @@
 #import "CWMessagingModel.h"
 #import "CWMessage.h"
 #import "CWThemeHelper.h"
+#import "CWConstants.h"
 
-@interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate, CWThemeDelegate>
 
 @property (nonatomic, strong) CWMessagingModel *model;
 
@@ -35,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.navBar setTitle:@"Messages"];
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
 	
 	self.messageDetailView.model = self.model;
@@ -44,6 +46,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[self updateFontAndColor];
+	
 	[self.mainMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 	[self.model mainMenuItemSelected:1];
 	
@@ -110,6 +114,8 @@
 			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 		}
 		aCell.textLabel.text = [self.model.mainMenuList objectAtIndex:indexPath.row];
+		aCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		aCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:18]];
 		return aCell;
 	}
 	else if (tableView == self.messageListView) {
@@ -118,6 +124,8 @@
 		if (!aCell) {
 			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 		}
+		aCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		aCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
 		[self reconfigureCell:aCell withMessage:[self.model.messageListForCurrentSelection objectAtIndex:indexPath.row]];
 		return aCell;
 	}
@@ -157,12 +165,22 @@
 	BOOL isDrafted = [CWMessagingModel messageIsDrafted:theMessage];
 	BOOL isSent = [CWMessagingModel messageIsSent:theMessage];
 	
+	NSString *formattedDate = [NSDateFormatter localizedStringFromDate:theMessage.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+	
 	if (isDrafted || isSent) {
-		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.receiver_email, theMessage.title, theMessage.date];
+		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.receiver_email, theMessage.title, formattedDate];
 	}
 	else {
-		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.sender_email, theMessage.title, theMessage.date];
+		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.sender_email, theMessage.title, formattedDate];
 	}
+}
+
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.messageListView reloadData];
+	[self.mainMenu reloadData];
+	[self.messageDetailView updateFontAndColor];
 }
 
 @end

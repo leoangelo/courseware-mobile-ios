@@ -27,7 +27,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title = @"Library";
+	[self.navBar setTitle:@"Library"];
 	
 	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
     

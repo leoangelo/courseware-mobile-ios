@@ -124,7 +124,8 @@
 - (void)updateFontAndColor
 {
 	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
-	self.imgAppLogo.image = [[CWThemeHelper sharedHelper] themedAppLogo];
+	// self.imgAppLogo.image = [[CWThemeHelper sharedHelper] themedAppLogo];
+	self.imgAppLogo.image = [UIImage imageNamed:@"Courseware.bundle/logos/large-logo.png"];
 	
 	UIFont *newFont = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
 	self.txtUsername.font = newFont;

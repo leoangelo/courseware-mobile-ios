@@ -58,7 +58,7 @@
 	
 	self.tableView.backgroundView = nil;
 
-	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-blue.jpg"]];
+	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"]];
 	self.shadowView.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/shadow-bounds.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
 }
 
@@ -124,7 +124,7 @@
 
 - (UIImageView *)imgLogoView
 {
-	UIImage *logoImg = [UIImage imageNamed:@"Courseware.bundle/gold-institute-logo.png"];
+	UIImage *logoImg = [UIImage imageNamed:@"Courseware.bundle/logos/large-logo.png"];
 	if (!_imgLogoView) {
 		_imgLogoView = [[UIImageView alloc] initWithImage:logoImg];
 	}

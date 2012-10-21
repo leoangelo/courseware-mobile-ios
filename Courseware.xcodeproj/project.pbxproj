@@ -286,7 +286,7 @@
 		7EC8AD3915FCBFA700ED9E27 /* CWBrowserPaneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWBrowserPaneView.xib; sourceTree = "<group>"; };
 		7EC8AD3B15FCC84300ED9E27 /* CWBrowserPaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBrowserPaneController.h; sourceTree = "<group>"; };
 		7EC8AD3C15FCC84300ED9E27 /* CWBrowserPaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBrowserPaneController.m; sourceTree = "<group>"; };
-		7ECB48D615E9EF7C00F850E9 /* Courseware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courseware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ECB48D615E9EF7C00F850E9 /* Alloy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alloy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ECB48DA15E9EF7C00F850E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7ECB48DC15E9EF7C00F850E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7ECB48DE15E9EF7C00F850E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -715,7 +715,7 @@
 		7ECB48D715E9EF7C00F850E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7ECB48D615E9EF7C00F850E9 /* Courseware.app */,
+				7ECB48D615E9EF7C00F850E9 /* Alloy.app */,
 				7ECB490215E9EF7C00F850E9 /* CoursewareTests.octest */,
 			);
 			name = Products;
@@ -1057,7 +1057,7 @@
 			);
 			name = Alloy;
 			productName = Courseware;
-			productReference = 7ECB48D615E9EF7C00F850E9 /* Courseware.app */;
+			productReference = 7ECB48D615E9EF7C00F850E9 /* Alloy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7ECB490115E9EF7C00F850E9 /* CoursewareTests */ = {

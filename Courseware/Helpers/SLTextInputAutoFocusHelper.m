@@ -129,7 +129,7 @@
 
 - (UIScrollView *)getParentScrollView:(UIView *)theView
 {
-	for (UIView *currentView = theView; currentView != nil; currentView = currentView.superview) {
+	for (UIView *currentView = theView.superview; currentView != nil; currentView = currentView.superview) {
 		if ([currentView isKindOfClass:[UIScrollView class]]) {
 			return (UIScrollView *)currentView;
 		}

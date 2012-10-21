@@ -53,6 +53,13 @@
 	
 	self.messageDetailView.hidden = YES;
 	self.messageListView.hidden = NO;
+	
+	[self.messageDetailView beginAutoFocus];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[self.messageDetailView stopAutoFocus];
 }
 
 - (void)didReceiveMemoryWarning

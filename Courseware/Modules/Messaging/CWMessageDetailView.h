@@ -18,4 +18,7 @@
 - (void)refreshView;
 - (void)preProcessMessage;
 
+- (void)beginAutoFocus;
+- (void)stopAutoFocus;
+
 @end

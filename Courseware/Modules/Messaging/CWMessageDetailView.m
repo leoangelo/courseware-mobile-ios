@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "CWMessageDetailView.h"
 #import "CWMessagingModel.h"
 #import "CWMessage.h"
 #import "CWConstants.h"
-#import <QuartzCore/QuartzCore.h>
+#import "SLTextInputAutoFocusHelper.h"
 
 @interface CWMessageDetailView ()
 
@@ -36,8 +37,8 @@
 
 - (UIBarButtonItem *)itemWithTitle:(NSString *)title action:(SEL)actionSelector;
 
-+ (void)makeViewRounded:(UIView *)theView;
-+ (void)addShadowToView:(UIView *)theView;
+//+ (void)makeViewRounded:(UIView *)theView;
+//+ (void)addShadowToView:(UIView *)theView;
 
 @end
 
@@ -54,6 +55,8 @@
 	[self addSubview:self.contentView];
 	
 	self.textViewBg.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/textview-bg.png"] stretchableImageWithLeftCapWidth:16 topCapHeight:16];
+	[self.actionToolbar setBackgroundImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+	[self.class makeViewRounded:self.actionToolbar];
 }
 
 - (void)refreshView
@@ -157,7 +160,16 @@
 	self.subjectTextField.font = labelFont;
 	
 	self.bodyTextView.font = labelFont;
-	
+}
+
+- (void)beginAutoFocus
+{
+	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
+}
+
+- (void)stopAutoFocus
+{
+	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
 }
 
 + (void)makeViewRounded:(UIView *)theView
@@ -165,13 +177,13 @@
 	theView.layer.masksToBounds = YES;
 	theView.layer.cornerRadius = 8.f;
 }
-
-+ (void)addShadowToView:(UIView *)theView
-{
-	theView.layer.shadowColor = [UIColor blackColor].CGColor;
-	theView.layer.shadowOpacity = 1.f;
-	theView.layer.shadowOffset = CGSizeMake(0, -2);
-	theView.layer.shadowRadius = 1;
-}
+//
+//+ (void)addShadowToView:(UIView *)theView
+//{
+//	theView.layer.shadowColor = [UIColor blackColor].CGColor;
+//	theView.layer.shadowOpacity = 1.f;
+//	theView.layer.shadowOffset = CGSizeMake(0, -2);
+//	theView.layer.shadowRadius = 1;
+//}
 
 @end

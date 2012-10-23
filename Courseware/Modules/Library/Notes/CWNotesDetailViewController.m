@@ -8,8 +8,10 @@
 
 #import "CWNotesDetailViewController.h"
 #import "CWNotesDetailModel.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
-@interface CWNotesDetailViewController () <UITextFieldDelegate, UITextViewDelegate>
+@interface CWNotesDetailViewController () <UITextFieldDelegate, UITextViewDelegate, CWThemeDelegate>
 
 @property (nonatomic, strong) UITextField *titleField;
 @property (nonatomic, strong) UITextView *contentTextView;
@@ -35,6 +37,11 @@
 	self.contentSizeForViewInPopover = CGSizeMake(320, 436);
 	self.tableView.allowsSelection = NO;
 	self.tableView.scrollEnabled = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self updateFontAndColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -81,10 +88,10 @@
     return 1;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	return section == 0 ? @"Title" : @"Content";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//	return section == 0 ? @"Title" : @"Content";
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -107,6 +114,8 @@
 			[aCell.contentView addSubview:self.titleField];
 		}
 		self.titleField.text = [self.model getNoteTitle];
+		self.titleField.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		self.titleField.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return aCell;
 	}
 	else {
@@ -120,9 +129,27 @@
 			[aCell.contentView addSubview:self.contentTextView];
 		}
 		self.contentTextView.text = [self.model getNoteContent];
+		self.contentTextView.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		self.contentTextView.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return aCell;
 	}
 	return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 60;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	CGFloat sectionHeight = [self tableView:tableView heightForHeaderInSection:section];
+	UILabel *sectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, sectionHeight)];
+	sectionLabel.backgroundColor = [UIColor clearColor];
+	sectionLabel.text = section == 0 ? @"Title" : @"Content";
+	sectionLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:20]];
+	sectionLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
+	return sectionLabel;
 }
 
 #pragma mark - UITextField
@@ -158,6 +185,15 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
 	[_model updateNoteWithTitle:self.titleField.text content:textView.text];
+}
+
+#pragma mark - Skinning
+
+- (void)updateFontAndColor
+{
+	self.tableView.backgroundView = nil;
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.tableView reloadData];
 }
 
 @end

@@ -11,8 +11,10 @@
 #import "CWNote.h"
 #import "CWNotesDetailViewController.h"
 #import "CWNotesManager.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
-@interface CWNotesListViewController ()
+@interface CWNotesListViewController () <CWThemeDelegate>
 
 @property (nonatomic, strong) CWNotesListingModel *model;
 
@@ -54,6 +56,8 @@
 	[self.model rebuildList];
 	[self.tableView reloadData];
 	self.editButtonItem.enabled = self.model.getAllNotes.count > 0;
+	
+	[self updateFontAndColor];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,6 +76,16 @@
 	return 2;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	switch ([[CWThemeHelper sharedHelper] fontTheme]) {
+		case CWUserPrefsFontThemeSmall: return 40;
+		case CWUserPrefsFontThemeMedium: return 50;
+		case CWUserPrefsFontThemeLarge: return 60;
+	}
+	return 0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (indexPath.row == 0) {
@@ -82,6 +96,8 @@
 			addNoteCell.textLabel.text = @"Add Note";
 			addNoteCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 		}
+		addNoteCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		addNoteCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return addNoteCell;
 	}
 	else if (indexPath.row > 0 && self.model.getAllNotes.count > 0) {
@@ -93,6 +109,13 @@
 		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
 		noteCell.textLabel.text = noteForCell.subject;
 		noteCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:noteForCell.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+
+		noteCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		noteCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
+		
+		noteCell.detailTextLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
+		noteCell.detailTextLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:12]];
+		
 		return noteCell;
 	}
 	else {
@@ -103,6 +126,8 @@
 			emptyCell.selectionStyle = UITableViewCellSelectionStyleNone;
 			emptyCell.textLabel.text = @"No Notes Yet.";
 		}
+		emptyCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		emptyCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return emptyCell;
 	}
 	return nil;
@@ -143,6 +168,14 @@
 		[self.navigationController pushViewController:detailViewController animated:YES];
 	}
 		
+}
+
+#pragma mark - Skinning
+
+- (void)updateFontAndColor
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
+	[self.tableView reloadData];
 }
 
 @end

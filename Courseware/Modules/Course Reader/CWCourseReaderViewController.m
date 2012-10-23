@@ -16,10 +16,11 @@
 #import "CWCourseDocumentView.h"
 #import "CWCourseItem.h"
 #import "SLSlideMenuView.h"
+#import "CWThemeHelper.h"
 
 #pragma mark Constants
 
-@interface CWCourseReaderViewController () <CWCourseDocumentViewDataSource, CWCourseDocumentViewDelegate, CWBrowserPaneViewDelegate> {
+@interface CWCourseReaderViewController () <CWCourseDocumentViewDataSource, CWCourseDocumentViewDelegate, CWBrowserPaneViewDelegate, CWThemeDelegate> {
 	
 	CWCourseReaderModel *model;
 	CGSize lastAppearSize;
@@ -87,6 +88,8 @@
 		
 		lastAppearSize = CGSizeZero; // Reset view size tracking
 	}
+	
+	[self updateFontAndColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -228,6 +231,11 @@
 - (void)finishedVisibilityAnimation
 {
 	isAnimating = NO;
+}
+
+- (void)updateFontAndColor
+{
+	[self.toolbar updateFontAndColor];
 }
 
 @end

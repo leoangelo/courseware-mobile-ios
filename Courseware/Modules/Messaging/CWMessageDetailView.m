@@ -175,7 +175,7 @@
 + (void)makeViewRounded:(UIView *)theView
 {
 	theView.layer.masksToBounds = YES;
-	theView.layer.cornerRadius = 8.f;
+	theView.layer.cornerRadius = 4.f;
 }
 //
 //+ (void)addShadowToView:(UIView *)theView

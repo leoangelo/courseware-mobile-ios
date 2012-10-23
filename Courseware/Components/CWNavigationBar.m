@@ -59,7 +59,21 @@
 	
 	self.navigationItem.leftBarButtonItems = leftItems;
 	
-	if (leftItems.count > 0) {
+	UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:nil action:nil];
+	UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:nil action:nil];
+	
+	NSMutableArray *rightItems = [[NSMutableArray alloc] initWithCapacity:2];
+	
+	if (self.controller.shouldDisplaySearchButton) {
+		[rightItems addObject:searchButton];
+	}
+	if (self.controller.shouldDisplaySortButton) {
+		[rightItems addObject:sortButton];
+	}
+	
+	self.navigationItem.rightBarButtonItems = rightItems;
+	
+	if (leftItems.count > 0 || rightItems.count > 0) {
 		[self pushNavigationItem:self.navigationItem animated:NO];
 	}
 		

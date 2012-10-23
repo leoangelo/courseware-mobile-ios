@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWThemeHelper.h"
 
-@interface CWBottomToolbar : UIToolbar
+@interface CWBottomToolbar : UIToolbar <CWThemeDelegate>
 
 @end

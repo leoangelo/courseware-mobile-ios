@@ -81,7 +81,7 @@
 	switch ([[CWThemeHelper sharedHelper] fontTheme]) {
 		case CWUserPrefsFontThemeSmall: return 40;
 		case CWUserPrefsFontThemeMedium: return 50;
-		case CWUserPrefsFontThemeLarge: return 60;
+		case CWUserPrefsFontThemeLarge: return 64;
 	}
 	return 0;
 }

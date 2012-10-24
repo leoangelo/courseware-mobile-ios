@@ -50,7 +50,7 @@
 
 - (void)updateFontAndColor
 {
-	self.barStyle = [[CWThemeHelper sharedHelper] colorTheme] == CWUserPrefsColorThemeDark ? UIBarStyleBlack : UIBarStyleDefault;
+	// self.barStyle = [[CWThemeHelper sharedHelper] colorTheme] == CWUserPrefsColorThemeDark ? UIBarStyleBlack : UIBarStyleDefault;
 }
 
 @end

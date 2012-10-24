@@ -88,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.row == 0) {
+	if ((self.model.getAllNotes.count == 0 && indexPath.row == 1) || (self.model.getAllNotes.count > 0 && indexPath.row == self.model.getAllNotes.count)) {
 		static NSString *addNoteCellId = @"AddNoteCell";
 		UITableViewCell *addNoteCell = [tableView dequeueReusableCellWithIdentifier:addNoteCellId];
 		if (!addNoteCell) {
@@ -100,13 +100,13 @@
 		addNoteCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return addNoteCell;
 	}
-	else if (indexPath.row > 0 && self.model.getAllNotes.count > 0) {
+	else if (self.model.getAllNotes.count > 0) {
 		static NSString *noteCellId = @"NoteCell";
 		UITableViewCell *noteCell = [tableView dequeueReusableCellWithIdentifier:noteCellId];
 		if (!noteCell) {
 			noteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:noteCellId];
 		}
-		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
+		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row];
 		noteCell.textLabel.text = noteForCell.subject;
 		noteCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:noteForCell.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 
@@ -135,13 +135,13 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return indexPath.row > 0 && self.model.getAllNotes.count > 0;
+	return indexPath.row < self.model.getAllNotes.count && self.model.getAllNotes.count > 0;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[self.model deleteNoteAtIndex:indexPath.row - 1];
+		[self.model deleteNoteAtIndex:indexPath.row];
 		if (self.model.getAllNotes.count > 0) {
 			[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		}
@@ -156,11 +156,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CWNote *selectedNote = nil;
-	if (indexPath.row == 0) {
+	if ((self.model.getAllNotes.count == 0 && indexPath.row == 1) || (self.model.getAllNotes.count > 0 && indexPath.row == self.model.getAllNotes.count)) {
 		selectedNote = [[CWNotesManager sharedManager] createBlankNote];
 	}
-	else if (self.model.getAllNotes.count > 0 && indexPath.row > 0) {
-		selectedNote = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
+	else if (self.model.getAllNotes.count > 0) {
+		selectedNote = [self.model.getAllNotes objectAtIndex:indexPath.row];
 	}
 	
 	if (selectedNote) {

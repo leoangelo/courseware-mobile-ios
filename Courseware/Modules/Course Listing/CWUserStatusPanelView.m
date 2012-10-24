@@ -25,9 +25,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *lblApproved;
 @property (nonatomic, weak) IBOutlet UILabel *lblBlocked;
 @property (nonatomic, weak) IBOutlet UILabel *lblFailed;
-@property (nonatomic, weak) IBOutlet UILabel *lblApprovedValue;
-@property (nonatomic, weak) IBOutlet UILabel *lblBlockedValue;
-@property (nonatomic, weak) IBOutlet UILabel *lblFailedValue;
+@property (nonatomic, weak) IBOutlet UIButton *approvedValue;
+@property (nonatomic, weak) IBOutlet UIButton *blockedValue;
+@property (nonatomic, weak) IBOutlet UIButton *failedValue;
 
 - (void)layoutNib;
 
@@ -57,6 +57,14 @@
 	[[NSBundle mainBundle] loadNibNamed:@"CWUserStatusPanelView" owner:self options:nil];
 	[self addSubview:self.contentView];
 	
+	[self.approvedValue setBackgroundImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/statistic-bg-green.png"] forState:UIControlStateNormal];
+	[self.blockedValue setBackgroundImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/statistic-bg-gray.png"] forState:UIControlStateNormal];
+	[self.failedValue setBackgroundImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/statistic-bg-red.png"] forState:UIControlStateNormal];
+	
+	[self.approvedValue setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[self.blockedValue setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[self.failedValue setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	
 	self.lblUsername.text = self.controller.getUserName;
 	self.lblFullName.text = self.controller.getFullName;
 	self.lblSchoolName.text = self.controller.getSchoolName;
@@ -85,16 +93,13 @@
 	self.lblStatisticsTitle.textColor = textColor;
 	self.lblApproved.font = statisticsFonts;
 	self.lblApproved.textColor = textColor;
-	self.lblApprovedValue.font = statisticsFonts;
-	self.lblApprovedValue.textColor = textColor;
+	self.approvedValue.titleLabel.font = statisticsFonts;
 	self.lblBlocked.font = statisticsFonts;
 	self.lblBlocked.textColor = textColor;
-	self.lblBlockedValue.font = statisticsFonts;
-	self.lblBlockedValue.textColor = textColor;
+	self.blockedValue.titleLabel.font = statisticsFonts;
 	self.lblFailed.font = statisticsFonts;
 	self.lblFailed.textColor = textColor;
-	self.lblFailedValue.font = statisticsFonts;
-	self.lblFailedValue.textColor = textColor;
+	self.failedValue.titleLabel.font = statisticsFonts;
 }
 
 

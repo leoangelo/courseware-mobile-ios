@@ -35,7 +35,7 @@
 
 - (UIImage *)previewIcon
 {
-	return [self.document.icons objectAtIndex:0];
+	return [self.document.icons lastObject];
 }
 
 - (void)openPreview

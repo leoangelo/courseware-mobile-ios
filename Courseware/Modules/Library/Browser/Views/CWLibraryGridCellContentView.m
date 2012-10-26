@@ -57,14 +57,19 @@
 	UIGraphicsPushContext(ctx);
 	
 	// Draw the book cover
-	UIImage *imageToDraw = self.cellImage; // [UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", self.randomSeeded]];
+	CGFloat maxImageHeight = 120;
+	CGFloat imageScale = maxImageHeight / self.cellImage.size.height;
+	CGSize newImageSize = (CGSize) {
+		roundf(imageScale * self.cellImage.size.width),
+		roundf(imageScale * self.cellImage.size.height)
+	};
 	CGRect imageRect = (CGRect) {
-		roundf((rect.size.width - imageToDraw.size.width) / 2.f),
-		rect.size.height - imageToDraw.size.height,
-		imageToDraw.size
+		roundf((rect.size.width - newImageSize.width) / 2.f),
+		rect.size.height - newImageSize.height,
+		newImageSize
 	};
 	// ..then draw the image
-	[imageToDraw drawInRect:imageRect];
+	[self.cellImage drawInRect:imageRect];
 	
 	// Configure text color, shadow, etc
 	[[UIColor whiteColor] set];

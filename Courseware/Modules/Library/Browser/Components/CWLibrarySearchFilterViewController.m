@@ -52,6 +52,11 @@
 	self.searchBar.barStyle = [[CWThemeHelper sharedHelper] colorTheme] == CWUserPrefsColorThemeDark ? UIBarStyleBlack : UIBarStyleDefault;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[self.delegate searchFilterChanged:searchBar.text];
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
 	[self.delegate searchFilterChanged:searchText];

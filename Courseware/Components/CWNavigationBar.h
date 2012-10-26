@@ -11,5 +11,6 @@
 @interface CWNavigationBar : UINavigationBar
 
 - (void)setTitle:(NSString *)theTitle;
+- (void)setRightBarButtonItems:(NSArray *)theItems;
 
 @end

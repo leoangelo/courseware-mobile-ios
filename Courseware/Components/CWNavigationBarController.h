@@ -13,9 +13,6 @@
 - (BOOL)shouldDisplayBackButton;
 - (BOOL)shouldDisplayHomeButton;
 
-- (BOOL)shouldDisplaySearchButton;
-- (BOOL)shouldDisplaySortButton;
-
 - (void)backButtonAction;
 - (void)homeButtonAction;
 

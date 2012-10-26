@@ -9,7 +9,6 @@
 #import "CWNavigationBarController.h"
 #import "CWAppDelegate.h"
 #import "CWHomeViewController.h"
-#import "CWLibraryBrowserViewController.h"
 
 @interface CWNavigationBarController ()
 
@@ -53,16 +52,6 @@
 		return homeIndex < (self.navController.viewControllers.count - 1);
 	}
 	return NO;
-}
-
-- (BOOL)shouldDisplaySearchButton
-{
-	return [self.navController.topViewController class] == [CWLibraryBrowserViewController class];
-}
-
-- (BOOL)shouldDisplaySortButton
-{
-	return [self.navController.topViewController class] == [CWLibraryBrowserViewController class];
 }
 
 - (void)backButtonAction

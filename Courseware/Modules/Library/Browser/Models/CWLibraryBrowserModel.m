@@ -14,6 +14,9 @@
 
 @interface CWLibraryBrowserModel ()
 
+@property (nonatomic, strong) NSArray *baseMediaList;
+@property (nonatomic, strong) NSArray *derivedMediaList;
+
 - (NSArray *)convertedLibraryList:(NSArray *)theList;
 
 @end
@@ -23,7 +26,8 @@
 - (void)rescanMedia
 {
 	[[CWLibraryMediaManager sharedManager] rescanMedia];
-	self.mediaList = [self convertedLibraryList:[[CWLibraryMediaManager sharedManager] fetchObjectsWithClass:[CWMedia class] withPredicate:nil]];
+	self.baseMediaList = [self convertedLibraryList:[[CWLibraryMediaManager sharedManager] fetchObjectsWithClass:[CWMedia class] withPredicate:nil]];
+	self.derivedMediaList = self.baseMediaList;
 }
 
 // Returns the Media support versions of their CWMedia counterpart;
@@ -39,6 +43,30 @@
 	}
 	
 	return convertedArr;
+}
+
+- (NSArray *)displayedMediaList
+{
+	return self.derivedMediaList;
+}
+
+- (void)setSearchFilter:(NSString *)searchFilter
+{
+	_searchFilter = nil;
+	_searchFilter = searchFilter;
+	
+	if (!_searchFilter || [_searchFilter length] == 0) {
+		self.derivedMediaList = self.baseMediaList;
+		return;
+	}
+	
+	NSMutableArray *arr = [NSMutableArray array];
+	for (CWLibraryQuickLookSupport *aMedium in self.baseMediaList) {
+		if ([aMedium.name rangeOfString:_searchFilter options:NSCaseInsensitiveSearch].location != NSNotFound) {
+			[arr addObject:aMedium];
+		}
+	}
+	self.derivedMediaList = arr;
 }
 
 @end

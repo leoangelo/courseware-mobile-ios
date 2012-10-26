@@ -10,8 +10,9 @@
 
 @interface CWLibraryBrowserModel : NSObject
 
-@property (nonatomic, strong) NSArray *mediaList;
+@property (nonatomic, strong) NSString *searchFilter;
 
 - (void)rescanMedia;
+- (NSArray *)displayedMediaList;
 
 @end

@@ -91,12 +91,8 @@
 	__strong static NSManagedObjectContext *aContext = nil;
 	static dispatch_once_t onceToken = 0;
 	dispatch_once(&onceToken, ^{
-		@synchronized([NSManagedObjectContext class]) {
-			if (!aContext) {
-				aContext = [[NSManagedObjectContext alloc] init];
-				[aContext setPersistentStoreCoordinator:[self sharedStoreCoordinator]];
-			}
-		}
+		aContext = [[NSManagedObjectContext alloc] init];
+		[aContext setPersistentStoreCoordinator:[self sharedStoreCoordinator]];
 	});
 	return aContext;
 }
@@ -108,10 +104,8 @@
 	__strong static NSManagedObjectModel *aModel = nil;
 	static dispatch_once_t onceToken = 0;
 	dispatch_once(&onceToken, ^{
-		if (!aModel) {
-			NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Courseware" withExtension:@"momd"];
-			aModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-		}
+		NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Courseware" withExtension:@"momd"];
+		aModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 	});
 	return aModel;
 }
@@ -123,37 +117,35 @@
 	__strong static NSPersistentStoreCoordinator *aCoordinator = nil;
 	static dispatch_once_t onceToken = 0;
 	dispatch_once(&onceToken, ^{
-		if (!aCoordinator) {
-			NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Courseware.sqlite"];
-			NSError *error = nil;
-			aCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self sharedObjectModel]];
-			if (![aCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-				/*
-				 Replace this implementation with code to handle the error appropriately.
-				 
-				 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-				 
-				 //				 Typical reasons for an error here include:
-				 * The persistent store is not accessible;
-				 * The schema for the persistent store is incompatible with current managed object model.
-				 Check the error message to determine what the actual problem was.
-				 
-				 
-				 If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-				 
-				 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-				 * Simply deleting the existing store:
-				 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-				 
-				 * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-				 @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-				 
-				 Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-				 
-				 */
-				NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-				abort();
-			}
+		NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Courseware.sqlite"];
+		NSError *error = nil;
+		aCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self sharedObjectModel]];
+		if (![aCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+			/*
+			 Replace this implementation with code to handle the error appropriately.
+			 
+			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+			 
+			 //				 Typical reasons for an error here include:
+			 * The persistent store is not accessible;
+			 * The schema for the persistent store is incompatible with current managed object model.
+			 Check the error message to determine what the actual problem was.
+			 
+			 
+			 If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+			 
+			 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
+			 * Simply deleting the existing store:
+			 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
+			 
+			 * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+			 @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+			 
+			 Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
+			 
+			 */
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			abort();
 		}
 	});
 	return aCoordinator;

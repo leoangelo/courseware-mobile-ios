@@ -95,7 +95,7 @@
 {
 	NSBundle *courseWareBundle = [CWUtilities courseWareBundle];
 	NSAssert(courseWareBundle, @"must not be nil");
-	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json"];
+	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json" inDirectory:@"sample-data"];
 	[self loadFilePath:sampleXMLPath];
 }
 

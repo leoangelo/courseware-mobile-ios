@@ -10,6 +10,7 @@
 #import "CWNavigationBar.h"
 #import "GMGridView.h"
 #import "SLSlideMenuView.h"
+#import "CWLibraryBrowserModel.h"
 
 static CGFloat kGridSpacing = 30;
 static CGSize kItemSize = (CGSize) { 240, 142 };
@@ -18,11 +19,19 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet GMGridView *gridView;
+@property (nonatomic, strong) CWLibraryBrowserModel *libraryModel;
 
 @end
 
 @implementation CWLibraryBrowserViewController
 
+- (CWLibraryBrowserModel *)libraryModel
+{
+	if (!_libraryModel) {
+		_libraryModel = [[CWLibraryBrowserModel alloc] init];
+	}
+	return _libraryModel;
+}
 
 - (void)viewDidLoad
 {
@@ -40,6 +49,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[self.libraryModel rescanMedia];
 	[self.gridView reloadData];
 }
 
@@ -52,7 +62,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
-	return 16;
+	return [[self.libraryModel mediaList] count];
 }
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation

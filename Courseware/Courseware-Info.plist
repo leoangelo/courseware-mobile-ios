@@ -39,10 +39,10 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Courseware.bundle/Fonts/FuturaLT.ttf</string>
-		<string>Courseware.bundle/Fonts/FuturaLT-Light.ttf</string>
-		<string>Courseware.bundle/Fonts/FuturaLT-Heavy.ttf</string>
-		<string>Courseware.bundle/Fonts/FuturaLT-Book.ttf</string>
+		<string>Courseware.bundle/fonts/FuturaLT.ttf</string>
+		<string>Courseware.bundle/fonts/FuturaLT-Light.ttf</string>
+		<string>Courseware.bundle/fonts/FuturaLT-Heavy.ttf</string>
+		<string>Courseware.bundle/fonts/FuturaLT-Book.ttf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>

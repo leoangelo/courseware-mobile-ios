@@ -12,6 +12,10 @@
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CWMessage" inverseName="account" inverseEntity="CWMessage" syncable="YES"/>
         <userInfo/>
     </entity>
+    <entity name="CWMedia" representedClassName="CWMedia" syncable="YES">
+        <attribute name="lastDateOpened" attributeType="Date" syncable="YES"/>
+        <attribute name="mediaPath" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CWMessage" representedClassName="CWMessage" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -32,5 +36,6 @@
         <element name="CWAccount" positionX="0" positionY="0" width="128" height="150"/>
         <element name="CWMessage" positionX="160" positionY="192" width="128" height="165"/>
         <element name="CWNote" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="CWMedia" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

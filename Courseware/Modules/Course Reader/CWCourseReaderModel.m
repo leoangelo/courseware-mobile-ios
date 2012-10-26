@@ -19,7 +19,7 @@
 
 + (ReaderDocument *)sampleDocument
 {
-	NSString *filePath = [[CWUtilities courseWareBundle] pathForResource:@"sample" ofType:@"pdf"];
+	NSString *filePath = [[CWUtilities courseWareBundle] pathForResource:@"sample" ofType:@"pdf" inDirectory:@"sample-data"];
 	return [self documentFromFilePath:filePath];
 }
 

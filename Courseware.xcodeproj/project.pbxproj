@@ -12,6 +12,9 @@
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
+		7E237149163A2777001A09C4 /* CWLibraryMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237148163A2777001A09C4 /* CWLibraryMediaManager.m */; };
+		7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714B163A27F4001A09C4 /* CWMedia.m */; };
+		7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */; };
 		7E2812D6163076700056009A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D5163076700056009A /* Default-Landscape~ipad.png */; };
 		7E2812D8163076740056009A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */; };
 		7E291F8116060E2200C7BD8E /* CWCourseReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */; };
@@ -168,6 +171,12 @@
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
 		7E20B5E815FE3477004DBAC1 /* SLSlideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuController.h; sourceTree = "<group>"; };
 		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
+		7E237147163A2777001A09C4 /* CWLibraryMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryMediaManager.h; sourceTree = "<group>"; };
+		7E237148163A2777001A09C4 /* CWLibraryMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryMediaManager.m; sourceTree = "<group>"; };
+		7E23714A163A27F4001A09C4 /* CWMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMedia.h; sourceTree = "<group>"; };
+		7E23714B163A27F4001A09C4 /* CWMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMedia.m; sourceTree = "<group>"; };
+		7E23714D163A3FC5001A09C4 /* CWLibraryBrowserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryBrowserModel.h; sourceTree = "<group>"; };
+		7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryBrowserModel.m; sourceTree = "<group>"; };
 		7E2812D5163076700056009A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		7E291F7E16060E2200C7BD8E /* CWCourseReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseReaderViewController.h; sourceTree = "<group>"; };
@@ -503,6 +512,17 @@
 			name = "Navigation Bar";
 			sourceTree = "<group>";
 		};
+		7E237146163A2757001A09C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E237147163A2777001A09C4 /* CWLibraryMediaManager.h */,
+				7E237148163A2777001A09C4 /* CWLibraryMediaManager.m */,
+				7E23714D163A3FC5001A09C4 /* CWLibraryBrowserModel.h */,
+				7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7E291F7C16060DE500C7BD8E /* Course Reader */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +646,8 @@
 				7E3C427E161885F500A788EB /* CWMessage.h */,
 				7E3C427F161885F600A788EB /* CWMessage.m */,
 				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
+				7E23714A163A27F4001A09C4 /* CWMedia.h */,
+				7E23714B163A27F4001A09C4 /* CWMedia.m */,
 				7E556212162DC584000CDCAA /* CWNote.h */,
 				7E556213162DC584000CDCAA /* CWNote.m */,
 				7E9B943C161741D200F39337 /* CWAccount.h */,
@@ -1012,6 +1034,7 @@
 		7EFE1B0816136DB700D36412 /* Library Browser */ = {
 			isa = PBXGroup;
 			children = (
+				7E237146163A2757001A09C4 /* Models */,
 				7EFE1B0A16136DFE00D36412 /* CWLibraryBrowserViewController.h */,
 				7EFE1B0B16136DFE00D36412 /* CWLibraryBrowserViewController.m */,
 				7EFE1B0C16136DFE00D36412 /* CWLibraryBrowserViewController.xib */,
@@ -1277,6 +1300,9 @@
 				7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */,
 				7EBB5A6E162A659E00BD6854 /* CWThemeHelper.m in Sources */,
 				7E556214162DC584000CDCAA /* CWNote.m in Sources */,
+				7E237149163A2777001A09C4 /* CWLibraryMediaManager.m in Sources */,
+				7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */,
+				7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,14 +145,23 @@ static NSString * const kUserDefsHasImportedSampleMedia = @"UserDefsHasImportedS
 + (NSSet *)supportedFileTypes
 {
 	return [NSSet setWithObjects:
-			@"ppt"
+			@"key"
+			, @"ppt"
 			, @"pptx"
 			, @"pdf"
 			, @"png"
+			, @"gif"
 			, @"jpg"
 			, @"jpeg"
+			, @"txt"
+			, @"rtf"
 			, @"xls"
+			, @"xlsx"
 			, @"doc"
+			, @"docx"
+			, @"aac"
+			, @"mp3"
+			, @"mp4"
 			, nil];
 }
 

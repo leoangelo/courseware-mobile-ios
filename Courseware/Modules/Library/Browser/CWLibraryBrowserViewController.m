@@ -11,6 +11,7 @@
 #import "GMGridView.h"
 #import "SLSlideMenuView.h"
 #import "CWLibraryBrowserModel.h"
+#import "CWLibraryGridCellContentView.h"
 
 static CGFloat kGridSpacing = 30;
 static CGSize kItemSize = (CGSize) { 240, 142 };
@@ -73,28 +74,16 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
 {
 	GMGridViewCell *cell = [gridView dequeueReusableCell];
-    
     if (!cell) {
-		
-		NSInteger randomNumber = arc4random() % 8;
-		
 		cell = [[GMGridViewCell alloc] init];
-		
-		UIView *aContentView = [[UIView alloc] initWithFrame:(CGRect) { CGPointZero, kItemSize }];
-		aContentView.backgroundColor = [UIColor clearColor];
-		
-		UIImageView *anImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", randomNumber]]];
-		[aContentView addSubview:anImage];
-
-		anImage.frame = (CGRect) {
-			roundf((aContentView.frame.size.width - anImage.frame.size.width) / 2.f),
-			aContentView.frame.size.height - anImage.frame.size.height,
-			anImage.frame.size
-		};
-		
-		cell.contentView = aContentView;
-		
+		cell.contentView = [[CWLibraryGridCellContentView alloc] initWithFrame:(CGRect) { CGPointZero, kItemSize }];
 	}
+	
+	CWLibraryGridCellContentView *aContent = (CWLibraryGridCellContentView *)cell.contentView;
+	NSString *mediaTitle = [[[self.libraryModel.mediaList objectAtIndex:index] mediaPath] lastPathComponent];
+	[aContent setTitle:mediaTitle];
+	
+	[aContent setNeedsDisplay];
 	
 	return cell;
 }

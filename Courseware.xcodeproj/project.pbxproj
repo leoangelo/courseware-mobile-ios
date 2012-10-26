@@ -19,6 +19,7 @@
 		7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237156163A4F62001A09C4 /* CWLibraryMediaSupport.m */; };
 		7E23715A163A5145001A09C4 /* CWLibraryQuickLookSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237159163A5145001A09C4 /* CWLibraryQuickLookSupport.m */; };
 		7E237181163A746D001A09C4 /* CWLibrarySearchFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237180163A746D001A09C4 /* CWLibrarySearchFilterViewController.m */; };
+		7E237184163A8068001A09C4 /* CWLibrarySortOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237183163A8068001A09C4 /* CWLibrarySortOptionsViewController.m */; };
 		7E2812D6163076700056009A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D5163076700056009A /* Default-Landscape~ipad.png */; };
 		7E2812D8163076740056009A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */; };
 		7E291F8116060E2200C7BD8E /* CWCourseReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */; };
@@ -189,6 +190,8 @@
 		7E237159163A5145001A09C4 /* CWLibraryQuickLookSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryQuickLookSupport.m; sourceTree = "<group>"; };
 		7E23717F163A746D001A09C4 /* CWLibrarySearchFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibrarySearchFilterViewController.h; sourceTree = "<group>"; };
 		7E237180163A746D001A09C4 /* CWLibrarySearchFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibrarySearchFilterViewController.m; sourceTree = "<group>"; };
+		7E237182163A8068001A09C4 /* CWLibrarySortOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibrarySortOptionsViewController.h; sourceTree = "<group>"; };
+		7E237183163A8068001A09C4 /* CWLibrarySortOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibrarySortOptionsViewController.m; sourceTree = "<group>"; };
 		7E2812D5163076700056009A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		7E291F7E16060E2200C7BD8E /* CWCourseReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseReaderViewController.h; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 			children = (
 				7E23717F163A746D001A09C4 /* CWLibrarySearchFilterViewController.h */,
 				7E237180163A746D001A09C4 /* CWLibrarySearchFilterViewController.m */,
+				7E237182163A8068001A09C4 /* CWLibrarySortOptionsViewController.h */,
+				7E237183163A8068001A09C4 /* CWLibrarySortOptionsViewController.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1351,6 +1356,7 @@
 				7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */,
 				7E23715A163A5145001A09C4 /* CWLibraryQuickLookSupport.m in Sources */,
 				7E237181163A746D001A09C4 /* CWLibrarySearchFilterViewController.m in Sources */,
+				7E237184163A8068001A09C4 /* CWLibrarySortOptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

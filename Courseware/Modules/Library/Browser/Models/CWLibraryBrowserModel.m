@@ -27,7 +27,8 @@
 {
 	[[CWLibraryMediaManager sharedManager] rescanMedia];
 	self.baseMediaList = [self convertedLibraryList:[[CWLibraryMediaManager sharedManager] fetchObjectsWithClass:[CWMedia class] withPredicate:nil]];
-	self.derivedMediaList = self.baseMediaList;
+	
+	self.sortOptions = CWLibrarySortOptionsByDateRead;
 }
 
 // Returns the Media support versions of their CWMedia counterpart;
@@ -38,7 +39,7 @@
 	for (CWMedia *indexedMedium in theList) {
 		
 		// determine what support subclass will the media be in
-		CWLibraryQuickLookSupport *qlSupport = [[CWLibraryQuickLookSupport alloc] initWithFilePath:indexedMedium.mediaPath];
+		CWLibraryQuickLookSupport *qlSupport = [[CWLibraryQuickLookSupport alloc] initWithFilePath:indexedMedium.mediaPath dateRead:indexedMedium.lastDateOpened];
 		[convertedArr addObject:qlSupport];
 	}
 	
@@ -67,6 +68,32 @@
 		}
 	}
 	self.derivedMediaList = arr;
+}
+
+- (void)setSortOptions:(CWLibrarySortOptions)sortOptions
+{
+	_sortOptions = sortOptions;
+	NSSortDescriptor *sorter = nil;
+	switch (_sortOptions) {
+		case CWLibrarySortOptionsByName: sorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]; break;
+		case CWLibrarySortOptionsByType: sorter = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:YES]; break;
+		case CWLibrarySortOptionsByDateRead: sorter = [[NSSortDescriptor alloc] initWithKey:@"lastDateRead" ascending:NO];
+	}
+	
+	self.derivedMediaList = [self.baseMediaList sortedArrayUsingDescriptors:@[sorter]];
+}
+
+- (void)didOpenMedia:(CWLibraryMediaSupport *)theMedium
+{
+	// update the read date
+	theMedium.lastDateRead = [NSDate date];
+	
+	// also update the core data version
+	CWMedia *mediaForSupport = [[CWLibraryMediaManager sharedManager] mediaWithFileName:theMedium.filePath];
+	if (mediaForSupport) {
+		mediaForSupport.lastDateOpened = [NSDate date];
+		[[CWLibraryMediaManager sharedManager] saveContext];
+	}
 }
 
 @end

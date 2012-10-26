@@ -20,8 +20,6 @@ static NSString * const kUserDefsHasImportedSampleMedia = @"UserDefsHasImportedS
 - (void)removeDeadLinks;
 - (void)buildLibraryDatabase;
 
-- (CWMedia *)mediaWithFileName:(NSString *)theFileName;
-
 @end
 
 @implementation CWLibraryMediaManager

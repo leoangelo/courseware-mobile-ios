@@ -8,11 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+	CWLibrarySortOptionsByName,
+	CWLibrarySortOptionsByType,
+	CWLibrarySortOptionsByDateRead
+} CWLibrarySortOptions;
+
+@class CWLibraryMediaSupport;
 @interface CWLibraryBrowserModel : NSObject
 
 @property (nonatomic, strong) NSString *searchFilter;
+@property (nonatomic) CWLibrarySortOptions sortOptions;
 
 - (void)rescanMedia;
 - (NSArray *)displayedMediaList;
+- (void)didOpenMedia:(CWLibraryMediaSupport *)theMedium;
 
 @end

@@ -11,8 +11,10 @@
 @interface CWLibraryMediaSupport : NSObject
 
 @property (nonatomic, strong) NSString *filePath;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSDate *lastDateRead;
 
-- (id)initWithFilePath:(NSString *)theFilePath;
+- (id)initWithFilePath:(NSString *)theFilePath dateRead:(NSDate *)lastDateRead;
 
 - (NSString *)name;
 - (UIImage *)previewIcon;

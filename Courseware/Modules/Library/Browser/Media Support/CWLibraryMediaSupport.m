@@ -10,11 +10,13 @@
 
 @implementation CWLibraryMediaSupport
 
-- (id)initWithFilePath:(NSString *)theFilePath
+- (id)initWithFilePath:(NSString *)theFilePath dateRead:(NSDate *)lastDateRead
 {
 	self = [super init];
 	if (self) {
 		self.filePath = theFilePath;
+		self.lastDateRead = lastDateRead;
+		self.type = [theFilePath pathExtension];
 	}
 	return self;
 }

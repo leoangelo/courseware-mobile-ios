@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "SLCoreDataManager.h"
 
+@class CWMedia;
 @interface CWLibraryMediaManager : SLCoreDataManager
 
 + (CWLibraryMediaManager *)sharedManager;
 + (NSSet *)supportedFileTypes;
 
 - (void)rescanMedia;
+- (CWMedia *)mediaWithFileName:(NSString *)theFileName;
 
 @end

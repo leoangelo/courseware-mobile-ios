@@ -14,20 +14,23 @@
 #import "CWLibraryGridCellContentView.h"
 #import "CWLibraryMediaSupport.h"
 #import "CWLibrarySearchFilterViewController.h"
+#import "CWLibrarySortOptionsViewController.h"
 
 static CGFloat kGridSpacing = 30;
 static CGSize kItemSize = (CGSize) { 240, 142 };
 
-@interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate, CWLibrarySearchFilterViewControllerDelegate>
+@interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate, CWLibrarySearchFilterViewControllerDelegate, CWLibrarySortOptionsViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet GMGridView *gridView;
 @property (nonatomic, strong) CWLibraryBrowserModel *libraryModel;
 @property (nonatomic, strong) UIPopoverController *toolsPopover;
 @property (nonatomic, strong) CWLibrarySearchFilterViewController *searchFilterVC;
+@property (nonatomic, strong) CWLibrarySortOptionsViewController *sortOptionsVC;
 
 - (void)installLibraryTools;
 - (void)searchFilterAction:(id)target;
+- (void)sortAction:(id)target;
 
 @end
 
@@ -71,7 +74,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 - (void)installLibraryTools
 {
-	UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:nil action:nil];
+	UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(sortAction:)];
 	UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchFilterAction:)];
 	
 	[self.navBar setRightBarButtonItems:@[searchButton, sortButton]];
@@ -93,11 +96,33 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 	[self.toolsPopover presentPopoverFromBarButtonItem:target permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+- (void)sortAction:(id)target
+{
+	if (!self.sortOptionsVC) {
+		self.sortOptionsVC = [[CWLibrarySortOptionsViewController alloc] initWithStyle:UITableViewStylePlain];
+		self.sortOptionsVC.delegate = self;
+	}
+	if (!self.toolsPopover) {
+		self.toolsPopover = [[UIPopoverController alloc] initWithContentViewController:self.sortOptionsVC];
+	}
+	else {
+		[self.toolsPopover setContentViewController:self.sortOptionsVC animated:YES];
+	}
+	[self.toolsPopover setPopoverContentSize:CGSizeMake(250, 132) animated:YES];
+	[self.toolsPopover presentPopoverFromBarButtonItem:target permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 #pragma mark - 
 
 - (void)searchFilterChanged:(NSString *)filter
 {
 	self.libraryModel.searchFilter = filter;
+	[self.gridView reloadData];
+}
+
+- (void)sortOptionSelected:(NSInteger)theOption
+{
+	self.libraryModel.sortOptions = theOption;
 	[self.gridView reloadData];
 }
 
@@ -136,6 +161,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 {
 	CWLibraryMediaSupport *libraryMedia = [self.libraryModel.displayedMediaList objectAtIndex:position];
 	[libraryMedia openPreview];
+	[self.libraryModel didOpenMedia:libraryMedia];
 }
 
 @end

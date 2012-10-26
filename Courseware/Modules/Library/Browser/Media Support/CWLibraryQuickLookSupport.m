@@ -18,9 +18,9 @@
 
 @implementation CWLibraryQuickLookSupport
 
-- (id)initWithFilePath:(NSString *)theFilePath
+- (id)initWithFilePath:(NSString *)theFilePath dateRead:(NSDate *)lastDateRead
 {
-	self = [super initWithFilePath:theFilePath];
+	self = [super initWithFilePath:theFilePath dateRead:lastDateRead];
 	if (self) {
 		self.document = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:self.filePath]];
 		self.document.delegate = self;

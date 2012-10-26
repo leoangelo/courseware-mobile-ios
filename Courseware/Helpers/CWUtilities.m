@@ -7,6 +7,7 @@
 //
 
 #import "CWUtilities.h"
+#import "CWAppDelegate.h"
 
 @implementation CWUtilities
 
@@ -28,6 +29,11 @@
 + (NSString *)documentRootPath
 {
 	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES) objectAtIndex:0];
+}
+
++ (UIViewController *)getTopViewController
+{
+	return [[(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController] topViewController];
 }
 
 @end

@@ -8,8 +8,13 @@
 
 #import "CWLibraryBrowserModel.h"
 #import "CWLibraryMediaManager.h"
+#import "CWMedia.h"
+
+#import "CWLibraryQuickLookSupport.h"
 
 @interface CWLibraryBrowserModel ()
+
+- (NSArray *)convertedLibraryList:(NSArray *)theList;
 
 @end
 
@@ -18,7 +23,22 @@
 - (void)rescanMedia
 {
 	[[CWLibraryMediaManager sharedManager] rescanMedia];
-	self.mediaList = [[CWLibraryMediaManager sharedManager] fetchObjectsWithClass:[CWMedia class] withPredicate:nil];
+	self.mediaList = [self convertedLibraryList:[[CWLibraryMediaManager sharedManager] fetchObjectsWithClass:[CWMedia class] withPredicate:nil]];
+}
+
+// Returns the Media support versions of their CWMedia counterpart;
+- (NSArray *)convertedLibraryList:(NSArray *)theList
+{
+	NSMutableArray *convertedArr = [NSMutableArray array];
+	
+	for (CWMedia *indexedMedium in theList) {
+		
+		// determine what support subclass will the media be in
+		CWLibraryQuickLookSupport *qlSupport = [[CWLibraryQuickLookSupport alloc] initWithFilePath:indexedMedium.mediaPath];
+		[convertedArr addObject:qlSupport];
+	}
+	
+	return convertedArr;
 }
 
 @end

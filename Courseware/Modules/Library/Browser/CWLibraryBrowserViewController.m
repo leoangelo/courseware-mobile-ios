@@ -12,6 +12,7 @@
 #import "SLSlideMenuView.h"
 #import "CWLibraryBrowserModel.h"
 #import "CWLibraryGridCellContentView.h"
+#import "CWLibraryMediaSupport.h"
 
 static CGFloat kGridSpacing = 30;
 static CGSize kItemSize = (CGSize) { 240, 142 };
@@ -80,8 +81,10 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 	}
 	
 	CWLibraryGridCellContentView *aContent = (CWLibraryGridCellContentView *)cell.contentView;
-	NSString *mediaTitle = [[[self.libraryModel.mediaList objectAtIndex:index] mediaPath] lastPathComponent];
-	[aContent setTitle:mediaTitle];
+	
+	CWLibraryMediaSupport *libraryMedia = [self.libraryModel.mediaList objectAtIndex:index];
+	[aContent setTitle:libraryMedia.name];
+	[aContent setCellImage:libraryMedia.previewIcon];
 	
 	[aContent setNeedsDisplay];
 	
@@ -90,7 +93,8 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-	
+	CWLibraryMediaSupport *libraryMedia = [self.libraryModel.mediaList objectAtIndex:position];
+	[libraryMedia openPreview];
 }
 
 @end

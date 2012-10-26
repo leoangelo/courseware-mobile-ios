@@ -40,12 +40,12 @@ static NSString * const kUserDefsHasImportedSampleMedia = @"UserDefsHasImportedS
 {
 	self = [super init];
 	if (self) {
-		NSUserDefaults *userDefs = [NSUserDefaults standardUserDefaults];
-		if (![userDefs boolForKey:kUserDefsHasImportedSampleMedia]) {
-			[self importSampleData];
-			[userDefs setBool:YES forKey:kUserDefsHasImportedSampleMedia];
-			[userDefs synchronize];
-		}
+//		NSUserDefaults *userDefs = [NSUserDefaults standardUserDefaults];
+//		if (![userDefs boolForKey:kUserDefsHasImportedSampleMedia]) {
+		[self importSampleData];
+//		[userDefs setBool:YES forKey:kUserDefsHasImportedSampleMedia];
+//		[userDefs synchronize];
+//		}
 	}
 	return self;
 }
@@ -147,6 +147,12 @@ static NSString * const kUserDefsHasImportedSampleMedia = @"UserDefsHasImportedS
 	return [NSSet setWithObjects:
 			@"ppt"
 			, @"pptx"
+			, @"pdf"
+			, @"png"
+			, @"jpg"
+			, @"jpeg"
+			, @"xls"
+			, @"doc"
 			, nil];
 }
 

@@ -57,7 +57,7 @@
 	UIGraphicsPushContext(ctx);
 	
 	// Draw the book cover
-	UIImage *imageToDraw = [UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", self.randomSeeded]];
+	UIImage *imageToDraw = self.cellImage; // [UIImage imageNamed:[NSString stringWithFormat:@"Courseware.bundle/book-covers/cover-%i.png", self.randomSeeded]];
 	CGRect imageRect = (CGRect) {
 		roundf((rect.size.width - imageToDraw.size.width) / 2.f),
 		rect.size.height - imageToDraw.size.height,
@@ -83,7 +83,7 @@
 	// Cast a glow when highlighted.
 	if (self.highlighter.highlighted) {
 		[[UIColor colorWithWhite:1 alpha:0.2] set];
-		CGContextSetShadowWithColor(ctx, CGSizeMake(0, -2), 3, [UIColor colorWithWhite:1 alpha:0.7].CGColor);
+		CGContextSetShadowWithColor(ctx, CGSizeMake(-2, -2), 3, [UIColor colorWithWhite:1 alpha:0.7].CGColor);
 		CGRect glowRect = CGRectInset(imageRect, -3, -3);
 		CGContextFillRect(ctx, glowRect);
 	}

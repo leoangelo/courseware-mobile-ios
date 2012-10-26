@@ -16,6 +16,8 @@
 		7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714B163A27F4001A09C4 /* CWMedia.m */; };
 		7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */; };
 		7E237153163A4347001A09C4 /* CWLibraryGridCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237152163A4347001A09C4 /* CWLibraryGridCellContentView.m */; };
+		7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237156163A4F62001A09C4 /* CWLibraryMediaSupport.m */; };
+		7E23715A163A5145001A09C4 /* CWLibraryQuickLookSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237159163A5145001A09C4 /* CWLibraryQuickLookSupport.m */; };
 		7E2812D6163076700056009A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D5163076700056009A /* Default-Landscape~ipad.png */; };
 		7E2812D8163076740056009A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */; };
 		7E291F8116060E2200C7BD8E /* CWCourseReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E291F7F16060E2200C7BD8E /* CWCourseReaderViewController.m */; };
@@ -180,6 +182,10 @@
 		7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryBrowserModel.m; sourceTree = "<group>"; };
 		7E237151163A4347001A09C4 /* CWLibraryGridCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryGridCellContentView.h; sourceTree = "<group>"; };
 		7E237152163A4347001A09C4 /* CWLibraryGridCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryGridCellContentView.m; sourceTree = "<group>"; };
+		7E237155163A4F62001A09C4 /* CWLibraryMediaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryMediaSupport.h; sourceTree = "<group>"; };
+		7E237156163A4F62001A09C4 /* CWLibraryMediaSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryMediaSupport.m; sourceTree = "<group>"; };
+		7E237158163A5145001A09C4 /* CWLibraryQuickLookSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryQuickLookSupport.h; sourceTree = "<group>"; };
+		7E237159163A5145001A09C4 /* CWLibraryQuickLookSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryQuickLookSupport.m; sourceTree = "<group>"; };
 		7E2812D5163076700056009A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		7E2812D7163076740056009A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		7E291F7E16060E2200C7BD8E /* CWCourseReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseReaderViewController.h; sourceTree = "<group>"; };
@@ -533,6 +539,17 @@
 				7E237152163A4347001A09C4 /* CWLibraryGridCellContentView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7E237154163A4F3C001A09C4 /* Media Support */ = {
+			isa = PBXGroup;
+			children = (
+				7E237155163A4F62001A09C4 /* CWLibraryMediaSupport.h */,
+				7E237156163A4F62001A09C4 /* CWLibraryMediaSupport.m */,
+				7E237158163A5145001A09C4 /* CWLibraryQuickLookSupport.h */,
+				7E237159163A5145001A09C4 /* CWLibraryQuickLookSupport.m */,
+			);
+			path = "Media Support";
 			sourceTree = "<group>";
 		};
 		7E291F7C16060DE500C7BD8E /* Course Reader */ = {
@@ -1046,6 +1063,7 @@
 		7EFE1B0816136DB700D36412 /* Library Browser */ = {
 			isa = PBXGroup;
 			children = (
+				7E237154163A4F3C001A09C4 /* Media Support */,
 				7E237146163A2757001A09C4 /* Models */,
 				7E237150163A4323001A09C4 /* Views */,
 				7EFE1B0A16136DFE00D36412 /* CWLibraryBrowserViewController.h */,
@@ -1317,6 +1335,8 @@
 				7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */,
 				7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */,
 				7E237153163A4347001A09C4 /* CWLibraryGridCellContentView.m in Sources */,
+				7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */,
+				7E23715A163A5145001A09C4 /* CWLibraryQuickLookSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

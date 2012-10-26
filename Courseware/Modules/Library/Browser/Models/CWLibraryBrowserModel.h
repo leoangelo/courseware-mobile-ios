@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CWMedia.h"
 
 @interface CWLibraryBrowserModel : NSObject
 

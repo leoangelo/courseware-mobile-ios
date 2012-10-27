@@ -71,6 +71,15 @@
 		7E9B943E161741D200F39337 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B943D161741D200F39337 /* CWAccount.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
+		7EA4D0B1163B898600EE85FF /* CWExamTypeTrueOrFalse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0B0163B898600EE85FF /* CWExamTypeTrueOrFalse.m */; };
+		7EA4D0B5163B89F800EE85FF /* CWExamTypeMatchingType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0B4163B89F800EE85FF /* CWExamTypeMatchingType.m */; };
+		7EA4D0B9163B99E100EE85FF /* CWEvaluationTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0B8163B99E100EE85FF /* CWEvaluationTestModel.m */; };
+		7EA4D0BC163B9B1D00EE85FF /* CWExamItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0BB163B9B1D00EE85FF /* CWExamItemType.m */; };
+		7EA4D0BF163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0BE163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m */; };
+		7EA4D0C1163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4D0C0163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib */; };
+		7EA4D0C5163BAE8200EE85FF /* CWEvaluationResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0C4163BAE8200EE85FF /* CWEvaluationResultsView.m */; };
+		7EA4D0C8163BB22200EE85FF /* CWEvaluationResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0C7163BB22200EE85FF /* CWEvaluationResultsController.m */; };
+		7EA4D0CA163BB5B900EE85FF /* CWEvaluationResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4D0C9163BB5B900EE85FF /* CWEvaluationResultsView.xib */; };
 		7EAF486B15FB1019008ECDDE /* Courseware.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486A15FB1019008ECDDE /* Courseware.bundle */; };
 		7EAF487015FB12AD008ECDDE /* CWUserStatusPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */; };
 		7EB6AB9D16210C890089ACC4 /* CWAccountManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6AB9B16210C890089ACC4 /* CWAccountManagerViewController.m */; };
@@ -283,6 +292,22 @@
 		7E9C850E15FAC873002AB343 /* CWAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManager.m; sourceTree = "<group>"; };
 		7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCoreDataManager.h; sourceTree = "<group>"; };
 		7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCoreDataManager.m; sourceTree = "<group>"; };
+		7EA4D0AF163B898600EE85FF /* CWExamTypeTrueOrFalse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeTrueOrFalse.h; sourceTree = "<group>"; };
+		7EA4D0B0163B898600EE85FF /* CWExamTypeTrueOrFalse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeTrueOrFalse.m; sourceTree = "<group>"; };
+		7EA4D0B3163B89F800EE85FF /* CWExamTypeMatchingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeMatchingType.h; sourceTree = "<group>"; };
+		7EA4D0B4163B89F800EE85FF /* CWExamTypeMatchingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeMatchingType.m; sourceTree = "<group>"; };
+		7EA4D0B7163B99E100EE85FF /* CWEvaluationTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationTestModel.h; sourceTree = "<group>"; };
+		7EA4D0B8163B99E100EE85FF /* CWEvaluationTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationTestModel.m; sourceTree = "<group>"; };
+		7EA4D0BA163B9B1D00EE85FF /* CWExamItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamItemType.h; sourceTree = "<group>"; };
+		7EA4D0BB163B9B1D00EE85FF /* CWExamItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamItemType.m; sourceTree = "<group>"; };
+		7EA4D0BD163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeTrueOrFalseView.h; sourceTree = "<group>"; };
+		7EA4D0BE163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeTrueOrFalseView.m; sourceTree = "<group>"; };
+		7EA4D0C0163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWExamTypeTrueOrFalseView.xib; sourceTree = "<group>"; };
+		7EA4D0C3163BAE8200EE85FF /* CWEvaluationResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationResultsView.h; sourceTree = "<group>"; };
+		7EA4D0C4163BAE8200EE85FF /* CWEvaluationResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationResultsView.m; sourceTree = "<group>"; };
+		7EA4D0C6163BB22200EE85FF /* CWEvaluationResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationResultsController.h; sourceTree = "<group>"; };
+		7EA4D0C7163BB22200EE85FF /* CWEvaluationResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationResultsController.m; sourceTree = "<group>"; };
+		7EA4D0C9163BB5B900EE85FF /* CWEvaluationResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWEvaluationResultsView.xib; sourceTree = "<group>"; };
 		7EAF486A15FB1019008ECDDE /* Courseware.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Courseware.bundle; sourceTree = "<group>"; };
 		7EAF486F15FB12AD008ECDDE /* CWUserStatusPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWUserStatusPanelView.xib; sourceTree = "<group>"; };
 		7EB6AB9A16210C890089ACC4 /* CWAccountManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManagerViewController.h; sourceTree = "<group>"; };
@@ -706,6 +731,50 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		7EA4D0AC163B810C00EE85FF /* Exam Types */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4D0B2163B89D600EE85FF /* Matching Type */,
+				7EA4D0AE163B895800EE85FF /* True or False */,
+				7EA4D0BA163B9B1D00EE85FF /* CWExamItemType.h */,
+				7EA4D0BB163B9B1D00EE85FF /* CWExamItemType.m */,
+			);
+			path = "Exam Types";
+			sourceTree = "<group>";
+		};
+		7EA4D0AE163B895800EE85FF /* True or False */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4D0AF163B898600EE85FF /* CWExamTypeTrueOrFalse.h */,
+				7EA4D0B0163B898600EE85FF /* CWExamTypeTrueOrFalse.m */,
+				7EA4D0BD163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.h */,
+				7EA4D0BE163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m */,
+				7EA4D0C0163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib */,
+			);
+			name = "True or False";
+			sourceTree = "<group>";
+		};
+		7EA4D0B2163B89D600EE85FF /* Matching Type */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4D0B3163B89F800EE85FF /* CWExamTypeMatchingType.h */,
+				7EA4D0B4163B89F800EE85FF /* CWExamTypeMatchingType.m */,
+			);
+			name = "Matching Type";
+			sourceTree = "<group>";
+		};
+		7EA4D0C2163BAE2D00EE85FF /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				7EA4D0C3163BAE8200EE85FF /* CWEvaluationResultsView.h */,
+				7EA4D0C4163BAE8200EE85FF /* CWEvaluationResultsView.m */,
+				7EA4D0C9163BB5B900EE85FF /* CWEvaluationResultsView.xib */,
+				7EA4D0C6163BB22200EE85FF /* CWEvaluationResultsController.h */,
+				7EA4D0C7163BB22200EE85FF /* CWEvaluationResultsController.m */,
+			);
+			name = Results;
+			sourceTree = "<group>";
+		};
 		7EB6AB9616210B210089ACC4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,9 +808,13 @@
 		7EBE28251625CB2B00742DFC /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				7EA4D0C2163BAE2D00EE85FF /* Results */,
+				7EA4D0AC163B810C00EE85FF /* Exam Types */,
 				7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */,
 				7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */,
 				7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */,
+				7EA4D0B7163B99E100EE85FF /* CWEvaluationTestModel.h */,
+				7EA4D0B8163B99E100EE85FF /* CWEvaluationTestModel.m */,
 			);
 			path = Evaluation;
 			sourceTree = "<group>";
@@ -1214,6 +1287,8 @@
 				7ED2655F16293209002900AE /* CWCourseSyncingViewController.xib in Resources */,
 				7E2812D6163076700056009A /* Default-Landscape~ipad.png in Resources */,
 				7E2812D8163076740056009A /* Default-Landscape@2x~ipad.png in Resources */,
+				7EA4D0C1163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib in Resources */,
+				7EA4D0CA163BB5B900EE85FF /* CWEvaluationResultsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1357,6 +1432,13 @@
 				7E23715A163A5145001A09C4 /* CWLibraryQuickLookSupport.m in Sources */,
 				7E237181163A746D001A09C4 /* CWLibrarySearchFilterViewController.m in Sources */,
 				7E237184163A8068001A09C4 /* CWLibrarySortOptionsViewController.m in Sources */,
+				7EA4D0B1163B898600EE85FF /* CWExamTypeTrueOrFalse.m in Sources */,
+				7EA4D0B5163B89F800EE85FF /* CWExamTypeMatchingType.m in Sources */,
+				7EA4D0B9163B99E100EE85FF /* CWEvaluationTestModel.m in Sources */,
+				7EA4D0BC163B9B1D00EE85FF /* CWExamItemType.m in Sources */,
+				7EA4D0BF163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m in Sources */,
+				7EA4D0C5163BAE8200EE85FF /* CWEvaluationResultsView.m in Sources */,
+				7EA4D0C8163BB22200EE85FF /* CWEvaluationResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

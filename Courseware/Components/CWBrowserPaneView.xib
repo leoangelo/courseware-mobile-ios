@@ -34,7 +34,7 @@
 			</object>
 			<object class="IBUIView" id="53727933">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">276</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUITableView" id="181218726">
 						<reference key="NSNextResponder" ref="53727933"/>
@@ -62,10 +62,11 @@
 					</object>
 					<object class="IBUIImageView" id="630930136">
 						<reference key="NSNextResponder" ref="53727933"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">276</int>
 						<string key="NSFrame">{{235, 0}, {11, 704}}</string>
 						<reference key="NSSuperview" ref="53727933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>

@@ -69,7 +69,7 @@
 					<object class="IBUIView" id="18575167">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">276</int>
-						<string key="NSFrame">{{0, 44}, {240, 704}}</string>
+						<string key="NSFrameSize">{240, 748}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="238614413"/>
@@ -338,21 +338,52 @@
 					<string key="className">CWUserStatusPanelView</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="approvedValue">UIButton</string>
+						<string key="blockedValue">UIButton</string>
 						<string key="contentView">UIView</string>
+						<string key="failedValue">UIButton</string>
 						<string key="imgAvatar">UIImageView</string>
+						<string key="lblApproved">UILabel</string>
+						<string key="lblBlocked">UILabel</string>
+						<string key="lblFailed">UILabel</string>
 						<string key="lblFullName">UILabel</string>
 						<string key="lblProgramName">UILabel</string>
 						<string key="lblSchoolName">UILabel</string>
+						<string key="lblStatisticsTitle">UILabel</string>
 						<string key="lblUsername">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="approvedValue">
+							<string key="name">approvedValue</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="blockedValue">
+							<string key="name">blockedValue</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="contentView">
 							<string key="name">contentView</string>
 							<string key="candidateClassName">UIView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="failedValue">
+							<string key="name">failedValue</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="imgAvatar">
 							<string key="name">imgAvatar</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblApproved">
+							<string key="name">lblApproved</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblBlocked">
+							<string key="name">lblBlocked</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblFailed">
+							<string key="name">lblFailed</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="lblFullName">
 							<string key="name">lblFullName</string>
@@ -364,6 +395,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="lblSchoolName">
 							<string key="name">lblSchoolName</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblStatisticsTitle">
+							<string key="name">lblStatisticsTitle</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="lblUsername">

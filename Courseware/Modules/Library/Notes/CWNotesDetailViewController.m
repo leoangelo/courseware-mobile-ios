@@ -114,7 +114,7 @@
 			[aCell.contentView addSubview:self.titleField];
 		}
 		self.titleField.text = [self.model getNoteTitle];
-		self.titleField.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		// self.titleField.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 		self.titleField.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return aCell;
 	}
@@ -129,7 +129,7 @@
 			[aCell.contentView addSubview:self.contentTextView];
 		}
 		self.contentTextView.text = [self.model getNoteContent];
-		self.contentTextView.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
+		// self.contentTextView.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 		self.contentTextView.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:16]];
 		return aCell;
 	}

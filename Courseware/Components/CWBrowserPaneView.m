@@ -54,6 +54,8 @@
 	[[NSBundle mainBundle] loadNibNamed:@"CWBrowserPaneView" owner:self options:nil];
 	[self addSubview:self.contentView];
 	
+	self.contentView.frame = self.bounds;
+	
 	self.controller = [[CWBrowserPaneController alloc] init];
 	
 	self.tableView.backgroundView = nil;

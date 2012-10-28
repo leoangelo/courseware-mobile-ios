@@ -35,6 +35,10 @@
 + (BOOL)messageIsSent:(CWMessage *)theMessage;
 + (BOOL)messageIsTrashed:(CWMessage *)theMessage;
 
++ (NSString *)formattedSender:(CWMessage *)theMessage;
++ (NSString *)formattedTitle:(CWMessage *)theMessage;
++ (NSString *)formattedDate:(CWMessage *)theMessage;
+
 - (void)sendAction;
 - (void)saveAction;
 - (void)discardAction;

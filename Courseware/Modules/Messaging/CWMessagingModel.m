@@ -9,8 +9,9 @@
 #import "CWMessagingModel.h"
 #import "CWMessagesManager.h"
 #import "CWMessage.h"
+#import "NSString+SLUtilities.h"
 
-static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Trash" };
+static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
 
 @interface CWMessagingModel ()
 
@@ -59,24 +60,22 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 		}
 	}
 	
-	[aListings setObject:inboxListing forKey:kMenuList[1]];
-	[aListings setObject:draftsListing forKey:kMenuList[2]];
-	[aListings setObject:sentListing forKey:kMenuList[3]];
-	[aListings setObject:trashListing forKey:kMenuList[4]];
+	[aListings setObject:inboxListing forKey:kMenuList[0]];
+	[aListings setObject:draftsListing forKey:kMenuList[1]];
+	[aListings setObject:sentListing forKey:kMenuList[2]];
+	[aListings setObject:trashListing forKey:kMenuList[3]];
 	
 	self.messageListings = aListings;
 }
 
 - (NSArray *)mainMenuList
 {
-	return [NSArray arrayWithObjects:kMenuList count:5];
+	return [NSArray arrayWithObjects:kMenuList count:4];
 }
 
 - (void)mainMenuItemSelected:(NSUInteger)index
 {
-	if (index > 0) {
-		self.selectedItem = kMenuList[index];
-	}
+	self.selectedItem = kMenuList[index];
 }
 
 - (void)setSelectedItem:(NSString *)selectedItem
@@ -122,6 +121,26 @@ static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Tr
 + (BOOL)messageIsTrashed:(CWMessage *)theMessage
 {
 	return ([theMessage.status intValue] & CWMessageTrashed) == CWMessageTrashed;
+}
+
++ (NSString *)formattedSender:(CWMessage *)theMessage
+{
+	BOOL isDrafted = [self messageIsDrafted:theMessage];
+	BOOL isSent = [self messageIsSent:theMessage];
+	NSString *senderString = (isDrafted || isSent) ? theMessage.receiver_email : theMessage.sender_email;
+	NSString *blankString = (isDrafted || isSent) ? @"<No recipient>" : @"<No sender>";
+	
+	return [senderString isNotBlank] ? senderString : blankString;
+}
+
++ (NSString *)formattedTitle:(CWMessage *)theMessage
+{
+	return [theMessage.title isNotBlank] ? theMessage.title : @"<No title>";
+}
+
++ (NSString *)formattedDate:(CWMessage *)theMessage
+{
+	return [NSDateFormatter localizedStringFromDate:theMessage.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 }
 
 - (void)sendAction

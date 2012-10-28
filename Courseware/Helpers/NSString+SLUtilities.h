@@ -12,5 +12,6 @@
 
 + (NSString *)generateRandomString;
 - (NSString *)trim;
+- (BOOL)isNotBlank;
 
 @end

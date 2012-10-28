@@ -31,6 +31,7 @@
 		7E30E2C915FC3A3E00422EEE /* CWCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */; };
 		7E30E2D215FC3F0A00422EEE /* CWCourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */; };
 		7E30E2E215FC4BD700422EEE /* CWCourseListFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */; };
+		7E35FBB9163CD03E002CDE62 /* CWMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E35FBB8163CD03E002CDE62 /* CWMessageTableViewCell.m */; };
 		7E3C427116186E7700A788EB /* CWMessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C426F16186E7700A788EB /* CWMessagingViewController.m */; };
 		7E3C427216186E7700A788EB /* CWMessagingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C427016186E7700A788EB /* CWMessagingViewController.xib */; };
 		7E3C42751618768700A788EB /* CWMessageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42741618768700A788EB /* CWMessageDetailView.m */; };
@@ -220,6 +221,8 @@
 		7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseManager.m; sourceTree = "<group>"; };
 		7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseListFileLoader.h; sourceTree = "<group>"; };
 		7E30E2E115FC4BD700422EEE /* CWCourseListFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseListFileLoader.m; sourceTree = "<group>"; };
+		7E35FBB7163CD03E002CDE62 /* CWMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessageTableViewCell.h; sourceTree = "<group>"; };
+		7E35FBB8163CD03E002CDE62 /* CWMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessageTableViewCell.m; sourceTree = "<group>"; };
 		7E3C426E16186E7700A788EB /* CWMessagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessagingViewController.h; sourceTree = "<group>"; };
 		7E3C426F16186E7700A788EB /* CWMessagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagingViewController.m; sourceTree = "<group>"; };
 		7E3C427016186E7700A788EB /* CWMessagingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWMessagingViewController.xib; sourceTree = "<group>"; };
@@ -619,19 +622,37 @@
 			name = "Bottom Toolbar";
 			sourceTree = "<group>";
 		};
-		7E3C426D16186E4700A788EB /* Messaging */ = {
+		7E35FBB4163CCFFC002CDE62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E3C42731618768700A788EB /* CWMessageDetailView.h */,
+				7E3C42741618768700A788EB /* CWMessageDetailView.m */,
+				7E3C42761618769F00A788EB /* CWMessageDetailView.xib */,
+				7E35FBB7163CD03E002CDE62 /* CWMessageTableViewCell.h */,
+				7E35FBB8163CD03E002CDE62 /* CWMessageTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7E35FBB6163CD003002CDE62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7ED2655516293108002900AE /* CWMessagesManager.h */,
 				7ED2655616293108002900AE /* CWMessagesManager.m */,
 				7E3C42781618782E00A788EB /* CWMessagingModel.h */,
 				7E3C42791618782E00A788EB /* CWMessagingModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7E3C426D16186E4700A788EB /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				7E35FBB6163CD003002CDE62 /* Models */,
+				7E35FBB4163CCFFC002CDE62 /* Views */,
 				7E3C426E16186E7700A788EB /* CWMessagingViewController.h */,
 				7E3C426F16186E7700A788EB /* CWMessagingViewController.m */,
 				7E3C427016186E7700A788EB /* CWMessagingViewController.xib */,
-				7E3C42731618768700A788EB /* CWMessageDetailView.h */,
-				7E3C42741618768700A788EB /* CWMessageDetailView.m */,
-				7E3C42761618769F00A788EB /* CWMessageDetailView.xib */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -1439,6 +1460,7 @@
 				7EA4D0BF163B9FA600EE85FF /* CWExamTypeTrueOrFalseView.m in Sources */,
 				7EA4D0C5163BAE8200EE85FF /* CWEvaluationResultsView.m in Sources */,
 				7EA4D0C8163BB22200EE85FF /* CWEvaluationResultsController.m in Sources */,
+				7E35FBB9163CD03E002CDE62 /* CWMessageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

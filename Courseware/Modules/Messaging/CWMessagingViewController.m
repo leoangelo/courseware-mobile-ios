@@ -14,6 +14,7 @@
 #import "CWMessage.h"
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
+#import "CWMessageTableViewCell.h"
 
 @interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate, CWThemeDelegate>
 
@@ -26,7 +27,9 @@
 @property (nonatomic, weak) IBOutlet UITableView *messageListView;
 @property (nonatomic, weak) IBOutlet CWMessageDetailView *messageDetailView;
 
-- (void)reconfigureCell:(UITableViewCell *)theCell withMessage:(CWMessage *)theMessage;
+@property (nonatomic, weak) IBOutlet UIImageView *menuContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *messageContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *messageTitleLabel;
 
 @end
 
@@ -37,7 +40,12 @@
 {
     [super viewDidLoad];
 	[self.navBar setTitle:@"Messages"];
-	[[SLSlideMenuView slideMenuView] attachToNavBar:self.navBar];
+	SLSlideMenuView *slideMenu =  [SLSlideMenuView slideMenuView];
+	[slideMenu attachToNavBar:self.navBar];
+	[slideMenu setSticky:YES];
+	
+	self.menuContainerView.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/message-oval-bg.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+	self.messageContainerView.image = [UIImage imageNamed:@"Courseware.bundle/backgrounds/message-square-bg.png"];
 	
 	self.messageDetailView.model = self.model;
 	
@@ -48,8 +56,8 @@
 {
 	[self updateFontAndColor];
 	
-	[self.mainMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-	[self.model mainMenuItemSelected:1];
+	[self.mainMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+	[self.model mainMenuItemSelected:0];
 	
 	self.messageDetailView.hidden = YES;
 	self.messageListView.hidden = NO;
@@ -112,6 +120,14 @@
 	return 0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (tableView == self.mainMenu) {
+		return 60;
+	}
+	return 36;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (tableView == self.mainMenu) {
@@ -119,21 +135,29 @@
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
 			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
+			
+			UIView *selectionView = [[UIView alloc] init];
+			selectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
+			aCell.selectedBackgroundView = selectionView;
 		}
-		aCell.textLabel.text = [self.model.mainMenuList objectAtIndex:indexPath.row];
+		aCell.textLabel.text = [[self.model.mainMenuList objectAtIndex:indexPath.row] uppercaseString];
 		aCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
-		aCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:18]];
+		aCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:24]];
 		return aCell;
 	}
 	else if (tableView == self.messageListView) {
-		NSString *anId = @"message-list";
-		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
+		NSString *anId = [CWThemeHelper sharedHelper].colorTheme == CWUserPrefsColorThemeDark ? kMessageTableViewCellIdentifierDark : kMessageTableViewCellIdentifierLight;
+		CWMessageTableViewCell *aCell = (CWMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
-			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
+			aCell = [[CWMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 		}
-		aCell.textLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
-		aCell.textLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
-		[self reconfigureCell:aCell withMessage:[self.model.messageListForCurrentSelection objectAtIndex:indexPath.row]];
+		CWMessage *theMessage = [self.model.messageListForCurrentSelection objectAtIndex:indexPath.row];
+		aCell.sender = [CWMessagingModel formattedSender:theMessage];
+		aCell.title = [CWMessagingModel formattedTitle:theMessage];
+		aCell.date = [CWMessagingModel formattedDate:theMessage];
+		
+		[aCell setNeedsDisplay];
+		[aCell setNeedsLayout];
 		return aCell;
 	}
 	return nil;
@@ -142,18 +166,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (tableView == self.mainMenu) {
-		if (indexPath.row == 0) {
-			[self.mainMenu deselectRowAtIndexPath:self.mainMenu.indexPathForSelectedRow animated:YES];
-			[self.model setSelectedMessage:[self.model newBlankMessage]];
-			self.messageDetailView.hidden = NO;
-			self.messageListView.hidden = YES;
-			[self.messageDetailView refreshView];
-		}
-		else {
-			self.messageDetailView.hidden = YES;
-			self.messageListView.hidden = NO;
-			[self.model mainMenuItemSelected:indexPath.row];
-		}
+		self.messageDetailView.hidden = YES;
+		self.messageListView.hidden = NO;
+		[self.model mainMenuItemSelected:indexPath.row];
 	}
 	else if (tableView == self.messageListView) {
 		// means a message has been selected -- go to that
@@ -167,27 +182,15 @@
 	}
 }
 
-- (void)reconfigureCell:(UITableViewCell *)theCell withMessage:(CWMessage *)theMessage
-{
-	BOOL isDrafted = [CWMessagingModel messageIsDrafted:theMessage];
-	BOOL isSent = [CWMessagingModel messageIsSent:theMessage];
-	
-	NSString *formattedDate = [NSDateFormatter localizedStringFromDate:theMessage.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
-	
-	if (isDrafted || isSent) {
-		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.receiver_email, theMessage.title, formattedDate];
-	}
-	else {
-		theCell.textLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", theMessage.sender_email, theMessage.title, formattedDate];
-	}
-}
-
 - (void)updateFontAndColor
 {
 	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 	[self.messageListView reloadData];
 	[self.mainMenu reloadData];
 	[self.messageDetailView updateFontAndColor];
+	
+	self.messageTitleLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:20]];
+	self.messageTitleLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 }
 
 @end

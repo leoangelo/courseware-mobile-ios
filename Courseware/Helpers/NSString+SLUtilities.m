@@ -23,4 +23,9 @@
 	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (BOOL)isNotBlank
+{
+	return [[self trim] length] > 0;
+}
+
 @end

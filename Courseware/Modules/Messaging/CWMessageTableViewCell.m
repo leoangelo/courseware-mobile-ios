@@ -13,6 +13,7 @@
 
 NSString * const kMessageTableViewCellIdentifierLight = @"MessageTableViewCellIdentifierLight";
 NSString * const kMessageTableViewCellIdentifierDark = @"MessageTableViewCellIdentifierDark";
+static CGFloat const kSideMargins = 8.f;
 
 @interface CWMessageTableViewCellContentView : UIView
 @end
@@ -35,6 +36,8 @@ NSString * const kMessageTableViewCellIdentifierDark = @"MessageTableViewCellIde
 
 @property (nonatomic, strong) UIButton *checkButton;
 @property (nonatomic, strong) CWMessageTableViewCellContentView *myContentView;
+
+- (void)checkButtonPressed:(UIButton *)target;
 
 @end
 
@@ -73,6 +76,23 @@ NSString * const kMessageTableViewCellIdentifierDark = @"MessageTableViewCellIde
     return self;
 }
 
+- (UIButton *)checkButton
+{
+	if (!_checkButton) {
+		_checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[_checkButton setAdjustsImageWhenHighlighted:NO];
+		[_checkButton addTarget:self action:@selector(checkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		[_checkButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+		[self.myContentView addSubview:_checkButton];
+	}
+	return _checkButton;
+}
+
+- (void)checkButtonPressed:(UIButton *)target
+{
+	[self.delegate checkButtonPressed:self];
+}
+
 - (void)setFrame:(CGRect)frame
 {
 	[super setFrame:frame];
@@ -103,11 +123,10 @@ NSString * const kMessageTableViewCellIdentifierDark = @"MessageTableViewCellIde
 	// Color for text
 	[[[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO] set];
 	
-	CGFloat kSideMargins = 8.f;
 	CGFloat xOffset = kSideMargins;
 	
 	CGFloat selectorWidth = 30.f;
-	CGFloat columnWidth = (r.size.width - (kSideMargins * 4.f) - selectorWidth) / 3.f; // 4 margins, 3 columns
+	CGFloat columnWidth = roundf((r.size.width - (kSideMargins * 4.f) - selectorWidth) / 3.f); // 4 margins, 3 columns
 	
 	// Draw the selector button
 	xOffset += selectorWidth;
@@ -143,9 +162,20 @@ NSString * const kMessageTableViewCellIdentifierDark = @"MessageTableViewCellIde
 
 - (void)layoutControls
 {
-	if (!self.checkButton) {
-		self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	UIImage *checkImage = nil;
+	if (self.checked) {
+		checkImage = [UIImage imageNamed:@"Courseware.bundle/controls/message-control-selected.png"];
 	}
+	else {
+		checkImage = [UIImage imageNamed:@"Courseware.bundle/controls/message-control.png"];
+	}
+	[self.checkButton setImage:checkImage forState:UIControlStateNormal];
+	CGSize buttonSize = CGSizeMake(32, 32);
+	[self.checkButton setFrame:(CGRect) {
+		kSideMargins,
+		roundf((self.checkButton.superview.frame.size.height - buttonSize.height) / 2.f),
+		buttonSize
+	}];
 }
 
 @end

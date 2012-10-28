@@ -39,6 +39,11 @@
 + (NSString *)formattedTitle:(CWMessage *)theMessage;
 + (NSString *)formattedDate:(CWMessage *)theMessage;
 
+- (void)toggleChecked:(NSInteger)rowIndex;
+- (BOOL)messageAtIndexIsChecked:(NSInteger)rowIndex;
+
+- (void)markAsReadAction;
+
 - (void)sendAction;
 - (void)saveAction;
 - (void)discardAction;

@@ -15,17 +15,18 @@
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
 #import "CWMessageTableViewCell.h"
+#import "CWMessageToolbar.h"
 
-@interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate, CWThemeDelegate>
+@interface CWMessagingViewController () <CWMessagingModelDelegate, UITableViewDataSource, UITableViewDelegate, CWThemeDelegate, CWMessageTableViewCellDelegate>
 
 @property (nonatomic, strong) CWMessagingModel *model;
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
-@property (nonatomic, weak) IBOutlet SLSlideMenuView *slideMenu;
 
 @property (nonatomic, weak) IBOutlet UITableView *mainMenu;
 @property (nonatomic, weak) IBOutlet UITableView *messageListView;
 @property (nonatomic, weak) IBOutlet CWMessageDetailView *messageDetailView;
+@property (nonatomic, weak) IBOutlet CWMessageToolbar *messageToolbar;
 
 @property (nonatomic, weak) IBOutlet UIImageView *menuContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *messageContainerView;
@@ -48,6 +49,7 @@
 	self.messageContainerView.image = [UIImage imageNamed:@"Courseware.bundle/backgrounds/message-square-bg.png"];
 	
 	self.messageDetailView.model = self.model;
+	self.messageToolbar.model = self.model;
 	
 	[self.model refreshData];
 }
@@ -56,11 +58,12 @@
 {
 	[self updateFontAndColor];
 	
-	[self.mainMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-	[self.model mainMenuItemSelected:0];
+	[self.mainMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+	[self.model mainMenuItemSelected:1];
 	
 	self.messageDetailView.hidden = YES;
 	self.messageListView.hidden = NO;
+	[self.messageToolbar updateActionToolbar];
 	
 	[self.messageDetailView beginAutoFocus];
 }
@@ -105,6 +108,7 @@
 {
 	self.messageDetailView.hidden = YES;
 	self.messageListView.hidden = NO;
+	[self.messageToolbar updateActionToolbar];
 }
 
 #pragma mark - UITableView
@@ -150,11 +154,13 @@
 		CWMessageTableViewCell *aCell = (CWMessageTableViewCell *)[tableView dequeueReusableCellWithIdentifier:anId];
 		if (!aCell) {
 			aCell = [[CWMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
+			aCell.delegate = self;
 		}
 		CWMessage *theMessage = [self.model.messageListForCurrentSelection objectAtIndex:indexPath.row];
 		aCell.sender = [CWMessagingModel formattedSender:theMessage];
 		aCell.title = [CWMessagingModel formattedTitle:theMessage];
 		aCell.date = [CWMessagingModel formattedDate:theMessage];
+		aCell.checked = [self.model messageAtIndexIsChecked:indexPath.row];
 		
 		[aCell setNeedsDisplay];
 		[aCell setNeedsLayout];
@@ -166,9 +172,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (tableView == self.mainMenu) {
-		self.messageDetailView.hidden = YES;
-		self.messageListView.hidden = NO;
-		[self.model mainMenuItemSelected:indexPath.row];
+		
+		if (indexPath.row == 0) {
+			CWMessage *newMessage = [self.model newBlankMessage];
+			self.model.selectedMessage = newMessage;
+			self.messageDetailView.hidden = NO;
+			self.messageListView.hidden = YES;
+			[self.messageToolbar updateActionToolbar];
+			[self.messageDetailView refreshView];
+		}
+		else {
+			self.messageDetailView.hidden = YES;
+			self.messageListView.hidden = NO;
+			[self.model mainMenuItemSelected:indexPath.row];
+			[self.messageToolbar updateActionToolbar];
+		}
 	}
 	else if (tableView == self.messageListView) {
 		// means a message has been selected -- go to that
@@ -178,8 +196,15 @@
 		self.model.selectedMessage = [self.model.messageListForCurrentSelection objectAtIndex:indexPath.row];
 		self.messageDetailView.hidden = NO;
 		self.messageListView.hidden = YES;
+		[self.messageToolbar updateActionToolbar];
 		[self.messageDetailView refreshView];
 	}
+}
+
+- (void)checkButtonPressed:(CWMessageTableViewCell *)target
+{
+	NSIndexPath *rowIndex = [self.messageListView indexPathForCell:target];
+	[self.model toggleChecked:rowIndex.row];
 }
 
 - (void)updateFontAndColor

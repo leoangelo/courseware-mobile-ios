@@ -11,6 +11,8 @@
 extern NSString * const kMessageTableViewCellIdentifierLight;
 extern NSString * const kMessageTableViewCellIdentifierDark;
 
+@protocol CWMessageTableViewCellDelegate;
+
 @interface CWMessageTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSString *sender;
@@ -18,8 +20,15 @@ extern NSString * const kMessageTableViewCellIdentifierDark;
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic) BOOL checked;
 @property (nonatomic) BOOL unread;
+@property (nonatomic, weak) id<CWMessageTableViewCellDelegate> delegate;
 
 - (void)drawContentView:(CGRect)r;
 - (void)layoutControls;
+
+@end
+
+@protocol CWMessageTableViewCellDelegate <NSObject>
+
+- (void)checkButtonPressed:(CWMessageTableViewCell *)target;
 
 @end

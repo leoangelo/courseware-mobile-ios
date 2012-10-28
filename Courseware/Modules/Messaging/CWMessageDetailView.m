@@ -16,7 +16,6 @@
 @interface CWMessageDetailView ()
 
 @property (nonatomic, weak) IBOutlet UIView *contentView;
-@property (nonatomic, weak) IBOutlet UIToolbar *actionToolbar;
 @property (nonatomic, weak) IBOutlet UITextField *toTextField;
 @property (nonatomic, weak) IBOutlet UITextField *fromTextField;
 @property (nonatomic, weak) IBOutlet UITextField *subjectTextField;
@@ -27,15 +26,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, weak) IBOutlet UIImageView *textViewBg;
-
-- (void)updateActionToolbar;
-
-- (NSArray *)actionSetForDrafts;
-- (NSArray *)actionSetForInbox;
-- (NSArray *)actionSetForSent;
-- (NSArray *)actionSetForTrash;
-
-- (UIBarButtonItem *)itemWithTitle:(NSString *)title action:(SEL)actionSelector;
 
 //+ (void)makeViewRounded:(UIView *)theView;
 //+ (void)addShadowToView:(UIView *)theView;
@@ -55,8 +45,6 @@
 	[self addSubview:self.contentView];
 	
 	self.textViewBg.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/textview-bg.png"] stretchableImageWithLeftCapWidth:16 topCapHeight:16];
-	[self.actionToolbar setBackgroundImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-	[self.class makeViewRounded:self.actionToolbar];
 }
 
 - (void)refreshView
@@ -72,66 +60,6 @@
 	self.fromTextField.enabled = canEdit;
 	self.subjectTextField.enabled = canEdit;
 	self.bodyTextView.editable = canEdit;
-	
-	[self updateActionToolbar];
-}
-
-- (void)updateActionToolbar
-{
-	NSArray *actionSetToUse = nil;
-	if ([CWMessagingModel messageIsTrashed:self.model.selectedMessage]) {
-		actionSetToUse = [self actionSetForTrash];
-	}
-	else if ([CWMessagingModel messageIsSent:self.model.selectedMessage]) {
-		actionSetToUse = [self actionSetForSent];
-	}
-	else if ([CWMessagingModel messageIsDrafted:self.model.selectedMessage]) {
-		actionSetToUse = [self actionSetForDrafts];
-	}
-	else {
-		actionSetToUse = [self actionSetForInbox];
-	}
-	
-	self.actionToolbar.items = actionSetToUse;
-}
-
-- (UIBarButtonItem *)itemWithTitle:(NSString *)title action:(SEL)actionSelector
-{
-	return [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self.model action:actionSelector];
-}
-
-- (NSArray *)actionSetForDrafts
-{
-	return [NSArray arrayWithObjects:
-			[self itemWithTitle:@"Send" action:@selector(sendAction)],
-			[self itemWithTitle:@"Save" action:@selector(saveAction)],
-			[self itemWithTitle:@"Discard" action:@selector(discardAction)],
-			nil];
-}
-
-- (NSArray *)actionSetForInbox
-{
-	return [NSArray arrayWithObjects:
-			[self itemWithTitle:@"Reply" action:@selector(replyAction)],
-			[self itemWithTitle:@"Forward" action:@selector(forwardAction)],
-			[self itemWithTitle:@"Delete" action:@selector(deleteAction)],
-			nil];
-}
-
-- (NSArray *)actionSetForSent
-{
-	return [NSArray arrayWithObjects:
-			[self itemWithTitle:@"Forward" action:@selector(forwardAction)],
-			[self itemWithTitle:@"Delete" action:@selector(deleteAction)],
-			nil];
-}
-
-- (NSArray *)actionSetForTrash
-{
-	return [NSArray arrayWithObjects:
-			[self itemWithTitle:@"Restore" action:@selector(restoreAction)],
-			[self itemWithTitle:@"Delete" action:@selector(deleteAction)],
-			nil];
 }
 
 - (void)preProcessMessage
@@ -171,19 +99,5 @@
 {
 	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
 }
-
-+ (void)makeViewRounded:(UIView *)theView
-{
-	theView.layer.masksToBounds = YES;
-	theView.layer.cornerRadius = 4.f;
-}
-//
-//+ (void)addShadowToView:(UIView *)theView
-//{
-//	theView.layer.shadowColor = [UIColor blackColor].CGColor;
-//	theView.layer.shadowOpacity = 1.f;
-//	theView.layer.shadowOffset = CGSizeMake(0, -2);
-//	theView.layer.shadowRadius = 1;
-//}
 
 @end

@@ -16,6 +16,7 @@
 			<string>IBUILabel</string>
 			<string>IBUINavigationBar</string>
 			<string>IBUITableView</string>
+			<string>IBUIToolbar</string>
 			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -65,7 +66,7 @@
 					<object class="IBUITableView" id="203829855">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{273, 203}, {193, 437}}</string>
+						<string key="NSFrame">{{273, 203}, {193, 453}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="263996721"/>
@@ -88,7 +89,7 @@
 					<object class="IBUITableView" id="333336931">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{482, 203}, {522, 437}}</string>
+						<string key="NSFrame">{{482, 203}, {522, 453}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="841513557"/>
@@ -109,10 +110,9 @@
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
 						<array class="NSMutableArray" key="NSSubviews"/>
-						<string key="NSFrame">{{482, 203}, {522, 437}}</string>
+						<string key="NSFrame">{{482, 163}, {522, 477}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="665347891"/>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -134,7 +134,7 @@
 						<string key="NSFrame">{{257, 112}, {225, 50}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="203829855"/>
+						<reference key="NSNextKeyView" ref="331314749"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -160,6 +160,20 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+					</object>
+					<object class="IBUIToolbar" id="331314749">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">266</int>
+						<string key="NSFrame">{{482, 115}, {542, 44}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="203829855"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIBarStyle">1</int>
+						<array class="NSMutableArray" key="IBUIItems"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
@@ -252,6 +266,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">messageToolbar</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="331314749"/>
+					</object>
+					<int key="connectionID">52</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="203829855"/>
 						<reference key="destination" ref="841351856"/>
@@ -313,6 +335,7 @@
 							<reference ref="207467405"/>
 							<reference ref="203829855"/>
 							<reference ref="841513557"/>
+							<reference ref="331314749"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -358,6 +381,12 @@
 						<reference key="object" ref="207467405"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">50</int>
+						<reference key="object" ref="331314749"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -375,12 +404,14 @@
 				<string key="44.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="46.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="50.CustomClassName">CWMessageToolbar</string>
+				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">49</int>
+			<int key="maxID">52</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -388,7 +419,6 @@
 					<string key="className">CWMessageDetailView</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="actionToolbar">UIToolbar</string>
 						<string key="bodyTextView">UITextView</string>
 						<string key="contentView">UIView</string>
 						<string key="fromLabel">UILabel</string>
@@ -400,10 +430,6 @@
 						<string key="toTextField">UITextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="actionToolbar">
-							<string key="name">actionToolbar</string>
-							<string key="candidateClassName">UIToolbar</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="bodyTextView">
 							<string key="name">bodyTextView</string>
 							<string key="candidateClassName">UITextView</string>
@@ -447,6 +473,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">CWMessageToolbar</string>
+					<string key="superclassName">UIToolbar</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CWMessageToolbar.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">CWMessagingViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
@@ -456,8 +490,8 @@
 						<string key="messageDetailView">CWMessageDetailView</string>
 						<string key="messageListView">UITableView</string>
 						<string key="messageTitleLabel">UILabel</string>
+						<string key="messageToolbar">CWMessageToolbar</string>
 						<string key="navBar">CWNavigationBar</string>
-						<string key="slideMenu">SLSlideMenuView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="mainMenu">
@@ -484,13 +518,13 @@
 							<string key="name">messageTitleLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="messageToolbar">
+							<string key="name">messageToolbar</string>
+							<string key="candidateClassName">CWMessageToolbar</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="navBar">
 							<string key="name">navBar</string>
 							<string key="candidateClassName">CWNavigationBar</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="slideMenu">
-							<string key="name">slideMenu</string>
-							<string key="candidateClassName">SLSlideMenuView</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -504,49 +538,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CWNavigationBar.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SLSlideMenuView</string>
-					<string key="superclassName">UIView</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">slideActionPressed:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">slideActionPressed:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">slideActionPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="btnSlideAction">UIButton</string>
-						<string key="contentView">UIView</string>
-						<string key="imgBackground">UIImageView</string>
-						<string key="listView">UITableView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="btnSlideAction">
-							<string key="name">btnSlideAction</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="contentView">
-							<string key="name">contentView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="imgBackground">
-							<string key="name">imgBackground</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="listView">
-							<string key="name">listView</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SLSlideMenuView.h</string>
 					</object>
 				</object>
 			</array>

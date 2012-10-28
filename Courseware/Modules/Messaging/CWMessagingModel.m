@@ -11,12 +11,13 @@
 #import "CWMessage.h"
 #import "NSString+SLUtilities.h"
 
-static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
+static NSString * kMenuList[] = { @"Compose", @"Inbox", @"Drafts", @"Sent", @"Trash" };
 
 @interface CWMessagingModel ()
 
 @property (nonatomic, strong) NSString *selectedItem;
 @property (nonatomic, strong) NSMutableDictionary *messageListings; // identified by title, e.g. Inbox or Drafts
+@property (nonatomic, strong) NSMutableSet *checkedMessageIndices;
 
 @end
 
@@ -30,6 +31,14 @@ static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
 		
 	}
 	return self;
+}
+
+- (NSMutableSet *)checkedMessageIndices
+{
+	if (!_checkedMessageIndices) {
+		_checkedMessageIndices = [[NSMutableSet alloc] init];
+	}
+	return _checkedMessageIndices;
 }
 
 - (void)refreshData
@@ -60,21 +69,24 @@ static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
 		}
 	}
 	
-	[aListings setObject:inboxListing forKey:kMenuList[0]];
-	[aListings setObject:draftsListing forKey:kMenuList[1]];
-	[aListings setObject:sentListing forKey:kMenuList[2]];
-	[aListings setObject:trashListing forKey:kMenuList[3]];
+	[aListings setObject:inboxListing forKey:kMenuList[1]];
+	[aListings setObject:draftsListing forKey:kMenuList[2]];
+	[aListings setObject:sentListing forKey:kMenuList[3]];
+	[aListings setObject:trashListing forKey:kMenuList[4]];
 	
+	[self.checkedMessageIndices removeAllObjects];
 	self.messageListings = aListings;
 }
 
 - (NSArray *)mainMenuList
 {
-	return [NSArray arrayWithObjects:kMenuList count:4];
+	return [NSArray arrayWithObjects:kMenuList count:5];
 }
 
 - (void)mainMenuItemSelected:(NSUInteger)index
 {
+	[self.checkedMessageIndices removeAllObjects];
+	self.selectedMessage = nil;
 	self.selectedItem = kMenuList[index];
 }
 
@@ -143,6 +155,11 @@ static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
 	return [NSDateFormatter localizedStringFromDate:theMessage.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 }
 
+- (void)markAsReadAction
+{
+	
+}
+
 - (void)sendAction
 {
 	[self.delegate modelNeedMessagePreProcess];
@@ -193,6 +210,23 @@ static NSString * kMenuList[] = { @"Inbox", @"Drafts", @"Sent", @"Trash" };
 - (void)restoreAction
 {
 	
+}
+
+- (void)toggleChecked:(NSInteger)rowIndex
+{
+	NSNumber *indexNum = [NSNumber numberWithInt:rowIndex];
+	if ([self.checkedMessageIndices member:indexNum]) {
+		[self.checkedMessageIndices removeObject:indexNum];
+	}
+	else {
+		[self.checkedMessageIndices addObject:indexNum];
+	}
+	[self.delegate modelMessageListingNeedsRefresh];
+}
+
+- (BOOL)messageAtIndexIsChecked:(NSInteger)rowIndex
+{
+	return [self.checkedMessageIndices member:[NSNumber numberWithInt:rowIndex]] != nil;
 }
 
 @end

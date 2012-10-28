@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
+		7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */; };
 		7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */; };
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
@@ -180,6 +181,8 @@
 
 /* Begin PBXFileReference section */
 		7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWRecentReadingsPanelView.xib; sourceTree = "<group>"; };
+		7E1180E9163CFD53003D71D0 /* CWMessageToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessageToolbar.h; sourceTree = "<group>"; };
+		7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessageToolbar.m; sourceTree = "<group>"; };
 		7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWNotesDetailViewController.xib; sourceTree = "<group>"; };
 		7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuView.h; sourceTree = "<group>"; };
 		7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuView.m; sourceTree = "<group>"; };
@@ -630,6 +633,8 @@
 				7E3C42761618769F00A788EB /* CWMessageDetailView.xib */,
 				7E35FBB7163CD03E002CDE62 /* CWMessageTableViewCell.h */,
 				7E35FBB8163CD03E002CDE62 /* CWMessageTableViewCell.m */,
+				7E1180E9163CFD53003D71D0 /* CWMessageToolbar.h */,
+				7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1461,6 +1466,7 @@
 				7EA4D0C5163BAE8200EE85FF /* CWEvaluationResultsView.m in Sources */,
 				7EA4D0C8163BB22200EE85FF /* CWEvaluationResultsController.m in Sources */,
 				7E35FBB9163CD03E002CDE62 /* CWMessageTableViewCell.m in Sources */,
+				7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "CWEvaluationResultsView.h"
 #import "CWEvaluationResultsController.h"
 #import "CWConstants.h"
@@ -47,6 +48,17 @@
 		
 		[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
 		
+		self.remarkContentView.layer.masksToBounds = YES;
+		self.remarkContentView.layer.cornerRadius = 8.f;
+		self.remarkContentView.layer.borderWidth = 2.f;
+		self.remarkContentView.layer.borderColor = [UIColor whiteColor].CGColor;
+		
+		self.reviewMistakesContentView.layer.masksToBounds = YES;
+		self.reviewMistakesContentView.layer.cornerRadius = 8.f;
+		self.reviewMistakesContentView.layer.borderWidth = 2.f;
+		self.reviewMistakesContentView.layer.borderColor = [UIColor whiteColor].CGColor;
+		self.reviewMistakesContentView.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.9];
+		
 		[self addSubview:self.remarkContentView];
 		[self addSubview:self.reviewMistakesContentView];
 		
@@ -87,9 +99,11 @@
 	};
 	NSString *remarkTextFmt = nil;
 	if (self.myController.hasPassed) {
+		self.remarkContentView.backgroundColor = [UIColor colorWithRed:.25 green:.50 blue:0 alpha:1.f];
 		remarkTextFmt = @"You have passed with a score of %d%%";
 	}
 	else {
+		self.remarkContentView.backgroundColor = [UIColor redColor];
 		remarkTextFmt = @"You have failed with a score of %d%%";
 	}
 	self.remarkLabel.text = [NSString stringWithFormat:remarkTextFmt, (int)(self.myController.score * 100.f)];

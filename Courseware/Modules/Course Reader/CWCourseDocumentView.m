@@ -259,6 +259,10 @@
 	NSLog(@"%s", __FUNCTION__);
 #endif
 	
+	currentPage = -1;
+	[_contentViews.allValues makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	[_contentViews removeAllObjects];
+	
 	[self updateScrollViewContentSize]; // Set content size
 	
 	[self showDocumentPage:[[self.dataSource courseDocument].pageNumber integerValue]]; // Show

@@ -12,6 +12,6 @@
 
 @interface CWCourseReaderViewController : UIViewController
 
-@property (nonatomic, weak) CWCourseItem *selectedCourse;
+- (void)setSelectedCourse:(CWCourseItem *)theCourseItem;
 
 @end

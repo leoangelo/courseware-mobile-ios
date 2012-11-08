@@ -90,10 +90,13 @@
 	// self.model.selectedCourseItem = [self.model.getItemList objectAtIndex:indexPath.row];
 	[self.browserPane setActiveItem:[self.model.getItemList objectAtIndex:indexPath.row]];
 	// [self.listView reloadData];
-	
-	CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
-	vc.selectedCourse = [self.model.getItemList objectAtIndex:indexPath.row];
-	[self.navigationController pushViewController:vc animated:YES];
+
+	CWCourseItem *selectedItem = [self.model.getItemList objectAtIndex:indexPath.row];
+	if ([selectedItem hasFileContent]) {
+		CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
+		vc.selectedCourse = selectedItem;
+		[self.navigationController pushViewController:vc animated:YES];
+	}
 }
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item

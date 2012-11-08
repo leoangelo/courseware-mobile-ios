@@ -13,7 +13,8 @@ extern NSString * const kCourseItemTitle;
 extern NSString * const kCourseItemDescription;
 
 extern NSString * const kCourseItemLastDateRead;
-extern NSString * const kCourseItemFilePath;
+extern NSString * const kCourseItemDirectoryName;
+extern NSString * const kCourseItemFileName;
 extern NSString * const kCourseItemPageNumber;
 
 @interface CWCourseItem : NSObject
@@ -25,5 +26,8 @@ extern NSString * const kCourseItemPageNumber;
 - (NSArray *)siblings;
 - (NSInteger)depth;
 - (CWCourseItem *)rootItem;
+
+- (BOOL)hasFileContent;
+- (NSString *)fullFilePath;
 
 @end

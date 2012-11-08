@@ -20,7 +20,7 @@
 
 #pragma mark Constants
 
-@interface CWCourseReaderViewController () <CWCourseDocumentViewDataSource, CWCourseDocumentViewDelegate, CWBrowserPaneViewDelegate, CWThemeDelegate> {
+@interface CWCourseReaderViewController () <CWCourseDocumentViewDataSource, CWCourseDocumentViewDelegate, CWBrowserPaneViewDelegate, CWThemeDelegate, CWCourseReaderModelDelegate> {
 	
 	CWCourseReaderModel *model;
 	CGSize lastAppearSize;
@@ -49,6 +49,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		model = [[CWCourseReaderModel alloc] init];
+		model.delegate = self;
     }
     return self;
 }
@@ -59,7 +60,7 @@
 	self.slideMenuView = [SLSlideMenuView slideMenuView];
 	[self.slideMenuView attachToNavBar:self.navBar];
 	[self makeReaderControlsVisible:YES animated:NO];
-	[self.browserPane setActiveItem:self.selectedCourse];
+	[self.browserPane setActiveItem:model.selectedCourseItem];
 }
 
 - (void)viewDidUnload
@@ -67,7 +68,7 @@
     [super viewDidUnload];
 	self.slideMenuView = nil;
 	
-	 lastVisibilityToggleDate = nil;
+	lastVisibilityToggleDate = nil;
 	lastAppearSize = CGSizeZero;
 }
 
@@ -145,17 +146,36 @@
 
 #pragma mark - Custom Setters
 
+
+
 - (void)setSelectedCourse:(CWCourseItem *)selectedCourse
 {
-	_selectedCourse = selectedCourse;
+	model.selectedCourseItem = selectedCourse;
 	[self.browserPane setActiveItem:selectedCourse];
+}
+
+#pragma mark - Model delegate
+
+- (void)modelChangedSelectedCourseItem:(CWCourseItem *)theNewItem
+{
+	[self.browserPane setActiveItem:theNewItem];
+}
+
+- (void)modelUpdateDisplayedDocument:(ReaderDocument *)theDocument
+{
+	[self.documentView performSelector:@selector(showDocument:) withObject:nil afterDelay:0.02];
+}
+
+- (void)modelUpdateDisplayedDocumentPage:(NSUInteger)thePageNumber
+{
+	[self.documentView showDocumentPage:thePageNumber];
 }
 
 #pragma mark - Browser Pane
 
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
 {
-	[self.documentView showDocumentPage:model.randomPageIndex];
+	model.selectedCourseItem = item;
 }
 
 #pragma mark - Document View Datasource

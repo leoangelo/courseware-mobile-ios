@@ -13,11 +13,13 @@
 #import "CWUserStatusPanelView.h"
 #import "SLSlideMenuView.h"
 #import "CWCourseListingViewController.h"
+#import "CWCourseReaderViewController.h"
 #import "CWThemeHelper.h"
+#import "CWCourseItem.h"
 
 #import "CWCourseManager.h"
 
-@interface CWHomeViewController () <CWBrowserPaneViewDelegate, CWThemeDelegate>
+@interface CWHomeViewController () <CWBrowserPaneViewDelegate, CWThemeDelegate, CWRecentReadingsPanelViewDelegate>
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *topNavBar;
 @property (nonatomic, weak) IBOutlet CWBrowserPaneView *leftPanel;
@@ -25,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
 
 - (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item;
+- (void)pushToCourseReaderWithSelectedItem:(CWCourseItem *)item;
 
 @end
 
@@ -69,12 +72,28 @@
 	[self.navigationController pushViewController:aController animated:YES];
 }
 
+- (void)pushToCourseReaderWithSelectedItem:(CWCourseItem *)item
+{
+	CWCourseReaderViewController *vc = [[CWCourseReaderViewController alloc] init];
+	vc.selectedCourse = item;
+	[self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)updateFontAndColor
 {
 	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 	[self.leftPanel updateFontAndColor];
 	[self.userPanel updateFontAndColor];
 	[self.recentReadingsPanel updateFontAndColor];
+}
+
+#pragma mark - Recent Readings delegate
+
+- (void)recentReadingSelectedCourseItem:(CWCourseItem *)theCourseItem
+{
+	if ([theCourseItem hasFileContent]) {
+		[self pushToCourseReaderWithSelectedItem:theCourseItem];
+	}
 }
 
 @end

@@ -88,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if ((self.model.getAllNotes.count == 0 && indexPath.row == 1) || (self.model.getAllNotes.count > 0 && indexPath.row == self.model.getAllNotes.count)) {
+	if (indexPath.row == 0) {
 		static NSString *addNoteCellId = @"AddNoteCell";
 		UITableViewCell *addNoteCell = [tableView dequeueReusableCellWithIdentifier:addNoteCellId];
 		if (!addNoteCell) {
@@ -106,7 +106,7 @@
 		if (!noteCell) {
 			noteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:noteCellId];
 		}
-		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row];
+		CWNote *noteForCell = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
 		noteCell.textLabel.text = noteForCell.subject;
 		noteCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:noteForCell.date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
 
@@ -135,13 +135,13 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return indexPath.row < self.model.getAllNotes.count && self.model.getAllNotes.count > 0;
+	return indexPath.row > 0 && self.model.getAllNotes.count > 0;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[self.model deleteNoteAtIndex:indexPath.row];
+		[self.model deleteNoteAtIndex:indexPath.row - 1];
 		if (self.model.getAllNotes.count > 0) {
 			[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		}
@@ -156,11 +156,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CWNote *selectedNote = nil;
-	if ((self.model.getAllNotes.count == 0 && indexPath.row == 1) || (self.model.getAllNotes.count > 0 && indexPath.row == self.model.getAllNotes.count)) {
+	if (indexPath.row == 0) {
 		selectedNote = [[CWNotesManager sharedManager] createBlankNote];
 	}
 	else if (self.model.getAllNotes.count > 0) {
-		selectedNote = [self.model.getAllNotes objectAtIndex:indexPath.row];
+		selectedNote = [self.model.getAllNotes objectAtIndex:indexPath.row - 1];
 	}
 	
 	if (selectedNote) {

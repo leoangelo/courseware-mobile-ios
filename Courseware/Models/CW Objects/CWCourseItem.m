@@ -7,13 +7,16 @@
 //
 
 #import "CWCourseItem.h"
+#import "CWUtilities.h"
+#import "NSArray+SLUtilities.h"
 
 NSString * const kCourseItemId = @"id";
 NSString * const kCourseItemTitle = @"title";
 NSString * const kCourseItemDescription = @"description";
 
+NSString * const kCourseItemDirectoryName = @"directory";
 NSString * const kCourseItemLastDateRead = @"lastDateRead";
-NSString * const kCourseItemFilePath = @"path";
+NSString * const kCourseItemFileName = @"filename";
 NSString * const kCourseItemPageNumber = @"pageNumber";
 
 @implementation CWCourseItem
@@ -59,6 +62,41 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 		root = parentNode;
 	}
 	return root;
+}
+
+- (BOOL)hasFileContent
+{
+	NSString *filename = @"";
+	for (CWCourseItem *currentNode = self; currentNode != nil; currentNode = currentNode.parent) {
+		if ([currentNode.data objectForKey:kCourseItemFileName]) {
+			filename = [currentNode.data objectForKey:kCourseItemFileName];
+		}
+	}
+	return [filename length] > 0;
+}
+
+- (NSString *)fullFilePath
+{
+	NSString *fullPath = [[CWUtilities documentRootPath] stringByAppendingPathComponent:@"courses"];
+	NSString *filename = @"";
+	NSMutableArray *directories = [NSMutableArray array];
+	for (CWCourseItem *currentNode = self; currentNode != nil; currentNode = currentNode.parent) {
+		if ([currentNode.data objectForKey:kCourseItemFileName]) {
+			filename = [currentNode.data objectForKey:kCourseItemFileName];
+		}
+		if ([currentNode.data objectForKey:kCourseItemDirectoryName]) {
+			[directories addObject:[currentNode.data objectForKey:kCourseItemDirectoryName]];
+		}
+	}
+	// reverse the array to get the directory hierarchy from the root
+	NSEnumerator *enumerator = [directories reverseObjectEnumerator];
+    for (id element in enumerator) {
+		fullPath = [fullPath stringByAppendingPathComponent:element];
+    }
+	// finally, append the filename
+	fullPath = [fullPath stringByAppendingPathComponent:filename];
+	
+	return fullPath;
 }
 
 - (NSString *)description

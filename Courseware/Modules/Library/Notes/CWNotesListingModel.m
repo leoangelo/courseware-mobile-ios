@@ -34,7 +34,8 @@
 
 - (void)rebuildList
 {
-	self.allNotes = [[CWNotesManager sharedManager] allNotes];
+	NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+	self.allNotes = [[[CWNotesManager sharedManager] allNotes] sortedArrayUsingDescriptors:@[sorter]];
 }
 
 - (void)deleteNoteAtIndex:(NSInteger)theIndex

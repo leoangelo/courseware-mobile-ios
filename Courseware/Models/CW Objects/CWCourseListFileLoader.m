@@ -14,6 +14,7 @@
 @interface CWCourseListFileLoader ()
 
 - (void)readCourseItemsFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem;
+- (NSString *)coursesFolder;
 
 @end
 
@@ -67,6 +68,18 @@
 			[anItem.data setObject:[jsonDict objectForKey:@"description"] forKey:kCourseItemDescription];
 		}
 		
+		if ([jsonDict objectForKey:@"directory-name"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"directory-name"] forKey:kCourseItemDirectoryName];
+		}
+		
+		if ([jsonDict objectForKey:@"filename"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"filename"] forKey:kCourseItemFileName];
+		}
+		
+		if ([jsonDict objectForKey:@"page-number"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"page-number"] forKey:kCourseItemPageNumber];
+		}
+		
 		if ([jsonDict objectForKey:@"children"]) {
 			[self readCourseItemsFromJSON:[jsonDict objectForKey:@"children"] fromParentItem:anItem];
 		}
@@ -91,12 +104,52 @@
 
 #pragma mark - Sample Data
 
+- (void)saveFiletoCourseFolder:(NSString *)filePath
+{
+	NSFileManager *fileManager = [[NSFileManager alloc] init];
+	NSData *sourceData = [NSData dataWithContentsOfFile:filePath];
+	
+	NSString *filename = [[filePath pathComponents] lastObject];
+	NSString *directory = [[filePath pathComponents] objectAtIndex:[[filePath pathComponents] count] - 2];
+	
+	// save to courses folder
+	NSString *targetPath = [[self coursesFolder] stringByAppendingPathComponent:directory];
+	
+	if (![fileManager fileExistsAtPath:targetPath]) {
+		[fileManager createDirectoryAtPath:targetPath withIntermediateDirectories:YES attributes:nil error:nil];
+	}
+	
+	targetPath = [targetPath stringByAppendingPathComponent:filename];
+	
+	if (![fileManager fileExistsAtPath:targetPath]) {
+		[fileManager createFileAtPath:targetPath contents:sourceData attributes:nil];
+	}
+}
+
 - (void)loadSampleFile
 {
 	NSBundle *courseWareBundle = [CWUtilities courseWareBundle];
 	NSAssert(courseWareBundle, @"must not be nil");
 	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json" inDirectory:@"sample-data"];
 	[self loadFilePath:sampleXMLPath];
+	
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 1" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 2" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 3" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
+}
+
+- (NSString *)coursesFolder
+{
+	NSString *mediaPath = [[CWUtilities documentRootPath] stringByAppendingPathComponent:@"courses"];
+	NSFileManager *fileMgr = [NSFileManager defaultManager];
+	
+	if (![fileMgr fileExistsAtPath:mediaPath isDirectory:NULL]) {
+		NSError *error = nil;
+		if (![fileMgr createDirectoryAtPath:mediaPath withIntermediateDirectories:YES attributes:nil error:&error]) {
+			NSLog(@"Error occured while creating folder: %@", error);
+		}
+	}
+	return mediaPath;
 }
 
 @end

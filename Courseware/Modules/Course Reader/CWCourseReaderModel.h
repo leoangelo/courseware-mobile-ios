@@ -9,14 +9,27 @@
 #import <Foundation/Foundation.h>
 
 @class ReaderDocument;
+@class CWCourseItem;
+@protocol CWCourseReaderModelDelegate <NSObject>
+
+- (void)modelChangedSelectedCourseItem:(CWCourseItem *)theNewItem;
+- (void)modelUpdateDisplayedDocument:(ReaderDocument *)theDocument;
+- (void)modelUpdateDisplayedDocumentPage:(NSUInteger)thePageNumber;
+
+@end
 
 @interface CWCourseReaderModel : NSObject
 
-@property (nonatomic, strong) ReaderDocument *courseDocument;
+@property (nonatomic, weak) id<CWCourseReaderModelDelegate> delegate;
+@property (nonatomic, strong, readonly) ReaderDocument *courseDocument;
+@property (nonatomic, strong) CWCourseItem *selectedCourseItem;
 
-- (NSInteger)randomPageIndex;
+@property (nonatomic, strong, readonly) NSString *documentPath;
+@property (nonatomic, readonly) NSUInteger pageNumber;
+
+//- (NSInteger)randomPageIndex;
 
 + (ReaderDocument *)documentFromFilePath:(NSString *)filePath;
-+ (ReaderDocument *)sampleDocument;
+//+ (ReaderDocument *)sampleDocument;
 
 @end

@@ -1,74 +1,51 @@
 [
 	{
-		"title": "Marine Engineering at the Management Level",
+		"title": "Function 2 - Cargo Handling and Stowage at the Management Level",
+		"directory-name": "function-2",
 		"children": [
 			{
 				"title": "Module 1",
+				"filename": "Function 2, Module 1.pdf",
 				"children": [
 					{
-						"title": "Thermodynamics and Heat Transmission",
+						"title": "1. Safe Loading, Stowage, Securing and Care of Cargoes",
+						"page-number": 1,
 						"children": [
 							{
-								"title": "Definition of Terms",
-								"description": "Defining the meaning of International System of Units, Force, Pressure, Weight, Density, Relative Density, Work, Energy"
+								"title": "1.1 Effect on trim and stability caused by cargoes and cargo operations",
+								"page-number": 2
 							},
 							{
-								"title": "Thermodynamics",
-								"description": "A branch of physics which deals with the relationship between heat, energy, and work on a system. There are three principal laws of thermodynamics."
+								"title": "1.2 Keep hulls stress within acceptable limits",
+								"page-number": 5
 							},
 							{
-								"title": "Heat",
-								"description": "An energy that is transferred to a system by way of thermal interaction. Introduces the heat engine, turbine, compressors, thermodynamic cycle, working fluid, temperature-entropy, enthalpy-entropy, pressure-enthalpy, heat transfer, heat conduction"
+								"title": "1.3 Stowage and securingof cargoes on board ships",
+								"page-number": 6
 							},
 							{
-								"title": "Gas Laws",
-								"description": "Relationship between pressure, volume, and temperature. Introduction of law of heat conduction, Newton's Law of Cooling, Heat Exchangers, Air Conditioning, Boyle's Law, Charles' Law, Ideal Gas Law, Polytrophic Law, Specific Heat Capacity, Psychometric Chart, Mollier Diagram, Marine Applications"
+								"title": "1.4 Code of practice for cargo stowage and securing",
+								"page-number": 42
 							},
 							{
-								"title": "Steam Plant",
-								"description": "In relation to water and defining wet steam, saturated steam, super heated steam, enthalpy, entropy, evaporation, condensation, boiler horsepower"
-							}
-						]
-					},
-					{
-						"title": "Mechanics and Hydromechanics",
-						"children": [
-							{
-								"title": "Mechanics",
-								"description": "Inertia at the resistance to change of motion, the method of balancing a disc, the normal tolerance of out-of-balance forces, the static balancing of propeller, the dynamic balancing of rotating elements (impellers, bowl assembly of purifiers, crankshaft)."
+								"title": "1.5 Tankers and tanker operations",
+								"page-number": 61
 							},
 							{
-								"title": "Hydraulics and Pneumatics",
-								"description": "Fundamental concepts, component symbols, construction, functions and application to Hydraulics and Pneumatics, circuit diagrams, and troubleshooting of fluid power systems, shipboard applications"
-							}
-						]
-					},
-					{
-						"title": "Operating Principles of Ship Power Installations and Refrigeration",
-						"children": [
-							{
-								"title": "Analyse the Diesel Engine Shop Trial and Sea Trial Data",
-								"children": [
-									"Brake power, Indicated power of diesel engines, indicated power of turbines, break mean, effective pressure, engine efficiencies.",
-									"Graph of energy  distribution at varying loads",
-									"Interpret graphs related to speed, torque, brake power, indicated power, mechanical efficiency, fuel consumption, specific fuel consumption, thermal efficiency",
-									"Explain correct procedure in engine performance testing",
-									"Analyses performance data and its effect on engine performance and figure out countermeasures when deviations from trial data becomes apparent",
-									"Work out preventive measures taken to ensure deviations from trial data are kept to minimum",
-									"Calculate the specific fuel and cylinder oil consumption"
-								]
+								"title": "1.6 Bulk carriers",
+								"page-number": 89
 							},
 							{
-								"title": "Explains the fundamentals of Refrigeration and the vapour compression system",
-								"children": [
-									"Pressure is directly proportional to saturation in temperature",
-									"Sub-cooling",
-									"Superheating",
-									"System performance",
-									"Operational problems and rectification",
-									"Use of tools and test equipment for servicing and repair",
-									"Interpret PH diagram of a simplified vapour compression system"
-								]
+								"title": "1.7 Bulk cargoes",
+								"page-number": 93
+							},
+							{
+								"title": "1.8 Relevant instruments and information",
+								"page-number": 106
+							},
+							{
+								"title": "1.9 Relationship between ship and terminal personnel",
+								"page-number": 107
 							}
 						]
 					}
@@ -76,23 +53,44 @@
 			},
 			{
 				"title": "Module 2",
+				"filename": "Function 2, Module 2.pdf",
 				"children": [
 					{
-						"title": "Physical and chemical properties of fuel and lubricants"
-					},
-					{
-						"title": "Technology of Materials"
+						"title": "1. Assess Reported Defects and Damages to Cargo Spaces, Hatch Covers and Ballast Tanks and Take Appropriate Action",
+						"page-number": 1,
+						"children": [
+							{
+								"title": "1.1 Bending moments and shear forces on bulk carriers",
+								"page-number": 2
+							},
+							{
+								"title": "1.2 Corrosion, fatigue and inadequate cargo",
+								"page-number": 24
+							}
+						]
 					}
 				]
 			},
 			{
 				"title": "Module 3",
+				"filename": "Function 2, Module 3.pdf",
 				"children": [
 					{
-						"title": "Naval Architecture and Ship Construction, including damage control"
+						"title": "1. Carriage of Dangerous Goods",
+						"page-number": 1,
+						"children": [
+							{
+								"title": "1.1 Refer to appropriate international regulations, standards, codes and recommendations when carrying dangerous goods",
+								"page-number": 2
+							},
+							{
+								"title": "1.2 Exercise precautions during loading, unloading and care during voyage for the carriage of dangerous, hazardous and harmful cargoes",
+								"page-number": 42
+							}
+						]
 					}
 				]
 			}
-		]
+		]	
 	}
 ]

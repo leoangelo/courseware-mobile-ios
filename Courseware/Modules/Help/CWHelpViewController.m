@@ -47,4 +47,9 @@ static NSString * const kHelpHtml = @"Courseware.bundle/cw-help.html";
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+	return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
 @end

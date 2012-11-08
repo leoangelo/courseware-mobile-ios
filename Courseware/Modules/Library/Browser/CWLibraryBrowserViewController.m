@@ -67,7 +67,7 @@ static CGSize kItemSize = (CGSize) { 240, 142 };
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return NO;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 #pragma mark -

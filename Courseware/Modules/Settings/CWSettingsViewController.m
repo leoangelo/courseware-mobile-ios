@@ -77,6 +77,11 @@
 	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+	return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

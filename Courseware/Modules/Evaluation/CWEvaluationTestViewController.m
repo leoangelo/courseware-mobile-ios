@@ -53,6 +53,11 @@ static NSInteger const kQuestionContentTag = 10;
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+	return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
 - (void)updateDisplayedQuestion
 {
 	UIView *displayedQuestionView = [self.questionContainer viewWithTag:kQuestionContentTag];

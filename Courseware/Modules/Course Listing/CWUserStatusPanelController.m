@@ -23,12 +23,12 @@
 
 - (NSString *)getSchoolName
 {
-	return @"University of the Philippines Manila";
+	return @"Alloy Learning";
 }
 
 - (NSString *)getProgramName
 {
-	return @"BS Computer Science";
+	return @"Management Level Course";
 }
 
 @end

@@ -69,10 +69,10 @@ static NSString * kUserPrefsPersistentUserName = @"UserPrefsPersistentUserName";
 
 - (void)insertTestUser
 {
-	[self createNewAccountUserName:@"superlazyperson"
+	[self createNewAccountUserName:@"JGoitia"
 						  password:@"123"
-						  fullName:@"Leo Angelo Quigao"
-					  emailAddress:@"leo.quigao@gmail.com"
+						  fullName:@"Julian Goitia"
+					  emailAddress:@"j.goitia@gmail.com"
 					  passwordHint:@"123"];
 }
 

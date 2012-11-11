@@ -55,7 +55,7 @@
 	
     // Do any additional setup after loading the view from its nib.
 	if (AUTO_FILL_CREDENTIALS) {
-		self.txtUsername.text = @"superlazyperson";
+		self.txtUsername.text = @"JGoitia";
 		self.txtPassword.text = @"123";
 	}
 }

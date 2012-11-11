@@ -23,22 +23,32 @@
 @synthesize documentPath = _documentPath;
 @synthesize pageNumber = _pageNumber;
 
+- (void)openFile:(NSString *)filePath page:(NSInteger)pageNumber
+{
+	self.documentPath = filePath;
+	self.pageNumber = pageNumber;
+	self.courseDocument.pageNumber = [NSNumber numberWithInt:pageNumber];
+	[self.delegate modelUpdateDisplayedDocumentPage:self.pageNumber];
+}
+
 - (void)setSelectedCourseItem:(CWCourseItem *)selectedCourseItem
 {
 	if (_selectedCourseItem != selectedCourseItem) {
 		_selectedCourseItem = selectedCourseItem;
 		
-		self.documentPath = [_selectedCourseItem fullFilePath];
-		if ([_selectedCourseItem.data objectForKey:kCourseItemPageNumber]) {
-			self.pageNumber = [[_selectedCourseItem.data objectForKey:kCourseItemPageNumber] integerValue];
+		if (_selectedCourseItem) {
+			self.documentPath = [_selectedCourseItem fullFilePath];
+			if ([_selectedCourseItem.data objectForKey:kCourseItemPageNumber]) {
+				self.pageNumber = [[_selectedCourseItem.data objectForKey:kCourseItemPageNumber] integerValue];
+			}
+			else {
+				self.pageNumber = 1;
+			}
+			self.courseDocument.pageNumber = [NSNumber numberWithInteger:self.pageNumber];
+			
+			[self.delegate modelChangedSelectedCourseItem:_selectedCourseItem];
+			[self.delegate modelUpdateDisplayedDocumentPage:self.pageNumber];
 		}
-		else {
-			self.pageNumber = 1;
-		}
-		self.courseDocument.pageNumber = [NSNumber numberWithInteger:self.pageNumber];
-		
-		[self.delegate modelChangedSelectedCourseItem:_selectedCourseItem];
-		[self.delegate modelUpdateDisplayedDocumentPage:self.pageNumber];
 	}
 }
 

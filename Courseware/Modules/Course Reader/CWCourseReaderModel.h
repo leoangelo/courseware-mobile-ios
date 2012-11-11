@@ -27,9 +27,7 @@
 @property (nonatomic, strong, readonly) NSString *documentPath;
 @property (nonatomic, readonly) NSUInteger pageNumber;
 
-//- (NSInteger)randomPageIndex;
-
 + (ReaderDocument *)documentFromFilePath:(NSString *)filePath;
-//+ (ReaderDocument *)sampleDocument;
+- (void)openFile:(NSString *)filePath page:(NSInteger)pageNumber;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "CWBottomToolbarController.h"
 #import "CWNotesListViewController.h"
+#import "CWBookmarksListViewController.h"
 #import "CWEvaluationTestViewController.h"
 #import "CWAppDelegate.h"
 
@@ -29,7 +30,7 @@ static NSInteger const kTestAlertTag = 100;
 - (void)bookmarksAction:(id)target
 {
 	if (!self.bookmarksNavController) {
-		CWNotesListViewController *rootVC = [[CWNotesListViewController alloc] initWithStyle:UITableViewStylePlain];
+		CWBookmarksListViewController *rootVC = [[CWBookmarksListViewController alloc] initWithStyle:UITableViewStylePlain];
 		rootVC.title = @"Bookmarks";
 		self.bookmarksNavController = [[UINavigationController alloc] initWithRootViewController:rootVC];
 	}

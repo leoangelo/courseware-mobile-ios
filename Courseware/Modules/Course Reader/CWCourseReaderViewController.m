@@ -258,4 +258,21 @@
 	[self.toolbar updateFontAndColor];
 }
 
+#pragma mark - Access by external objects
+
+- (NSString *)currentDocumentPath
+{
+	return model.documentPath;
+}
+
+- (NSInteger)currentDocumentPage
+{
+	return [model.courseDocument.pageNumber integerValue];
+}
+
+- (void)openFile:(NSString *)filePath page:(NSInteger)pageNumber
+{
+	[model openFile:filePath page:pageNumber];
+}
+
 @end

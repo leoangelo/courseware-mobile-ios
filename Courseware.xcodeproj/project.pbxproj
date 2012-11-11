@@ -41,6 +41,11 @@
 		7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42791618782E00A788EB /* CWMessagingModel.m */; };
 		7E3C4280161885F600A788EB /* CWMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C427F161885F600A788EB /* CWMessage.m */; };
 		7E3E7B9D160A229B00849255 /* CWCourseDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */; };
+		7E4A5598164F5312004EA78B /* CWBookmarksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A5597164F5312004EA78B /* CWBookmarksManager.m */; };
+		7E4A559B164F5436004EA78B /* CWBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559A164F5436004EA78B /* CWBookmark.m */; };
+		7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */; };
+		7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */; };
+		7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */; };
 		7E556214162DC584000CDCAA /* CWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E556213162DC584000CDCAA /* CWNote.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
 		7E5E368216057E4B00EE508B /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365E16057E4B00EE508B /* ReaderConstants.m */; };
@@ -241,6 +246,15 @@
 		7E3C427F161885F600A788EB /* CWMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessage.m; sourceTree = "<group>"; };
 		7E3E7B9B160A229B00849255 /* CWCourseDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseDocumentView.h; sourceTree = "<group>"; };
 		7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseDocumentView.m; sourceTree = "<group>"; };
+		7E4A5596164F5312004EA78B /* CWBookmarksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksManager.h; sourceTree = "<group>"; };
+		7E4A5597164F5312004EA78B /* CWBookmarksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksManager.m; sourceTree = "<group>"; };
+		7E4A5599164F5436004EA78B /* CWBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmark.h; sourceTree = "<group>"; };
+		7E4A559A164F5436004EA78B /* CWBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmark.m; sourceTree = "<group>"; };
+		7E4A559C164F59DB004EA78B /* CWBookmarksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksModel.h; sourceTree = "<group>"; };
+		7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksModel.m; sourceTree = "<group>"; };
+		7E4A559F164F5EB5004EA78B /* CWBookmarksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksListViewController.h; sourceTree = "<group>"; };
+		7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksListViewController.m; sourceTree = "<group>"; };
+		7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWBookmarksListViewController.xib; sourceTree = "<group>"; };
 		7E556212162DC584000CDCAA /* CWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNote.h; sourceTree = "<group>"; };
 		7E556213162DC584000CDCAA /* CWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNote.m; sourceTree = "<group>"; };
 		7E5E365B16057E4B00EE508B /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
@@ -665,6 +679,20 @@
 			path = Messaging;
 			sourceTree = "<group>";
 		};
+		7E4A5591164F514A004EA78B /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				7E4A5596164F5312004EA78B /* CWBookmarksManager.h */,
+				7E4A5597164F5312004EA78B /* CWBookmarksManager.m */,
+				7E4A559C164F59DB004EA78B /* CWBookmarksModel.h */,
+				7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */,
+				7E4A559F164F5EB5004EA78B /* CWBookmarksListViewController.h */,
+				7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */,
+				7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		7E5E365916057E4B00EE508B /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +773,8 @@
 			children = (
 				7E3C427E161885F500A788EB /* CWMessage.h */,
 				7E3C427F161885F600A788EB /* CWMessage.m */,
+				7E4A5599164F5436004EA78B /* CWBookmark.h */,
+				7E4A559A164F5436004EA78B /* CWBookmark.m */,
 				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
 				7E23714A163A27F4001A09C4 /* CWMedia.h */,
 				7E23714B163A27F4001A09C4 /* CWMedia.m */,
@@ -1080,6 +1110,7 @@
 		7EDA2ACC160D750900B40202 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7E4A5591164F514A004EA78B /* Bookmarks */,
 				7EFE1B0816136DB700D36412 /* Library Browser */,
 				7EDA2ACD160D751E00B40202 /* Notes */,
 			);
@@ -1320,6 +1351,7 @@
 				7E2812D8163076740056009A /* Default-Landscape@2x~ipad.png in Resources */,
 				7EA4D0C1163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib in Resources */,
 				7EA4D0CA163BB5B900EE85FF /* CWEvaluationResultsView.xib in Resources */,
+				7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1473,6 +1505,10 @@
 				7E35FBB9163CD03E002CDE62 /* CWMessageTableViewCell.m in Sources */,
 				7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */,
 				7E39056B164BB79E0021676E /* NSArray+SLUtilities.m in Sources */,
+				7E4A5598164F5312004EA78B /* CWBookmarksManager.m in Sources */,
+				7E4A559B164F5436004EA78B /* CWBookmark.m in Sources */,
+				7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */,
+				7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

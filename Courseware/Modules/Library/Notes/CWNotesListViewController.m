@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) CWNotesListingModel *model;
 
+- (void)confirmEditButtonState;
+
 @end
 
 @implementation CWNotesListViewController
@@ -55,7 +57,7 @@
 {
 	[self.model rebuildList];
 	[self.tableView reloadData];
-	self.editButtonItem.enabled = self.model.getAllNotes.count > 0;
+	[self confirmEditButtonState];
 	
 	[self updateFontAndColor];
 }
@@ -63,6 +65,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+#pragma mark - Actions
+
+- (void)confirmEditButtonState
+{
+	self.editButtonItem.enabled = self.model.getAllNotes.count > 0;
+	if (!self.editButtonItem.enabled) {
+		[self setEditing:NO animated:NO];
+	}
 }
 
 #pragma mark - Table view data source
@@ -148,6 +160,8 @@
 		else {
 			[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 		}
+		
+		[self confirmEditButtonState];
     }
 }
 

@@ -14,4 +14,9 @@
 
 - (void)setSelectedCourse:(CWCourseItem *)theCourseItem;
 
+- (NSString *)currentDocumentPath;
+- (NSInteger)currentDocumentPage;
+
+- (void)openFile:(NSString *)filePath page:(NSInteger)pageNumber;
+
 @end

@@ -29,5 +29,6 @@
 
 + (ReaderDocument *)documentFromFilePath:(NSString *)filePath;
 - (void)openFile:(NSString *)filePath page:(NSInteger)pageNumber;
+- (BOOL)handleDocumentTapAtPage:(NSInteger)atPage atPoint:(CGPoint)atPoint;
 
 @end

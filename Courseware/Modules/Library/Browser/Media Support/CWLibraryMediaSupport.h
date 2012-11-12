@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSDate *lastDateRead;
 
++ (void)openPreview:(NSString *)fullFilePath;
+
 - (id)initWithFilePath:(NSString *)theFilePath dateRead:(NSDate *)lastDateRead;
 
 - (NSString *)name;

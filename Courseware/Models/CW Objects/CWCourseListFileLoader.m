@@ -8,12 +8,14 @@
 
 #import "CWCourseListFileLoader.h"
 #import "CWCourseItem.h"
+#import "CWMediaAttachment.h"
 #import "NSString+SLUtilities.h"
 #import "CWUtilities.h"
 
 @interface CWCourseListFileLoader ()
 
 - (void)readCourseItemsFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem;
+- (void)readMediaFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem;
 - (NSString *)coursesFolder;
 
 @end
@@ -84,6 +86,10 @@
 			[self readCourseItemsFromJSON:[jsonDict objectForKey:@"children"] fromParentItem:anItem];
 		}
 		
+		if ([jsonDict objectForKey:@"media"]) {
+			[self readMediaFromJSON:[jsonDict objectForKey:@"media"] fromParentItem:anItem];
+		}
+		
 		anItem.parent = parentItem;
 		[parentItem.children addObject:anItem];
 		
@@ -99,6 +105,19 @@
 		anItem.parent = parentItem;
 		[parentItem.children addObject:anItem];
 		
+	}
+}
+
+- (void)readMediaFromJSON:(id)jsonData fromParentItem:(CWCourseItem *)parentItem
+{
+	for (NSDictionary *aMedium in jsonData) {
+		CWMediaAttachment *anAttach = [[CWMediaAttachment alloc] init];
+		anAttach.filename = [aMedium objectForKey:@"filename"];
+		anAttach.pageNumber = [[aMedium objectForKey:@"page-number"] integerValue];
+		anAttach.coordinates = CGRectFromString([aMedium objectForKey:@"coords"]);
+		anAttach.parentItem = parentItem;
+		
+		[parentItem.attachments addObject:anAttach];
 	}
 }
 
@@ -164,6 +183,7 @@
 	
 	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"mp4" inDirectory:@"sample-data/function-1-deck/media"]];
 	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"jpg" inDirectory:@"sample-data/function-1-engine/media"]];
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"mp4" inDirectory:@"sample-data/function-1-engine/media"]];
 	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"docx" inDirectory:@"sample-data/function-1-engine/documents"]];
 	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"jpg" inDirectory:@"sample-data/function-2-deck/media"]];
 	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"gif" inDirectory:@"sample-data/function-2-deck/media"]];

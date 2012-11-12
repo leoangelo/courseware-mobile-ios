@@ -239,7 +239,7 @@
 		[UIView commitAnimations];
 	}
 	
-	 lastVisibilityToggleDate = nil;
+	lastVisibilityToggleDate = nil;
 	lastVisibilityToggleDate = [NSDate date];
 }
 
@@ -252,6 +252,13 @@
 {
 	isAnimating = NO;
 }
+
+- (BOOL)documentViewTappedAtPage:(NSInteger)atPage atPoint:(CGPoint)atPoint
+{
+	return [model handleDocumentTapAtPage:atPage atPoint:atPoint];
+}
+
+#pragma mark - Theming
 
 - (void)updateFontAndColor
 {

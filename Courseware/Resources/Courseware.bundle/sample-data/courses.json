@@ -21,6 +21,28 @@
 							}
 						]
 					}
+				],
+				"media": [
+					{
+						"filename": "Figure 2 I.mp4",
+						"page-number": 25,
+						"coords": "{{50, 225}, {275, 203}}"
+					},
+					{
+						"filename": "Figure 2 II.mp4",
+						"page-number": 26,
+						"coords": "{{50, 225}, {275, 203}}"
+					},
+					{
+						"filename": "Figure 7 I.mp4",
+						"page-number": 31,
+						"coords": "{{50, 225}, {275, 203}}"
+					},
+					{
+						"filename": "Figure 7 II.mp4",
+						"page-number": 32,
+						"coords": "{{50, 225}, {275, 203}}"
+					}
 				]
 			}
 		]	
@@ -36,6 +58,63 @@
 				"children": [
 					{
 						"title": "3. Manage the Operation of Propulsion Plant of Machinery"
+					}
+				],
+				"media": [
+					{
+						"filename": "01.jpg",
+						"page-number": 2,
+						"coords": "{{180, 198}, {748, 300}}"
+					},
+					{
+						"filename": "02.jpg",
+						"page-number": 3,
+						"coords": "{{64, 314}, {817, 250}}"
+					},
+					{
+						"filename": "03.jpg",
+						"page-number": 4,
+						"coords": "{{76, 176}, {800, 433}}"
+					},
+					{
+						"filename": "04.jpg",
+						"page-number": 5,
+						"coords": "{{71, 178}, {813, 402}}"
+					},
+					{
+						"filename": "05.jpg",
+						"page-number": 10,
+						"coords": "{{66, 169}, {815, 383}}"
+					},
+					{
+						"filename": "06.jpg",
+						"page-number": 12,
+						"coords": "{{66, 161}, {815, 383}}"
+					},
+					{
+						"filename": "07.jpg",
+						"page-number": 16,
+						"coords": "{{86, 184}, {793, 351}}"
+					},
+					{
+						"filename": "08.jpg",
+						"page-number": 18,
+						"coords": "{{107, 187}, {741, 351}}"
+					},
+					{
+						"filename": "Four  Stroke Diesel Engine.mp4",
+						"page-number": 6,
+						"coords": "{{60, 158}, {838, 402}}"
+					},
+					{
+						"filename": "Four Stroke Diesel Engine - cycle.mp4",
+						"page-number": 8,
+						"coords": "{{60, 158}, {838, 402}}"
+					},
+					{
+						"filename": "Crankshaft animation.mp4",
+						"page-number": 13,
+						"coords": "{{60, 158}, {838, 402}}"
 					}
 				]
 			}
@@ -64,6 +143,84 @@
 							}
 						]
 					}
+				],
+				"media": [
+					{
+						"filename": "explosives.png",
+						"page-number": 2,
+						"coords": "{{57, 234}, {274, 276}}"
+					},
+					{
+						"filename": "flammable solid.png",
+						"page-number": 5,
+						"coords": "{{220, 264}, {71, 115}}"
+					},
+					{
+						"filename": "spontaneously combustible.png",
+						"page-number": 5,
+						"coords": "{{112, 400}, {65, 115}}"
+					},
+					{
+						"filename": "dangerous when wet.jpg",
+						"page-number": 5,
+						"coords": "{{334, 400}, {90, 115}}"
+					},
+					{
+						"filename": "corrosive.jpg",
+						"page-number": 6,
+						"coords": "{{60, 293}, {268, 269}}"
+					},
+					{
+						"filename": "thre barrels.jpg",
+						"page-number": 7,
+						"coords": "{{88, 338}, {214, 314}}"
+					},
+					{
+						"filename": "51.gif",
+						"page-number": 8,
+						"coords": "{{724, 408}, {187, 188}}"
+					},
+					{
+						"filename": "1 Away from.jpg",
+						"page-number": 10,
+						"coords": "{{74, 231}, {77, 30}}"
+					},
+					{
+						"filename": "2 Away from.jpg",
+						"page-number": 10,
+						"coords": "{{74, 271}, {110, 30}}"
+					},
+					{
+						"filename": "3 Separated by complete compartment from.jpg",
+						"page-number": 10,
+						"coords": "{{74, 327}, {300, 30}}"
+					},
+					{
+						"filename": "4 Separated longitudinally by an intervening complete compartment or hold from.jpg",
+						"page-number": 10,
+						"coords": "{{74, 400}, {566, 30}}"
+					},
+					{
+						"filename": "5 Legend.jpg",
+						"page-number": 10,
+						"coords": "{{53, 478}, {48, 30}}"
+					},
+					{
+						"filename": "codes.jpg",
+						"page-number": 11,
+						"coords": "{{26, 160}, {891, 389}}"
+					},
+					{
+						"filename": "door for hold vent.jpg",
+						"page-number": 12,
+						"coords": "{{55, 356}, {372, 241}}"
+					},
+					{
+						"filename": "hold vent.jpg",
+						"page-number": 12,
+						"coords": "{{517, 356}, {371, 241}}"
+					}
+					
 				]
 			}
 		]	

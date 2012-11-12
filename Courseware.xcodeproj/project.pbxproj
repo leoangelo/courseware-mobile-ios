@@ -46,6 +46,7 @@
 		7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */; };
 		7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */; };
 		7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */; };
+		7E518909165159460025E47C /* CWMediaAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E518908165159460025E47C /* CWMediaAttachment.m */; };
 		7E556214162DC584000CDCAA /* CWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E556213162DC584000CDCAA /* CWNote.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
 		7E5E368216057E4B00EE508B /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365E16057E4B00EE508B /* ReaderConstants.m */; };
@@ -255,6 +256,8 @@
 		7E4A559F164F5EB5004EA78B /* CWBookmarksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksListViewController.h; sourceTree = "<group>"; };
 		7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksListViewController.m; sourceTree = "<group>"; };
 		7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWBookmarksListViewController.xib; sourceTree = "<group>"; };
+		7E518907165159460025E47C /* CWMediaAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMediaAttachment.h; sourceTree = "<group>"; };
+		7E518908165159460025E47C /* CWMediaAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMediaAttachment.m; sourceTree = "<group>"; };
 		7E556212162DC584000CDCAA /* CWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNote.h; sourceTree = "<group>"; };
 		7E556213162DC584000CDCAA /* CWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNote.m; sourceTree = "<group>"; };
 		7E5E365B16057E4B00EE508B /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 			children = (
 				7E30E2C715FC3A3D00422EEE /* CWCourseItem.h */,
 				7E30E2C815FC3A3E00422EEE /* CWCourseItem.m */,
+				7E518907165159460025E47C /* CWMediaAttachment.h */,
+				7E518908165159460025E47C /* CWMediaAttachment.m */,
 				7E30E2D015FC3F0A00422EEE /* CWCourseManager.h */,
 				7E30E2D115FC3F0A00422EEE /* CWCourseManager.m */,
 				7E30E2E015FC4BD700422EEE /* CWCourseListFileLoader.h */,
@@ -1509,6 +1514,7 @@
 				7E4A559B164F5436004EA78B /* CWBookmark.m in Sources */,
 				7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */,
 				7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */,
+				7E518909165159460025E47C /* CWMediaAttachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -344,10 +344,14 @@
 			NSNumber *key = [NSNumber numberWithInteger:page]; // Page number key
 			
 			ReaderContentView *targetView = [_contentViews objectForKey:key];
-			
 			id target = [targetView processSingleTap:recognizer]; // Process tap
 			
-			if (target != nil) // Handle the returned target object
+			CGPoint convertedPoint = [recognizer locationInView:targetView];
+			if ([self.documentDelegate documentViewTappedAtPage:page atPoint:convertedPoint]) {
+	
+				
+	
+			} else if (target != nil) // Handle the returned target object
 			{
 				if ([target isKindOfClass:[NSURL class]]) // Open a URL
 				{

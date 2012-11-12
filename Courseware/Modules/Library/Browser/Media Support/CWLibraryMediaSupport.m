@@ -10,6 +10,12 @@
 
 @implementation CWLibraryMediaSupport
 
++ (void)openPreview:(NSString *)fullFilePath
+{
+	id mediaSupport = [(CWLibraryMediaSupport *)[self alloc] initWithFilePath:fullFilePath dateRead:[NSDate date]];
+	[(CWLibraryMediaSupport *)mediaSupport openPreview];
+}
+
 - (id)initWithFilePath:(NSString *)theFilePath dateRead:(NSDate *)lastDateRead
 {
 	self = [super init];

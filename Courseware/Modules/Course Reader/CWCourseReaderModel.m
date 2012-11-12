@@ -10,6 +10,8 @@
 #import "ReaderDocument.h"
 #import "CWCourseItem.h"
 #import "CWUtilities.h"
+#import "CWMediaAttachment.h"
+#import "CWLibraryQuickLookSupport.h"
 
 @interface CWCourseReaderModel ()
 
@@ -69,24 +71,17 @@
 	return [ReaderDocument withDocumentFilePath:filePath password:nil];
 }
 
-//+ (ReaderDocument *)sampleDocument
-//{
-//	NSString *filePath = [[CWUtilities courseWareBundle] pathForResource:@"sample" ofType:@"pdf" inDirectory:@"sample-data"];
-//	return [self documentFromFilePath:filePath];
-//}
-
-//- (NSInteger)randomPageIndex
-//{
-//	return arc4random() % [self.courseDocument.pageCount integerValue];
-//}
-
-//- (ReaderDocument *)courseDocument
-//{
-//	if (!_courseDocument) {
-//		_courseDocument = [self.class sampleDocument];
-//		[_courseDocument updateProperties];
-//	}
-//	return _courseDocument;
-//}
+- (BOOL)handleDocumentTapAtPage:(NSInteger)atPage atPoint:(CGPoint)atPoint
+{
+	for (CWMediaAttachment *anAttachment in self.selectedCourseItem.getAllAttachments) {
+		
+		if (anAttachment.pageNumber == atPage && CGRectContainsPoint(anAttachment.coordinates, atPoint)) {
+			[CWLibraryQuickLookSupport openPreview:[anAttachment fullFilePath]];
+			return YES;
+		}
+	}
+	
+	return NO;
+}
 
 @end

@@ -22,6 +22,7 @@ extern NSString * const kCourseItemPageNumber;
 @property (nonatomic, weak) CWCourseItem *parent;
 @property (nonatomic, strong) NSMutableArray *children;
 @property (nonatomic, strong) NSMutableDictionary *data;
+@property (nonatomic, strong) NSMutableArray *attachments;
 
 - (NSArray *)siblings;
 - (NSInteger)depth;
@@ -29,5 +30,7 @@ extern NSString * const kCourseItemPageNumber;
 
 - (BOOL)hasFileContent;
 - (NSString *)fullFilePath;
+
+- (NSArray *)getAllAttachments;
 
 @end

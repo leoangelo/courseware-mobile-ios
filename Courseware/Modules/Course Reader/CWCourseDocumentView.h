@@ -31,6 +31,7 @@
 
 @protocol CWCourseDocumentViewDelegate <NSObject>
 
+- (BOOL)documentViewTappedAtPage:(NSInteger)atPage atPoint:(CGPoint)atPoint;
 - (BOOL)areReaderControlsVisible;
 - (void)makeReaderControlsVisible:(BOOL)visible animated:(BOOL)animated;
 

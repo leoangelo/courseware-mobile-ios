@@ -32,6 +32,7 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 	if (self) {
 		_data = [[NSMutableDictionary alloc] init];
 		_children = [[NSMutableArray alloc] init];
+		_attachments = [[NSMutableArray alloc] init];
 		
 		[_data setObject:[NSDate date] forKey:kCourseItemLastDateRead];
 	}
@@ -99,9 +100,21 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 	return fullPath;
 }
 
+- (NSArray *)getAllAttachments
+{
+	// the media metadata is usually along the filename attribute. this means we could point the course item holding the media as the item holding the filename as well.
+	// move upwards the tree until we find the node holding the filename
+	for (CWCourseItem *currentItem = self; currentItem != nil; currentItem = currentItem.parent) {
+		if ([currentItem.data objectForKey:kCourseItemFileName]) {
+			return currentItem.attachments;
+		}
+	}
+	return nil;
+}
+
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"ITEM: %@; CHILDREN: %@", self.data, self.children];
+	return [NSString stringWithFormat:@"ITEM: %@; MEDIA: %@; CHILDREN: %@", self.data, self.attachments, self.children];
 }
 
 @end

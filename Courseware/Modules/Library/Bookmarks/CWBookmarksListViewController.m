@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) CWBookmarksModel *model;
 
-- (void)addButtonPressed:(id)target;
 - (void)confirmEditButtonState;
 - (void)insertNewBookmark;
 

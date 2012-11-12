@@ -133,9 +133,9 @@
 	NSString *sampleXMLPath = [courseWareBundle pathForResource:@"courses" ofType:@"json" inDirectory:@"sample-data"];
 	[self loadFilePath:sampleXMLPath];
 	
-	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 1" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
-	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 2" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
-	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Function 2, Module 3" ofType:@"pdf" inDirectory:@"sample-data/function-2"]];
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"D1-M1-T5" ofType:@"pdf" inDirectory:@"sample-data/function-1-deck"]];
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Engine - Function 1" ofType:@"pdf" inDirectory:@"sample-data/function-1-engine"]];
+	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Presentation - Module 3" ofType:@"pdf" inDirectory:@"sample-data/function-2-deck"]];
 }
 
 - (NSString *)coursesFolder

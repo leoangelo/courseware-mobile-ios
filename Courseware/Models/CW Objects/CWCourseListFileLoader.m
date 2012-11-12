@@ -104,6 +104,31 @@
 
 #pragma mark - Sample Data
 
+- (void)saveMediaDirectory:(NSArray *)files
+{
+	for (NSString *aFile in files) {
+		NSFileManager *fileManager = [[NSFileManager alloc] init];
+		NSData *sourceData = [NSData dataWithContentsOfFile:aFile];
+		
+		NSString *filename = [[aFile pathComponents] lastObject];
+		NSString *courseDir = [[aFile pathComponents] objectAtIndex:[[aFile pathComponents] count] - 3];
+		NSString *mediaDir = [[aFile pathComponents] objectAtIndex:[[aFile pathComponents] count] - 2];
+		
+		// save to courses folder
+		NSString *targetPath = [[[self coursesFolder] stringByAppendingPathComponent:courseDir] stringByAppendingPathComponent:mediaDir];
+		
+		if (![fileManager fileExistsAtPath:targetPath]) {
+			[fileManager createDirectoryAtPath:targetPath withIntermediateDirectories:YES attributes:nil error:nil];
+		}
+		
+		targetPath = [targetPath stringByAppendingPathComponent:filename];
+		
+		if (![fileManager fileExistsAtPath:targetPath]) {
+			[fileManager createFileAtPath:targetPath contents:sourceData attributes:nil];
+		}
+	}
+}
+
 - (void)saveFiletoCourseFolder:(NSString *)filePath
 {
 	NSFileManager *fileManager = [[NSFileManager alloc] init];
@@ -136,6 +161,12 @@
 	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"D1-M1-T5" ofType:@"pdf" inDirectory:@"sample-data/function-1-deck"]];
 	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Engine - Function 1" ofType:@"pdf" inDirectory:@"sample-data/function-1-engine"]];
 	[self saveFiletoCourseFolder:[courseWareBundle pathForResource:@"Presentation - Module 3" ofType:@"pdf" inDirectory:@"sample-data/function-2-deck"]];
+	
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"mp4" inDirectory:@"sample-data/function-1-deck/media"]];
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"jpg" inDirectory:@"sample-data/function-1-engine/media"]];
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"docx" inDirectory:@"sample-data/function-1-engine/documents"]];
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"jpg" inDirectory:@"sample-data/function-2-deck/media"]];
+	[self saveMediaDirectory:[courseWareBundle pathsForResourcesOfType:@"gif" inDirectory:@"sample-data/function-2-deck/media"]];
 }
 
 - (NSString *)coursesFolder

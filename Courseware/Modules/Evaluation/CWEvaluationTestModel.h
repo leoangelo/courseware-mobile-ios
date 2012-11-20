@@ -23,6 +23,8 @@
 - (id)initWithDelegate:(id<CWEvaluationTestModelDelegate>)theDelegate;
 
 - (CWExamItemType *)currentQuestion;
+- (NSInteger)currentItemIndex;
+- (NSInteger)totalNumberOfItems;
 
 @end
 

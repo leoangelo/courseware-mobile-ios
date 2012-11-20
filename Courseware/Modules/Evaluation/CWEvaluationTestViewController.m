@@ -11,13 +11,15 @@
 #import "CWEvaluationTestModel.h"
 #import "CWExamItemType.h"
 #import "CWEvaluationResultsController.h"
+#import "CWEvaluationProgressView.h"
 
 static NSInteger const kQuestionContentTag = 10;
 
-@interface CWEvaluationTestViewController () <CWEvaluationTestModelDelegate, CWEvaluationResultsControllerDelegate>
+@interface CWEvaluationTestViewController () <CWEvaluationTestModelDelegate, CWEvaluationResultsControllerDelegate, CWEvaluationProgressViewDataSource>
 
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet UIView *questionContainer;
+@property (nonatomic, weak) IBOutlet CWEvaluationProgressView *progressView;
 @property (nonatomic, strong) CWEvaluationTestModel *testModel;
 @property (nonatomic, strong) CWEvaluationResultsController *resultsController;
 
@@ -67,7 +69,7 @@ static NSInteger const kQuestionContentTag = 10;
 		[displayedQuestionView removeFromSuperview];
 		
 		[viewToDisplay setTag:kQuestionContentTag];
-		[self.questionContainer addSubview:viewToDisplay];
+		[self.questionContainer insertSubview:viewToDisplay belowSubview:self.progressView];
 		
 		viewToDisplay.frame = (CGRect) {
 			roundf((self.questionContainer.frame.size.width - viewToDisplay.frame.size.width) / 2.f),
@@ -75,6 +77,7 @@ static NSInteger const kQuestionContentTag = 10;
 			viewToDisplay.frame.size
 		};
 	}
+	[self.progressView setNeedsDisplay];
 }
 
 #pragma mark - Evaluation delegate
@@ -103,6 +106,18 @@ static NSInteger const kQuestionContentTag = 10;
 	self.resultsController.mistakes = mistakes;
 	
 	[self.resultsController.getView showInView:self.questionContainer];
+}
+
+#pragma mark - Progress View Data Source
+
+- (NSInteger)currentItemIndex
+{
+	return self.testModel.currentItemIndex;
+}
+
+- (NSInteger)totalNumberOfItems
+{
+	return self.testModel.totalNumberOfItems;
 }
 
 @end

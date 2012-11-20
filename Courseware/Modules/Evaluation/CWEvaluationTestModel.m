@@ -89,6 +89,16 @@
 	return mistakesQ;
 }
 
+- (NSInteger)currentItemIndex
+{
+	return self.questionIndex + 1;
+}
+
+- (NSInteger)totalNumberOfItems
+{
+	return self.questionList.count;
+}
+
 #pragma mark - Exam type delegate
 
 - (void)examItemDidFinishAnswering:(CWExamItemType *)theItemType

@@ -104,6 +104,7 @@
 		7EC19C1A165BEB2700F386EB /* CWExamTypeMultipleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC19C19165BEB2700F386EB /* CWExamTypeMultipleChoice.m */; };
 		7EC19C1D165BED7700F386EB /* CWExamTypeMultipleChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC19C1C165BED7700F386EB /* CWExamTypeMultipleChoiceView.m */; };
 		7EC19C1F165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */; };
+		7EC19C23165BFF0000F386EB /* CWEvaluationProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC19C22165BFF0000F386EB /* CWEvaluationProgressView.m */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
 		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
 		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
@@ -360,6 +361,8 @@
 		7EC19C1B165BED7700F386EB /* CWExamTypeMultipleChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeMultipleChoiceView.h; sourceTree = "<group>"; };
 		7EC19C1C165BED7700F386EB /* CWExamTypeMultipleChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeMultipleChoiceView.m; sourceTree = "<group>"; };
 		7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWExamTypeMultipleChoiceView.xib; sourceTree = "<group>"; };
+		7EC19C21165BFF0000F386EB /* CWEvaluationProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationProgressView.h; sourceTree = "<group>"; };
+		7EC19C22165BFF0000F386EB /* CWEvaluationProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationProgressView.m; sourceTree = "<group>"; };
 		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
 		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
 		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
@@ -881,6 +884,7 @@
 		7EBE28251625CB2B00742DFC /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				7EC19C20165BFED600F386EB /* Progress */,
 				7EA4D0C2163BAE2D00EE85FF /* Results */,
 				7EA4D0AC163B810C00EE85FF /* Exam Types */,
 				7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */,
@@ -902,6 +906,15 @@
 				7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */,
 			);
 			name = "Multiple Choice";
+			sourceTree = "<group>";
+		};
+		7EC19C20165BFED600F386EB /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				7EC19C21165BFF0000F386EB /* CWEvaluationProgressView.h */,
+				7EC19C22165BFF0000F386EB /* CWEvaluationProgressView.m */,
+			);
+			name = Progress;
 			sourceTree = "<group>";
 		};
 		7EC8AD3115FCA6B600ED9E27 /* User Status */ = {
@@ -1539,6 +1552,7 @@
 				7E518909165159460025E47C /* CWMediaAttachment.m in Sources */,
 				7EC19C1A165BEB2700F386EB /* CWExamTypeMultipleChoice.m in Sources */,
 				7EC19C1D165BED7700F386EB /* CWExamTypeMultipleChoiceView.m in Sources */,
+				7EC19C23165BFF0000F386EB /* CWEvaluationProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

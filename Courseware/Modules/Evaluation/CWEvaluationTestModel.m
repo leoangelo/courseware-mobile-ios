@@ -10,6 +10,7 @@
 
 #import "CWExamTypeMatchingType.h"
 #import "CWExamTypeTrueOrFalse.h"
+#import "CWExamTypeMultipleChoice.h"
 
 @interface CWEvaluationTestModel () <CWExamItemTypeDelegate>
 
@@ -42,13 +43,19 @@
 
 - (void)buildList
 {
-	CWExamItemType *q1 = [CWExamTypeTrueOrFalse mockQuestion];
-	CWExamItemType *q2 = [CWExamTypeTrueOrFalse mockQuestion2];
+	CWExamItemType *q1 = [CWExamTypeMultipleChoice mockQuestion];
+	CWExamItemType *q2 = [CWExamTypeMultipleChoice mockQuestion2];
+	CWExamItemType *q3 = [CWExamTypeMultipleChoice mockQuestion3];
+	CWExamItemType *q4 = [CWExamTypeMultipleChoice mockQuestion4];
+	CWExamItemType *q5 = [CWExamTypeMultipleChoice mockQuestion5];
 	
 	q1.delegate = self;
 	q2.delegate = self;
+	q3.delegate = self;
+	q4.delegate = self;
+	q5.delegate = self;
 	
-	self.questionList = @[q1, q2];
+	self.questionList = @[q1, q2, q3, q4, q5];
 	self.questionIndex = 0;
 }
 

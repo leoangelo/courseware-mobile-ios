@@ -64,7 +64,7 @@ static NSInteger const kTestAlertTag = 100;
 - (void)testsAction:(id)target
 {
 	// before pushing to the test screen, show an alert view first
-	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 10 minutes and has 50 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
+	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 10 minutes and has 5 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
 	anAlert.tag = kTestAlertTag;
 	[anAlert show];
 }

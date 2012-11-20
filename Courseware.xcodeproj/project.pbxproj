@@ -101,6 +101,9 @@
 		7EBB5A6E162A659E00BD6854 /* CWThemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB5A6D162A659E00BD6854 /* CWThemeHelper.m */; };
 		7EBE28291625CB5A00742DFC /* CWEvaluationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */; };
 		7EBE282A1625CB5A00742DFC /* CWEvaluationTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */; };
+		7EC19C1A165BEB2700F386EB /* CWExamTypeMultipleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC19C19165BEB2700F386EB /* CWExamTypeMultipleChoice.m */; };
+		7EC19C1D165BED7700F386EB /* CWExamTypeMultipleChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC19C1C165BED7700F386EB /* CWExamTypeMultipleChoiceView.m */; };
+		7EC19C1F165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */; };
 		7EC8AD2F15FCA6AA00ED9E27 /* CWUserStatusPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */; };
 		7EC8AD3515FCA83200ED9E27 /* CWRecentReadingsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3415FCA83200ED9E27 /* CWRecentReadingsPanelController.m */; };
 		7EC8AD3815FCA95300ED9E27 /* CWConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8AD3715FCA95300ED9E27 /* CWConstants.m */; };
@@ -352,6 +355,11 @@
 		7EBE28261625CB5A00742DFC /* CWEvaluationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWEvaluationTestViewController.h; sourceTree = "<group>"; };
 		7EBE28271625CB5A00742DFC /* CWEvaluationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWEvaluationTestViewController.m; sourceTree = "<group>"; };
 		7EBE28281625CB5A00742DFC /* CWEvaluationTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWEvaluationTestViewController.xib; sourceTree = "<group>"; };
+		7EC19C18165BEB2700F386EB /* CWExamTypeMultipleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeMultipleChoice.h; sourceTree = "<group>"; };
+		7EC19C19165BEB2700F386EB /* CWExamTypeMultipleChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeMultipleChoice.m; sourceTree = "<group>"; };
+		7EC19C1B165BED7700F386EB /* CWExamTypeMultipleChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWExamTypeMultipleChoiceView.h; sourceTree = "<group>"; };
+		7EC19C1C165BED7700F386EB /* CWExamTypeMultipleChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWExamTypeMultipleChoiceView.m; sourceTree = "<group>"; };
+		7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWExamTypeMultipleChoiceView.xib; sourceTree = "<group>"; };
 		7EC8AD2D15FCA6AA00ED9E27 /* CWUserStatusPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUserStatusPanelController.h; sourceTree = "<group>"; };
 		7EC8AD2E15FCA6AA00ED9E27 /* CWUserStatusPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWUserStatusPanelController.m; sourceTree = "<group>"; };
 		7EC8AD3315FCA83200ED9E27 /* CWRecentReadingsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRecentReadingsPanelController.h; sourceTree = "<group>"; };
@@ -798,6 +806,7 @@
 		7EA4D0AC163B810C00EE85FF /* Exam Types */ = {
 			isa = PBXGroup;
 			children = (
+				7EC19C16165BEAA000F386EB /* Multiple Choice */,
 				7EA4D0B2163B89D600EE85FF /* Matching Type */,
 				7EA4D0AE163B895800EE85FF /* True or False */,
 				7EA4D0BA163B9B1D00EE85FF /* CWExamItemType.h */,
@@ -881,6 +890,18 @@
 				7EA4D0B8163B99E100EE85FF /* CWEvaluationTestModel.m */,
 			);
 			path = Evaluation;
+			sourceTree = "<group>";
+		};
+		7EC19C16165BEAA000F386EB /* Multiple Choice */ = {
+			isa = PBXGroup;
+			children = (
+				7EC19C18165BEB2700F386EB /* CWExamTypeMultipleChoice.h */,
+				7EC19C19165BEB2700F386EB /* CWExamTypeMultipleChoice.m */,
+				7EC19C1B165BED7700F386EB /* CWExamTypeMultipleChoiceView.h */,
+				7EC19C1C165BED7700F386EB /* CWExamTypeMultipleChoiceView.m */,
+				7EC19C1E165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib */,
+			);
+			name = "Multiple Choice";
 			sourceTree = "<group>";
 		};
 		7EC8AD3115FCA6B600ED9E27 /* User Status */ = {
@@ -1357,6 +1378,7 @@
 				7EA4D0C1163BA2EA00EE85FF /* CWExamTypeTrueOrFalseView.xib in Resources */,
 				7EA4D0CA163BB5B900EE85FF /* CWEvaluationResultsView.xib in Resources */,
 				7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */,
+				7EC19C1F165BF2AC00F386EB /* CWExamTypeMultipleChoiceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,6 +1537,8 @@
 				7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */,
 				7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */,
 				7E518909165159460025E47C /* CWMediaAttachment.m in Sources */,
+				7EC19C1A165BEB2700F386EB /* CWExamTypeMultipleChoice.m in Sources */,
+				7EC19C1D165BED7700F386EB /* CWExamTypeMultipleChoiceView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

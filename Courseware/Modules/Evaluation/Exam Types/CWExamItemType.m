@@ -25,6 +25,21 @@
 	return nil;
 }
 
++ (id)mockQuestion3
+{
+	return nil;
+}
+
++ (id)mockQuestion4
+{
+	return nil;
+}
+
++ (id)mockQuestion5
+{
+	return nil;
+}
+
 - (UIView *)getView
 {
 	return nil;

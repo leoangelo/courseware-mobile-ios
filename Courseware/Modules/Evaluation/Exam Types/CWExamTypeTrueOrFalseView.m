@@ -24,17 +24,12 @@
 
 @implementation CWExamTypeTrueOrFalseView
 
-- (void)dealloc
-{
-	_model = nil;
-}
-
 - (id)initWithModel:(CWExamTypeTrueOrFalse *)theModel
 {
 	self = [super init];
 	if (self) {
 		
-		self.model = theModel;
+		_model = theModel;
 		
 		[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
 		

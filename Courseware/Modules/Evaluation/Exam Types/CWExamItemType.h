@@ -19,6 +19,9 @@
 // A set of predefined questions for testing.
 + (id)mockQuestion;
 + (id)mockQuestion2;
++ (id)mockQuestion3;
++ (id)mockQuestion4;
++ (id)mockQuestion5;
 
 - (UIView *)getView;
 

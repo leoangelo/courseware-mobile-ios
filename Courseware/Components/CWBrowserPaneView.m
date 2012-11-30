@@ -22,7 +22,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIImageView *shadowView;
 
-@property (nonatomic, strong) UIImageView *imgLogoView;
+@property (nonatomic, weak) IBOutlet UIImageView *imgLogoView;
 
 - (void)loadNib;
 
@@ -49,6 +49,11 @@
 	[self loadNib];
 }
 
++ (UIColor *)menuBackground
+{
+	return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"]];
+}
+
 - (void)loadNib
 {
 	[[NSBundle mainBundle] loadNibNamed:@"CWBrowserPaneView" owner:self options:nil];
@@ -60,8 +65,20 @@
 	
 	self.tableView.backgroundView = nil;
 
-	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Courseware.bundle/backgrounds/bg-tile-gray.jpg"]];
+	self.backgroundColor = [[self class] menuBackground];
 	self.shadowView.image = [[UIImage imageNamed:@"Courseware.bundle/backgrounds/shadow-bounds.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+	self.imgLogoView.image = [UIImage imageNamed:@"Courseware.bundle/logos/large-logo.png"];
+	
+	// resize the logo and table view to properly fit the screen
+	self.imgLogoView.frame = (CGRect) {
+		HEADER_MARGINS, 0, (self.frame.size.width - HEADER_MARGINS * 2),
+		roundf(self.frame.size.height * 0.33)
+	};
+	self.tableView.frame = (CGRect) {
+		0, CGRectGetMaxY(self.imgLogoView.frame),
+		self.frame.size.width,
+		round(self.frame.size.height * 0.66)
+	};
 }
 
 - (void)updateFontAndColor
@@ -100,48 +117,49 @@
 	return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-	return HEADER_HEIGHT;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//	return HEADER_HEIGHT;
+//}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-	UIView *wrapperView = [[UIView alloc] initWithFrame:(CGRect) {
-		CGPointZero,
-		self.tableView.frame.size.width,
-		HEADER_HEIGHT
-	}];
-	
-	[wrapperView addSubview:self.imgLogoView];
-	
-	self.imgLogoView.frame = (CGRect) {
-		roundf((wrapperView.frame.size.width - self.imgLogoView.frame.size.width) / 2.f),
-		roundf((wrapperView.frame.size.height - self.imgLogoView.frame.size.height) / 2.f),
-		self.imgLogoView.frame.size
-	};
-	
-	return wrapperView;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//	UIView *wrapperView = [[UIView alloc] initWithFrame:(CGRect) {
+//		CGPointZero,
+//		self.tableView.frame.size.width,
+//		HEADER_HEIGHT
+//	}];
+//	wrapperView.backgroundColor = [[self class] menuBackground];
+//	
+//	[wrapperView addSubview:self.imgLogoView];
+//	
+//	self.imgLogoView.frame = (CGRect) {
+//		roundf((wrapperView.frame.size.width - self.imgLogoView.frame.size.width) / 2.f),
+//		roundf((wrapperView.frame.size.height - self.imgLogoView.frame.size.height) / 2.f),
+//		self.imgLogoView.frame.size
+//	};
+//	
+//	return wrapperView;
+//}
 
-- (UIImageView *)imgLogoView
-{
-	UIImage *logoImg = [UIImage imageNamed:@"Courseware.bundle/logos/large-logo.png"];
-	if (!_imgLogoView) {
-		_imgLogoView = [[UIImageView alloc] initWithImage:logoImg];
-	}
-	CGFloat maxWidth = self.tableView.frame.size.width - HEADER_MARGINS * 2;
-	if (logoImg.size.width > maxWidth) {
-		CGFloat imgProportion = logoImg.size.height / logoImg.size.width;
-		CGFloat imgHeight = maxWidth * imgProportion;
-		_imgLogoView.frame = (CGRect) {
-			CGPointZero,
-			maxWidth,
-			imgHeight
-		};
-	}
-	return _imgLogoView;
-}
+//- (UIImageView *)imgLogoView
+//{
+//	UIImage *logoImg = [UIImage imageNamed:@"Courseware.bundle/logos/large-logo.png"];
+//	if (!_imgLogoView) {
+//		_imgLogoView = [[UIImageView alloc] initWithImage:logoImg];
+//	}
+//	CGFloat maxWidth = self.tableView.frame.size.width - HEADER_MARGINS * 2;
+//	if (logoImg.size.width > maxWidth) {
+//		CGFloat imgProportion = logoImg.size.height / logoImg.size.width;
+//		CGFloat imgHeight = maxWidth * imgProportion;
+//		_imgLogoView.frame = (CGRect) {
+//			CGPointZero,
+//			maxWidth,
+//			imgHeight
+//		};
+//	}
+//	return _imgLogoView;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -4454,7 +4454,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<object class="IBUIView" id="687116055">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">276</int>
-						<string key="NSFrameSize">{240, 704}</string>
+						<string key="NSFrame">{{0, 44}, {240, 660}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="424430825"/>
@@ -4684,6 +4684,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentView">UIView</string>
 						<string key="delegate">id</string>
+						<string key="imgLogoView">UIImageView</string>
 						<string key="shadowView">UIImageView</string>
 						<string key="tableView">UITableView</string>
 					</dictionary>
@@ -4695,6 +4696,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="delegate">
 							<string key="name">delegate</string>
 							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="imgLogoView">
+							<string key="name">imgLogoView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="shadowView">
 							<string key="name">shadowView</string>

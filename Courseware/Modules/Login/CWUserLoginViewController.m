@@ -12,6 +12,7 @@
 #import "CWCourseSyncingViewController.h"
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
+#import "CWAdsViewController.h"
 
 #define AUTO_FILL_CREDENTIALS 1
 
@@ -27,6 +28,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *btnLogin;
 @property (nonatomic, weak) IBOutlet UIButton *btnRemember;
 @property (nonatomic, weak) IBOutlet UIButton *btnSync;
+
+@property (nonatomic, strong) CWAdsViewController *ads;
 
 @property (nonatomic) BOOL rememberLogin;
 
@@ -65,11 +68,17 @@
 	// if there's already a saved user, use that
 	if ([[CWAccountManager sharedManager] autoLoginSavedUser]) {
 		[self pushToCourseListingScreen];
+		return;
 	}
 	
 	[self updateFontAndColor];
 	self.lblErrorFeedback.text = @"";
 	self.rememberLogin = NO;
+	
+	if (!self.ads) {
+		self.ads = [[CWAdsViewController alloc] init];
+	}
+	[self.ads showInterstitalAdsAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

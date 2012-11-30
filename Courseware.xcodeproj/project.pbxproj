@@ -10,6 +10,8 @@
 		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
 		7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */; };
 		7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */; };
+		7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E1D7916682BA300A7C83A /* CWAdsViewController.m */; };
+		7E1E1D7D16682BD200A7C83A /* CWInterstitialAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E1D7C16682BD200A7C83A /* CWInterstitialAdsView.m */; };
 		7E20B5E415FE326B004DBAC1 /* SLSlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */; };
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
@@ -195,6 +197,10 @@
 		7E1180E9163CFD53003D71D0 /* CWMessageToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessageToolbar.h; sourceTree = "<group>"; };
 		7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessageToolbar.m; sourceTree = "<group>"; };
 		7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWNotesDetailViewController.xib; sourceTree = "<group>"; };
+		7E1E1D7816682BA300A7C83A /* CWAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAdsViewController.h; sourceTree = "<group>"; };
+		7E1E1D7916682BA300A7C83A /* CWAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAdsViewController.m; sourceTree = "<group>"; };
+		7E1E1D7B16682BD200A7C83A /* CWInterstitialAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInterstitialAdsView.h; sourceTree = "<group>"; };
+		7E1E1D7C16682BD200A7C83A /* CWInterstitialAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWInterstitialAdsView.m; sourceTree = "<group>"; };
 		7E20B5E215FE326B004DBAC1 /* SLSlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenuView.h; sourceTree = "<group>"; };
 		7E20B5E315FE326B004DBAC1 /* SLSlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuView.m; sourceTree = "<group>"; };
 		7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSlideMenuView.xib; sourceTree = "<group>"; };
@@ -545,6 +551,17 @@
 			);
 			name = "\U0010CW Objects";
 			path = "CW Objects";
+			sourceTree = "<group>";
+		};
+		7E1E1D7716682B8700A7C83A /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				7E1E1D7816682BA300A7C83A /* CWAdsViewController.h */,
+				7E1E1D7916682BA300A7C83A /* CWAdsViewController.m */,
+				7E1E1D7B16682BD200A7C83A /* CWInterstitialAdsView.h */,
+				7E1E1D7C16682BD200A7C83A /* CWInterstitialAdsView.m */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 		7E1EEA9C15FAFE2D00739FD2 /* Resources */ = {
@@ -1243,6 +1260,7 @@
 		7EFBF7D115FAF3FE001CCCB2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7E1E1D7716682B8700A7C83A /* Ads */,
 				7E291F831606115200C7BD8E /* Bottom Toolbar */,
 				7E20B5ED15FE34C7004DBAC1 /* Navigation Bar */,
 				7E20B5EC15FE34B9004DBAC1 /* Browser Pane */,
@@ -1553,6 +1571,8 @@
 				7EC19C1A165BEB2700F386EB /* CWExamTypeMultipleChoice.m in Sources */,
 				7EC19C1D165BED7700F386EB /* CWExamTypeMultipleChoiceView.m in Sources */,
 				7EC19C23165BFF0000F386EB /* CWEvaluationProgressView.m in Sources */,
+				7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */,
+				7E1E1D7D16682BD200A7C83A /* CWInterstitialAdsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

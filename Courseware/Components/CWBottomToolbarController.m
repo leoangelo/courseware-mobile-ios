@@ -64,7 +64,7 @@ static NSInteger const kTestAlertTag = 100;
 - (void)testsAction:(id)target
 {
 	// before pushing to the test screen, show an alert view first
-	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 1 minute and has 5 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
+	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 100 seconds and has 5 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
 	anAlert.tag = kTestAlertTag;
 	[anAlert show];
 }
@@ -81,6 +81,11 @@ static NSInteger const kTestAlertTag = 100;
 	UINavigationController *navController = [(CWAppDelegate *)[[UIApplication sharedApplication] delegate] navigationController];
 	CWEvaluationTestViewController *vc = [[CWEvaluationTestViewController alloc] init];
 	[navController pushViewController:vc animated:YES];
+}
+
+- (void)dismissAllActivePopups
+{
+	[self.popOverController dismissPopoverAnimated:YES];
 }
 
 @end

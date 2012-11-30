@@ -20,6 +20,7 @@ static NSInteger const kQuestionContentTag = 10;
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet UIView *questionContainer;
 @property (nonatomic, weak) IBOutlet CWEvaluationProgressView *progressView;
+@property (nonatomic, weak) IBOutlet UILabel *lblTimeCounter;
 @property (nonatomic, strong) CWEvaluationTestModel *testModel;
 @property (nonatomic, strong) CWEvaluationResultsController *resultsController;
 
@@ -78,6 +79,7 @@ static NSInteger const kQuestionContentTag = 10;
 		};
 	}
 	[self.progressView setNeedsDisplay];
+	[[self.testModel currentQuestion] beginExamTimer];
 }
 
 #pragma mark - Evaluation delegate
@@ -88,6 +90,11 @@ static NSInteger const kQuestionContentTag = 10;
 };
 
 #pragma mark - Model delegate
+
+- (void)updateRemainingTimeCounter:(int)time
+{
+	self.lblTimeCounter.text = [NSString stringWithFormat:@"Time left: %is", time];
+}
 
 - (void)displayedQuestionNeedsUpdate
 {

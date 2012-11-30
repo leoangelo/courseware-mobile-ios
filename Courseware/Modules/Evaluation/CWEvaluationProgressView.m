@@ -32,7 +32,7 @@
 	CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:.25 green:.50 blue:0 alpha:1.f].CGColor);
 	CGContextFillRect(ctx, progressRect);
 	
-	UIFont *printFont = [UIFont boldSystemFontOfSize:12];
+	UIFont *printFont = [UIFont fontWithName:@"Futura" size:12];
 	NSString *toPrint = [NSString stringWithFormat:@"Question %i / %i", [self.dataSource currentItemIndex], [self.dataSource totalNumberOfItems]];
 	[[UIColor blackColor] set];
 	CGSize printSize = [toPrint sizeWithFont:printFont];

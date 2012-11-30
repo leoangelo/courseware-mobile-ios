@@ -11,4 +11,6 @@
 
 @interface CWBottomToolbar : UIToolbar <CWThemeDelegate>
 
+- (void)dismissPopups;
+
 @end

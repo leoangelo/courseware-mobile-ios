@@ -23,12 +23,17 @@
 + (id)mockQuestion4;
 + (id)mockQuestion5;
 
+- (void)beginExamTimer;
+- (void)stopExamTimer;
+
 - (UIView *)getView;
+- (NSTimeInterval)testDuration;
 
 @end
 
 @protocol CWExamItemTypeDelegate <NSObject>
 
 - (void)examItemDidFinishAnswering:(CWExamItemType *)theItemType;
+- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime;
 
 @end

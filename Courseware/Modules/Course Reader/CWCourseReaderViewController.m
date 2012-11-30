@@ -115,6 +115,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+	[self.toolbar dismissPopups];
+	
 #ifdef DEBUGX
 	NSLog(@"%s %@", __FUNCTION__, NSStringFromCGRect(self.view.bounds));
 #endif

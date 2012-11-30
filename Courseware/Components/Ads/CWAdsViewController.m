@@ -60,12 +60,13 @@ static NSTimeInterval const kAdTimerDuration = 5.f;
 
 - (void)updateTimer:(id)theTimer
 {
-	if (remainingTime <= 1.f) {
+	if (remainingTime <= 0.f) {
 		[self.interstitialAds hideInterstitialAnimated:YES];
 	}
-	
-	remainingTime = remainingTime - 1.f;
-	[self.interstitialAds updateRemainingTime:remainingTime];
+	else {
+		[self.interstitialAds updateRemainingTime:remainingTime];
+		remainingTime = remainingTime - 1.f;
+	}
 }
 
 - (UIImage *)adsImage:(id)theView
@@ -97,8 +98,8 @@ static NSTimeInterval const kAdTimerDuration = 5.f;
 - (void)viewWillAppear:(id)theView
 {
 	remainingTime = kAdTimerDuration;
-	[self.interstitialAds updateRemainingTime:remainingTime];
 	[self.adTimer invalidate];
+	[self updateTimer:self];
 	self.adTimer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
 }
 

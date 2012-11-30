@@ -103,6 +103,8 @@
 
 - (void)examItemDidFinishAnswering:(CWExamItemType *)theItemType
 {
+	[theItemType stopExamTimer];
+	
 	if (self.questionIndex == self.questionList.count - 1) {
 		CGFloat score = [self computeStudentScore];
 		BOOL passed = [self hasStudentPassedTest:score];
@@ -113,6 +115,11 @@
 		self.questionIndex++;
 		[self.delegate displayedQuestionNeedsUpdate];
 	}
+}
+
+- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime
+{
+	[self.delegate updateRemainingTimeCounter:remainingTime];
 }
 
 @end

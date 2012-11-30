@@ -14,4 +14,6 @@
 - (void)notesAction:(id)target;
 - (void)testsAction:(id)target;
 
+- (void)dismissAllActivePopups;
+
 @end

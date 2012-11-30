@@ -12,6 +12,7 @@
 @protocol CWEvaluationTestModelDelegate <NSObject>
 
 - (void)displayedQuestionNeedsUpdate;
+- (void)updateRemainingTimeCounter:(int)time;
 - (void)evaluationFinishedPassed:(BOOL)hasPassed score:(CGFloat)theScore mistakes:(NSArray *)mistakes;
 
 @end

@@ -22,7 +22,7 @@
 							{
 								"id": "C1-M1-CH5-L2",					
 								"title": "5.2 International Regulations for Preventing Collisions at Sea",
-								"page-number": 23
+								"page-number": 13
 							}
 						]
 					}
@@ -30,23 +30,23 @@
 				"media": [
 					{
 						"filename": "Figure 2 I.mp4",
-						"page-number": 25,
-						"coords": "{{50, 225}, {275, 203}}"
+						"page-number": 14,
+						"coords": "{{64, 215}, {318, 211}}"
 					},
 					{
 						"filename": "Figure 2 II.mp4",
-						"page-number": 26,
-						"coords": "{{50, 225}, {275, 203}}"
+						"page-number": 15,
+						"coords": "{{64, 215}, {318, 211}}"
 					},
 					{
 						"filename": "Figure 7 I.mp4",
-						"page-number": 31,
-						"coords": "{{50, 225}, {275, 203}}"
+						"page-number": 19,
+						"coords": "{{64, 184}, {318, 211}}"
 					},
 					{
 						"filename": "Figure 7 II.mp4",
-						"page-number": 32,
-						"coords": "{{50, 225}, {275, 203}}"
+						"page-number": 20,
+						"coords": "{{64, 202}, {318, 211}}"
 					}
 				]
 			}

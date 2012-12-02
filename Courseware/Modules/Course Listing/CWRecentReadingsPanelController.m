@@ -31,7 +31,7 @@
 - (void)rebuildLessonsIndex
 {
 	NSArray *allLessons = [[CWCourseManager sharedManager] allLessons];
-	NSSortDescriptor *sorterByDate = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"data.%@", kCourseItemLastDateRead] ascending:NO];
+	NSSortDescriptor *sorterByDate = [[NSSortDescriptor alloc] initWithKey:@"lastDateRead" ascending:NO];
 	allLessons = [allLessons sortedArrayUsingDescriptors:[NSArray arrayWithObject:sorterByDate]];
 		
 	NSInteger retSize = MIN([allLessons count], 5);

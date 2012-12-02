@@ -9,13 +9,14 @@
 #import "CWCourseItem.h"
 #import "CWUtilities.h"
 #import "NSArray+SLUtilities.h"
+#import "CWCourseManager.h"
 
 NSString * const kCourseItemId = @"id";
 NSString * const kCourseItemTitle = @"title";
 NSString * const kCourseItemDescription = @"description";
 
 NSString * const kCourseItemDirectoryName = @"directory";
-NSString * const kCourseItemLastDateRead = @"lastDateRead";
+//NSString * const kCourseItemLastDateRead = @"lastDateRead";
 NSString * const kCourseItemFileName = @"filename";
 NSString * const kCourseItemPageNumber = @"pageNumber";
 
@@ -34,7 +35,7 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 		_children = [[NSMutableArray alloc] init];
 		_attachments = [[NSMutableArray alloc] init];
 		
-		[_data setObject:[NSDate date] forKey:kCourseItemLastDateRead];
+//		[_data setObject:[NSDate date] forKey:kCourseItemLastDateRead];
 	}
 	return self;
 }
@@ -110,6 +111,16 @@ NSString * const kCourseItemPageNumber = @"pageNumber";
 		}
 	}
 	return nil;
+}
+
+- (NSDate *)lastDateRead
+{
+	return [[CWCourseManager sharedManager] getLastDateReadOfCourseItem:self];
+}
+
+- (void)updateLastDateRead
+{
+	[[CWCourseManager sharedManager] updateLastDateReadForCourseItem:self];
 }
 
 - (NSString *)description

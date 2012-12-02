@@ -20,4 +20,6 @@
 
 @property (nonatomic, weak) IBOutlet id<CWRecentReadingsPanelViewDelegate> delegate;
 
+- (void)updateContent;
+
 @end

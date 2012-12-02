@@ -62,6 +62,10 @@
 		NSDictionary *jsonDict = (NSDictionary *)jsonData;
 		CWCourseItem *anItem = [[CWCourseItem alloc] init];
 		
+		if ([jsonDict objectForKey:@"id"]) {
+			[anItem.data setObject:[jsonDict objectForKey:@"id"] forKey:kCourseItemId];
+		}
+		
 		if ([jsonDict objectForKey:@"title"]) {
 			[anItem.data setObject:[jsonDict objectForKey:@"title"] forKey:kCourseItemTitle];
 		}

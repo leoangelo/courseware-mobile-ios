@@ -52,6 +52,8 @@
 			[self.delegate modelUpdateDisplayedDocumentPage:self.pageNumber];
 		}
 	}
+	// also update the last read date
+	[selectedCourseItem updateLastDateRead];
 }
 
 - (void)setDocumentPath:(NSString *)documentPath

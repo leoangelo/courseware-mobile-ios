@@ -54,6 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self updateFontAndColor];
+	[self.recentReadingsPanel updateContent];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

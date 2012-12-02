@@ -1,21 +1,26 @@
 [
 	{
+		"id": "C1",
 		"title": "Function 1 Deck",
 		"description": "Advance Navigation",
 		"directory-name": "function-1-deck",
 		"children": [
 			{
+				"id": "C1-M1",
 				"title": "Module 1",
 				"filename": "D1-M1-T5.pdf",
 				"children": [
 					{
+						"id": "C1-M1-CH5",
 						"title": "5. Establish Watchkeeping Arrangement and Procedures",
 						"children": [
 							{
+								"id": "C1-M1-CH5-L1",
 								"title": "5.1 Bridge Team Management",
 								"page-number": 1
 							},
 							{
+								"id": "C1-M1-CH5-L2",					
 								"title": "5.2 International Regulations for Preventing Collisions at Sea",
 								"page-number": 23
 							}
@@ -48,15 +53,18 @@
 		]	
 	},
 	{
+		"id": "C2",
 		"title": "Function 1 Engine",
 		"description": "Marine Engineering at the Management Level",
 		"directory-name": "function-1-engine",
 		"children": [
 			{
+				"id": "C2-M1",
 				"title": "Module 1",
 				"filename": "Engine - Function 1.pdf",
 				"children": [
 					{
+						"id": "C2-M1-CH3",
 						"title": "3. Manage the Operation of Propulsion Plant of Machinery"
 					}
 				],
@@ -121,23 +129,28 @@
 		]	
 	},
 	{
+		"id": "C3",
 		"title": "Function 2 Deck",
 		"description": "Cargo Handling and Stowage at the Management Level",
 		"directory-name": "function-2-deck",
 		"children": [
 			{
+				"id": "C3-M3",
 				"title": "Module 3",
 				"filename": "Presentation - Module 3.pdf",
 				"children": [
 					{
+						"id": "C3-M3-CH1",
 						"title": "1. Carriage of Dangerous Goods",
 						"page-number": 1,
 						"children": [
 							{
+								"id": "C3-M3-CH1-L1",
 								"title": "1.1 Refer to appropriate international regulations, standards, codes and recommendations when carrying dangerous goods",
 								"page-number": 2
 							},
 							{
+								"id": "C3-M3-CH1-L2",
 								"title": "1.2 Exercise precautions during loading, unloading and care during voyage for the carriage of dangerous, hazardous and harmful cargoes",
 								"page-number": 12
 							}

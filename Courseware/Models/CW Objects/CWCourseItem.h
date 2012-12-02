@@ -12,7 +12,7 @@ extern NSString * const kCourseItemId;
 extern NSString * const kCourseItemTitle;
 extern NSString * const kCourseItemDescription;
 
-extern NSString * const kCourseItemLastDateRead;
+//extern NSString * const kCourseItemLastDateRead;
 extern NSString * const kCourseItemDirectoryName;
 extern NSString * const kCourseItemFileName;
 extern NSString * const kCourseItemPageNumber;
@@ -32,5 +32,8 @@ extern NSString * const kCourseItemPageNumber;
 - (NSString *)fullFilePath;
 
 - (NSArray *)getAllAttachments;
+
+- (void)updateLastDateRead;
+- (NSDate *)lastDateRead;
 
 @end

@@ -52,6 +52,12 @@
 	[self addSubview:self.contentView];
 }
 
+- (void)updateContent
+{
+	[self.controller rebuildLessonsIndex];
+	[self.tableView reloadData];
+}
+
 - (void)updateFontAndColor
 {
 	self.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];

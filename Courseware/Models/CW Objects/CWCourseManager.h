@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SLCoreDataManager.h"
 
 @class CWCourseItem;
-@interface CWCourseManager : NSObject
+@interface CWCourseManager : SLCoreDataManager
 
 @property (nonatomic, strong) NSMutableArray *courseListing;
 
 - (NSArray *)allLessons;
 + (CWCourseManager *)sharedManager;
+
+- (NSDate *)getLastDateReadOfCourseItem:(CWCourseItem *)theItem;
+- (void)updateLastDateReadForCourseItem:(CWCourseItem *)theItem;
 
 @end

@@ -9,6 +9,7 @@
 #import "CWCourseManager.h"
 #import "CWCourseItem.h"
 #import "CWCourseListFileLoader.h"
+#import "CWPersistentCourseItem.h"
 
 #define USE_SAMPLE_DATA 1
 
@@ -111,5 +112,34 @@
 	[self.fileLoaders removeObject:theLoader];
 
 }
+
+#pragma mark - Handling last date read
+
+- (NSDate *)getLastDateReadOfCourseItem:(CWCourseItem *)theItem
+{
+	NSPredicate *equalToId = [NSPredicate predicateWithFormat:@"courseId == %@", [theItem.data objectForKey:kCourseItemId]];
+	NSArray *result = [self fetchObjectsWithClass:[CWPersistentCourseItem class] withPredicate:equalToId];
+	if ([result count] > 0) {
+		return [[result objectAtIndex:0] lastDateRead];
+	}
+	return [NSDate dateWithTimeIntervalSince1970:0];
+}
+
+- (void)updateLastDateReadForCourseItem:(CWCourseItem *)theItem
+{
+	NSPredicate *equalToId = [NSPredicate predicateWithFormat:@"courseId == %@", [theItem.data objectForKey:kCourseItemId]];
+	NSArray *result = [self fetchObjectsWithClass:[CWPersistentCourseItem class] withPredicate:equalToId];
+	if ([result count] > 0) {
+		CWPersistentCourseItem *itemToUpdate = [result objectAtIndex:0];
+		itemToUpdate.lastDateRead = [NSDate date];
+	}
+	else {
+		CWPersistentCourseItem *newItem = [self createNewObjectWithClass:[CWPersistentCourseItem class]];
+		newItem.courseId = [theItem.data objectForKey:kCourseItemId];
+		newItem.lastDateRead = [NSDate date];
+	}
+	[self saveContext];
+}
+
 
 @end

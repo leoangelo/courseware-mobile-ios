@@ -126,6 +126,7 @@
 		7ECB490715E9EF7C00F850E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48E015E9EF7C00F850E9 /* CoreData.framework */; };
 		7ECB490F15E9EF7C00F850E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECB490D15E9EF7C00F850E9 /* InfoPlist.strings */; };
 		7ECB491215E9EF7C00F850E9 /* CoursewareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */; };
+		7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */; };
 		7ED2652B16292E06002900AE /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F216292E06002900AE /* DDData.m */; };
 		7ED2652C16292E06002900AE /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F416292E06002900AE /* DDNumber.m */; };
 		7ED2652D16292E06002900AE /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F616292E06002900AE /* DDRange.m */; };
@@ -396,6 +397,8 @@
 		7ECB490E15E9EF7C00F850E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7ECB491015E9EF7C00F850E9 /* CoursewareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoursewareTests.h; sourceTree = "<group>"; };
 		7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoursewareTests.m; sourceTree = "<group>"; };
+		7ECBEBE6166BA6880069F022 /* CWPersistentCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWPersistentCourseItem.h; sourceTree = "<group>"; };
+		7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWPersistentCourseItem.m; sourceTree = "<group>"; };
 		7ED264F116292E06002900AE /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		7ED264F216292E06002900AE /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
 		7ED264F316292E06002900AE /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
@@ -809,6 +812,8 @@
 				7E4A5599164F5436004EA78B /* CWBookmark.h */,
 				7E4A559A164F5436004EA78B /* CWBookmark.m */,
 				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
+				7ECBEBE6166BA6880069F022 /* CWPersistentCourseItem.h */,
+				7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */,
 				7E23714A163A27F4001A09C4 /* CWMedia.h */,
 				7E23714B163A27F4001A09C4 /* CWMedia.m */,
 				7E556212162DC584000CDCAA /* CWNote.h */,
@@ -1573,6 +1578,7 @@
 				7EC19C23165BFF0000F386EB /* CWEvaluationProgressView.m in Sources */,
 				7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */,
 				7E1E1D7D16682BD200A7C83A /* CWInterstitialAdsView.m in Sources */,
+				7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

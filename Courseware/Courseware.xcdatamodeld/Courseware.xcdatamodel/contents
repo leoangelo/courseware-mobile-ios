@@ -38,11 +38,16 @@
         <attribute name="noteId" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CWPersistentCourseItem" representedClassName="CWPersistentCourseItem" syncable="YES">
+        <attribute name="courseId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDateRead" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <elements>
         <element name="CWAccount" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="CWBookmark" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CWMedia" positionX="160" positionY="192" width="128" height="75"/>
         <element name="CWMessage" positionX="160" positionY="192" width="128" height="165"/>
         <element name="CWNote" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="CWBookmark" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="CWPersistentCourseItem" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

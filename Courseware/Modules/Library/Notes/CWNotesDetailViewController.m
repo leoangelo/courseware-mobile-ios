@@ -106,10 +106,11 @@
     if (indexPath.section == 0) {
 		static NSString *anId = @"Title-Cell";
 		UITableViewCell *aCell = [tableView dequeueReusableCellWithIdentifier:anId];
+		static CGFloat const kCellMargin = 10.f;
 		if (!aCell) {
 			aCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:anId];
 			self.titleField.frame = (CGRect) {
-				0, 0, tableView.frame.size.width , 44
+				kCellMargin, kCellMargin, tableView.frame.size.width - kCellMargin * 2.f, 44 - kCellMargin * 2.f
 			};
 			[aCell.contentView addSubview:self.titleField];
 		}
@@ -149,7 +150,12 @@
 	sectionLabel.text = section == 0 ? @"Title" : @"Content";
 	sectionLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:20]];
 	sectionLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:YES];
-	return sectionLabel;
+	
+	UIView *wrapperView = [[UIView alloc] initWithFrame:sectionLabel.frame];
+	wrapperView.backgroundColor = [UIColor clearColor];
+	[wrapperView addSubview:sectionLabel];
+	
+	return wrapperView;
 }
 
 #pragma mark - UITextField

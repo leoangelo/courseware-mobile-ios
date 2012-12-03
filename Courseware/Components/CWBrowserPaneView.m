@@ -96,9 +96,6 @@
 	NSString *itemTitle = [[(CWCourseItem *)[self.controller.getItemsToDisplay objectAtIndex:indexPath.row] data] objectForKey:kCourseItemTitle];
 	CGFloat textHeight = [itemTitle sizeWithFont:[[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:18]] constrainedToSize:CGSizeMake(tableView.frame.size.width - 16, CGFLOAT_MAX)].height;
 	textHeight += 16;
-	
-	NSLog(@"text height: %f", textHeight);
-	
 	return MAX(textHeight, 50);
 }
 

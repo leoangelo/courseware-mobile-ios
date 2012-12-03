@@ -77,6 +77,8 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+		cell.indentationWidth = 0.f;
+		cell.indentationLevel = 0;
 	}
 	CWCourseItem *lessonAtIndex = [[self.controller getRecentReads] objectAtIndex:indexPath.row];
 	CWCourseItem *parentChapter = lessonAtIndex.parent;
@@ -101,13 +103,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+	static CGFloat const kHeaderMargin = 10.f;
 	UILabel *lblSectionTitle = [[UILabel alloc] init];
 	lblSectionTitle.text = @"Last Readings";
 	lblSectionTitle.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontBold size:26]];
 	lblSectionTitle.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 	lblSectionTitle.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 	[lblSectionTitle sizeToFit];
-	lblSectionTitle.frame = (CGRect) { 0, 0, tableView.frame.size.width, lblSectionTitle.frame.size.height };
+	lblSectionTitle.frame = (CGRect) { kHeaderMargin, 0, tableView.frame.size.width - kHeaderMargin * 2.f, lblSectionTitle.frame.size.height };
 	
 	UIView *wrapperView = [[UIView alloc] initWithFrame:lblSectionTitle.frame];
 	wrapperView.backgroundColor = [UIColor clearColor];

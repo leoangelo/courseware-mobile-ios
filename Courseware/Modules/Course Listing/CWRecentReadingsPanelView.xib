@@ -38,7 +38,7 @@
 					<object class="IBUITableView" id="576103249">
 						<reference key="NSNextResponder" ref="589690910"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 0}, {744, 424}}</string>
+						<string key="NSFrame">{{30, 0}, {724, 424}}</string>
 						<reference key="NSSuperview" ref="589690910"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -165,12 +165,17 @@
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentView">UIView</string>
+						<string key="delegate">id</string>
 						<string key="tableView">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="contentView">
 							<string key="name">contentView</string>
 							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="delegate">
+							<string key="name">delegate</string>
+							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="tableView">
 							<string key="name">tableView</string>

@@ -74,7 +74,10 @@
 	[self updateFontAndColor];
 	self.lblErrorFeedback.text = @"";
 	self.rememberLogin = NO;
-	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
 	if (!self.ads) {
 		self.ads = [[CWAdsViewController alloc] init];
 	}

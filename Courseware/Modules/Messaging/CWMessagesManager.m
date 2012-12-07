@@ -54,10 +54,13 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 
 - (void)constructSampleData
 {
+	NSString *sampleMessage = @"Congratulations on being qualified for the Management Level Course, RCBC wishes you a successful and enjoyable learning experience!";
+	NSString *sampleTitle = @"Message from our Sponsors";
+	
 	// inbox
-	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello sun" state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor1@gmail.com"];
-	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello merc" state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor2@gmail.com"];
-	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello venus" state:CWMessageStateRead to:@"julian@alloylearning.net" from:@"sponsor3@gmail.com"];
+	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor1@gmail.com"];
+	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor2@gmail.com"];
+	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateRead to:@"julian@alloylearning.net" from:@"sponsor3@gmail.com"];
 	
 	// sent
 	[self createRandomMessageWithTitle:@"sent 1" body:@"hello earth" state:CWMessageStateSent to:@"person1@gmail.com" from:@"leo.quigao@gmail.com"];

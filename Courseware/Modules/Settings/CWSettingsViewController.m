@@ -12,6 +12,8 @@
 #import "SLTextInputAutoFocusHelper.h"
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
+#import "CWAccountManager.h"
+#import "CWAccount.h"
 
 @interface CWSettingsViewController () <CWThemeDelegate>
 
@@ -67,6 +69,7 @@
 	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
 	[self.colorSelector setSelectedSegmentIndex:[CWThemeHelper sharedHelper].colorTheme];
 	[self.fontSizeSelector setSelectedSegmentIndex:[CWThemeHelper sharedHelper].fontTheme];
+	[self.txtEmail setText:[[CWAccountManager sharedManager] getActiveUserAccount].emailAddress];
 	
 	[[CWThemeHelper sharedHelper] registerForThemeChanges:self];
 	[self updateFontAndColor];

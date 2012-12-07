@@ -72,7 +72,7 @@ static NSString * kUserPrefsPersistentUserName = @"UserPrefsPersistentUserName";
 	[self createNewAccountUserName:@"JGoitia"
 						  password:@"123"
 						  fullName:@"Julian Goitia"
-					  emailAddress:@"j.goitia@gmail.com"
+					  emailAddress:@"julian@alloylearning.net"
 					  passwordHint:@"123"];
 }
 

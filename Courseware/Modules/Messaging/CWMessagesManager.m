@@ -55,9 +55,9 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 - (void)constructSampleData
 {
 	// inbox
-	[self createRandomMessageWithTitle:@"inbox 1" body:@"hello sun" state:CWMessageStateUnread to:@"leo.quigao@gmail.com" from:@"person1@gmail.com"];
-	[self createRandomMessageWithTitle:@"inbox 2" body:@"hello merc" state:CWMessageStateUnread to:@"leo.quigao@gmail.com" from:@"person1@gmail.com"];
-	[self createRandomMessageWithTitle:@"inbox 3" body:@"hello venus" state:CWMessageStateRead to:@"leo.quigao@gmail.com" from:@"person2@gmail.com"];
+	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello sun" state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor1@gmail.com"];
+	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello merc" state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor2@gmail.com"];
+	[self createRandomMessageWithTitle:@"Message from our Sponsors" body:@"hello venus" state:CWMessageStateRead to:@"julian@alloylearning.net" from:@"sponsor3@gmail.com"];
 	
 	// sent
 	[self createRandomMessageWithTitle:@"sent 1" body:@"hello earth" state:CWMessageStateSent to:@"person1@gmail.com" from:@"leo.quigao@gmail.com"];

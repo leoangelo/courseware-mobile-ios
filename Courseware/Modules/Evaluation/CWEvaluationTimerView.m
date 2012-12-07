@@ -22,9 +22,9 @@
 + (UIColor *)colorToShowWithPct:(CGFloat)thePct
 {
 	// bound the range of colors from red to green
-	CGFloat fromGreen = ((thePct * 30.f) / 150.f) + 0.70f;
+	CGFloat fromGreen = ((thePct * 30.f) / 133.f) + 0.70f;
 	fromGreen = 1.f - fromGreen; // reverse
-	return [UIColor colorWithHue:fromGreen saturation:.9 brightness:.72 alpha:1.];
+	return [UIColor colorWithHue:fromGreen saturation:0.95 brightness:0.80 alpha:1.];
 }
 
 - (void)drawRect:(CGRect)rect

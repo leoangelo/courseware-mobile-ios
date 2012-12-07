@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E06217015FB6F20006E3554 /* CWRecentReadingsPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */; };
+		7E0DD0EA1672404D00E08DDE /* CWGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0DD0E91672404D00E08DDE /* CWGlobals.m */; };
 		7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */; };
 		7E1306921610CB91002F038E /* CWNotesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */; };
 		7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E1D7916682BA300A7C83A /* CWAdsViewController.m */; };
@@ -195,6 +196,8 @@
 
 /* Begin PBXFileReference section */
 		7E06216F15FB6F20006E3554 /* CWRecentReadingsPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWRecentReadingsPanelView.xib; sourceTree = "<group>"; };
+		7E0DD0E81672404D00E08DDE /* CWGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGlobals.h; sourceTree = "<group>"; };
+		7E0DD0E91672404D00E08DDE /* CWGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWGlobals.m; sourceTree = "<group>"; };
 		7E1180E9163CFD53003D71D0 /* CWMessageToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessageToolbar.h; sourceTree = "<group>"; };
 		7E1180EA163CFD53003D71D0 /* CWMessageToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessageToolbar.m; sourceTree = "<group>"; };
 		7E1306911610CB91002F038E /* CWNotesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWNotesDetailViewController.xib; sourceTree = "<group>"; };
@@ -1241,6 +1244,8 @@
 				7EBB5A6D162A659E00BD6854 /* CWThemeHelper.m */,
 				7E390569164BB79E0021676E /* NSArray+SLUtilities.h */,
 				7E39056A164BB79E0021676E /* NSArray+SLUtilities.m */,
+				7E0DD0E81672404D00E08DDE /* CWGlobals.h */,
+				7E0DD0E91672404D00E08DDE /* CWGlobals.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1579,6 +1584,7 @@
 				7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */,
 				7E1E1D7D16682BD200A7C83A /* CWInterstitialAdsView.m in Sources */,
 				7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */,
+				7E0DD0EA1672404D00E08DDE /* CWGlobals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "CWAccountManager.h"
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
+#import "CWGlobals.h"
 
 @interface CWAccountManagerViewController () <UITextFieldDelegate, CWThemeDelegate>
 
@@ -133,6 +134,7 @@
 - (void)logOutPressed:(id)sender
 {
 	[[CWAccountManager sharedManager] logoutUser];
+	[CWGlobals sharedInstance].justLoggedOut = YES;
 	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 

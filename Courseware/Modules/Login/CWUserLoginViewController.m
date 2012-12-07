@@ -13,6 +13,7 @@
 #import "CWThemeHelper.h"
 #import "CWConstants.h"
 #import "CWAdsViewController.h"
+#import "CWGlobals.h"
 
 #define AUTO_FILL_CREDENTIALS 1
 
@@ -78,10 +79,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	if (!self.ads) {
-		self.ads = [[CWAdsViewController alloc] init];
+	if ([CWGlobals sharedInstance].justLoggedOut) {
+		if (!self.ads) {
+			self.ads = [[CWAdsViewController alloc] init];
+		}
+		[self.ads showInterstitalAdsAnimated:YES];
+		[CWGlobals sharedInstance].justLoggedOut = NO;
 	}
-	[self.ads showInterstitalAdsAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -111,6 +115,7 @@
 	NSError *loginError = nil;
 	if ([[CWAccountManager sharedManager] loginUser:self.txtUsername.text password:self.txtPassword.text error:&loginError rememberAccount:self.rememberLogin]) {
 		self.lblErrorFeedback.text = @"Successfully logged in.";
+		[CWGlobals sharedInstance].justLoggedIn = YES;
 		[self performSelector:@selector(pushToCourseListingScreen) withObject:nil afterDelay:0.3f];
 	}
 	else {

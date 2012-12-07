@@ -16,6 +16,8 @@
 #import "CWCourseReaderViewController.h"
 #import "CWThemeHelper.h"
 #import "CWCourseItem.h"
+#import "CWGlobals.h"
+#import "CWAdsViewController.h"
 
 #import "CWCourseManager.h"
 
@@ -25,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet CWBrowserPaneView *leftPanel;
 @property (nonatomic, weak) IBOutlet CWUserStatusPanelView *userPanel;
 @property (nonatomic, weak) IBOutlet CWRecentReadingsPanelView *recentReadingsPanel;
+@property (nonatomic, strong) CWAdsViewController *ads;
 
 - (void)pushToCourseListingWithSelectedItem:(CWCourseItem *)item;
 - (void)pushToCourseReaderWithSelectedItem:(CWCourseItem *)item;
@@ -55,6 +58,17 @@
 {
 	[self updateFontAndColor];
 	[self.recentReadingsPanel updateContent];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	if ([CWGlobals sharedInstance].justLoggedIn) {
+		if (!self.ads) {
+			self.ads = [[CWAdsViewController alloc] init];
+		}
+		[self.ads showInterstitalAdsAnimated:YES];
+		[CWGlobals sharedInstance].justLoggedIn = NO;
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

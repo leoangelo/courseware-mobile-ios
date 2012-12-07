@@ -17,7 +17,7 @@
 
 #define AUTO_FILL_CREDENTIALS 1
 
-@interface CWUserLoginViewController () <CWThemeDelegate> {
+@interface CWUserLoginViewController () <CWThemeDelegate, UITextFieldDelegate> {
 }
 
 @property (nonatomic, weak) IBOutlet UIImageView *imgAppLogo;
@@ -172,6 +172,20 @@
 	CWCourseSyncingViewController *vc = [[CWCourseSyncingViewController alloc] init];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
 	[self presentModalViewController:vc animated:YES];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	if (textField == self.txtUsername) {
+		[self.txtPassword becomeFirstResponder];
+	}
+	else if (textField == self.txtPassword) {
+		[textField resignFirstResponder];
+		[self loginUser];
+	}
+	return YES;
 }
 
 @end

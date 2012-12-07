@@ -23,5 +23,6 @@
 @property (nonatomic, weak) id<CWEvaluationResultsControllerDelegate> delegate;
 
 - (CWEvaluationResultsView *)getView;
+- (void)beginCountdown;
 
 @end

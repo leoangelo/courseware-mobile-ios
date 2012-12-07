@@ -24,6 +24,8 @@
 @property (nonatomic, weak) IBOutlet UITableView *mistakesTableView;
 @property (nonatomic, weak) IBOutlet UIButton *exitButton2;
 
+@property (nonatomic, weak) IBOutlet UILabel *lblRemainingTime;
+
 - (IBAction)reviewMistakesPressed:(id)sender;
 - (IBAction)exitButtonPressed:(id)sender;
 
@@ -131,11 +133,18 @@
 {
 	self.remarkContentView.hidden = toMistakes;
 	self.reviewMistakesContentView.hidden = !toMistakes;
+	
+	[self.myController beginCountdown];
 }
 
 - (void)exitButtonPressed:(id)sender
 {
 	[self.myController.delegate exitEvaluation];
+}
+
+- (void)updateRemainingTime:(int)remainingTime
+{
+	[self.lblRemainingTime setText:[NSString stringWithFormat:@"Closes in %i seconds", remainingTime]];
 }
 
 #pragma mark - Table view

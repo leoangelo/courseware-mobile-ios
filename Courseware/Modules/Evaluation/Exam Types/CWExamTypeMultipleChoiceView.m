@@ -8,6 +8,8 @@
 
 #import "CWExamTypeMultipleChoiceView.h"
 #import "CWExamTypeMultipleChoice.h"
+#import "CWThemeHelper.h"
+#import "CWConstants.h"
 
 @interface CWExamTypeMultipleChoiceView ()
 
@@ -20,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *choice4Button;
 
 - (IBAction)answerButtonHit:(id)sender;
+- (void)updateButton:(UIButton *)theButton withTitle:(NSString *)theTitle;
 
 @end
 
@@ -43,23 +46,24 @@
 		self.questionLabel.text = _model.statement;
 		
 		NSArray *choices = _model.choices;
-		[self.choice1Button setTitle:[choices objectAtIndex:0] forState:UIControlStateNormal];
-		[self.choice2Button setTitle:[choices objectAtIndex:1] forState:UIControlStateNormal];
-		[self.choice3Button setTitle:[choices objectAtIndex:2] forState:UIControlStateNormal];
-		[self.choice4Button setTitle:[choices objectAtIndex:3] forState:UIControlStateNormal];
+		[self updateButton:self.choice1Button withTitle:[choices objectAtIndex:0]];
+		[self updateButton:self.choice2Button withTitle:[choices objectAtIndex:1]];
+		[self updateButton:self.choice3Button withTitle:[choices objectAtIndex:2]];
+		[self updateButton:self.choice4Button withTitle:[choices objectAtIndex:3]];
 		
-		self.questionLabel.numberOfLines = 0;
-		self.choice1Button.titleLabel.numberOfLines = 0;
-		self.choice2Button.titleLabel.numberOfLines = 0;
-		self.choice3Button.titleLabel.numberOfLines = 0;
-		self.choice4Button.titleLabel.numberOfLines = 0;
-		
-		self.choice1Button.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-		self.choice2Button.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-		self.choice3Button.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-		self.choice4Button.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+		// follow the current theme
+		self.questionLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:17]];
+		self.questionLabel.textColor = [[CWThemeHelper sharedHelper] themedTextColorHighlighted:NO];
 	}
 	return self;
+}
+
+- (void)updateButton:(UIButton *)theButton withTitle:(NSString *)theTitle
+{
+	[theButton setTitle:theTitle forState:UIControlStateNormal];
+	theButton.titleLabel.numberOfLines = 0;
+	theButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+	theButton.titleLabel.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:14]];
 }
 
 - (void)answerButtonHit:(id)sender

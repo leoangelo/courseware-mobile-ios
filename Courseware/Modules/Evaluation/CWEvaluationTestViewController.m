@@ -12,6 +12,8 @@
 #import "CWExamItemType.h"
 #import "CWEvaluationResultsController.h"
 #import "CWEvaluationProgressView.h"
+#import "CWEvaluationTimerView.h"
+#import "CWThemeHelper.h"
 
 static NSInteger const kQuestionContentTag = 10;
 
@@ -20,11 +22,12 @@ static NSInteger const kQuestionContentTag = 10;
 @property (nonatomic, weak) IBOutlet CWNavigationBar *navBar;
 @property (nonatomic, weak) IBOutlet UIView *questionContainer;
 @property (nonatomic, weak) IBOutlet CWEvaluationProgressView *progressView;
-@property (nonatomic, weak) IBOutlet UILabel *lblTimeCounter;
+@property (nonatomic, weak) IBOutlet CWEvaluationTimerView *timerView;
 @property (nonatomic, strong) CWEvaluationTestModel *testModel;
 @property (nonatomic, strong) CWEvaluationResultsController *resultsController;
 
 - (void)updateDisplayedQuestion;
+- (void)updateTheme;
 
 @end
 
@@ -47,6 +50,7 @@ static NSInteger const kQuestionContentTag = 10;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[self updateTheme];
 	[self updateDisplayedQuestion];
 }
 
@@ -59,6 +63,11 @@ static NSInteger const kQuestionContentTag = 10;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
+- (void)updateTheme
+{
+	self.view.backgroundColor = [[CWThemeHelper sharedHelper] themedBackgroundColor];
 }
 
 - (void)updateDisplayedQuestion
@@ -91,9 +100,9 @@ static NSInteger const kQuestionContentTag = 10;
 
 #pragma mark - Model delegate
 
-- (void)updateRemainingTimeCounter:(int)time
+- (void)updateRemainingTimeCounter:(NSTimeInterval)time total:(NSTimeInterval)total
 {
-	self.lblTimeCounter.text = [NSString stringWithFormat:@"Time left: %is", time];
+	[[self timerView] updateRemainingTimeCounter:time total:total];
 }
 
 - (void)displayedQuestionNeedsUpdate

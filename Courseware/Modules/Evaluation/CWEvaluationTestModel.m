@@ -117,9 +117,9 @@
 	}
 }
 
-- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime
+- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime duration:(NSTimeInterval)duration
 {
-	[self.delegate updateRemainingTimeCounter:remainingTime];
+	[self.delegate updateRemainingTimeCounter:remainingTime total:duration];
 }
 
 @end

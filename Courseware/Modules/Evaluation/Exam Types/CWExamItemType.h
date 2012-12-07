@@ -34,6 +34,6 @@
 @protocol CWExamItemTypeDelegate <NSObject>
 
 - (void)examItemDidFinishAnswering:(CWExamItemType *)theItemType;
-- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime;
+- (void)examItem:(CWExamItemType *)theItemType timeExpired:(NSTimeInterval)remainingTime duration:(NSTimeInterval)duration;
 
 @end

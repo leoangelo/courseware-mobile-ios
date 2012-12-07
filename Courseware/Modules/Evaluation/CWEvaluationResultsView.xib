@@ -288,8 +288,42 @@
 						<reference key="IBUIFontDescription" ref="398789982"/>
 						<reference key="IBUIFont" ref="836925859"/>
 					</object>
+					<object class="IBUILabel" id="212884085">
+						<reference key="NSNextResponder" ref="765032720"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{20, 343}, {480, 26}}</string>
+						<reference key="NSSuperview" ref="765032720"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">Label</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MSAxIDEAA</bytes>
+							<reference key="NSCustomColorSpace" ref="1035138864"/>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<int key="IBUITextAlignment">1</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">Futura-Medium</string>
+							<string key="family">Futura</string>
+							<int key="traits">0</int>
+							<double key="pointSize">17</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Futura-Medium</string>
+							<double key="NSSize">17</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+					</object>
 				</array>
-				<string key="NSFrameSize">{520, 355}</string>
+				<string key="NSFrameSize">{520, 369}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="205754814"/>
@@ -365,6 +399,14 @@
 						<reference key="destination" ref="507142420"/>
 					</object>
 					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lblRemainingTime</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="212884085"/>
+					</object>
+					<int key="connectionID">38</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -466,6 +508,7 @@
 							<reference ref="899852531"/>
 							<reference ref="507142420"/>
 							<reference ref="205754814"/>
+							<reference ref="212884085"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -510,6 +553,11 @@
 						<reference key="object" ref="790364138"/>
 						<reference key="parent" ref="55321309"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">37</int>
+						<reference key="object" ref="212884085"/>
+						<reference key="parent" ref="765032720"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -526,13 +574,14 @@
 				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="37.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">36</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -556,6 +605,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="exitButton1">UIButton</string>
 						<string key="exitButton2">UIButton</string>
+						<string key="lblRemainingTime">UILabel</string>
 						<string key="mistakesTableView">UITableView</string>
 						<string key="remarkBackground">UIImageView</string>
 						<string key="remarkContentView">UIView</string>
@@ -571,6 +621,10 @@
 						<object class="IBToOneOutletInfo" key="exitButton2">
 							<string key="name">exitButton2</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lblRemainingTime">
+							<string key="name">lblRemainingTime</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mistakesTableView">
 							<string key="name">mistakesTableView</string>

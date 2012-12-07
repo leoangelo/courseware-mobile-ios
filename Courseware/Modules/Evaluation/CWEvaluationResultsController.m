@@ -8,13 +8,23 @@
 
 #import "CWEvaluationResultsController.h"
 
-@interface CWEvaluationResultsController ()
+static NSTimeInterval const kReviewTimerDuration = 15.f;
+
+@interface CWEvaluationResultsController () {
+	NSTimeInterval remainingTime;
+}
 
 @property (nonatomic, strong) CWEvaluationResultsView *resultsView;
+@property (nonatomic, strong) NSTimer *reviewTimer;
 
 @end
 
 @implementation CWEvaluationResultsController
+
+- (void)dealloc
+{
+	[_reviewTimer invalidate];
+}
 
 - (CWEvaluationResultsView *)resultsView
 {
@@ -27,6 +37,24 @@
 - (CWEvaluationResultsView *)getView
 {
 	return self.resultsView;
+}
+
+- (void)beginCountdown
+{
+	remainingTime = kReviewTimerDuration;
+	[self.getView updateRemainingTime:remainingTime];
+	self.reviewTimer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)updateTimer:(id)theTimer
+{
+	if (remainingTime <= 0.f) {
+		[self.delegate exitEvaluation];
+	}
+	else {
+		[self.getView updateRemainingTime:remainingTime];
+		remainingTime = remainingTime - 1.f;
+	}
 }
 
 @end

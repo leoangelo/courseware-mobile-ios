@@ -18,4 +18,6 @@
 
 - (void)switchToMistakesView:(BOOL)toMistakes;
 
+- (void)updateRemainingTime:(int)remainingTime;
+
 @end

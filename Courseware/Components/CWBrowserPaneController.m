@@ -30,7 +30,7 @@
 
 - (void)rebuildItems
 {
-	if (self.activeCourseItem.siblings && self.activeCourseItem.siblings.count > 1) {
+	if (self.activeCourseItem.siblings /* && self.activeCourseItem.siblings.count > 1 */) {
 		self.itemsToDisplay = [self.activeCourseItem siblings];
 	}
 	else if (self.activeCourseItem.parent && self.activeCourseItem.parent.siblings.count > 1) {

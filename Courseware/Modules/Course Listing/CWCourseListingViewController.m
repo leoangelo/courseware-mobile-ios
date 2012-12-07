@@ -88,7 +88,7 @@
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	// self.model.selectedCourseItem = [self.model.getItemList objectAtIndex:indexPath.row];
-	[self.browserPane setActiveItem:[self.model.getItemList objectAtIndex:indexPath.row]];
+	// [self.browserPane setActiveItem:[self.model.getItemList objectAtIndex:indexPath.row]];
 	// [self.listView reloadData];
 
 	CWCourseItem *selectedItem = [self.model.getItemList objectAtIndex:indexPath.row];

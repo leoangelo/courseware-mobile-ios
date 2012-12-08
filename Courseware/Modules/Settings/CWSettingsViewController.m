@@ -66,7 +66,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
+	[SLTextInputAutoFocusHelper beginAutoFocus];
 	[self.colorSelector setSelectedSegmentIndex:[CWThemeHelper sharedHelper].colorTheme];
 	[self.fontSizeSelector setSelectedSegmentIndex:[CWThemeHelper sharedHelper].fontTheme];
 	[self.txtEmail setText:[[CWAccountManager sharedManager] getActiveUserAccount].emailAddress];
@@ -77,7 +77,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
+	[SLTextInputAutoFocusHelper stopAutoFocus];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

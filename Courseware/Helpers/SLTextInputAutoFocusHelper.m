@@ -12,10 +12,15 @@
 
 @property (nonatomic, weak) UIScrollView *activeScrollView;
 
++ (SLTextInputAutoFocusHelper *)sharedHelper;
+
 - (void)handleKeyboardShow:(NSNotification *)notification;
 - (void)handleKeyboardHide:(NSNotification *)notification;
 
+- (void)beginAutoFocus;
+- (void)stopAutoFocus;
 - (void)autoFocusTextInputWithKeyboardFrame:(CGRect)keyboardFrame;
+- (void)centerActiveFirstResponder;
 
 - (UIWindow *)getKeyWindow;
 - (UIView *)getFirstResponder;
@@ -30,12 +35,27 @@
 + (SLTextInputAutoFocusHelper *)sharedHelper
 {
 	static SLTextInputAutoFocusHelper *helper = nil;
-	@synchronized([SLTextInputAutoFocusHelper class]) {
-		if (!helper) {
-			helper = [[SLTextInputAutoFocusHelper alloc] init];
-		}
-	}
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		helper = [[SLTextInputAutoFocusHelper alloc] init];
+
+	});
 	return helper;
+}
+
++ (void)beginAutoFocus
+{
+	[[self sharedHelper] beginAutoFocus];
+}
+
++ (void)stopAutoFocus
+{
+	[[self sharedHelper] stopAutoFocus];
+}
+
++ (void)centerActiveFirstResponder
+{
+	[[self sharedHelper] centerActiveFirstResponder];
 }
 
 - (void)beginAutoFocus
@@ -64,6 +84,33 @@
 {
 	if (_activeScrollView) {
 		[_activeScrollView setContentOffset:CGPointZero animated:YES];
+	}
+}
+
+- (void)centerActiveFirstResponder
+{
+	UIView *firstResponder = [self getFirstResponder];
+	if (firstResponder) {
+		// NSLog(@"First responder: %@", firstResponder);
+		UIScrollView *parentScrollView = [self getParentScrollView:firstResponder];
+		if (parentScrollView) {
+			
+			CGRect firstResponderRect = [firstResponder convertRect:[firstResponder bounds] toView:[self getNavigationView]];
+			CGFloat diffY = CGRectGetMaxY(firstResponderRect) - roundf(CGRectGetMidY([[self getNavigationView] frame]));
+			
+			diffY += parentScrollView.contentOffset.y; // account the changes to the scroll views content offset
+			
+			if (diffY > 0) {
+				_activeScrollView = parentScrollView;
+				[parentScrollView setContentOffset:CGPointMake(0, diffY) animated:YES];
+			}
+		}
+		else {
+			NSLog(@"Problem: No scroll view found");
+		}
+	}
+	else {
+		NSLog(@"Problem: No first responder found");
 	}
 }
 

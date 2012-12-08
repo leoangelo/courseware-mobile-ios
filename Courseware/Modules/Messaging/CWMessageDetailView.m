@@ -92,12 +92,12 @@
 
 - (void)beginAutoFocus
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
+	[SLTextInputAutoFocusHelper beginAutoFocus];
 }
 
 - (void)stopAutoFocus
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
+	[SLTextInputAutoFocusHelper stopAutoFocus];
 }
 
 @end

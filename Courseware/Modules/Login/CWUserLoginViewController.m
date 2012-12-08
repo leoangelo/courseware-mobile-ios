@@ -60,7 +60,7 @@
     // Do any additional setup after loading the view from its nib.
 	if (AUTO_FILL_CREDENTIALS) {
 		self.txtUsername.text = @"JGoitia";
-		self.txtPassword.text = @"123";
+		// self.txtPassword.text = @"123";
 	}
 }
 
@@ -86,6 +86,12 @@
 		[self.ads showInterstitalAdsAnimated:YES];
 		[CWGlobals sharedInstance].justLoggedOut = NO;
 	}
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	self.txtUsername.text = @"";
+	self.txtPassword.text = @"";
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

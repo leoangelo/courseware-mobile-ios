@@ -10,9 +10,9 @@
 
 @interface SLTextInputAutoFocusHelper : NSObject
 
-+ (SLTextInputAutoFocusHelper *)sharedHelper;
++ (void)beginAutoFocus;
++ (void)stopAutoFocus;
 
-- (void)beginAutoFocus;
-- (void)stopAutoFocus;
++ (void)centerActiveFirstResponder;
 
 @end

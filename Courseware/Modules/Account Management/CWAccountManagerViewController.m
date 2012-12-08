@@ -62,7 +62,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] beginAutoFocus];
+	[SLTextInputAutoFocusHelper beginAutoFocus];
 	
 	[[self lblErrorMessage] setText:@""];
 	[self updateFontAndColor];
@@ -70,7 +70,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[[SLTextInputAutoFocusHelper sharedHelper] stopAutoFocus];
+	[SLTextInputAutoFocusHelper stopAutoFocus];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -126,6 +126,7 @@
 	}
 	if (![self.txtNewPassword.text isEqualToString:self.txtNewPasswordConfirm.text]) {
 		self.lblErrorMessage.text = @"confirmed password does not match";
+		return NO;
 	}
 	self.lblErrorMessage.text = @"";
 	return YES;
@@ -165,6 +166,27 @@
 	
 	self.lblErrorMessage.font = [[CWThemeHelper sharedHelper] themedFont:[UIFont fontWithName:kGlobalAppFontNormal size:15]];
 	self.lblErrorMessage.textColor = textColor;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	if (textField == self.txtOldPassword) {
+		[self.txtNewPassword becomeFirstResponder];
+		[SLTextInputAutoFocusHelper centerActiveFirstResponder];
+	}
+	else if (textField == self.txtNewPassword) {
+		[self.txtNewPasswordConfirm becomeFirstResponder];
+		[SLTextInputAutoFocusHelper centerActiveFirstResponder];
+	}
+	else if (textField == self.txtNewPasswordConfirm) {
+		[self.txtPasswordHint becomeFirstResponder];
+		[SLTextInputAutoFocusHelper centerActiveFirstResponder];
+	}
+	else if (textField == self.txtPasswordHint) {
+		[textField resignFirstResponder];
+		[self saveChangesPressed:nil];
+	}
+	return YES;
 }
 
 @end

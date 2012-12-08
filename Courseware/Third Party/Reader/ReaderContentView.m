@@ -66,9 +66,11 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 {
 	CGFloat w_scale = (target.width / source.width);
 
-	CGFloat h_scale = (target.height / source.height);
-
-	return ((w_scale < h_scale) ? w_scale : h_scale);
+	// Leo Quigao: Make "zoom to page width" instead
+	return w_scale;
+	
+	// CGFloat h_scale = (target.height / source.height);
+	// return ((w_scale < h_scale) ? w_scale : h_scale);
 }
 
 #pragma mark ReaderContentView instance methods

@@ -11,6 +11,7 @@
 #import "NSString+SLUtilities.h"
 #import "CWAccountManager.h"
 #import "CWAccount.h"
+#import "CWUtilities.h"
 
 static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 
@@ -52,15 +53,65 @@ static NSString * kSampleDataAddedFlag = @"hasMessagesSampleDataAdded";
 	return [activeAccount.messages allObjects];
 }
 
++ (NSString *)messageFileNamePath:(NSString *)theFileName
+{
+	return [[CWUtilities courseWareBundle] pathForResource:theFileName ofType:@"txt" inDirectory:@"sample-data/messages"];
+}
+
++ (NSString *)msgContent:(NSString *)theFileName
+{
+	return [NSString stringWithContentsOfFile:[self messageFileNamePath:theFileName] encoding:NSUTF8StringEncoding error:NULL];
+}
+
 - (void)constructSampleData
 {
-	NSString *sampleMessage = @"Congratulations on being qualified for the Management Level Course, RCBC wishes you a successful and enjoyable learning experience!";
-	NSString *sampleTitle = @"Message from our Sponsors";
+	NSString *receiverEmail = @"julian@alloylearning.net";
+	NSString *sampleTitle = @"Sponsor's Message";
 	
 	// inbox
-	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor1@gmail.com"];
-	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateUnread to:@"julian@alloylearning.net" from:@"sponsor2@gmail.com"];
-	[self createRandomMessageWithTitle:sampleTitle body:sampleMessage state:CWMessageStateRead to:@"julian@alloylearning.net" from:@"sponsor3@gmail.com"];
+	// Alloy support
+	[self createRandomMessageWithTitle:@"Welcome to Alloy!"
+								  body:[self.class msgContent:@"Alloy Support"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"Alloy Support"];
+	
+	// CTSI
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"CTSI"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"CTSI"];
+	
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"GLOBE"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"GLOBE"];
+	
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"MAGSAYSAY"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"MAGSAYSAY"];
+	
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"PHIL AIRLINES"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"PHIL AIRLINES"];
+	
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"PLDT"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"PLDT"];
+	
+	[self createRandomMessageWithTitle:sampleTitle
+								  body:[self.class msgContent:@"SAN MIGUEL"]
+								 state:CWMessageStateUnread
+									to:receiverEmail
+								  from:@"SAN MIGUEL"];
 	
 	// sent
 	[self createRandomMessageWithTitle:@"sent 1" body:@"hello earth" state:CWMessageStateSent to:@"person1@gmail.com" from:@"leo.quigao@gmail.com"];

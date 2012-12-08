@@ -8,7 +8,7 @@
 
 #import "CWEvaluationResultsController.h"
 
-static NSTimeInterval const kReviewTimerDuration = 15.f;
+static NSTimeInterval const kReviewTimerDuration = 60.f;
 
 @interface CWEvaluationResultsController () {
 	NSTimeInterval remainingTime;

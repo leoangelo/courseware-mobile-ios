@@ -142,7 +142,12 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 
 			[self updateMinimumMaximumZoom]; // Update the minimum and maximum zoom scales
 
-			self.zoomScale = self.minimumZoomScale; // Set zoom to fit page content
+			// self.zoomScale = self.minimumZoomScale; // Set zoom to fit page content
+			[self zoomToRect:(CGRect) {
+				0, -self.frame.size.height,
+				theContainerView.frame.size.width,
+				self.frame.size.height
+			} animated:NO];
 		}
 
 		[self addObserver:self forKeyPath:@"frame" options:0 context:ReaderContentViewContext];

@@ -66,6 +66,14 @@
 	return _fileLoaders;
 }
 
++ (CWCourseItem *)defaultSelectedCourse
+{
+	if ([[[self sharedManager] courseListing] count] > 0) {
+		return [[[self sharedManager] courseListing] objectAtIndex:0];
+	}
+	return nil;
+}
+
 #pragma mark - Producing sample data
 
 - (void)buildSampleData

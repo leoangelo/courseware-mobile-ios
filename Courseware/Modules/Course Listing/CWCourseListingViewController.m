@@ -99,6 +99,11 @@
 	}
 }
 
++ (CWCourseItem *)defaultSelectedItem
+{
+	return [CWCourseListingScreenModel defaultSelectedItem];
+}
+
 - (void)browser:(CWBrowserPaneView *)browser selectedItem:(CWCourseItem *)item
 {
 	self.model.selectedCourseItem = item;

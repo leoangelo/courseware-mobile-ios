@@ -73,7 +73,7 @@
 	
 	if ([selectedItem.itemText isEqualToString:@"Courses"]) {
 	
-		CWCourseListingViewController *vc = [[CWCourseListingViewController alloc] initWithItem:nil];
+		CWCourseListingViewController *vc = [[CWCourseListingViewController alloc] initWithItem:[CWCourseListingViewController defaultSelectedItem]];
 		[self pushViewController:vc];
 		
 	} else if ([selectedItem.itemText isEqualToString:@"Library"]) {

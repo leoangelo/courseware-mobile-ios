@@ -12,6 +12,7 @@
 
 @interface CWCourseListingViewController : UIViewController
 
++ (CWCourseItem *)defaultSelectedItem;
 - (id)initWithItem:(CWCourseItem *)selectedItem;
 
 @end

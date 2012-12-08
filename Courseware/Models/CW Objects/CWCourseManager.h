@@ -20,4 +20,6 @@
 - (NSDate *)getLastDateReadOfCourseItem:(CWCourseItem *)theItem;
 - (void)updateLastDateReadForCourseItem:(CWCourseItem *)theItem;
 
++ (CWCourseItem *)defaultSelectedCourse;
+
 @end

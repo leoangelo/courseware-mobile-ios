@@ -8,6 +8,7 @@
 
 #import "CWCourseListingScreenModel.h"
 #import "CWCourseItem.h"
+#import "CWCourseManager.h"
 
 @interface CWCourseListingScreenModel ()
 
@@ -57,6 +58,11 @@
 	for (CWCourseItem *itemChild in anItem.children) {
 		[self addItem:itemChild toList:aList];
 	}
+}
+
++ (CWCourseItem *)defaultSelectedItem
+{
+	return [CWCourseManager defaultSelectedCourse];
 }
 
 @end

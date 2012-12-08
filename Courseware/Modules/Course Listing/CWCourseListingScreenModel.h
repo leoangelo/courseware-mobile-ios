@@ -15,5 +15,6 @@
 @property (nonatomic, weak) CWCourseItem *selectedCourseItem;
 
 - (NSArray *)getItemList;
++ (CWCourseItem *)defaultSelectedItem;
 
 @end

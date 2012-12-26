@@ -16,7 +16,7 @@
 #import "CWLibrarySearchFilterViewController.h"
 #import "CWLibrarySortOptionsViewController.h"
 
-static CGFloat kGridSpacing = 30;
+static CGFloat kGridSpacing = 15;
 static CGSize kItemSize = (CGSize) { 240, 142 };
 
 @interface CWLibraryBrowserViewController () <GMGridViewDataSource, GMGridViewActionDelegate, CWLibrarySearchFilterViewControllerDelegate, CWLibrarySortOptionsViewControllerDelegate>

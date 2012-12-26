@@ -82,7 +82,7 @@ static NSTimeInterval const kAdTimerDuration = 5.f;
 
 - (NSString *)adTitle:(id)theView
 {
-	return @"SPONSORS";
+	return nil; //  @"SPONSORS";
 }
 
 - (BOOL)adsisCloseable:(id)theView

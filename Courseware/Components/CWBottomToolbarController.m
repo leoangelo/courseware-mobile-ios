@@ -10,6 +10,7 @@
 #import "CWNotesListViewController.h"
 #import "CWBookmarksListViewController.h"
 #import "CWEvaluationTestViewController.h"
+#import "CWVideoCaptureController.h"
 #import "CWAppDelegate.h"
 
 static NSInteger const kTestAlertTag = 100;
@@ -19,6 +20,7 @@ static NSInteger const kTestAlertTag = 100;
 @property (nonatomic, strong) UIPopoverController *popOverController;
 @property (nonatomic, strong) UINavigationController *notesNavController;
 @property (nonatomic, strong) UINavigationController *bookmarksNavController;
+@property (nonatomic, strong) CWVideoCaptureController *videoCaptureController;
 
 - (void)pushToTest;
 
@@ -67,6 +69,14 @@ static NSInteger const kTestAlertTag = 100;
 	UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"Instructions" message:@"This test will take 50 seconds and has 5 items." delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Take Test", nil];
 	anAlert.tag = kTestAlertTag;
 	[anAlert show];
+}
+
+- (void)videoCaptureAction:(id)target
+{
+	if (!self.videoCaptureController) {
+		self.videoCaptureController = [[CWVideoCaptureController alloc] init];
+	}
+	[self.videoCaptureController launchVideoCapture];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

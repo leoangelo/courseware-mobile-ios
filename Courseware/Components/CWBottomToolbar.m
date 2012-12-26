@@ -42,6 +42,9 @@
 	UIBarButtonItem *testsButton = [[UIBarButtonItem alloc] initWithTitle:@"Take Test" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(testsAction:)];
 	[anItems addObject:testsButton];
 	
+	UIBarButtonItem *videoButton = [[UIBarButtonItem alloc] initWithTitle:@"Record Video" style:UIBarButtonItemStyleBordered target:self.controller action:@selector(videoCaptureAction:)];
+	[anItems addObject:videoButton];
+	
 	[anItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 	
 	self.items = anItems;

@@ -50,6 +50,8 @@
 		7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */; };
 		7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */; };
 		7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */; };
+		7E4B926A168AB50E001BBDD6 /* CWVideoCaptureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B9269168AB50E001BBDD6 /* CWVideoCaptureController.m */; };
+		7E4B926D168AB972001BBDD6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4B926B168AB968001BBDD6 /* MobileCoreServices.framework */; };
 		7E518909165159460025E47C /* CWMediaAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E518908165159460025E47C /* CWMediaAttachment.m */; };
 		7E556214162DC584000CDCAA /* CWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E556213162DC584000CDCAA /* CWNote.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
@@ -273,6 +275,9 @@
 		7E4A559F164F5EB5004EA78B /* CWBookmarksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksListViewController.h; sourceTree = "<group>"; };
 		7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksListViewController.m; sourceTree = "<group>"; };
 		7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWBookmarksListViewController.xib; sourceTree = "<group>"; };
+		7E4B9268168AB50E001BBDD6 /* CWVideoCaptureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVideoCaptureController.h; sourceTree = "<group>"; };
+		7E4B9269168AB50E001BBDD6 /* CWVideoCaptureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWVideoCaptureController.m; sourceTree = "<group>"; };
+		7E4B926B168AB968001BBDD6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7E518907165159460025E47C /* CWMediaAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMediaAttachment.h; sourceTree = "<group>"; };
 		7E518908165159460025E47C /* CWMediaAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMediaAttachment.m; sourceTree = "<group>"; };
 		7E556212162DC584000CDCAA /* CWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNote.h; sourceTree = "<group>"; };
@@ -529,6 +534,7 @@
 				7ECB48E115E9EF7C00F850E9 /* CoreData.framework in Frameworks */,
 				7ED2654C16292E56002900AE /* CFNetwork.framework in Frameworks */,
 				7ED2654F16292E79002900AE /* Security.framework in Frameworks */,
+				7E4B926D168AB972001BBDD6 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +739,15 @@
 				7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */,
 			);
 			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		7E4B9266168AB4CB001BBDD6 /* Video Capture */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B9268168AB50E001BBDD6 /* CWVideoCaptureController.h */,
+				7E4B9269168AB50E001BBDD6 /* CWVideoCaptureController.m */,
+			);
+			path = "Video Capture";
 			sourceTree = "<group>";
 		};
 		7E5E365916057E4B00EE508B /* Third Party */ = {
@@ -993,6 +1008,7 @@
 		7ECB48D915E9EF7C00F850E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E4B926B168AB968001BBDD6 /* MobileCoreServices.framework */,
 				7ED2654D16292E70002900AE /* Security.framework */,
 				7ED2654A16292E33002900AE /* CFNetwork.framework */,
 				7E5E36A316057ED000EE508B /* MessageUI.framework */,
@@ -1208,6 +1224,7 @@
 		7EEB7C4615F2D7E7009DAE94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E4B9266168AB4CB001BBDD6 /* Video Capture */,
 				7ED265541629300D002900AE /* Syncing */,
 				7EBE28251625CB2B00742DFC /* Evaluation */,
 				7EB6AB9916210B640089ACC4 /* Help */,
@@ -1591,6 +1608,7 @@
 				7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */,
 				7E0DD0EA1672404D00E08DDE /* CWGlobals.m in Sources */,
 				7E0DD0EE1672541A00E08DDE /* CWEvaluationTimerView.m in Sources */,
+				7E4B926A168AB50E001BBDD6 /* CWVideoCaptureController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

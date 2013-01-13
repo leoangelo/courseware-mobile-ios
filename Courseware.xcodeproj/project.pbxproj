@@ -18,7 +18,6 @@
 		7E20B5E715FE3339004DBAC1 /* SLSlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20B5E615FE3339004DBAC1 /* SLSlideMenuView.xib */; };
 		7E20B5EA15FE3477004DBAC1 /* SLSlideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */; };
 		7E237149163A2777001A09C4 /* CWLibraryMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237148163A2777001A09C4 /* CWLibraryMediaManager.m */; };
-		7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714B163A27F4001A09C4 /* CWMedia.m */; };
 		7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */; };
 		7E237153163A4347001A09C4 /* CWLibraryGridCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237152163A4347001A09C4 /* CWLibraryGridCellContentView.m */; };
 		7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E237156163A4F62001A09C4 /* CWLibraryMediaSupport.m */; };
@@ -43,17 +42,14 @@
 		7E3C42751618768700A788EB /* CWMessageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42741618768700A788EB /* CWMessageDetailView.m */; };
 		7E3C42771618769F00A788EB /* CWMessageDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3C42761618769F00A788EB /* CWMessageDetailView.xib */; };
 		7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C42791618782E00A788EB /* CWMessagingModel.m */; };
-		7E3C4280161885F600A788EB /* CWMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C427F161885F600A788EB /* CWMessage.m */; };
 		7E3E7B9D160A229B00849255 /* CWCourseDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */; };
 		7E4A5598164F5312004EA78B /* CWBookmarksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A5597164F5312004EA78B /* CWBookmarksManager.m */; };
-		7E4A559B164F5436004EA78B /* CWBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559A164F5436004EA78B /* CWBookmark.m */; };
 		7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */; };
 		7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A55A0164F5EB5004EA78B /* CWBookmarksListViewController.m */; };
 		7E4A55A3164F5EB5004EA78B /* CWBookmarksListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A55A1164F5EB5004EA78B /* CWBookmarksListViewController.xib */; };
 		7E4B926A168AB50E001BBDD6 /* CWVideoCaptureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B9269168AB50E001BBDD6 /* CWVideoCaptureController.m */; };
 		7E4B926D168AB972001BBDD6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4B926B168AB968001BBDD6 /* MobileCoreServices.framework */; };
 		7E518909165159460025E47C /* CWMediaAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E518908165159460025E47C /* CWMediaAttachment.m */; };
-		7E556214162DC584000CDCAA /* CWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E556213162DC584000CDCAA /* CWNote.m */; };
 		7E5E368116057E4B00EE508B /* CGPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365C16057E4B00EE508B /* CGPDFDocument.m */; };
 		7E5E368216057E4B00EE508B /* ReaderConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E365E16057E4B00EE508B /* ReaderConstants.m */; };
 		7E5E368316057E4B00EE508B /* ReaderContentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5E366016057E4B00EE508B /* ReaderContentPage.m */; };
@@ -83,7 +79,6 @@
 		7E9B6E91162988B500687971 /* CWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6E90162988B500687971 /* CWHTTPServer.m */; };
 		7E9B6E9516298AC500687971 /* CWHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6E9416298AC500687971 /* CWHTTPConnection.m */; };
 		7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */; };
-		7E9B943E161741D200F39337 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B943D161741D200F39337 /* CWAccount.m */; };
 		7E9C850F15FAC873002AB343 /* CWAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C850E15FAC873002AB343 /* CWAccountManager.m */; };
 		7E9C851215FAC8BC002AB343 /* SLCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9C851115FAC8BC002AB343 /* SLCoreDataManager.m */; };
 		7EA4D0B1163B898600EE85FF /* CWExamTypeTrueOrFalse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4D0B0163B898600EE85FF /* CWExamTypeTrueOrFalse.m */; };
@@ -130,7 +125,6 @@
 		7ECB490715E9EF7C00F850E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB48E015E9EF7C00F850E9 /* CoreData.framework */; };
 		7ECB490F15E9EF7C00F850E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ECB490D15E9EF7C00F850E9 /* InfoPlist.strings */; };
 		7ECB491215E9EF7C00F850E9 /* CoursewareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */; };
-		7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */; };
 		7ED2652B16292E06002900AE /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F216292E06002900AE /* DDData.m */; };
 		7ED2652C16292E06002900AE /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F416292E06002900AE /* DDNumber.m */; };
 		7ED2652D16292E06002900AE /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED264F616292E06002900AE /* DDRange.m */; };
@@ -161,6 +155,12 @@
 		7ED2655A16293132002900AE /* CWNotesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2655916293132002900AE /* CWNotesManager.m */; };
 		7ED2655E16293209002900AE /* CWCourseSyncingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */; };
 		7ED2655F16293209002900AE /* CWCourseSyncingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */; };
+		7ED2A8BE16A2E72900D0A087 /* CWMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8BD16A2E72900D0A087 /* CWMedia.m */; };
+		7ED2A8C216A2E72900D0A087 /* CWMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8C116A2E72900D0A087 /* CWMessage.m */; };
+		7ED2A8C516A2E72900D0A087 /* CWPersistentCourseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8C416A2E72900D0A087 /* CWPersistentCourseItem.m */; };
+		7ED2A8C816A2E72900D0A087 /* CWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8C716A2E72900D0A087 /* CWNote.m */; };
+		7ED2A8CB16A2E72900D0A087 /* CWBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8CA16A2E72900D0A087 /* CWBookmark.m */; };
+		7ED2A8CE16A2E72900D0A087 /* CWAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2A8CD16A2E72900D0A087 /* CWAccount.m */; };
 		7EDA2ACA160D728300B40202 /* CWBottomToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA2AC9160D728300B40202 /* CWBottomToolbarController.m */; };
 		7EDA2AD1160D758B00B40202 /* CWNotesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA2ACF160D758B00B40202 /* CWNotesListViewController.m */; };
 		7EDA2AD2160D758B00B40202 /* CWNotesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA2AD0160D758B00B40202 /* CWNotesListViewController.xib */; };
@@ -217,8 +217,6 @@
 		7E20B5E915FE3477004DBAC1 /* SLSlideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenuController.m; sourceTree = "<group>"; };
 		7E237147163A2777001A09C4 /* CWLibraryMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryMediaManager.h; sourceTree = "<group>"; };
 		7E237148163A2777001A09C4 /* CWLibraryMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryMediaManager.m; sourceTree = "<group>"; };
-		7E23714A163A27F4001A09C4 /* CWMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMedia.h; sourceTree = "<group>"; };
-		7E23714B163A27F4001A09C4 /* CWMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMedia.m; sourceTree = "<group>"; };
 		7E23714D163A3FC5001A09C4 /* CWLibraryBrowserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryBrowserModel.h; sourceTree = "<group>"; };
 		7E23714E163A3FC5001A09C4 /* CWLibraryBrowserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLibraryBrowserModel.m; sourceTree = "<group>"; };
 		7E237151163A4347001A09C4 /* CWLibraryGridCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLibraryGridCellContentView.h; sourceTree = "<group>"; };
@@ -262,14 +260,10 @@
 		7E3C42761618769F00A788EB /* CWMessageDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWMessageDetailView.xib; sourceTree = "<group>"; };
 		7E3C42781618782E00A788EB /* CWMessagingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessagingModel.h; sourceTree = "<group>"; };
 		7E3C42791618782E00A788EB /* CWMessagingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessagingModel.m; sourceTree = "<group>"; };
-		7E3C427E161885F500A788EB /* CWMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessage.h; sourceTree = "<group>"; };
-		7E3C427F161885F600A788EB /* CWMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessage.m; sourceTree = "<group>"; };
 		7E3E7B9B160A229B00849255 /* CWCourseDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseDocumentView.h; sourceTree = "<group>"; };
 		7E3E7B9C160A229B00849255 /* CWCourseDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseDocumentView.m; sourceTree = "<group>"; };
 		7E4A5596164F5312004EA78B /* CWBookmarksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksManager.h; sourceTree = "<group>"; };
 		7E4A5597164F5312004EA78B /* CWBookmarksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksManager.m; sourceTree = "<group>"; };
-		7E4A5599164F5436004EA78B /* CWBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmark.h; sourceTree = "<group>"; };
-		7E4A559A164F5436004EA78B /* CWBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmark.m; sourceTree = "<group>"; };
 		7E4A559C164F59DB004EA78B /* CWBookmarksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksModel.h; sourceTree = "<group>"; };
 		7E4A559D164F59DB004EA78B /* CWBookmarksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmarksModel.m; sourceTree = "<group>"; };
 		7E4A559F164F5EB5004EA78B /* CWBookmarksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmarksListViewController.h; sourceTree = "<group>"; };
@@ -280,8 +274,6 @@
 		7E4B926B168AB968001BBDD6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		7E518907165159460025E47C /* CWMediaAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMediaAttachment.h; sourceTree = "<group>"; };
 		7E518908165159460025E47C /* CWMediaAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMediaAttachment.m; sourceTree = "<group>"; };
-		7E556212162DC584000CDCAA /* CWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNote.h; sourceTree = "<group>"; };
-		7E556213162DC584000CDCAA /* CWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNote.m; sourceTree = "<group>"; };
 		7E5E365B16057E4B00EE508B /* CGPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPDFDocument.h; sourceTree = "<group>"; };
 		7E5E365C16057E4B00EE508B /* CGPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPDFDocument.m; sourceTree = "<group>"; };
 		7E5E365D16057E4B00EE508B /* ReaderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderConstants.h; sourceTree = "<group>"; };
@@ -334,8 +326,6 @@
 		7E9B6E9416298AC500687971 /* CWHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHTTPConnection.m; sourceTree = "<group>"; };
 		7E9B6EA0162999FC00687971 /* CWIPAddressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWIPAddressHelper.h; sourceTree = "<group>"; };
 		7E9B6EA1162999FC00687971 /* CWIPAddressHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWIPAddressHelper.m; sourceTree = "<group>"; };
-		7E9B943C161741D200F39337 /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
-		7E9B943D161741D200F39337 /* CWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccount.m; sourceTree = "<group>"; };
 		7E9C850D15FAC873002AB343 /* CWAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccountManager.h; sourceTree = "<group>"; };
 		7E9C850E15FAC873002AB343 /* CWAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccountManager.m; sourceTree = "<group>"; };
 		7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCoreDataManager.h; sourceTree = "<group>"; };
@@ -408,8 +398,6 @@
 		7ECB490E15E9EF7C00F850E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7ECB491015E9EF7C00F850E9 /* CoursewareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoursewareTests.h; sourceTree = "<group>"; };
 		7ECB491115E9EF7C00F850E9 /* CoursewareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoursewareTests.m; sourceTree = "<group>"; };
-		7ECBEBE6166BA6880069F022 /* CWPersistentCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWPersistentCourseItem.h; sourceTree = "<group>"; };
-		7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWPersistentCourseItem.m; sourceTree = "<group>"; };
 		7ED264F116292E06002900AE /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		7ED264F216292E06002900AE /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
 		7ED264F316292E06002900AE /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
@@ -472,6 +460,18 @@
 		7ED2655B16293209002900AE /* CWCourseSyncingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCourseSyncingViewController.h; sourceTree = "<group>"; };
 		7ED2655C16293209002900AE /* CWCourseSyncingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWCourseSyncingViewController.m; sourceTree = "<group>"; };
 		7ED2655D16293209002900AE /* CWCourseSyncingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWCourseSyncingViewController.xib; sourceTree = "<group>"; };
+		7ED2A8BC16A2E72900D0A087 /* CWMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMedia.h; sourceTree = "<group>"; };
+		7ED2A8BD16A2E72900D0A087 /* CWMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMedia.m; sourceTree = "<group>"; };
+		7ED2A8C016A2E72900D0A087 /* CWMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMessage.h; sourceTree = "<group>"; };
+		7ED2A8C116A2E72900D0A087 /* CWMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWMessage.m; sourceTree = "<group>"; };
+		7ED2A8C316A2E72900D0A087 /* CWPersistentCourseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWPersistentCourseItem.h; sourceTree = "<group>"; };
+		7ED2A8C416A2E72900D0A087 /* CWPersistentCourseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWPersistentCourseItem.m; sourceTree = "<group>"; };
+		7ED2A8C616A2E72900D0A087 /* CWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNote.h; sourceTree = "<group>"; };
+		7ED2A8C716A2E72900D0A087 /* CWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNote.m; sourceTree = "<group>"; };
+		7ED2A8C916A2E72900D0A087 /* CWBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBookmark.h; sourceTree = "<group>"; };
+		7ED2A8CA16A2E72900D0A087 /* CWBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBookmark.m; sourceTree = "<group>"; };
+		7ED2A8CC16A2E72900D0A087 /* CWAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAccount.h; sourceTree = "<group>"; };
+		7ED2A8CD16A2E72900D0A087 /* CWAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAccount.m; sourceTree = "<group>"; };
 		7EDA2AC8160D728300B40202 /* CWBottomToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBottomToolbarController.h; sourceTree = "<group>"; };
 		7EDA2AC9160D728300B40202 /* CWBottomToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBottomToolbarController.m; sourceTree = "<group>"; };
 		7EDA2ACF160D758B00B40202 /* CWNotesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWNotesListViewController.m; sourceTree = "<group>"; };
@@ -828,19 +828,19 @@
 		7E9C850915FAC59C002AB343 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				7E3C427E161885F500A788EB /* CWMessage.h */,
-				7E3C427F161885F600A788EB /* CWMessage.m */,
-				7E4A5599164F5436004EA78B /* CWBookmark.h */,
-				7E4A559A164F5436004EA78B /* CWBookmark.m */,
 				7ECB48EE15E9EF7C00F850E9 /* Courseware.xcdatamodeld */,
-				7ECBEBE6166BA6880069F022 /* CWPersistentCourseItem.h */,
-				7ECBEBE7166BA6880069F022 /* CWPersistentCourseItem.m */,
-				7E23714A163A27F4001A09C4 /* CWMedia.h */,
-				7E23714B163A27F4001A09C4 /* CWMedia.m */,
-				7E556212162DC584000CDCAA /* CWNote.h */,
-				7E556213162DC584000CDCAA /* CWNote.m */,
-				7E9B943C161741D200F39337 /* CWAccount.h */,
-				7E9B943D161741D200F39337 /* CWAccount.m */,
+				7ED2A8C016A2E72900D0A087 /* CWMessage.h */,
+				7ED2A8C116A2E72900D0A087 /* CWMessage.m */,
+				7ED2A8C916A2E72900D0A087 /* CWBookmark.h */,
+				7ED2A8CA16A2E72900D0A087 /* CWBookmark.m */,
+				7ED2A8CC16A2E72900D0A087 /* CWAccount.h */,
+				7ED2A8CD16A2E72900D0A087 /* CWAccount.m */,
+				7ED2A8C616A2E72900D0A087 /* CWNote.h */,
+				7ED2A8C716A2E72900D0A087 /* CWNote.m */,
+				7ED2A8C316A2E72900D0A087 /* CWPersistentCourseItem.h */,
+				7ED2A8C416A2E72900D0A087 /* CWPersistentCourseItem.m */,
+				7ED2A8BC16A2E72900D0A087 /* CWMedia.h */,
+				7ED2A8BD16A2E72900D0A087 /* CWMedia.m */,
 				7E9C850D15FAC873002AB343 /* CWAccountManager.h */,
 				7E9C850E15FAC873002AB343 /* CWAccountManager.m */,
 				7E9C851015FAC8BC002AB343 /* SLCoreDataManager.h */,
@@ -1535,11 +1535,9 @@
 				7EFE1B1E161372DD00D36412 /* GMGridViewLayoutStrategies.m in Sources */,
 				7EFE1B1F161372DD00D36412 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				7EFE1B20161372DD00D36412 /* UIView+GMGridViewAdditions.m in Sources */,
-				7E9B943E161741D200F39337 /* CWAccount.m in Sources */,
 				7E3C427116186E7700A788EB /* CWMessagingViewController.m in Sources */,
 				7E3C42751618768700A788EB /* CWMessageDetailView.m in Sources */,
 				7E3C427A1618782E00A788EB /* CWMessagingModel.m in Sources */,
-				7E3C4280161885F600A788EB /* CWMessage.m in Sources */,
 				7EB6AB9D16210C890089ACC4 /* CWAccountManagerViewController.m in Sources */,
 				7EB6ABA216210C9C0089ACC4 /* CWSettingsViewController.m in Sources */,
 				7EB6ABA716210CA70089ACC4 /* CWHelpViewController.m in Sources */,
@@ -1576,9 +1574,7 @@
 				7E9B6E9516298AC500687971 /* CWHTTPConnection.m in Sources */,
 				7E9B6EA2162999FC00687971 /* CWIPAddressHelper.m in Sources */,
 				7EBB5A6E162A659E00BD6854 /* CWThemeHelper.m in Sources */,
-				7E556214162DC584000CDCAA /* CWNote.m in Sources */,
 				7E237149163A2777001A09C4 /* CWLibraryMediaManager.m in Sources */,
-				7E23714C163A27F4001A09C4 /* CWMedia.m in Sources */,
 				7E23714F163A3FC5001A09C4 /* CWLibraryBrowserModel.m in Sources */,
 				7E237153163A4347001A09C4 /* CWLibraryGridCellContentView.m in Sources */,
 				7E237157163A4F62001A09C4 /* CWLibraryMediaSupport.m in Sources */,
@@ -1596,7 +1592,6 @@
 				7E1180EB163CFD53003D71D0 /* CWMessageToolbar.m in Sources */,
 				7E39056B164BB79E0021676E /* NSArray+SLUtilities.m in Sources */,
 				7E4A5598164F5312004EA78B /* CWBookmarksManager.m in Sources */,
-				7E4A559B164F5436004EA78B /* CWBookmark.m in Sources */,
 				7E4A559E164F59DB004EA78B /* CWBookmarksModel.m in Sources */,
 				7E4A55A2164F5EB5004EA78B /* CWBookmarksListViewController.m in Sources */,
 				7E518909165159460025E47C /* CWMediaAttachment.m in Sources */,
@@ -1605,10 +1600,15 @@
 				7EC19C23165BFF0000F386EB /* CWEvaluationProgressView.m in Sources */,
 				7E1E1D7A16682BA300A7C83A /* CWAdsViewController.m in Sources */,
 				7E1E1D7D16682BD200A7C83A /* CWInterstitialAdsView.m in Sources */,
-				7ECBEBE8166BA6880069F022 /* CWPersistentCourseItem.m in Sources */,
 				7E0DD0EA1672404D00E08DDE /* CWGlobals.m in Sources */,
 				7E0DD0EE1672541A00E08DDE /* CWEvaluationTimerView.m in Sources */,
 				7E4B926A168AB50E001BBDD6 /* CWVideoCaptureController.m in Sources */,
+				7ED2A8BE16A2E72900D0A087 /* CWMedia.m in Sources */,
+				7ED2A8C216A2E72900D0A087 /* CWMessage.m in Sources */,
+				7ED2A8C516A2E72900D0A087 /* CWPersistentCourseItem.m in Sources */,
+				7ED2A8C816A2E72900D0A087 /* CWNote.m in Sources */,
+				7ED2A8CB16A2E72900D0A087 /* CWBookmark.m in Sources */,
+				7ED2A8CE16A2E72900D0A087 /* CWAccount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

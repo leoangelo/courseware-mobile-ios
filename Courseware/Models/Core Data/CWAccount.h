@@ -2,8 +2,8 @@
 //  CWAccount.h
 //  Courseware
 //
-//  Created by Leo Angelo Quigao on 9/29/12.
-//  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
+//  Created by Leo Angelo Quigao on 1/13/13.
+//  Copyright (c) 2013 Leo Angelo Quigao. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,13 +13,13 @@
 
 @interface CWAccount : NSManagedObject
 
-@property (nonatomic, strong) NSString * accountId;
-@property (nonatomic, strong) NSString * emailAddress;
-@property (nonatomic, strong) NSString * fullName;
-@property (nonatomic, strong) NSString * password;
-@property (nonatomic, strong) NSString * passwordHint;
-@property (nonatomic, strong) NSString * username;
-@property (nonatomic, strong) NSSet *messages;
+@property (nonatomic, retain) NSString * accountId;
+@property (nonatomic, retain) NSString * emailAddress;
+@property (nonatomic, retain) NSString * fullName;
+@property (nonatomic, retain) NSString * password;
+@property (nonatomic, retain) NSString * passwordHint;
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSSet *messages;
 @end
 
 @interface CWAccount (CoreDataGeneratedAccessors)

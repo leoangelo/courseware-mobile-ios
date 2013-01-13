@@ -2,8 +2,8 @@
 //  CWAccount.m
 //  Courseware
 //
-//  Created by Leo Angelo Quigao on 9/29/12.
-//  Copyright (c) 2012 Leo Angelo Quigao. All rights reserved.
+//  Created by Leo Angelo Quigao on 1/13/13.
+//  Copyright (c) 2013 Leo Angelo Quigao. All rights reserved.
 //
 
 #import "CWAccount.h"

@@ -73,13 +73,27 @@
 - (void)setSortOptions:(CWLibrarySortOptions)sortOptions
 {
 	_sortOptions = sortOptions;
-	NSSortDescriptor *sorter = nil;
-	switch (_sortOptions) {
-		case CWLibrarySortOptionsByName: sorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]; break;
-		case CWLibrarySortOptionsByType: sorter = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:YES]; break;
-		case CWLibrarySortOptionsByDateRead: sorter = [[NSSortDescriptor alloc] initWithKey:@"lastDateRead" ascending:NO];
-	}
+	NSString *sortKey = nil;
+	BOOL isAscending = NO;
 	
+	switch (_sortOptions) {
+		case CWLibrarySortOptionsByName: {
+			sortKey = @"name";
+			isAscending = YES;
+			break;
+		}
+		case CWLibrarySortOptionsByType: {
+			sortKey = @"type";
+			isAscending = YES;
+			break;
+		}
+		case CWLibrarySortOptionsByDateRead: {
+			sortKey = @"lastDateRead";
+			isAscending = NO;
+			break;
+		}
+	}
+	NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:sortKey ascending:isAscending];
 	self.derivedMediaList = [self.baseMediaList sortedArrayUsingDescriptors:@[sorter]];
 }
 

@@ -13,7 +13,7 @@
 #import "CWConstants.h"	
 #import <MobileCoreServices/UTCoreTypes.h>
 
-@interface CWVideoCaptureController ()
+@interface CWVideoCaptureController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *videoRecorder;
 
@@ -25,15 +25,21 @@
 
 - (void)launchVideoCapture
 {
-	self.videoRecorder = [[UIImagePickerController alloc] init];
-	self.videoRecorder.sourceType = UIImagePickerControllerSourceTypeCamera;
-	self.videoRecorder.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-	self.videoRecorder.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-	self.videoRecorder.showsCameraControls = YES;
-	self.videoRecorder.videoQuality = UIImagePickerControllerQualityTypeLow;
-	self.videoRecorder.cameraOverlayView = [self videoInstructions];
+	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+		self.videoRecorder = [[UIImagePickerController alloc] init];
+		self.videoRecorder.sourceType = UIImagePickerControllerSourceTypeCamera;
+		self.videoRecorder.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
+		self.videoRecorder.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+		self.videoRecorder.showsCameraControls = YES;
+		self.videoRecorder.videoQuality = UIImagePickerControllerQualityTypeLow;
+		self.videoRecorder.cameraOverlayView = [self videoInstructions];
+		self.videoRecorder.delegate = self;
 	
-	[[CWUtilities getTopViewController] presentViewController:self.videoRecorder animated:YES completion:^{}];
+		[[CWUtilities getTopViewController] presentViewController:self.videoRecorder animated:YES completion:^{}];
+	}
+	else {
+		NSLog(@"Camera is not available at the moment.");
+	}
 }
 
 - (UIView *)videoInstructions
@@ -55,6 +61,11 @@
 	label.layer.cornerRadius = 3.f;
 	
 	return label;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	
 }
 
 @end

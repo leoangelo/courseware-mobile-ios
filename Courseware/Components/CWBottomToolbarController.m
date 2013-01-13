@@ -31,6 +31,10 @@ static NSInteger const kTestAlertTag = 100;
 
 - (void)bookmarksAction:(id)target
 {
+	if (self.popOverController.isPopoverVisible && self.popOverController.contentViewController == self.bookmarksNavController) {
+		[self.popOverController dismissPopoverAnimated:YES];
+	}
+	
 	if (!self.bookmarksNavController) {
 		CWBookmarksListViewController *rootVC = [[CWBookmarksListViewController alloc] initWithStyle:UITableViewStylePlain];
 		rootVC.title = @"Bookmarks";
@@ -48,6 +52,10 @@ static NSInteger const kTestAlertTag = 100;
 
 - (void)notesAction:(id)target
 {
+	if (self.popOverController.isPopoverVisible && self.popOverController.contentViewController == self.notesNavController) {
+		[self.popOverController dismissPopoverAnimated:YES];
+	}
+	
 	if (!self.notesNavController) {
 		CWNotesListViewController *rootVC = [[CWNotesListViewController alloc] initWithStyle:UITableViewStylePlain];
 		rootVC.title = @"Notes";

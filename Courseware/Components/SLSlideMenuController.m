@@ -45,23 +45,23 @@
 {
 	NSArray *items = [NSArray arrayWithObjects:
 					  [SLSlideMenuItem menuItemWithText:@"Courses"
-											  lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses-light"]
+											  lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses-light.png"]
 											   darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/courses-dark.png"]]
 					  , [SLSlideMenuItem menuItemWithText:@"Library"
-												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library-light"]
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library-light.png"]
 												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/library-dark.png"]]
 					  , [SLSlideMenuItem menuItemSeparator]
 					  , [SLSlideMenuItem menuItemWithText:@"Messages"
-												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages-light"]
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages-light.png"]
 												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/messages-dark.png"]]
 					  , [SLSlideMenuItem menuItemWithText:@"Account"
-												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account-light"]
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account-light.png"]
 												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/account-dark.png"]]
 					  , [SLSlideMenuItem menuItemWithText:@"Settings"
-												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings-light"]
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings-light.png"]
 												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/settings-dark.png"]]
 					  , [SLSlideMenuItem menuItemWithText:@"Help"
-												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help-light"]
+												lightIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help-light.png"]
 												 darkIcon:[UIImage imageNamed:@"Courseware.bundle/menu-icons/help-dark.png"]]
 					  , nil];
 	self.menuItems = items;

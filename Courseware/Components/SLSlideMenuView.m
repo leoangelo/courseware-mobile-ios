@@ -77,7 +77,7 @@
 	CWUserPrefsColorTheme currentTheme = [[CWThemeHelper sharedHelper] colorTheme];
 	NSString *imgBackground = [NSString stringWithFormat:@"Courseware.bundle/backgrounds/slide-menu-bg-%@.png", currentTheme == CWUserPrefsColorThemeDark ? @"dark" : @"light"];
 	self.imgBackground.image = [[UIImage imageNamed:imgBackground] stretchableImageWithLeftCapWidth:30 topCapHeight:30];
-	NSString *imgArrow = [NSString stringWithFormat:@"Courseware.bundle/controls/slide-menu-arrow-down-%@.png", currentTheme == CWUserPrefsColorThemeDark ? @"dark" : @"light"];
+	NSString *imgArrow = @"Courseware.bundle/controls/slide-menu-arrow-down.png";
 	[self.btnSlideAction setImage:[UIImage imageNamed:imgArrow] forState:UIControlStateNormal];
 	[self.listView reloadData];
 }
